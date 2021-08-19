@@ -1,0 +1,17 @@
+{
+  "apps": [
+    {
+      "name": "jiin",
+      "script": "nodemon src/index.dev.js --exec \"node -r dotenv/config -r babel-register\"",
+      "watch": false,
+      "env": {
+        "NODE_ENV": "production",
+        "PORT": 3600,
+        "LOG_PATH": "/home/user/logs"
+      },
+      "exec_mode": "fork",
+      "instances": 1,
+      "instance_var": "INSTANCE_ID"
+    }
+  ]
+}
