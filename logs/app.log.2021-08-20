@@ -1,0 +1,3265 @@
+[2021-08-20T10:41:01.291] [INFO] default - {
+  ENV: 'development',
+  IS_RELEASE: false,
+  IS_DEV: true,
+  IS_LOCAL: false,
+  IS_DEMON: false,
+  PRINT_DB_LOG: true,
+  LOG_PATH: 'logs',
+  MYSQL_HOST: null,
+  MONGODB_HOST: null
+}
+[2021-08-20T10:41:02.388] [DEBUG] default - add api ./d1/auth.js /d1/auth
+[2021-08-20T10:41:02.398] [DEBUG] default - add api ./d1/test.js /d1/test
+[2021-08-20T10:41:02.425] [DEBUG] default - add api ./d1/users.js /d1/users
+[2021-08-20T10:41:02.442] [DEBUG] default - Listening on port 3600 -> PID: 24760
+[2021-08-20T10:41:02.442] [DEBUG] default - [InitService] init start
+[2021-08-20T10:41:02.509] [DEBUG] default - [MySQL]
+ {
+  method: 'select',
+  options: {},
+  timeout: false,
+  cancelOnTimeout: false,
+  bindings: [],
+  __knexQueryUid: '3d2a348c-0ef7-4331-97c3-b630fe8c816b',
+  sql: 'select * from `service_config`'
+}
+[2021-08-20T10:41:02.515] [DEBUG] default - [InitService] init complete
+[2021-08-20T10:41:14.669] [ERROR] default - [ GET /favicon.ico ]
+ 요청하신 API Endpoint가 존재하지 않습니다.
+[2021-08-20T10:41:14.670] [ERROR] default - [ GET /favicon.ico ]
+ App {
+  error: -1,
+  message: '요청하신 API Endpoint가 존재하지 않습니다.',
+  variables: {},
+  httpStatusCode: 404
+}
+[2021-08-20T10:41:48.193] [INFO] default - {
+  ENV: 'development',
+  IS_RELEASE: false,
+  IS_DEV: true,
+  IS_LOCAL: false,
+  IS_DEMON: false,
+  PRINT_DB_LOG: true,
+  LOG_PATH: 'logs',
+  MYSQL_HOST: null,
+  MONGODB_HOST: null
+}
+[2021-08-20T10:41:48.712] [DEBUG] default - add api ./d1/auth.js /d1/auth
+[2021-08-20T10:41:48.714] [DEBUG] default - add api ./d1/test.js /d1/test
+[2021-08-20T10:41:48.717] [DEBUG] default - add api ./d1/users.js /d1/users
+[2021-08-20T10:41:48.730] [DEBUG] default - Listening on port 3600 -> PID: 4036
+[2021-08-20T10:41:48.731] [DEBUG] default - [InitService] init start
+[2021-08-20T10:41:48.793] [DEBUG] default - [MySQL]
+ {
+  method: 'select',
+  options: {},
+  timeout: false,
+  cancelOnTimeout: false,
+  bindings: [],
+  __knexQueryUid: 'c85b384c-356b-48be-ab94-61af569dc774',
+  sql: 'select * from `service_config`'
+}
+[2021-08-20T10:41:48.801] [DEBUG] default - [InitService] init complete
+[2021-08-20T10:42:02.672] [INFO] default - {
+  ENV: 'development',
+  IS_RELEASE: false,
+  IS_DEV: true,
+  IS_LOCAL: false,
+  IS_DEMON: false,
+  PRINT_DB_LOG: true,
+  LOG_PATH: 'logs',
+  MYSQL_HOST: null,
+  MONGODB_HOST: null
+}
+[2021-08-20T10:42:03.192] [DEBUG] default - add api ./d1/auth.js /d1/auth
+[2021-08-20T10:42:03.194] [DEBUG] default - add api ./d1/test.js /d1/test
+[2021-08-20T10:42:03.196] [DEBUG] default - add api ./d1/users.js /d1/users
+[2021-08-20T10:42:03.209] [DEBUG] default - Listening on port 3600 -> PID: 2612
+[2021-08-20T10:42:03.209] [DEBUG] default - [InitService] init start
+[2021-08-20T10:42:03.275] [DEBUG] default - [MySQL]
+ {
+  method: 'select',
+  options: {},
+  timeout: false,
+  cancelOnTimeout: false,
+  bindings: [],
+  __knexQueryUid: 'bb876859-fe6c-429f-a3e8-78ac9f6f6a06',
+  sql: 'select * from `service_config`'
+}
+[2021-08-20T10:42:03.281] [DEBUG] default - [InitService] init complete
+[2021-08-20T10:47:20.499] [INFO] default - {
+  ENV: 'development',
+  IS_RELEASE: false,
+  IS_DEV: true,
+  IS_LOCAL: false,
+  IS_DEMON: false,
+  PRINT_DB_LOG: true,
+  LOG_PATH: 'logs',
+  MYSQL_HOST: null,
+  MONGODB_HOST: null
+}
+[2021-08-20T10:47:21.000] [DEBUG] default - add api ./d1/auth.js /d1/auth
+[2021-08-20T10:47:21.002] [DEBUG] default - add api ./d1/test.js /d1/test
+[2021-08-20T10:47:21.004] [DEBUG] default - add api ./d1/users.js /d1/users
+[2021-08-20T10:47:21.016] [DEBUG] default - Listening on port 3600 -> PID: 29136
+[2021-08-20T10:47:21.017] [DEBUG] default - [InitService] init start
+[2021-08-20T10:47:21.078] [DEBUG] default - [MySQL]
+ {
+  method: 'select',
+  options: {},
+  timeout: false,
+  cancelOnTimeout: false,
+  bindings: [],
+  __knexQueryUid: '9ce335df-17ad-4ddd-96b9-3e46ec55aeb3',
+  sql: 'select * from `service_config`'
+}
+[2021-08-20T10:47:21.087] [DEBUG] default - [InitService] init complete
+[2021-08-20T10:49:02.042] [INFO] default - {
+  ENV: 'development',
+  IS_RELEASE: false,
+  IS_DEV: true,
+  IS_LOCAL: false,
+  IS_DEMON: false,
+  PRINT_DB_LOG: true,
+  LOG_PATH: 'logs',
+  MYSQL_HOST: null,
+  MONGODB_HOST: null
+}
+[2021-08-20T10:49:02.544] [DEBUG] default - add api ./d1/auth.js /d1/auth
+[2021-08-20T10:49:02.584] [DEBUG] default - add api ./d1/test.js /d1/test
+[2021-08-20T10:49:02.586] [DEBUG] default - add api ./d1/users.js /d1/users
+[2021-08-20T10:49:02.599] [DEBUG] default - Listening on port 3600 -> PID: 27204
+[2021-08-20T10:49:02.599] [DEBUG] default - [InitService] init start
+[2021-08-20T10:49:02.658] [DEBUG] default - [MySQL]
+ {
+  method: 'select',
+  options: {},
+  timeout: false,
+  cancelOnTimeout: false,
+  bindings: [],
+  __knexQueryUid: '575b6b36-ab31-4dc8-b7a1-fd5f1fd8dc65',
+  sql: 'select * from `service_config`'
+}
+[2021-08-20T10:49:02.665] [DEBUG] default - [InitService] init complete
+[2021-08-20T10:49:26.231] [ERROR] default - [ GET /apid1createuser ]
+ 요청하신 API Endpoint가 존재하지 않습니다.
+[2021-08-20T10:49:26.232] [ERROR] default - [ GET /apid1createuser ]
+ App {
+  error: -1,
+  message: '요청하신 API Endpoint가 존재하지 않습니다.',
+  variables: {},
+  httpStatusCode: 404
+}
+[2021-08-20T10:49:31.045] [ERROR] default - [ GET /apid1/createuser ]
+ 요청하신 API Endpoint가 존재하지 않습니다.
+[2021-08-20T10:49:31.045] [ERROR] default - [ GET /apid1/createuser ]
+ App {
+  error: -1,
+  message: '요청하신 API Endpoint가 존재하지 않습니다.',
+  variables: {},
+  httpStatusCode: 404
+}
+[2021-08-20T10:50:38.130] [INFO] default - {
+  ENV: 'development',
+  IS_RELEASE: false,
+  IS_DEV: true,
+  IS_LOCAL: false,
+  IS_DEMON: false,
+  PRINT_DB_LOG: true,
+  LOG_PATH: 'logs',
+  MYSQL_HOST: null,
+  MONGODB_HOST: null
+}
+[2021-08-20T10:50:38.626] [DEBUG] default - add api ./d1/auth.js /d1/auth
+[2021-08-20T10:50:38.665] [DEBUG] default - add api ./d1/test.js /d1/test
+[2021-08-20T10:50:38.667] [DEBUG] default - add api ./d1/users.js /d1/users
+[2021-08-20T10:50:38.680] [DEBUG] default - Listening on port 3600 -> PID: 5804
+[2021-08-20T10:50:38.680] [DEBUG] default - [InitService] init start
+[2021-08-20T10:50:38.742] [DEBUG] default - [MySQL]
+ {
+  method: 'select',
+  options: {},
+  timeout: false,
+  cancelOnTimeout: false,
+  bindings: [],
+  __knexQueryUid: '626c540c-f768-4946-8750-aaea8ae9e08c',
+  sql: 'select * from `service_config`'
+}
+[2021-08-20T10:50:38.749] [DEBUG] default - [InitService] init complete
+[2021-08-20T10:50:47.034] [INFO] default - {
+  ENV: 'development',
+  IS_RELEASE: false,
+  IS_DEV: true,
+  IS_LOCAL: false,
+  IS_DEMON: false,
+  PRINT_DB_LOG: true,
+  LOG_PATH: 'logs',
+  MYSQL_HOST: null,
+  MONGODB_HOST: null
+}
+[2021-08-20T10:50:47.552] [DEBUG] default - add api ./d1/auth.js /d1/auth
+[2021-08-20T10:50:47.591] [DEBUG] default - add api ./d1/test.js /d1/test
+[2021-08-20T10:50:47.593] [DEBUG] default - add api ./d1/users.js /d1/users
+[2021-08-20T10:50:47.605] [DEBUG] default - Listening on port 3600 -> PID: 20368
+[2021-08-20T10:50:47.606] [DEBUG] default - [InitService] init start
+[2021-08-20T10:50:47.664] [DEBUG] default - [MySQL]
+ {
+  method: 'select',
+  options: {},
+  timeout: false,
+  cancelOnTimeout: false,
+  bindings: [],
+  __knexQueryUid: 'a2517453-19bc-4029-a8e1-f8d2dd95b1e2',
+  sql: 'select * from `service_config`'
+}
+[2021-08-20T10:50:47.672] [DEBUG] default - [InitService] init complete
+[2021-08-20T10:50:57.757] [ERROR] default - [ GET /apid1/d1/users ]
+ 요청하신 API Endpoint가 존재하지 않습니다.
+[2021-08-20T10:50:57.758] [ERROR] default - [ GET /apid1/d1/users ]
+ App {
+  error: -1,
+  message: '요청하신 API Endpoint가 존재하지 않습니다.',
+  variables: {},
+  httpStatusCode: 404
+}
+[2021-08-20T10:51:04.626] [DEBUG] default - [MySQL]
+ {
+  method: 'select',
+  options: {},
+  timeout: false,
+  cancelOnTimeout: false,
+  bindings: [ 'test' ],
+  __knexQueryUid: 'e6bfeba4-7946-4d8b-88f4-2e169d7d862c',
+  sql: 'select count(*) as `co` from `member` where `user_id` = ?'
+}
+[2021-08-20T10:51:12.193] [DEBUG] default - [MySQL]
+ {
+  method: 'select',
+  options: {},
+  timeout: false,
+  cancelOnTimeout: false,
+  bindings: [ 'test1' ],
+  __knexQueryUid: '7d305720-8581-4650-af83-0fc56ab49621',
+  sql: 'select count(*) as `co` from `member` where `user_id` = ?'
+}
+[2021-08-20T10:51:16.179] [DEBUG] default - [MySQL]
+ {
+  method: 'select',
+  options: {},
+  timeout: false,
+  cancelOnTimeout: false,
+  bindings: [ 'test2' ],
+  __knexQueryUid: '7e3c53f3-73a1-4ea9-ac7a-4af031a4b3b6',
+  sql: 'select count(*) as `co` from `member` where `user_id` = ?'
+}
+[2021-08-20T10:51:19.247] [DEBUG] default - [MySQL]
+ {
+  method: 'select',
+  options: {},
+  timeout: false,
+  cancelOnTimeout: false,
+  bindings: [ 'test' ],
+  __knexQueryUid: 'a139a71f-16f6-4cb9-a5d6-961d407675df',
+  sql: 'select count(*) as `co` from `member` where `user_id` = ?'
+}
+[2021-08-20T10:52:34.588] [DEBUG] default - [MySQL]
+ {
+  method: 'select',
+  options: {},
+  timeout: false,
+  cancelOnTimeout: false,
+  bindings: [ 'test' ],
+  __knexQueryUid: '50fde238-c52c-43b7-8e50-9bcc5fb1ab5e',
+  sql: 'select count(*) as `co` from `member` where `user_id` = ?'
+}
+[2021-08-20T10:52:56.590] [INFO] default - {
+  ENV: 'development',
+  IS_RELEASE: false,
+  IS_DEV: true,
+  IS_LOCAL: false,
+  IS_DEMON: false,
+  PRINT_DB_LOG: true,
+  LOG_PATH: 'logs',
+  MYSQL_HOST: null,
+  MONGODB_HOST: null
+}
+[2021-08-20T10:52:57.099] [DEBUG] default - add api ./d1/auth.js /d1/auth
+[2021-08-20T10:52:57.101] [DEBUG] default - add api ./d1/test.js /d1/test
+[2021-08-20T10:52:57.190] [DEBUG] default - add api ./d1/users.js /d1/users
+[2021-08-20T10:52:57.202] [DEBUG] default - Listening on port 3600 -> PID: 25764
+[2021-08-20T10:52:57.202] [DEBUG] default - [InitService] init start
+[2021-08-20T10:52:57.267] [DEBUG] default - [MySQL]
+ {
+  method: 'select',
+  options: {},
+  timeout: false,
+  cancelOnTimeout: false,
+  bindings: [],
+  __knexQueryUid: 'ecedb1ab-1389-4a2d-be38-99a14b42bebd',
+  sql: 'select * from `service_config`'
+}
+[2021-08-20T10:52:57.275] [DEBUG] default - [InitService] init complete
+[2021-08-20T10:52:59.203] [DEBUG] default - [MySQL]
+ {
+  method: 'select',
+  options: {},
+  timeout: false,
+  cancelOnTimeout: false,
+  bindings: [ 'test' ],
+  __knexQueryUid: '8b0a0037-5c2e-4bbd-a13f-396f6f802d00',
+  sql: 'select count(*) as `co` from `member` where `user_id` = ?'
+}
+[2021-08-20T10:53:12.075] [INFO] default - {
+  ENV: 'development',
+  IS_RELEASE: false,
+  IS_DEV: true,
+  IS_LOCAL: false,
+  IS_DEMON: false,
+  PRINT_DB_LOG: true,
+  LOG_PATH: 'logs',
+  MYSQL_HOST: null,
+  MONGODB_HOST: null
+}
+[2021-08-20T10:53:12.608] [DEBUG] default - add api ./d1/auth.js /d1/auth
+[2021-08-20T10:53:12.610] [DEBUG] default - add api ./d1/test.js /d1/test
+[2021-08-20T10:53:12.701] [DEBUG] default - add api ./d1/users.js /d1/users
+[2021-08-20T10:53:12.714] [DEBUG] default - Listening on port 3600 -> PID: 14432
+[2021-08-20T10:53:12.715] [DEBUG] default - [InitService] init start
+[2021-08-20T10:53:12.785] [DEBUG] default - [MySQL]
+ {
+  method: 'select',
+  options: {},
+  timeout: false,
+  cancelOnTimeout: false,
+  bindings: [],
+  __knexQueryUid: '61efae3f-3521-4490-92d1-9feed86cd730',
+  sql: 'select * from `service_config`'
+}
+[2021-08-20T10:53:12.790] [DEBUG] default - [MySQL]
+ {
+  method: 'select',
+  options: {},
+  timeout: false,
+  cancelOnTimeout: false,
+  bindings: [ 'test' ],
+  __knexQueryUid: '271ebd35-2c23-4e54-83f5-a0ffb616a6b9',
+  sql: 'select count(*) as `co` from `member` where `user_id` = ?'
+}
+[2021-08-20T10:53:12.793] [DEBUG] default - [InitService] init complete
+[2021-08-20T10:53:19.718] [INFO] default - {
+  ENV: 'development',
+  IS_RELEASE: false,
+  IS_DEV: true,
+  IS_LOCAL: false,
+  IS_DEMON: false,
+  PRINT_DB_LOG: true,
+  LOG_PATH: 'logs',
+  MYSQL_HOST: null,
+  MONGODB_HOST: null
+}
+[2021-08-20T10:53:20.221] [DEBUG] default - add api ./d1/auth.js /d1/auth
+[2021-08-20T10:53:20.223] [DEBUG] default - add api ./d1/test.js /d1/test
+[2021-08-20T10:53:20.317] [DEBUG] default - add api ./d1/users.js /d1/users
+[2021-08-20T10:53:20.329] [DEBUG] default - Listening on port 3600 -> PID: 14512
+[2021-08-20T10:53:20.329] [DEBUG] default - [InitService] init start
+[2021-08-20T10:53:20.389] [DEBUG] default - [MySQL]
+ {
+  method: 'select',
+  options: {},
+  timeout: false,
+  cancelOnTimeout: false,
+  bindings: [],
+  __knexQueryUid: 'ba02e761-6409-4a1e-80e1-3e9fe6c44733',
+  sql: 'select * from `service_config`'
+}
+[2021-08-20T10:53:20.397] [DEBUG] default - [InitService] init complete
+[2021-08-20T10:54:42.237] [DEBUG] default - [MySQL]
+ {
+  method: 'select',
+  options: {},
+  timeout: false,
+  cancelOnTimeout: false,
+  bindings: [ 'test56' ],
+  __knexQueryUid: 'c51a19d6-01c8-4ae3-b43d-32163e48012f',
+  sql: 'select count(*) as `co` from `member` where `user_id` = ?'
+}
+[2021-08-20T10:54:46.037] [DEBUG] default - [MySQL]
+ {
+  method: 'select',
+  options: {},
+  timeout: false,
+  cancelOnTimeout: false,
+  bindings: [ 'ollagaza' ],
+  __knexQueryUid: 'a057e1fd-8511-4331-95ca-c7aaaacbd874',
+  sql: 'select count(*) as `co` from `member` where `user_id` = ?'
+}
+[2021-08-20T10:54:48.637] [DEBUG] default - [MySQL]
+ {
+  method: 'select',
+  options: {},
+  timeout: false,
+  cancelOnTimeout: false,
+  bindings: [ 'ollagaza2' ],
+  __knexQueryUid: '1e0f4e43-df63-4629-922c-9cd06ff07cfb',
+  sql: 'select count(*) as `co` from `member` where `user_id` = ?'
+}
+[2021-08-20T10:55:18.062] [ERROR] default - [ GET /apid1/d1/users/ ]
+ 요청하신 API Endpoint가 존재하지 않습니다.
+[2021-08-20T10:55:18.062] [ERROR] default - [ GET /apid1/d1/users/ ]
+ App {
+  error: -1,
+  message: '요청하신 API Endpoint가 존재하지 않습니다.',
+  variables: {},
+  httpStatusCode: 404
+}
+[2021-08-20T10:56:47.342] [ERROR] default - [ GET /apid1/d1/users/reset_password ]
+ 요청하신 API Endpoint가 존재하지 않습니다.
+[2021-08-20T10:56:47.342] [ERROR] default - [ GET /apid1/d1/users/reset_password ]
+ App {
+  error: -1,
+  message: '요청하신 API Endpoint가 존재하지 않습니다.',
+  variables: {},
+  httpStatusCode: 404
+}
+[2021-08-20T11:01:48.656] [ERROR] default - /auth/ StdObject {
+  toJSON: [Function (anonymous)],
+  error: -1,
+  message: '아이디 비밀번호를 확인해 주세요...',
+  variables: {},
+  httpStatusCode: 400,
+  stack: null
+}
+[2021-08-20T11:01:48.658] [ERROR] default - [ POST /apid1/d1/auth?user_id&password ]
+ App {
+  error: -1,
+  message: '아이디 비밀번호를 확인해 주세요...',
+  variables: {},
+  httpStatusCode: 200
+}
+[2021-08-20T11:01:48.661] [WARN] default - [MySQL]
+ .returning() is not supported by mysql and will not have any effect.
+[2021-08-20T11:01:48.662] [DEBUG] default - [MySQL]
+ {
+  method: 'insert',
+  options: {},
+  timeout: false,
+  cancelOnTimeout: false,
+  bindings: [
+    'api',
+    '{"error":-1,"message":"아이디 비밀번호를 확인해 주세요...","variables":{},"httpStatusCode":200}',
+    '{}',
+    'POST',
+    '/apid1/d1/auth?user_id&password'
+  ],
+  __knexQueryUid: '72ce3486-8c70-4c94-8d59-68b2fe14ba66',
+  sql: 'insert into `service_error` (`error_type`, `message`, `request_body`, `request_method`, `request_url`) values (?, ?, ?, ?, ?)'
+}
+[2021-08-20T11:01:59.292] [ERROR] default - /auth/ StdObject {
+  toJSON: [Function (anonymous)],
+  error: -1,
+  message: '아이디 비밀번호를 확인해 주세요...',
+  variables: {},
+  httpStatusCode: 400,
+  stack: null
+}
+[2021-08-20T11:01:59.294] [ERROR] default - [ POST /apid1/d1/auth?user_id&password&admin ]
+ App {
+  error: -1,
+  message: '아이디 비밀번호를 확인해 주세요...',
+  variables: {},
+  httpStatusCode: 200
+}
+[2021-08-20T11:01:59.296] [WARN] default - [MySQL]
+ .returning() is not supported by mysql and will not have any effect.
+[2021-08-20T11:01:59.296] [DEBUG] default - [MySQL]
+ {
+  method: 'insert',
+  options: {},
+  timeout: false,
+  cancelOnTimeout: false,
+  bindings: [
+    'api',
+    '{"error":-1,"message":"아이디 비밀번호를 확인해 주세요...","variables":{},"httpStatusCode":200}',
+    '{}',
+    'POST',
+    '/apid1/d1/auth?user_id&password&admin'
+  ],
+  __knexQueryUid: '861c70f0-2160-4739-b5cb-9d917366cf79',
+  sql: 'insert into `service_error` (`error_type`, `message`, `request_body`, `request_method`, `request_url`) values (?, ?, ?, ?, ?)'
+}
+[2021-08-20T11:02:03.996] [ERROR] default - /auth/ StdObject {
+  toJSON: [Function (anonymous)],
+  error: -1,
+  message: '아이디 비밀번호를 확인해 주세요...',
+  variables: {},
+  httpStatusCode: 400,
+  stack: null
+}
+[2021-08-20T11:02:03.998] [ERROR] default - [ POST /apid1/d1/auth?user_id=test&password&admin ]
+ App {
+  error: -1,
+  message: '아이디 비밀번호를 확인해 주세요...',
+  variables: {},
+  httpStatusCode: 200
+}
+[2021-08-20T11:02:04.000] [WARN] default - [MySQL]
+ .returning() is not supported by mysql and will not have any effect.
+[2021-08-20T11:02:04.001] [DEBUG] default - [MySQL]
+ {
+  method: 'insert',
+  options: {},
+  timeout: false,
+  cancelOnTimeout: false,
+  bindings: [
+    'api',
+    '{"error":-1,"message":"아이디 비밀번호를 확인해 주세요...","variables":{},"httpStatusCode":200}',
+    '{}',
+    'POST',
+    '/apid1/d1/auth?user_id=test&password&admin'
+  ],
+  __knexQueryUid: '3ce204bc-54a1-44cc-9bb3-3459074ce0fb',
+  sql: 'insert into `service_error` (`error_type`, `message`, `request_body`, `request_method`, `request_url`) values (?, ?, ?, ?, ?)'
+}
+[2021-08-20T11:02:13.119] [ERROR] default - /auth/ StdObject {
+  toJSON: [Function (anonymous)],
+  error: -1,
+  message: '아이디 비밀번호를 확인해 주세요...',
+  variables: {},
+  httpStatusCode: 400,
+  stack: null
+}
+[2021-08-20T11:02:13.125] [ERROR] default - [ POST /apid1/d1/auth?user_id=test&password=1111&admin ]
+ App {
+  error: -1,
+  message: '아이디 비밀번호를 확인해 주세요...',
+  variables: {},
+  httpStatusCode: 200
+}
+[2021-08-20T11:02:13.134] [WARN] default - [MySQL]
+ .returning() is not supported by mysql and will not have any effect.
+[2021-08-20T11:02:13.135] [DEBUG] default - [MySQL]
+ {
+  method: 'insert',
+  options: {},
+  timeout: false,
+  cancelOnTimeout: false,
+  bindings: [
+    'api',
+    '{"error":-1,"message":"아이디 비밀번호를 확인해 주세요...","variables":{},"httpStatusCode":200}',
+    '{}',
+    'POST',
+    '/apid1/d1/auth?user_id=test&password=1111&admin'
+  ],
+  __knexQueryUid: '97cc42c7-333d-4ae0-be51-f5b5ad64ec39',
+  sql: 'insert into `service_error` (`error_type`, `message`, `request_body`, `request_method`, `request_url`) values (?, ?, ?, ?, ?)'
+}
+[2021-08-20T11:02:38.655] [ERROR] default - /auth/ StdObject {
+  toJSON: [Function (anonymous)],
+  error: -1,
+  message: '아이디 비밀번호를 확인해 주세요...',
+  variables: {},
+  httpStatusCode: 400,
+  stack: null
+}
+[2021-08-20T11:02:38.657] [ERROR] default - [ POST /apid1/d1/auth?user_id=test4&password=1111&admin ]
+ App {
+  error: -1,
+  message: '아이디 비밀번호를 확인해 주세요...',
+  variables: {},
+  httpStatusCode: 200
+}
+[2021-08-20T11:02:38.659] [WARN] default - [MySQL]
+ .returning() is not supported by mysql and will not have any effect.
+[2021-08-20T11:02:38.659] [DEBUG] default - [MySQL]
+ {
+  method: 'insert',
+  options: {},
+  timeout: false,
+  cancelOnTimeout: false,
+  bindings: [
+    'api',
+    '{"error":-1,"message":"아이디 비밀번호를 확인해 주세요...","variables":{},"httpStatusCode":200}',
+    '{}',
+    'POST',
+    '/apid1/d1/auth?user_id=test4&password=1111&admin'
+  ],
+  __knexQueryUid: '86e8d311-f361-42d2-b2a4-4c156ed8dabe',
+  sql: 'insert into `service_error` (`error_type`, `message`, `request_body`, `request_method`, `request_url`) values (?, ?, ?, ?, ?)'
+}
+[2021-08-20T11:14:22.773] [ERROR] default - /auth/ StdObject {
+  toJSON: [Function (anonymous)],
+  error: -1,
+  message: '아이디 비밀번호를 확인해 주세요...',
+  variables: {},
+  httpStatusCode: 400,
+  stack: null
+}
+[2021-08-20T11:14:22.774] [ERROR] default - [ POST /apid1/d1/auth?user_id=test&password=test&admin ]
+ App {
+  error: -1,
+  message: '아이디 비밀번호를 확인해 주세요...',
+  variables: {},
+  httpStatusCode: 200
+}
+[2021-08-20T11:14:22.777] [WARN] default - [MySQL]
+ .returning() is not supported by mysql and will not have any effect.
+[2021-08-20T11:14:22.777] [DEBUG] default - [MySQL]
+ {
+  method: 'insert',
+  options: {},
+  timeout: false,
+  cancelOnTimeout: false,
+  bindings: [
+    'api',
+    '{"error":-1,"message":"아이디 비밀번호를 확인해 주세요...","variables":{},"httpStatusCode":200}',
+    '{}',
+    'POST',
+    '/apid1/d1/auth?user_id=test&password=test&admin'
+  ],
+  __knexQueryUid: '9827d164-487c-470f-9a8b-8323a1e61e43',
+  sql: 'insert into `service_error` (`error_type`, `message`, `request_body`, `request_method`, `request_url`) values (?, ?, ?, ?, ?)'
+}
+[2021-08-20T11:14:23.664] [ERROR] default - /auth/ StdObject {
+  toJSON: [Function (anonymous)],
+  error: -1,
+  message: '아이디 비밀번호를 확인해 주세요...',
+  variables: {},
+  httpStatusCode: 400,
+  stack: null
+}
+[2021-08-20T11:14:23.665] [ERROR] default - [ POST /apid1/d1/auth?user_id=test&password=test&admin ]
+ App {
+  error: -1,
+  message: '아이디 비밀번호를 확인해 주세요...',
+  variables: {},
+  httpStatusCode: 200
+}
+[2021-08-20T11:14:23.668] [WARN] default - [MySQL]
+ .returning() is not supported by mysql and will not have any effect.
+[2021-08-20T11:14:23.668] [DEBUG] default - [MySQL]
+ {
+  method: 'insert',
+  options: {},
+  timeout: false,
+  cancelOnTimeout: false,
+  bindings: [
+    'api',
+    '{"error":-1,"message":"아이디 비밀번호를 확인해 주세요...","variables":{},"httpStatusCode":200}',
+    '{}',
+    'POST',
+    '/apid1/d1/auth?user_id=test&password=test&admin'
+  ],
+  __knexQueryUid: 'd6715489-8e15-4e2b-b4f7-f857a439d09b',
+  sql: 'insert into `service_error` (`error_type`, `message`, `request_body`, `request_method`, `request_url`) values (?, ?, ?, ?, ?)'
+}
+[2021-08-20T11:14:24.409] [ERROR] default - /auth/ StdObject {
+  toJSON: [Function (anonymous)],
+  error: -1,
+  message: '아이디 비밀번호를 확인해 주세요...',
+  variables: {},
+  httpStatusCode: 400,
+  stack: null
+}
+[2021-08-20T11:14:24.411] [ERROR] default - [ POST /apid1/d1/auth?user_id=test&password=test&admin ]
+ App {
+  error: -1,
+  message: '아이디 비밀번호를 확인해 주세요...',
+  variables: {},
+  httpStatusCode: 200
+}
+[2021-08-20T11:14:24.413] [WARN] default - [MySQL]
+ .returning() is not supported by mysql and will not have any effect.
+[2021-08-20T11:14:24.413] [DEBUG] default - [MySQL]
+ {
+  method: 'insert',
+  options: {},
+  timeout: false,
+  cancelOnTimeout: false,
+  bindings: [
+    'api',
+    '{"error":-1,"message":"아이디 비밀번호를 확인해 주세요...","variables":{},"httpStatusCode":200}',
+    '{}',
+    'POST',
+    '/apid1/d1/auth?user_id=test&password=test&admin'
+  ],
+  __knexQueryUid: '5b9d180c-1089-4571-b2b1-f4d3533065cf',
+  sql: 'insert into `service_error` (`error_type`, `message`, `request_body`, `request_method`, `request_url`) values (?, ?, ?, ?, ?)'
+}
+[2021-08-20T11:14:58.948] [INFO] default - {
+  ENV: 'development',
+  IS_RELEASE: false,
+  IS_DEV: true,
+  IS_LOCAL: false,
+  IS_DEMON: false,
+  PRINT_DB_LOG: true,
+  LOG_PATH: 'logs',
+  MYSQL_HOST: null,
+  MONGODB_HOST: null
+}
+[2021-08-20T11:14:59.519] [DEBUG] default - add api ./d1/auth.js /d1/auth
+[2021-08-20T11:14:59.521] [DEBUG] default - add api ./d1/test.js /d1/test
+[2021-08-20T11:14:59.523] [DEBUG] default - add api ./d1/users.js /d1/users
+[2021-08-20T11:14:59.536] [DEBUG] default - Listening on port 3600 -> PID: 28400
+[2021-08-20T11:14:59.536] [DEBUG] default - [InitService] init start
+[2021-08-20T11:14:59.598] [DEBUG] default - [MySQL]
+ {
+  method: 'select',
+  options: {},
+  timeout: false,
+  cancelOnTimeout: false,
+  bindings: [],
+  __knexQueryUid: '122d4f44-4359-4b78-a583-1992685f67d6',
+  sql: 'select * from `service_config`'
+}
+[2021-08-20T11:14:59.606] [DEBUG] default - [InitService] init complete
+[2021-08-20T11:15:04.016] [ERROR] default - /auth/ StdObject {
+  toJSON: [Function (anonymous)],
+  error: -1,
+  message: '아이디 비밀번호를 확인해 2주세요...',
+  variables: {},
+  httpStatusCode: 400,
+  stack: null
+}
+[2021-08-20T11:15:04.019] [ERROR] default - [ POST /apid1/d1/auth?user_id=test&password=test&admin ]
+ App {
+  error: -1,
+  message: '아이디 비밀번호를 확인해 2주세요...',
+  variables: {},
+  httpStatusCode: 200
+}
+[2021-08-20T11:15:04.027] [WARN] default - [MySQL]
+ .returning() is not supported by mysql and will not have any effect.
+[2021-08-20T11:15:04.027] [DEBUG] default - [MySQL]
+ {
+  method: 'insert',
+  options: {},
+  timeout: false,
+  cancelOnTimeout: false,
+  bindings: [
+    'api',
+    '{"error":-1,"message":"아이디 비밀번호를 확인해 2주세요...","variables":{},"httpStatusCode":200}',
+    '{}',
+    'POST',
+    '/apid1/d1/auth?user_id=test&password=test&admin'
+  ],
+  __knexQueryUid: 'be8b510d-c5e8-4d06-be36-b152b8c88c6c',
+  sql: 'insert into `service_error` (`error_type`, `message`, `request_body`, `request_method`, `request_url`) values (?, ?, ?, ?, ?)'
+}
+[2021-08-20T11:15:08.682] [INFO] default - {
+  ENV: 'development',
+  IS_RELEASE: false,
+  IS_DEV: true,
+  IS_LOCAL: false,
+  IS_DEMON: false,
+  PRINT_DB_LOG: true,
+  LOG_PATH: 'logs',
+  MYSQL_HOST: null,
+  MONGODB_HOST: null
+}
+[2021-08-20T11:15:09.233] [DEBUG] default - add api ./d1/auth.js /d1/auth
+[2021-08-20T11:15:09.235] [DEBUG] default - add api ./d1/test.js /d1/test
+[2021-08-20T11:15:09.237] [DEBUG] default - add api ./d1/users.js /d1/users
+[2021-08-20T11:15:09.249] [DEBUG] default - Listening on port 3600 -> PID: 14260
+[2021-08-20T11:15:09.249] [DEBUG] default - [InitService] init start
+[2021-08-20T11:15:09.310] [DEBUG] default - [MySQL]
+ {
+  method: 'select',
+  options: {},
+  timeout: false,
+  cancelOnTimeout: false,
+  bindings: [],
+  __knexQueryUid: '7eba1075-1d4b-408a-92e0-54b3c3192082',
+  sql: 'select * from `service_config`'
+}
+[2021-08-20T11:15:09.318] [DEBUG] default - [InitService] init complete
+[2021-08-20T11:15:31.603] [ERROR] default - /auth/ StdObject {
+  toJSON: [Function (anonymous)],
+  error: -1,
+  message: '아이디 비밀번호를 확인해 주세요...',
+  variables: {},
+  httpStatusCode: 400,
+  stack: null
+}
+[2021-08-20T11:15:31.606] [ERROR] default - [ POST /apid1/d1/auth?user_id=test&password=test&admin=false ]
+ App {
+  error: -1,
+  message: '아이디 비밀번호를 확인해 주세요...',
+  variables: {},
+  httpStatusCode: 200
+}
+[2021-08-20T11:15:31.613] [WARN] default - [MySQL]
+ .returning() is not supported by mysql and will not have any effect.
+[2021-08-20T11:15:31.614] [DEBUG] default - [MySQL]
+ {
+  method: 'insert',
+  options: {},
+  timeout: false,
+  cancelOnTimeout: false,
+  bindings: [
+    'api',
+    '{"error":-1,"message":"아이디 비밀번호를 확인해 주세요...","variables":{},"httpStatusCode":200}',
+    '{}',
+    'POST',
+    '/apid1/d1/auth?user_id=test&password=test&admin=false'
+  ],
+  __knexQueryUid: '478dc64e-4a98-451e-bb56-6a502c54c2a2',
+  sql: 'insert into `service_error` (`error_type`, `message`, `request_body`, `request_method`, `request_url`) values (?, ?, ?, ?, ?)'
+}
+[2021-08-20T11:15:55.003] [ERROR] default - [ POST /apid1/d1/login?user_id=test&password=test&admin=false ]
+ 요청하신 API Endpoint가 존재하지 않습니다.
+[2021-08-20T11:15:55.005] [ERROR] default - [ POST /apid1/d1/login?user_id=test&password=test&admin=false ]
+ App {
+  error: -1,
+  message: '요청하신 API Endpoint가 존재하지 않습니다.',
+  variables: {},
+  httpStatusCode: 404
+}
+[2021-08-20T11:16:00.549] [ERROR] default - /auth/ StdObject {
+  toJSON: [Function (anonymous)],
+  error: -1,
+  message: '아이디 비밀번호를 확인해 주세요...',
+  variables: {},
+  httpStatusCode: 400,
+  stack: null
+}
+[2021-08-20T11:16:00.551] [ERROR] default - [ POST /apid1/d1/auth?user_id=test&password=test&admin=false ]
+ App {
+  error: -1,
+  message: '아이디 비밀번호를 확인해 주세요...',
+  variables: {},
+  httpStatusCode: 200
+}
+[2021-08-20T11:16:00.553] [WARN] default - [MySQL]
+ .returning() is not supported by mysql and will not have any effect.
+[2021-08-20T11:16:00.554] [DEBUG] default - [MySQL]
+ {
+  method: 'insert',
+  options: {},
+  timeout: false,
+  cancelOnTimeout: false,
+  bindings: [
+    'api',
+    '{"error":-1,"message":"아이디 비밀번호를 확인해 주세요...","variables":{},"httpStatusCode":200}',
+    '{}',
+    'POST',
+    '/apid1/d1/auth?user_id=test&password=test&admin=false'
+  ],
+  __knexQueryUid: 'b547a04b-80ae-4ad0-9ed8-ba1df8729582',
+  sql: 'insert into `service_error` (`error_type`, `message`, `request_body`, `request_method`, `request_url`) values (?, ?, ?, ?, ?)'
+}
+[2021-08-20T11:16:09.917] [ERROR] default - /auth/ StdObject {
+  toJSON: [Function (anonymous)],
+  error: -1,
+  message: '아이디 비밀번호를 확인해 주세요...',
+  variables: {},
+  httpStatusCode: 400,
+  stack: null
+}
+[2021-08-20T11:16:09.924] [ERROR] default - [ POST /apid1/d1/auth?user_id=test&password=1234&admin=false ]
+ App {
+  error: -1,
+  message: '아이디 비밀번호를 확인해 주세요...',
+  variables: {},
+  httpStatusCode: 200
+}
+[2021-08-20T11:16:09.934] [WARN] default - [MySQL]
+ .returning() is not supported by mysql and will not have any effect.
+[2021-08-20T11:16:09.936] [DEBUG] default - [MySQL]
+ {
+  method: 'insert',
+  options: {},
+  timeout: false,
+  cancelOnTimeout: false,
+  bindings: [
+    'api',
+    '{"error":-1,"message":"아이디 비밀번호를 확인해 주세요...","variables":{},"httpStatusCode":200}',
+    '{}',
+    'POST',
+    '/apid1/d1/auth?user_id=test&password=1234&admin=false'
+  ],
+  __knexQueryUid: 'a0eb12e6-2008-446e-8b30-9d840cd12b94',
+  sql: 'insert into `service_error` (`error_type`, `message`, `request_body`, `request_method`, `request_url`) values (?, ?, ?, ?, ?)'
+}
+[2021-08-20T11:16:37.397] [ERROR] default - /auth/ StdObject {
+  toJSON: [Function (anonymous)],
+  error: -1,
+  message: '아이디 비밀번호를 확인해 주세요...',
+  variables: {},
+  httpStatusCode: 400,
+  stack: null
+}
+[2021-08-20T11:16:37.403] [ERROR] default - [ POST /apid1/d1/auth?user_id=ollagaza&password=1234&admin=false ]
+ App {
+  error: -1,
+  message: '아이디 비밀번호를 확인해 주세요...',
+  variables: {},
+  httpStatusCode: 200
+}
+[2021-08-20T11:16:37.408] [WARN] default - [MySQL]
+ .returning() is not supported by mysql and will not have any effect.
+[2021-08-20T11:16:37.409] [DEBUG] default - [MySQL]
+ {
+  method: 'insert',
+  options: {},
+  timeout: false,
+  cancelOnTimeout: false,
+  bindings: [
+    'api',
+    '{"error":-1,"message":"아이디 비밀번호를 확인해 주세요...","variables":{},"httpStatusCode":200}',
+    '{}',
+    'POST',
+    '/apid1/d1/auth?user_id=ollagaza&password=1234&admin=false'
+  ],
+  __knexQueryUid: '9892a189-d60a-402a-868f-c48c5ccb2f04',
+  sql: 'insert into `service_error` (`error_type`, `message`, `request_body`, `request_method`, `request_url`) values (?, ?, ?, ?, ?)'
+}
+[2021-08-20T11:16:50.992] [ERROR] default - [ POST /apid1/d1/auth/user_id=ollagaza&password=1234&admin=false ]
+ 요청하신 API Endpoint가 존재하지 않습니다.
+[2021-08-20T11:16:50.993] [ERROR] default - [ POST /apid1/d1/auth/user_id=ollagaza&password=1234&admin=false ]
+ App {
+  error: -1,
+  message: '요청하신 API Endpoint가 존재하지 않습니다.',
+  variables: {},
+  httpStatusCode: 404
+}
+[2021-08-20T11:16:57.079] [ERROR] default - /auth/ StdObject {
+  toJSON: [Function (anonymous)],
+  error: -1,
+  message: '아이디 비밀번호를 확인해 주세요...',
+  variables: {},
+  httpStatusCode: 400,
+  stack: null
+}
+[2021-08-20T11:16:57.081] [ERROR] default - [ POST /apid1/d1/auth?user_id=ollagaza&password=1234&admin=false ]
+ App {
+  error: -1,
+  message: '아이디 비밀번호를 확인해 주세요...',
+  variables: {},
+  httpStatusCode: 200
+}
+[2021-08-20T11:16:57.083] [WARN] default - [MySQL]
+ .returning() is not supported by mysql and will not have any effect.
+[2021-08-20T11:16:57.084] [DEBUG] default - [MySQL]
+ {
+  method: 'insert',
+  options: {},
+  timeout: false,
+  cancelOnTimeout: false,
+  bindings: [
+    'api',
+    '{"error":-1,"message":"아이디 비밀번호를 확인해 주세요...","variables":{},"httpStatusCode":200}',
+    '{}',
+    'POST',
+    '/apid1/d1/auth?user_id=ollagaza&password=1234&admin=false'
+  ],
+  __knexQueryUid: 'fa2ad20d-a8e4-4d18-8227-d73611cf5cbf',
+  sql: 'insert into `service_error` (`error_type`, `message`, `request_body`, `request_method`, `request_url`) values (?, ?, ?, ?, ?)'
+}
+[2021-08-20T11:17:24.702] [ERROR] default - /auth/ StdObject {
+  toJSON: [Function (anonymous)],
+  error: -1,
+  message: '아이디 비밀번호를 확인해 주세요...',
+  variables: {},
+  httpStatusCode: 400,
+  stack: null
+}
+[2021-08-20T11:17:24.703] [ERROR] default - [ POST /apid1/d1/auth?user_id=ollagaza&password=1234&admin=false ]
+ App {
+  error: -1,
+  message: '아이디 비밀번호를 확인해 주세요...',
+  variables: {},
+  httpStatusCode: 200
+}
+[2021-08-20T11:17:24.705] [WARN] default - [MySQL]
+ .returning() is not supported by mysql and will not have any effect.
+[2021-08-20T11:17:24.706] [DEBUG] default - [MySQL]
+ {
+  method: 'insert',
+  options: {},
+  timeout: false,
+  cancelOnTimeout: false,
+  bindings: [
+    'api',
+    '{"error":-1,"message":"아이디 비밀번호를 확인해 주세요...","variables":{},"httpStatusCode":200}',
+    '{}',
+    'POST',
+    '/apid1/d1/auth?user_id=ollagaza&password=1234&admin=false'
+  ],
+  __knexQueryUid: '2ba18be6-b5a5-4df6-b925-538562d53058',
+  sql: 'insert into `service_error` (`error_type`, `message`, `request_body`, `request_method`, `request_url`) values (?, ?, ?, ?, ?)'
+}
+[2021-08-20T11:17:56.612] [INFO] default - {
+  ENV: 'development',
+  IS_RELEASE: false,
+  IS_DEV: true,
+  IS_LOCAL: false,
+  IS_DEMON: false,
+  PRINT_DB_LOG: true,
+  LOG_PATH: 'logs',
+  MYSQL_HOST: null,
+  MONGODB_HOST: null
+}
+[2021-08-20T11:17:57.173] [DEBUG] default - add api ./d1/auth.js /d1/auth
+[2021-08-20T11:17:57.175] [DEBUG] default - add api ./d1/test.js /d1/test
+[2021-08-20T11:17:57.177] [DEBUG] default - add api ./d1/users.js /d1/users
+[2021-08-20T11:17:57.189] [DEBUG] default - Listening on port 3600 -> PID: 19972
+[2021-08-20T11:17:57.190] [DEBUG] default - [InitService] init start
+[2021-08-20T11:17:57.249] [DEBUG] default - [MySQL]
+ {
+  method: 'select',
+  options: {},
+  timeout: false,
+  cancelOnTimeout: false,
+  bindings: [],
+  __knexQueryUid: '47529ba5-6ed3-4df5-92d8-f99b5260a97f',
+  sql: 'select * from `service_config`'
+}
+[2021-08-20T11:17:57.256] [DEBUG] default - [InitService] init complete
+[2021-08-20T11:17:59.886] [ERROR] default - /auth/ Error: Undefined binding(s) detected when compiling FIRST query: select * from `member` where `user_id` = ? limit ?
+    at QueryCompiler_MySQL.toSQL (D:\Source\dnode\node_modules\knex\lib\query\compiler.js:85:13)
+    at Builder.toSQL (D:\Source\dnode\node_modules\knex\lib\query\builder.js:72:44)
+    at D:\Source\dnode\node_modules\knex\lib\runner.js:37:34
+    at processImmediate (internal/timers.js:464:21)
+From previous event:
+    at Runner.run (D:\Source\dnode\node_modules\knex\lib\runner.js:33:30)
+    at Builder.Target.then (D:\Source\dnode\node_modules\knex\lib\interface.js:23:43)
+    at processTicksAndRejections (internal/process/task_queues.js:95:5)
+[2021-08-20T11:17:59.889] [ERROR] default - [ POST /apid1/d1/auth?user_id=ollagaza&password=1234&admin=false ]
+ App {
+  error: -1,
+  message: '아이디 혹은 비밀번호가 일치하지 않습니다.<br/>입력한 내용을 다시 확인해 주세요.',
+  variables: {},
+  httpStatusCode: 200
+}
+[2021-08-20T11:17:59.895] [WARN] default - [MySQL]
+ .returning() is not supported by mysql and will not have any effect.
+[2021-08-20T11:17:59.896] [DEBUG] default - [MySQL]
+ {
+  method: 'insert',
+  options: {},
+  timeout: false,
+  cancelOnTimeout: false,
+  bindings: [
+    'api',
+    '{"error":-1,"message":"아이디 혹은 비밀번호가 일치하지 않습니다.<br/>입력한 내용을 다시 확인해 주세요.","variables":{},"httpStatusCode":200}',
+    '{}',
+    'POST',
+    '/apid1/d1/auth?user_id=ollagaza&password=1234&admin=false'
+  ],
+  __knexQueryUid: '75496593-3cdb-4473-bd12-0d486e1bce6f',
+  sql: 'insert into `service_error` (`error_type`, `message`, `request_body`, `request_method`, `request_url`) values (?, ?, ?, ?, ?)'
+}
+[2021-08-20T11:18:10.114] [INFO] default - {
+  ENV: 'development',
+  IS_RELEASE: false,
+  IS_DEV: true,
+  IS_LOCAL: false,
+  IS_DEMON: false,
+  PRINT_DB_LOG: true,
+  LOG_PATH: 'logs',
+  MYSQL_HOST: null,
+  MONGODB_HOST: null
+}
+[2021-08-20T11:18:10.658] [DEBUG] default - add api ./d1/auth.js /d1/auth
+[2021-08-20T11:18:10.660] [DEBUG] default - add api ./d1/test.js /d1/test
+[2021-08-20T11:18:10.663] [DEBUG] default - add api ./d1/users.js /d1/users
+[2021-08-20T11:18:10.676] [DEBUG] default - Listening on port 3600 -> PID: 30440
+[2021-08-20T11:18:10.677] [DEBUG] default - [InitService] init start
+[2021-08-20T11:18:10.739] [DEBUG] default - [MySQL]
+ {
+  method: 'select',
+  options: {},
+  timeout: false,
+  cancelOnTimeout: false,
+  bindings: [],
+  __knexQueryUid: '4082b3ce-5779-4c97-b216-056271b68579',
+  sql: 'select * from `service_config`'
+}
+[2021-08-20T11:18:10.745] [DEBUG] default - [InitService] init complete
+[2021-08-20T11:18:12.194] [ERROR] default - /auth/ StdObject {
+  toJSON: [Function (anonymous)],
+  error: -1,
+  message: '아이디 비밀번호를 확인해 주세요...',
+  variables: {},
+  httpStatusCode: 400,
+  stack: null
+}
+[2021-08-20T11:18:12.197] [ERROR] default - [ POST /apid1/d1/auth?user_id=ollagaza&password=1234&admin=false ]
+ App {
+  error: -1,
+  message: '아이디 비밀번호를 확인해 주세요...',
+  variables: {},
+  httpStatusCode: 200
+}
+[2021-08-20T11:18:12.205] [WARN] default - [MySQL]
+ .returning() is not supported by mysql and will not have any effect.
+[2021-08-20T11:18:12.206] [DEBUG] default - [MySQL]
+ {
+  method: 'insert',
+  options: {},
+  timeout: false,
+  cancelOnTimeout: false,
+  bindings: [
+    'api',
+    '{"error":-1,"message":"아이디 비밀번호를 확인해 주세요...","variables":{},"httpStatusCode":200}',
+    '{}',
+    'POST',
+    '/apid1/d1/auth?user_id=ollagaza&password=1234&admin=false'
+  ],
+  __knexQueryUid: '7f38fa15-5f5d-44ad-8f9a-38017d78bb5b',
+  sql: 'insert into `service_error` (`error_type`, `message`, `request_body`, `request_method`, `request_url`) values (?, ?, ?, ?, ?)'
+}
+[2021-08-20T11:18:20.128] [INFO] default - {
+  ENV: 'development',
+  IS_RELEASE: false,
+  IS_DEV: true,
+  IS_LOCAL: false,
+  IS_DEMON: false,
+  PRINT_DB_LOG: true,
+  LOG_PATH: 'logs',
+  MYSQL_HOST: null,
+  MONGODB_HOST: null
+}
+[2021-08-20T11:18:20.690] [DEBUG] default - add api ./d1/auth.js /d1/auth
+[2021-08-20T11:18:20.692] [DEBUG] default - add api ./d1/test.js /d1/test
+[2021-08-20T11:18:20.694] [DEBUG] default - add api ./d1/users.js /d1/users
+[2021-08-20T11:18:20.706] [DEBUG] default - Listening on port 3600 -> PID: 22836
+[2021-08-20T11:18:20.706] [DEBUG] default - [InitService] init start
+[2021-08-20T11:18:20.766] [DEBUG] default - [MySQL]
+ {
+  method: 'select',
+  options: {},
+  timeout: false,
+  cancelOnTimeout: false,
+  bindings: [],
+  __knexQueryUid: '0fd5ef38-d9b9-47d0-af67-1aa51efc4740',
+  sql: 'select * from `service_config`'
+}
+[2021-08-20T11:18:20.773] [DEBUG] default - [InitService] init complete
+[2021-08-20T11:18:24.210] [ERROR] default - /auth/ StdObject {
+  toJSON: [Function (anonymous)],
+  error: -1,
+  message: '아이디 비밀번호를 확인해 주세요...',
+  variables: {},
+  httpStatusCode: 400,
+  stack: null
+}
+[2021-08-20T11:18:24.215] [ERROR] default - [ POST /apid1/d1/auth?user_id=ollagaza&password=1234&admin=false ]
+ App {
+  error: -1,
+  message: '아이디 비밀번호를 확인해 주세요...',
+  variables: {},
+  httpStatusCode: 200
+}
+[2021-08-20T11:18:24.222] [WARN] default - [MySQL]
+ .returning() is not supported by mysql and will not have any effect.
+[2021-08-20T11:18:24.223] [DEBUG] default - [MySQL]
+ {
+  method: 'insert',
+  options: {},
+  timeout: false,
+  cancelOnTimeout: false,
+  bindings: [
+    'api',
+    '{"error":-1,"message":"아이디 비밀번호를 확인해 주세요...","variables":{},"httpStatusCode":200}',
+    '{}',
+    'POST',
+    '/apid1/d1/auth?user_id=ollagaza&password=1234&admin=false'
+  ],
+  __knexQueryUid: 'a040352f-2eb2-4699-8da7-3ba37abeb25f',
+  sql: 'insert into `service_error` (`error_type`, `message`, `request_body`, `request_method`, `request_url`) values (?, ?, ?, ?, ?)'
+}
+[2021-08-20T11:18:29.700] [INFO] default - {
+  ENV: 'development',
+  IS_RELEASE: false,
+  IS_DEV: true,
+  IS_LOCAL: false,
+  IS_DEMON: false,
+  PRINT_DB_LOG: true,
+  LOG_PATH: 'logs',
+  MYSQL_HOST: null,
+  MONGODB_HOST: null
+}
+[2021-08-20T11:18:30.253] [DEBUG] default - add api ./d1/auth.js /d1/auth
+[2021-08-20T11:18:30.255] [DEBUG] default - add api ./d1/test.js /d1/test
+[2021-08-20T11:18:30.257] [DEBUG] default - add api ./d1/users.js /d1/users
+[2021-08-20T11:18:30.270] [DEBUG] default - Listening on port 3600 -> PID: 14140
+[2021-08-20T11:18:30.270] [DEBUG] default - [InitService] init start
+[2021-08-20T11:18:30.329] [DEBUG] default - [MySQL]
+ {
+  method: 'select',
+  options: {},
+  timeout: false,
+  cancelOnTimeout: false,
+  bindings: [],
+  __knexQueryUid: 'd29018eb-d84f-4b2a-86e6-2b8268455d33',
+  sql: 'select * from `service_config`'
+}
+[2021-08-20T11:18:30.337] [DEBUG] default - [InitService] init complete
+[2021-08-20T11:18:35.104] [ERROR] default - /auth/ StdObject {
+  toJSON: [Function (anonymous)],
+  error: -1,
+  message: '아이디 비밀번호를 확인해 주세요...',
+  variables: {},
+  httpStatusCode: 400,
+  stack: null
+}
+[2021-08-20T11:18:35.107] [ERROR] default - [ POST /apid1/d1/auth?user_id=ollagaza&password=1234&admin=false ]
+ App {
+  error: -1,
+  message: '아이디 비밀번호를 확인해 주세요...',
+  variables: {},
+  httpStatusCode: 200
+}
+[2021-08-20T11:18:35.116] [WARN] default - [MySQL]
+ .returning() is not supported by mysql and will not have any effect.
+[2021-08-20T11:18:35.117] [DEBUG] default - [MySQL]
+ {
+  method: 'insert',
+  options: {},
+  timeout: false,
+  cancelOnTimeout: false,
+  bindings: [
+    'api',
+    '{"error":-1,"message":"아이디 비밀번호를 확인해 주세요...","variables":{},"httpStatusCode":200}',
+    '{}',
+    'POST',
+    '/apid1/d1/auth?user_id=ollagaza&password=1234&admin=false'
+  ],
+  __knexQueryUid: 'd2a93f5a-dd21-4af3-b448-e40c3c2ec4cc',
+  sql: 'insert into `service_error` (`error_type`, `message`, `request_body`, `request_method`, `request_url`) values (?, ?, ?, ?, ?)'
+}
+[2021-08-20T11:19:57.932] [ERROR] default - /auth/ StdObject {
+  toJSON: [Function (anonymous)],
+  error: -1,
+  message: '아이디 비밀번호를 확인해 주세요...',
+  variables: {},
+  httpStatusCode: 400,
+  stack: null
+}
+[2021-08-20T11:19:57.934] [ERROR] default - [ POST /apid1/d1/auth?user_id=test&password=test&admin=false ]
+ App {
+  error: -1,
+  message: '아이디 비밀번호를 확인해 주세요...',
+  variables: {},
+  httpStatusCode: 200
+}
+[2021-08-20T11:19:57.936] [WARN] default - [MySQL]
+ .returning() is not supported by mysql and will not have any effect.
+[2021-08-20T11:19:57.937] [DEBUG] default - [MySQL]
+ {
+  method: 'insert',
+  options: {},
+  timeout: false,
+  cancelOnTimeout: false,
+  bindings: [
+    'api',
+    '{"error":-1,"message":"아이디 비밀번호를 확인해 주세요...","variables":{},"httpStatusCode":200}',
+    '{}',
+    'POST',
+    '/apid1/d1/auth?user_id=test&password=test&admin=false'
+  ],
+  __knexQueryUid: '7cd3ffcc-809f-48b9-9c5f-b1169a5850bf',
+  sql: 'insert into `service_error` (`error_type`, `message`, `request_body`, `request_method`, `request_url`) values (?, ?, ?, ?, ?)'
+}
+[2021-08-20T11:20:36.576] [ERROR] default - /auth/ StdObject {
+  toJSON: [Function (anonymous)],
+  error: -1,
+  message: '아이디 비밀번호를 확인해 주세요...',
+  variables: {},
+  httpStatusCode: 400,
+  stack: null
+}
+[2021-08-20T11:20:36.577] [ERROR] default - [ POST /apid1/d1/auth?user_id=test&password=test&admin=false ]
+ App {
+  error: -1,
+  message: '아이디 비밀번호를 확인해 주세요...',
+  variables: {},
+  httpStatusCode: 200
+}
+[2021-08-20T11:20:36.579] [WARN] default - [MySQL]
+ .returning() is not supported by mysql and will not have any effect.
+[2021-08-20T11:20:36.580] [DEBUG] default - [MySQL]
+ {
+  method: 'insert',
+  options: {},
+  timeout: false,
+  cancelOnTimeout: false,
+  bindings: [
+    'api',
+    '{"error":-1,"message":"아이디 비밀번호를 확인해 주세요...","variables":{},"httpStatusCode":200}',
+    '{}',
+    'POST',
+    '/apid1/d1/auth?user_id=test&password=test&admin=false'
+  ],
+  __knexQueryUid: '4ed418b8-f200-494f-86de-0f00554f561f',
+  sql: 'insert into `service_error` (`error_type`, `message`, `request_body`, `request_method`, `request_url`) values (?, ?, ?, ?, ?)'
+}
+[2021-08-20T11:20:50.052] [ERROR] default - /auth/ StdObject {
+  toJSON: [Function (anonymous)],
+  error: -1,
+  message: '아이디 비밀번호를 확인해 주세요...',
+  variables: {},
+  httpStatusCode: 400,
+  stack: null
+}
+[2021-08-20T11:20:50.054] [ERROR] default - [ POST /apid1/d1/auth?user_id=test&password=test&admin=false ]
+ App {
+  error: -1,
+  message: '아이디 비밀번호를 확인해 주세요...',
+  variables: {},
+  httpStatusCode: 200
+}
+[2021-08-20T11:20:50.056] [WARN] default - [MySQL]
+ .returning() is not supported by mysql and will not have any effect.
+[2021-08-20T11:20:50.056] [DEBUG] default - [MySQL]
+ {
+  method: 'insert',
+  options: {},
+  timeout: false,
+  cancelOnTimeout: false,
+  bindings: [
+    'api',
+    '{"error":-1,"message":"아이디 비밀번호를 확인해 주세요...","variables":{},"httpStatusCode":200}',
+    '{}',
+    'POST',
+    '/apid1/d1/auth?user_id=test&password=test&admin=false'
+  ],
+  __knexQueryUid: '729b484c-0fa4-4a1d-8ee4-663ec876f5b2',
+  sql: 'insert into `service_error` (`error_type`, `message`, `request_body`, `request_method`, `request_url`) values (?, ?, ?, ?, ?)'
+}
+[2021-08-20T11:22:49.611] [INFO] default - {
+  ENV: 'development',
+  IS_RELEASE: false,
+  IS_DEV: true,
+  IS_LOCAL: false,
+  IS_DEMON: false,
+  PRINT_DB_LOG: true,
+  LOG_PATH: 'logs',
+  MYSQL_HOST: null,
+  MONGODB_HOST: null
+}
+[2021-08-20T11:22:50.161] [DEBUG] default - add api ./d1/auth.js /d1/auth
+[2021-08-20T11:22:50.163] [DEBUG] default - add api ./d1/test.js /d1/test
+[2021-08-20T11:22:50.165] [DEBUG] default - add api ./d1/users.js /d1/users
+[2021-08-20T11:22:50.178] [DEBUG] default - Listening on port 3600 -> PID: 22192
+[2021-08-20T11:22:50.178] [DEBUG] default - [InitService] init start
+[2021-08-20T11:22:50.238] [DEBUG] default - [MySQL]
+ {
+  method: 'select',
+  options: {},
+  timeout: false,
+  cancelOnTimeout: false,
+  bindings: [],
+  __knexQueryUid: '255916cc-be8e-44f3-9ff4-fac205875087',
+  sql: 'select * from `service_config`'
+}
+[2021-08-20T11:22:50.245] [DEBUG] default - [InitService] init complete
+[2021-08-20T11:23:18.805] [ERROR] default - /auth/ StdObject {
+  toJSON: [Function (anonymous)],
+  error: -1,
+  message: '아이디 비밀번호를 확인해 주세요...',
+  variables: {},
+  httpStatusCode: 400,
+  stack: null
+}
+[2021-08-20T11:23:18.808] [ERROR] default - [ POST /apid1/d1/auth?user_id=test&password=test&admin=false ]
+ App {
+  error: -1,
+  message: '아이디 비밀번호를 확인해 주세요...',
+  variables: {},
+  httpStatusCode: 200
+}
+[2021-08-20T11:23:18.815] [WARN] default - [MySQL]
+ .returning() is not supported by mysql and will not have any effect.
+[2021-08-20T11:23:18.816] [DEBUG] default - [MySQL]
+ {
+  method: 'insert',
+  options: {},
+  timeout: false,
+  cancelOnTimeout: false,
+  bindings: [
+    'api',
+    '{"error":-1,"message":"아이디 비밀번호를 확인해 주세요...","variables":{},"httpStatusCode":200}',
+    '{}',
+    'POST',
+    '/apid1/d1/auth?user_id=test&password=test&admin=false'
+  ],
+  __knexQueryUid: '68ca2c6e-0142-472f-b6cc-0f264e7f3774',
+  sql: 'insert into `service_error` (`error_type`, `message`, `request_body`, `request_method`, `request_url`) values (?, ?, ?, ?, ?)'
+}
+[2021-08-20T11:23:52.878] [INFO] default - {
+  ENV: 'development',
+  IS_RELEASE: false,
+  IS_DEV: true,
+  IS_LOCAL: false,
+  IS_DEMON: false,
+  PRINT_DB_LOG: true,
+  LOG_PATH: 'logs',
+  MYSQL_HOST: null,
+  MONGODB_HOST: null
+}
+[2021-08-20T11:23:53.422] [DEBUG] default - add api ./d1/auth.js /d1/auth
+[2021-08-20T11:23:53.424] [DEBUG] default - add api ./d1/test.js /d1/test
+[2021-08-20T11:23:53.426] [DEBUG] default - add api ./d1/users.js /d1/users
+[2021-08-20T11:23:53.439] [DEBUG] default - Listening on port 3600 -> PID: 27892
+[2021-08-20T11:23:53.439] [DEBUG] default - [InitService] init start
+[2021-08-20T11:23:53.498] [DEBUG] default - [MySQL]
+ {
+  method: 'select',
+  options: {},
+  timeout: false,
+  cancelOnTimeout: false,
+  bindings: [],
+  __knexQueryUid: '274f6e09-5e56-4331-80e2-c812e77593bc',
+  sql: 'select * from `service_config`'
+}
+[2021-08-20T11:23:53.505] [DEBUG] default - [InitService] init complete
+[2021-08-20T11:23:57.226] [ERROR] default - /auth/ Error: Undefined binding(s) detected when compiling FIRST query: select * from `member` where `user_id` = ? limit ?
+    at QueryCompiler_MySQL.toSQL (D:\Source\dnode\node_modules\knex\lib\query\compiler.js:85:13)
+    at Builder.toSQL (D:\Source\dnode\node_modules\knex\lib\query\builder.js:72:44)
+    at D:\Source\dnode\node_modules\knex\lib\runner.js:37:34
+    at processImmediate (internal/timers.js:464:21)
+From previous event:
+    at Runner.run (D:\Source\dnode\node_modules\knex\lib\runner.js:33:30)
+    at Builder.Target.then (D:\Source\dnode\node_modules\knex\lib\interface.js:23:43)
+    at processTicksAndRejections (internal/process/task_queues.js:95:5)
+[2021-08-20T11:23:57.229] [ERROR] default - [ POST /apid1/d1/auth?user_id=test&password=test&admin=false ]
+ App {
+  error: -1,
+  message: '아이디 혹은 비밀번호가 일치하지 않습니다.<br/>입력한 내용을 다시 확인해 주세요.',
+  variables: {},
+  httpStatusCode: 200
+}
+[2021-08-20T11:23:57.236] [WARN] default - [MySQL]
+ .returning() is not supported by mysql and will not have any effect.
+[2021-08-20T11:23:57.237] [DEBUG] default - [MySQL]
+ {
+  method: 'insert',
+  options: {},
+  timeout: false,
+  cancelOnTimeout: false,
+  bindings: [
+    'api',
+    '{"error":-1,"message":"아이디 혹은 비밀번호가 일치하지 않습니다.<br/>입력한 내용을 다시 확인해 주세요.","variables":{},"httpStatusCode":200}',
+    '{}',
+    'POST',
+    '/apid1/d1/auth?user_id=test&password=test&admin=false'
+  ],
+  __knexQueryUid: 'b6593811-deba-42b2-8197-bbfad448111f',
+  sql: 'insert into `service_error` (`error_type`, `message`, `request_body`, `request_method`, `request_url`) values (?, ?, ?, ?, ?)'
+}
+[2021-08-20T11:24:10.515] [ERROR] default - /auth/ Error: Undefined binding(s) detected when compiling FIRST query: select * from `member` where `user_id` = ? limit ?
+    at QueryCompiler_MySQL.toSQL (D:\Source\dnode\node_modules\knex\lib\query\compiler.js:85:13)
+    at Builder.toSQL (D:\Source\dnode\node_modules\knex\lib\query\builder.js:72:44)
+    at D:\Source\dnode\node_modules\knex\lib\runner.js:37:34
+    at processImmediate (internal/timers.js:464:21)
+From previous event:
+    at Runner.run (D:\Source\dnode\node_modules\knex\lib\runner.js:33:30)
+    at Builder.Target.then (D:\Source\dnode\node_modules\knex\lib\interface.js:23:43)
+    at processTicksAndRejections (internal/process/task_queues.js:95:5)
+[2021-08-20T11:24:10.522] [ERROR] default - [ POST /apid1/d1/auth?user_id=test3&password=test&admin=false ]
+ App {
+  error: -1,
+  message: '아이디 혹은 비밀번호가 일치하지 않습니다.<br/>입력한 내용을 다시 확인해 주세요.',
+  variables: {},
+  httpStatusCode: 200
+}
+[2021-08-20T11:24:10.528] [WARN] default - [MySQL]
+ .returning() is not supported by mysql and will not have any effect.
+[2021-08-20T11:24:10.529] [DEBUG] default - [MySQL]
+ {
+  method: 'insert',
+  options: {},
+  timeout: false,
+  cancelOnTimeout: false,
+  bindings: [
+    'api',
+    '{"error":-1,"message":"아이디 혹은 비밀번호가 일치하지 않습니다.<br/>입력한 내용을 다시 확인해 주세요.","variables":{},"httpStatusCode":200}',
+    '{}',
+    'POST',
+    '/apid1/d1/auth?user_id=test3&password=test&admin=false'
+  ],
+  __knexQueryUid: '5efef62d-4ca9-4ecd-b855-f0a2d382d00e',
+  sql: 'insert into `service_error` (`error_type`, `message`, `request_body`, `request_method`, `request_url`) values (?, ?, ?, ?, ?)'
+}
+[2021-08-20T11:24:15.348] [ERROR] default - /auth/ Error: Undefined binding(s) detected when compiling FIRST query: select * from `member` where `user_id` = ? limit ?
+    at QueryCompiler_MySQL.toSQL (D:\Source\dnode\node_modules\knex\lib\query\compiler.js:85:13)
+    at Builder.toSQL (D:\Source\dnode\node_modules\knex\lib\query\builder.js:72:44)
+    at D:\Source\dnode\node_modules\knex\lib\runner.js:37:34
+    at processImmediate (internal/timers.js:464:21)
+From previous event:
+    at Runner.run (D:\Source\dnode\node_modules\knex\lib\runner.js:33:30)
+    at Builder.Target.then (D:\Source\dnode\node_modules\knex\lib\interface.js:23:43)
+    at processTicksAndRejections (internal/process/task_queues.js:95:5)
+[2021-08-20T11:24:15.349] [ERROR] default - [ POST /apid1/d1/auth?user_id=test6&password=test&admin=false ]
+ App {
+  error: -1,
+  message: '아이디 혹은 비밀번호가 일치하지 않습니다.<br/>입력한 내용을 다시 확인해 주세요.',
+  variables: {},
+  httpStatusCode: 200
+}
+[2021-08-20T11:24:15.352] [WARN] default - [MySQL]
+ .returning() is not supported by mysql and will not have any effect.
+[2021-08-20T11:24:15.353] [DEBUG] default - [MySQL]
+ {
+  method: 'insert',
+  options: {},
+  timeout: false,
+  cancelOnTimeout: false,
+  bindings: [
+    'api',
+    '{"error":-1,"message":"아이디 혹은 비밀번호가 일치하지 않습니다.<br/>입력한 내용을 다시 확인해 주세요.","variables":{},"httpStatusCode":200}',
+    '{}',
+    'POST',
+    '/apid1/d1/auth?user_id=test6&password=test&admin=false'
+  ],
+  __knexQueryUid: 'bfef3df1-25e1-4006-bcbf-bb354fb7723d',
+  sql: 'insert into `service_error` (`error_type`, `message`, `request_body`, `request_method`, `request_url`) values (?, ?, ?, ?, ?)'
+}
+[2021-08-20T11:24:20.119] [ERROR] default - /auth/ Error: Undefined binding(s) detected when compiling FIRST query: select * from `member` where `user_id` = ? limit ?
+    at QueryCompiler_MySQL.toSQL (D:\Source\dnode\node_modules\knex\lib\query\compiler.js:85:13)
+    at Builder.toSQL (D:\Source\dnode\node_modules\knex\lib\query\builder.js:72:44)
+    at D:\Source\dnode\node_modules\knex\lib\runner.js:37:34
+    at processImmediate (internal/timers.js:464:21)
+From previous event:
+    at Runner.run (D:\Source\dnode\node_modules\knex\lib\runner.js:33:30)
+    at Builder.Target.then (D:\Source\dnode\node_modules\knex\lib\interface.js:23:43)
+    at processTicksAndRejections (internal/process/task_queues.js:95:5)
+[2021-08-20T11:24:20.120] [ERROR] default - [ POST /apid1/d1/auth?user_id=test&password=test&admin=false ]
+ App {
+  error: -1,
+  message: '아이디 혹은 비밀번호가 일치하지 않습니다.<br/>입력한 내용을 다시 확인해 주세요.',
+  variables: {},
+  httpStatusCode: 200
+}
+[2021-08-20T11:24:20.123] [WARN] default - [MySQL]
+ .returning() is not supported by mysql and will not have any effect.
+[2021-08-20T11:24:20.123] [DEBUG] default - [MySQL]
+ {
+  method: 'insert',
+  options: {},
+  timeout: false,
+  cancelOnTimeout: false,
+  bindings: [
+    'api',
+    '{"error":-1,"message":"아이디 혹은 비밀번호가 일치하지 않습니다.<br/>입력한 내용을 다시 확인해 주세요.","variables":{},"httpStatusCode":200}',
+    '{}',
+    'POST',
+    '/apid1/d1/auth?user_id=test&password=test&admin=false'
+  ],
+  __knexQueryUid: 'c1f01f0c-f17f-4d36-923f-37902446a677',
+  sql: 'insert into `service_error` (`error_type`, `message`, `request_body`, `request_method`, `request_url`) values (?, ?, ?, ?, ?)'
+}
+[2021-08-20T11:25:25.468] [INFO] default - {
+  ENV: 'development',
+  IS_RELEASE: false,
+  IS_DEV: true,
+  IS_LOCAL: false,
+  IS_DEMON: false,
+  PRINT_DB_LOG: true,
+  LOG_PATH: 'logs',
+  MYSQL_HOST: null,
+  MONGODB_HOST: null
+}
+[2021-08-20T11:25:26.021] [DEBUG] default - add api ./d1/auth.js /d1/auth
+[2021-08-20T11:25:26.022] [DEBUG] default - add api ./d1/test.js /d1/test
+[2021-08-20T11:25:26.024] [DEBUG] default - add api ./d1/users.js /d1/users
+[2021-08-20T11:25:26.036] [DEBUG] default - Listening on port 3600 -> PID: 21244
+[2021-08-20T11:25:26.037] [DEBUG] default - [InitService] init start
+[2021-08-20T11:25:26.097] [DEBUG] default - [MySQL]
+ {
+  method: 'select',
+  options: {},
+  timeout: false,
+  cancelOnTimeout: false,
+  bindings: [],
+  __knexQueryUid: 'c444df73-d27c-4fa6-a3c5-e78ea843da02',
+  sql: 'select * from `service_config`'
+}
+[2021-08-20T11:25:26.105] [DEBUG] default - [InitService] init complete
+[2021-08-20T11:25:27.608] [ERROR] default - /auth/ StdObject {
+  toJSON: [Function (anonymous)],
+  error: -1,
+  message: '아이디 비밀번호를 확인해 주세요...',
+  variables: {},
+  httpStatusCode: 400,
+  stack: null
+}
+[2021-08-20T11:25:27.610] [ERROR] default - [ POST /apid1/d1/auth?user_id=test&password=test&admin=false ]
+ App {
+  error: -1,
+  message: '아이디 비밀번호를 확인해 주세요...',
+  variables: {},
+  httpStatusCode: 200
+}
+[2021-08-20T11:25:27.619] [WARN] default - [MySQL]
+ .returning() is not supported by mysql and will not have any effect.
+[2021-08-20T11:25:27.621] [DEBUG] default - [MySQL]
+ {
+  method: 'insert',
+  options: {},
+  timeout: false,
+  cancelOnTimeout: false,
+  bindings: [
+    'api',
+    '{"error":-1,"message":"아이디 비밀번호를 확인해 주세요...","variables":{},"httpStatusCode":200}',
+    '{}',
+    'POST',
+    '/apid1/d1/auth?user_id=test&password=test&admin=false'
+  ],
+  __knexQueryUid: 'c469a6ea-78ce-49cc-b664-c2210f262268',
+  sql: 'insert into `service_error` (`error_type`, `message`, `request_body`, `request_method`, `request_url`) values (?, ?, ?, ?, ?)'
+}
+[2021-08-20T11:28:35.648] [ERROR] default - /auth/ StdObject {
+  toJSON: [Function (anonymous)],
+  error: -1,
+  message: '아이디 비밀번호를 확인해 주세요...',
+  variables: {},
+  httpStatusCode: 400,
+  stack: null
+}
+[2021-08-20T11:28:35.656] [ERROR] default - [ POST /apid1/d1/auth?user_id=test&password=test&admin=false ]
+ App {
+  error: -1,
+  message: '아이디 비밀번호를 확인해 주세요...',
+  variables: {},
+  httpStatusCode: 200
+}
+[2021-08-20T11:28:35.659] [WARN] default - [MySQL]
+ .returning() is not supported by mysql and will not have any effect.
+[2021-08-20T11:28:35.659] [DEBUG] default - [MySQL]
+ {
+  method: 'insert',
+  options: {},
+  timeout: false,
+  cancelOnTimeout: false,
+  bindings: [
+    'api',
+    '{"error":-1,"message":"아이디 비밀번호를 확인해 주세요...","variables":{},"httpStatusCode":200}',
+    '{}',
+    'POST',
+    '/apid1/d1/auth?user_id=test&password=test&admin=false'
+  ],
+  __knexQueryUid: 'c4d09ca2-d928-44dc-81fd-adcfd5ff0afd',
+  sql: 'insert into `service_error` (`error_type`, `message`, `request_body`, `request_method`, `request_url`) values (?, ?, ?, ?, ?)'
+}
+[2021-08-20T11:28:37.711] [ERROR] default - /auth/ StdObject {
+  toJSON: [Function (anonymous)],
+  error: -1,
+  message: '아이디 비밀번호를 확인해 주세요...',
+  variables: {},
+  httpStatusCode: 400,
+  stack: null
+}
+[2021-08-20T11:28:37.712] [ERROR] default - [ POST /apid1/d1/auth?user_id=test&password=test&admin=false ]
+ App {
+  error: -1,
+  message: '아이디 비밀번호를 확인해 주세요...',
+  variables: {},
+  httpStatusCode: 200
+}
+[2021-08-20T11:28:37.715] [WARN] default - [MySQL]
+ .returning() is not supported by mysql and will not have any effect.
+[2021-08-20T11:28:37.716] [DEBUG] default - [MySQL]
+ {
+  method: 'insert',
+  options: {},
+  timeout: false,
+  cancelOnTimeout: false,
+  bindings: [
+    'api',
+    '{"error":-1,"message":"아이디 비밀번호를 확인해 주세요...","variables":{},"httpStatusCode":200}',
+    '{}',
+    'POST',
+    '/apid1/d1/auth?user_id=test&password=test&admin=false'
+  ],
+  __knexQueryUid: '8a5d006c-a4e1-4e0e-b602-e7aa3deebbcb',
+  sql: 'insert into `service_error` (`error_type`, `message`, `request_body`, `request_method`, `request_url`) values (?, ?, ?, ?, ?)'
+}
+[2021-08-20T11:29:33.050] [INFO] default - {
+  ENV: 'development',
+  IS_RELEASE: false,
+  IS_DEV: true,
+  IS_LOCAL: false,
+  IS_DEMON: false,
+  PRINT_DB_LOG: true,
+  LOG_PATH: 'logs',
+  MYSQL_HOST: null,
+  MONGODB_HOST: null
+}
+[2021-08-20T11:29:33.627] [DEBUG] default - add api ./d1/auth.js /d1/auth
+[2021-08-20T11:29:33.630] [DEBUG] default - add api ./d1/test.js /d1/test
+[2021-08-20T11:29:33.632] [DEBUG] default - add api ./d1/users.js /d1/users
+[2021-08-20T11:29:33.646] [DEBUG] default - Listening on port 3600 -> PID: 28080
+[2021-08-20T11:29:33.646] [DEBUG] default - [InitService] init start
+[2021-08-20T11:29:33.713] [DEBUG] default - [MySQL]
+ {
+  method: 'select',
+  options: {},
+  timeout: false,
+  cancelOnTimeout: false,
+  bindings: [],
+  __knexQueryUid: '3e7dd12b-b1e3-4d95-a978-37c6d581dbbe',
+  sql: 'select * from `service_config`'
+}
+[2021-08-20T11:29:33.718] [DEBUG] default - [InitService] init complete
+[2021-08-20T11:29:42.952] [ERROR] default - /auth/ StdObject {
+  toJSON: [Function (anonymous)],
+  error: -1,
+  message: '아이디 비밀번호를 확인해 주세요...',
+  variables: {},
+  httpStatusCode: 400,
+  stack: null
+}
+[2021-08-20T11:29:42.954] [ERROR] default - [ POST /apid1/d1/auth?user_id=test&password=test&admin=false ]
+ App {
+  error: -1,
+  message: '아이디 비밀번호를 확인해 주세요...',
+  variables: {},
+  httpStatusCode: 200
+}
+[2021-08-20T11:29:42.961] [WARN] default - [MySQL]
+ .returning() is not supported by mysql and will not have any effect.
+[2021-08-20T11:29:42.962] [DEBUG] default - [MySQL]
+ {
+  method: 'insert',
+  options: {},
+  timeout: false,
+  cancelOnTimeout: false,
+  bindings: [
+    'api',
+    '{"error":-1,"message":"아이디 비밀번호를 확인해 주세요...","variables":{},"httpStatusCode":200}',
+    '{}',
+    'POST',
+    '/apid1/d1/auth?user_id=test&password=test&admin=false'
+  ],
+  __knexQueryUid: '5084274f-1c41-4269-baaf-57c64c41c0a5',
+  sql: 'insert into `service_error` (`error_type`, `message`, `request_body`, `request_method`, `request_url`) values (?, ?, ?, ?, ?)'
+}
+[2021-08-20T11:29:50.918] [INFO] default - {
+  ENV: 'development',
+  IS_RELEASE: false,
+  IS_DEV: true,
+  IS_LOCAL: false,
+  IS_DEMON: false,
+  PRINT_DB_LOG: true,
+  LOG_PATH: 'logs',
+  MYSQL_HOST: null,
+  MONGODB_HOST: null
+}
+[2021-08-20T11:29:51.473] [DEBUG] default - add api ./d1/auth.js /d1/auth
+[2021-08-20T11:29:51.476] [DEBUG] default - add api ./d1/test.js /d1/test
+[2021-08-20T11:29:51.478] [DEBUG] default - add api ./d1/users.js /d1/users
+[2021-08-20T11:29:51.491] [DEBUG] default - Listening on port 3600 -> PID: 25188
+[2021-08-20T11:29:51.491] [DEBUG] default - [InitService] init start
+[2021-08-20T11:29:51.550] [DEBUG] default - [MySQL]
+ {
+  method: 'select',
+  options: {},
+  timeout: false,
+  cancelOnTimeout: false,
+  bindings: [],
+  __knexQueryUid: '23091ce4-8d7e-4711-b9df-21dc169f0cc5',
+  sql: 'select * from `service_config`'
+}
+[2021-08-20T11:29:51.557] [DEBUG] default - [InitService] init complete
+[2021-08-20T11:30:03.608] [ERROR] default - /auth/ StdObject {
+  toJSON: [Function (anonymous)],
+  error: -1,
+  message: '아이디 비밀번호를 확인해 주세요...',
+  variables: {},
+  httpStatusCode: 400,
+  stack: null
+}
+[2021-08-20T11:30:03.610] [ERROR] default - [ POST /apid1/d1/auth?user_id=test&password=test&admin=false ]
+ App {
+  error: -1,
+  message: '아이디 비밀번호를 확인해 주세요...',
+  variables: {},
+  httpStatusCode: 200
+}
+[2021-08-20T11:30:03.617] [WARN] default - [MySQL]
+ .returning() is not supported by mysql and will not have any effect.
+[2021-08-20T11:30:03.618] [DEBUG] default - [MySQL]
+ {
+  method: 'insert',
+  options: {},
+  timeout: false,
+  cancelOnTimeout: false,
+  bindings: [
+    'api',
+    '{"error":-1,"message":"아이디 비밀번호를 확인해 주세요...","variables":{},"httpStatusCode":200}',
+    '{}',
+    'POST',
+    '/apid1/d1/auth?user_id=test&password=test&admin=false'
+  ],
+  __knexQueryUid: 'dbd20e3f-4eab-4513-a15b-871216d3241c',
+  sql: 'insert into `service_error` (`error_type`, `message`, `request_body`, `request_method`, `request_url`) values (?, ?, ?, ?, ?)'
+}
+[2021-08-20T11:30:09.077] [INFO] default - {
+  ENV: 'development',
+  IS_RELEASE: false,
+  IS_DEV: true,
+  IS_LOCAL: false,
+  IS_DEMON: false,
+  PRINT_DB_LOG: true,
+  LOG_PATH: 'logs',
+  MYSQL_HOST: null,
+  MONGODB_HOST: null
+}
+[2021-08-20T11:30:09.637] [DEBUG] default - add api ./d1/auth.js /d1/auth
+[2021-08-20T11:30:09.641] [DEBUG] default - add api ./d1/test.js /d1/test
+[2021-08-20T11:30:09.643] [DEBUG] default - add api ./d1/users.js /d1/users
+[2021-08-20T11:30:09.656] [DEBUG] default - Listening on port 3600 -> PID: 16192
+[2021-08-20T11:30:09.657] [DEBUG] default - [InitService] init start
+[2021-08-20T11:30:09.716] [DEBUG] default - [MySQL]
+ {
+  method: 'select',
+  options: {},
+  timeout: false,
+  cancelOnTimeout: false,
+  bindings: [],
+  __knexQueryUid: '82e5ec1e-c8cc-41e2-80b0-a60bdc53174d',
+  sql: 'select * from `service_config`'
+}
+[2021-08-20T11:30:09.723] [DEBUG] default - [InitService] init complete
+[2021-08-20T11:30:43.730] [INFO] default - {
+  ENV: 'development',
+  IS_RELEASE: false,
+  IS_DEV: true,
+  IS_LOCAL: false,
+  IS_DEMON: false,
+  PRINT_DB_LOG: true,
+  LOG_PATH: 'logs',
+  MYSQL_HOST: null,
+  MONGODB_HOST: null
+}
+[2021-08-20T11:30:44.300] [DEBUG] default - add api ./d1/auth.js /d1/auth
+[2021-08-20T11:30:44.304] [DEBUG] default - add api ./d1/test.js /d1/test
+[2021-08-20T11:30:44.306] [DEBUG] default - add api ./d1/users.js /d1/users
+[2021-08-20T11:30:44.319] [DEBUG] default - Listening on port 3600 -> PID: 29028
+[2021-08-20T11:30:44.320] [DEBUG] default - [InitService] init start
+[2021-08-20T11:30:44.379] [DEBUG] default - [MySQL]
+ {
+  method: 'select',
+  options: {},
+  timeout: false,
+  cancelOnTimeout: false,
+  bindings: [],
+  __knexQueryUid: 'f6558e21-6cf1-4c45-b28a-c453daaf35c5',
+  sql: 'select * from `service_config`'
+}
+[2021-08-20T11:30:44.387] [DEBUG] default - [InitService] init complete
+[2021-08-20T11:30:54.892] [ERROR] default - /auth/ StdObject {
+  toJSON: [Function (anonymous)],
+  error: -1,
+  message: '아이디 비밀번호를 확인해 주세요...',
+  variables: {},
+  httpStatusCode: 400,
+  stack: null
+}
+[2021-08-20T11:30:54.895] [ERROR] default - [ POST /apid1/d1/auth?user_id=test&password=test&admin=false ]
+ App {
+  error: -1,
+  message: '아이디 비밀번호를 확인해 주세요...',
+  variables: {},
+  httpStatusCode: 200
+}
+[2021-08-20T11:30:54.901] [WARN] default - [MySQL]
+ .returning() is not supported by mysql and will not have any effect.
+[2021-08-20T11:30:54.902] [DEBUG] default - [MySQL]
+ {
+  method: 'insert',
+  options: {},
+  timeout: false,
+  cancelOnTimeout: false,
+  bindings: [
+    'api',
+    '{"error":-1,"message":"아이디 비밀번호를 확인해 주세요...","variables":{},"httpStatusCode":200}',
+    '{}',
+    'POST',
+    '/apid1/d1/auth?user_id=test&password=test&admin=false'
+  ],
+  __knexQueryUid: 'b5f60061-0723-4ae0-a7d5-9c25f11b1e8b',
+  sql: 'insert into `service_error` (`error_type`, `message`, `request_body`, `request_method`, `request_url`) values (?, ?, ?, ?, ?)'
+}
+[2021-08-20T11:30:57.193] [ERROR] default - /auth/ StdObject {
+  toJSON: [Function (anonymous)],
+  error: -1,
+  message: '아이디 비밀번호를 확인해 주세요...',
+  variables: {},
+  httpStatusCode: 400,
+  stack: null
+}
+[2021-08-20T11:30:57.195] [ERROR] default - [ POST /apid1/d1/auth?user_id=test&password=test&admin=false ]
+ App {
+  error: -1,
+  message: '아이디 비밀번호를 확인해 주세요...',
+  variables: {},
+  httpStatusCode: 200
+}
+[2021-08-20T11:30:57.198] [WARN] default - [MySQL]
+ .returning() is not supported by mysql and will not have any effect.
+[2021-08-20T11:30:57.198] [DEBUG] default - [MySQL]
+ {
+  method: 'insert',
+  options: {},
+  timeout: false,
+  cancelOnTimeout: false,
+  bindings: [
+    'api',
+    '{"error":-1,"message":"아이디 비밀번호를 확인해 주세요...","variables":{},"httpStatusCode":200}',
+    '{}',
+    'POST',
+    '/apid1/d1/auth?user_id=test&password=test&admin=false'
+  ],
+  __knexQueryUid: 'fb752195-963c-4b38-a843-277ba45ae51a',
+  sql: 'insert into `service_error` (`error_type`, `message`, `request_body`, `request_method`, `request_url`) values (?, ?, ?, ?, ?)'
+}
+[2021-08-20T11:32:32.867] [ERROR] default - /auth/ StdObject {
+  toJSON: [Function (anonymous)],
+  error: -1,
+  message: '아이디 비밀번호를 확인해 주세요...',
+  variables: {},
+  httpStatusCode: 400,
+  stack: null
+}
+[2021-08-20T11:32:32.872] [ERROR] default - [ POST /apid1/d1/auth?user_id=test&password=test&admin=false ]
+ App {
+  error: -1,
+  message: '아이디 비밀번호를 확인해 주세요...',
+  variables: {},
+  httpStatusCode: 200
+}
+[2021-08-20T11:32:32.879] [WARN] default - [MySQL]
+ .returning() is not supported by mysql and will not have any effect.
+[2021-08-20T11:32:32.881] [DEBUG] default - [MySQL]
+ {
+  method: 'insert',
+  options: {},
+  timeout: false,
+  cancelOnTimeout: false,
+  bindings: [
+    'api',
+    '{"error":-1,"message":"아이디 비밀번호를 확인해 주세요...","variables":{},"httpStatusCode":200}',
+    '{}',
+    'POST',
+    '/apid1/d1/auth?user_id=test&password=test&admin=false'
+  ],
+  __knexQueryUid: '87b03760-7d0a-4d33-abb5-044df570b0ed',
+  sql: 'insert into `service_error` (`error_type`, `message`, `request_body`, `request_method`, `request_url`) values (?, ?, ?, ?, ?)'
+}
+[2021-08-20T11:33:02.101] [DEBUG] default - [MySQL]
+ {
+  method: 'first',
+  options: {},
+  timeout: false,
+  cancelOnTimeout: false,
+  bindings: [ 'test', 1 ],
+  __knexQueryUid: '94602c26-ff56-4cb2-8d04-30b5986bfea9',
+  sql: 'select * from `member` where `user_id` = ? limit ?'
+}
+[2021-08-20T11:33:02.106] [ERROR] default - /auth/ StdObject {
+  toJSON: [Function (anonymous)],
+  error: -1,
+  message: '회원정보가 일치하지 않습니다.',
+  variables: {},
+  httpStatusCode: 400,
+  stack: null
+}
+[2021-08-20T11:33:02.108] [ERROR] default - [ POST /apid1/d1/auth?user_id=test&password=test&admin=false ]
+ App {
+  error: -1,
+  message: '회원정보가 일치하지 않습니다.',
+  variables: {},
+  httpStatusCode: 200
+}
+[2021-08-20T11:33:02.110] [WARN] default - [MySQL]
+ .returning() is not supported by mysql and will not have any effect.
+[2021-08-20T11:33:02.110] [DEBUG] default - [MySQL]
+ {
+  method: 'insert',
+  options: {},
+  timeout: false,
+  cancelOnTimeout: false,
+  bindings: [
+    'api',
+    '{"error":-1,"message":"회원정보가 일치하지 않습니다.","variables":{},"httpStatusCode":200}',
+    '{"user_id":"test","password":"test"}',
+    'POST',
+    '/apid1/d1/auth?user_id=test&password=test&admin=false'
+  ],
+  __knexQueryUid: 'f2f26a80-4d86-4937-8147-3211589f1a80',
+  sql: 'insert into `service_error` (`error_type`, `message`, `request_body`, `request_method`, `request_url`) values (?, ?, ?, ?, ?)'
+}
+[2021-08-20T11:33:03.712] [DEBUG] default - [MySQL]
+ {
+  method: 'first',
+  options: {},
+  timeout: false,
+  cancelOnTimeout: false,
+  bindings: [ 'test', 1 ],
+  __knexQueryUid: '457d695a-0146-4a20-9052-5f93ab1e30ac',
+  sql: 'select * from `member` where `user_id` = ? limit ?'
+}
+[2021-08-20T11:33:03.715] [ERROR] default - /auth/ StdObject {
+  toJSON: [Function (anonymous)],
+  error: -1,
+  message: '회원정보가 일치하지 않습니다.',
+  variables: {},
+  httpStatusCode: 400,
+  stack: null
+}
+[2021-08-20T11:33:03.717] [ERROR] default - [ POST /apid1/d1/auth?user_id=test&password=test&admin=false ]
+ App {
+  error: -1,
+  message: '회원정보가 일치하지 않습니다.',
+  variables: {},
+  httpStatusCode: 200
+}
+[2021-08-20T11:33:03.719] [WARN] default - [MySQL]
+ .returning() is not supported by mysql and will not have any effect.
+[2021-08-20T11:33:03.720] [DEBUG] default - [MySQL]
+ {
+  method: 'insert',
+  options: {},
+  timeout: false,
+  cancelOnTimeout: false,
+  bindings: [
+    'api',
+    '{"error":-1,"message":"회원정보가 일치하지 않습니다.","variables":{},"httpStatusCode":200}',
+    '{"user_id":"test","password":"test"}',
+    'POST',
+    '/apid1/d1/auth?user_id=test&password=test&admin=false'
+  ],
+  __knexQueryUid: 'a3792258-74dd-4564-a718-ce541a3f20c1',
+  sql: 'insert into `service_error` (`error_type`, `message`, `request_body`, `request_method`, `request_url`) values (?, ?, ?, ?, ?)'
+}
+[2021-08-20T11:33:24.108] [ERROR] default - /auth/ StdObject {
+  toJSON: [Function (anonymous)],
+  error: -1,
+  message: '아이디 비밀번호를 확인해 주세요...',
+  variables: {},
+  httpStatusCode: 400,
+  stack: null
+}
+[2021-08-20T11:33:24.116] [ERROR] default - [ POST /apid1/d1/auth?user_id=test&password=test&admin=false ]
+ App {
+  error: -1,
+  message: '아이디 비밀번호를 확인해 주세요...',
+  variables: {},
+  httpStatusCode: 200
+}
+[2021-08-20T11:33:24.119] [WARN] default - [MySQL]
+ .returning() is not supported by mysql and will not have any effect.
+[2021-08-20T11:33:24.119] [DEBUG] default - [MySQL]
+ {
+  method: 'insert',
+  options: {},
+  timeout: false,
+  cancelOnTimeout: false,
+  bindings: [
+    'api',
+    '{"error":-1,"message":"아이디 비밀번호를 확인해 주세요...","variables":{},"httpStatusCode":200}',
+    '{"user_id":"test","password":""}',
+    'POST',
+    '/apid1/d1/auth?user_id=test&password=test&admin=false'
+  ],
+  __knexQueryUid: '341a7bd7-ba5e-4a94-ac00-b4407d4e4fd6',
+  sql: 'insert into `service_error` (`error_type`, `message`, `request_body`, `request_method`, `request_url`) values (?, ?, ?, ?, ?)'
+}
+[2021-08-20T11:33:26.890] [DEBUG] default - [MySQL]
+ {
+  method: 'first',
+  options: {},
+  timeout: false,
+  cancelOnTimeout: false,
+  bindings: [ 'test', 1 ],
+  __knexQueryUid: '100873c3-dd01-4a0f-8898-1ef856fec4e0',
+  sql: 'select * from `member` where `user_id` = ? limit ?'
+}
+[2021-08-20T11:33:26.893] [ERROR] default - /auth/ StdObject {
+  toJSON: [Function (anonymous)],
+  error: -1,
+  message: '회원정보가 일치하지 않습니다.',
+  variables: {},
+  httpStatusCode: 400,
+  stack: null
+}
+[2021-08-20T11:33:26.895] [ERROR] default - [ POST /apid1/d1/auth?user_id=test&password=test&admin=false ]
+ App {
+  error: -1,
+  message: '회원정보가 일치하지 않습니다.',
+  variables: {},
+  httpStatusCode: 200
+}
+[2021-08-20T11:33:26.898] [WARN] default - [MySQL]
+ .returning() is not supported by mysql and will not have any effect.
+[2021-08-20T11:33:26.899] [DEBUG] default - [MySQL]
+ {
+  method: 'insert',
+  options: {},
+  timeout: false,
+  cancelOnTimeout: false,
+  bindings: [
+    'api',
+    '{"error":-1,"message":"회원정보가 일치하지 않습니다.","variables":{},"httpStatusCode":200}',
+    '{"user_id":"test","password":"2"}',
+    'POST',
+    '/apid1/d1/auth?user_id=test&password=test&admin=false'
+  ],
+  __knexQueryUid: 'a8bd9bca-93f0-43da-9517-0967c7f23de0',
+  sql: 'insert into `service_error` (`error_type`, `message`, `request_body`, `request_method`, `request_url`) values (?, ?, ?, ?, ?)'
+}
+[2021-08-20T11:33:29.971] [DEBUG] default - [MySQL]
+ {
+  method: 'first',
+  options: {},
+  timeout: false,
+  cancelOnTimeout: false,
+  bindings: [ 'test', 1 ],
+  __knexQueryUid: '5870e4e6-f1be-4a7b-949e-22e47361bd60',
+  sql: 'select * from `member` where `user_id` = ? limit ?'
+}
+[2021-08-20T11:33:29.978] [DEBUG] default - [MySQL]
+ {
+  method: 'update',
+  options: {},
+  timeout: false,
+  cancelOnTimeout: false,
+  bindings: [ '2021-08-20 11:08:29', 1 ],
+  __knexQueryUid: 'b13c59a6-b580-42e0-a630-bdd6b11bffdf',
+  sql: 'update `member` set `lastlogin` = ? where `seq` = ?'
+}
+[2021-08-20T11:33:29.986] [WARN] default - [MySQL]
+ .returning() is not supported by mysql and will not have any effect.
+[2021-08-20T11:33:29.987] [DEBUG] default - [MySQL]
+ {
+  method: 'insert',
+  options: {},
+  timeout: false,
+  cancelOnTimeout: false,
+  bindings: [ '0000', 'login', 1, '127.0.0.1' ],
+  __knexQueryUid: '78451f9a-6973-4f27-af2b-4e718e66c5c4',
+  sql: 'insert into `member_log` (`log_code`, `log_text`, `member_seq`, `used_ipaddress`) values (?, ?, ?, ?)'
+}
+[2021-08-20T11:33:45.306] [DEBUG] default - [MySQL]
+ {
+  method: 'select',
+  options: {},
+  timeout: false,
+  cancelOnTimeout: false,
+  bindings: [ 'ollagaza2' ],
+  __knexQueryUid: 'dbecd1f3-e4e5-4a90-869e-9ed47bff321e',
+  sql: 'select count(*) as `co` from `member` where `user_id` = ?'
+}
+[2021-08-20T11:33:47.484] [DEBUG] default - [MySQL]
+ {
+  method: 'select',
+  options: {},
+  timeout: false,
+  cancelOnTimeout: false,
+  bindings: [ 'test' ],
+  __knexQueryUid: 'c927685c-54cc-4db3-bf30-12d64fcbbcaf',
+  sql: 'select count(*) as `co` from `member` where `user_id` = ?'
+}
+[2021-08-20T11:34:00.804] [DEBUG] default - [MySQL]
+ {
+  method: 'first',
+  options: {},
+  timeout: false,
+  cancelOnTimeout: false,
+  bindings: [ 'test', 1 ],
+  __knexQueryUid: 'f9556970-643a-401f-a3b0-c6dead91293a',
+  sql: 'select * from `member` where `user_id` = ? limit ?'
+}
+[2021-08-20T11:34:00.808] [DEBUG] default - [MySQL]
+ {
+  method: 'update',
+  options: {},
+  timeout: false,
+  cancelOnTimeout: false,
+  bindings: [ '2021-08-20 11:08:00', 1 ],
+  __knexQueryUid: 'ced9d383-3bd7-43bd-aa49-24d8203d727f',
+  sql: 'update `member` set `lastlogin` = ? where `seq` = ?'
+}
+[2021-08-20T11:34:00.814] [WARN] default - [MySQL]
+ .returning() is not supported by mysql and will not have any effect.
+[2021-08-20T11:34:00.814] [DEBUG] default - [MySQL]
+ {
+  method: 'insert',
+  options: {},
+  timeout: false,
+  cancelOnTimeout: false,
+  bindings: [ '0000', 'login', 1, '127.0.0.1' ],
+  __knexQueryUid: 'e8b00f7a-0f2e-4574-8e7f-ba1529773b0e',
+  sql: 'insert into `member_log` (`log_code`, `log_text`, `member_seq`, `used_ipaddress`) values (?, ?, ?, ?)'
+}
+[2021-08-20T11:34:28.367] [ERROR] default - [ GET /apid1/d1/me ]
+ 요청하신 API Endpoint가 존재하지 않습니다.
+[2021-08-20T11:34:28.369] [ERROR] default - [ GET /apid1/d1/me ]
+ App {
+  error: -1,
+  message: '요청하신 API Endpoint가 존재하지 않습니다.',
+  variables: {},
+  httpStatusCode: 404
+}
+[2021-08-20T11:34:43.768] [ERROR] default - [ GET /apid1/d1/http://localhost:3600/apid1/d1/users/me ]
+ 요청하신 API Endpoint가 존재하지 않습니다.
+[2021-08-20T11:34:43.768] [ERROR] default - [ GET /apid1/d1/http://localhost:3600/apid1/d1/users/me ]
+ App {
+  error: -1,
+  message: '요청하신 API Endpoint가 존재하지 않습니다.',
+  variables: {},
+  httpStatusCode: 404
+}
+[2021-08-20T11:38:32.957] [DEBUG] default - [MySQL]
+ {
+  method: 'first',
+  options: {},
+  timeout: false,
+  cancelOnTimeout: false,
+  bindings: [ 'test', 1 ],
+  __knexQueryUid: 'd689e448-a8e0-4b66-bdcf-ec263db008fc',
+  sql: 'select * from `member` where `user_id` = ? limit ?'
+}
+[2021-08-20T11:38:32.966] [DEBUG] default - [MySQL]
+ {
+  method: 'update',
+  options: {},
+  timeout: false,
+  cancelOnTimeout: false,
+  bindings: [ '2021-08-20 11:08:32', 1 ],
+  __knexQueryUid: 'cc396d2b-511b-4447-9424-a6e65f44b50a',
+  sql: 'update `member` set `lastlogin` = ? where `seq` = ?'
+}
+[2021-08-20T11:38:32.972] [WARN] default - [MySQL]
+ .returning() is not supported by mysql and will not have any effect.
+[2021-08-20T11:38:32.973] [DEBUG] default - [MySQL]
+ {
+  method: 'insert',
+  options: {},
+  timeout: false,
+  cancelOnTimeout: false,
+  bindings: [ '0000', 'login', 1, '127.0.0.1' ],
+  __knexQueryUid: 'b1209fbb-6fdd-4c75-91f6-ac768c5900c9',
+  sql: 'insert into `member_log` (`log_code`, `log_text`, `member_seq`, `used_ipaddress`) values (?, ?, ?, ?)'
+}
+[2021-08-20T11:41:13.433] [DEBUG] default - [MySQL]
+ {
+  method: 'first',
+  options: {},
+  timeout: false,
+  cancelOnTimeout: false,
+  bindings: [ 'test', 1 ],
+  __knexQueryUid: '1445a6ba-ad4c-4bf0-b05a-986199ac274c',
+  sql: 'select * from `member` where `user_id` = ? limit ?'
+}
+[2021-08-20T11:41:13.436] [DEBUG] default - [MySQL]
+ {
+  method: 'update',
+  options: {},
+  timeout: false,
+  cancelOnTimeout: false,
+  bindings: [ '2021-08-20 11:08:13', 1 ],
+  __knexQueryUid: '7207e4bc-b880-48a4-9225-666833464847',
+  sql: 'update `member` set `lastlogin` = ? where `seq` = ?'
+}
+[2021-08-20T11:41:13.441] [WARN] default - [MySQL]
+ .returning() is not supported by mysql and will not have any effect.
+[2021-08-20T11:41:13.441] [DEBUG] default - [MySQL]
+ {
+  method: 'insert',
+  options: {},
+  timeout: false,
+  cancelOnTimeout: false,
+  bindings: [ '0000', 'login', 1, '127.0.0.1' ],
+  __knexQueryUid: '3d1d49fe-5116-422a-97a1-65371a17432c',
+  sql: 'insert into `member_log` (`log_code`, `log_text`, `member_seq`, `used_ipaddress`) values (?, ?, ?, ?)'
+}
+[2021-08-20T11:41:23.663] [DEBUG] default - [MySQL]
+ {
+  method: 'first',
+  options: {},
+  timeout: false,
+  cancelOnTimeout: false,
+  bindings: [ 1, 1 ],
+  __knexQueryUid: 'b04f3881-0a31-478e-8049-66c47f25e434',
+  sql: 'select * from `member` where `seq` = ? limit ?'
+}
+[2021-08-20T11:41:31.998] [DEBUG] default - [MySQL]
+ {
+  method: 'first',
+  options: {},
+  timeout: false,
+  cancelOnTimeout: false,
+  bindings: [ 1, 1 ],
+  __knexQueryUid: '917df938-0525-4cbf-837f-c0f2c4ff9cfd',
+  sql: 'select * from `member` where `seq` = ? limit ?'
+}
+[2021-08-20T11:41:59.332] [DEBUG] default - [MySQL]
+ {
+  method: 'first',
+  options: {},
+  timeout: false,
+  cancelOnTimeout: false,
+  bindings: [ 1, 1 ],
+  __knexQueryUid: '502715ea-4b69-49cc-a12f-540cdd989870',
+  sql: 'select * from `member` where `seq` = ? limit ?'
+}
+[2021-08-20T11:45:31.325] [DEBUG] default - [MySQL]
+ {
+  method: 'first',
+  options: {},
+  timeout: false,
+  cancelOnTimeout: false,
+  bindings: [ 'ollagaza', 1 ],
+  __knexQueryUid: '2778b0aa-1ffb-47b7-95cf-82abd74a2175',
+  sql: 'select * from `member` where `user_id` = ? limit ?'
+}
+[2021-08-20T11:45:31.329] [DEBUG] default - [MySQL]
+ {
+  method: 'update',
+  options: {},
+  timeout: false,
+  cancelOnTimeout: false,
+  bindings: [ '2021-08-20 11:08:31', 4 ],
+  __knexQueryUid: '0f46d5a9-1e62-483d-a604-f38a26077840',
+  sql: 'update `member` set `lastlogin` = ? where `seq` = ?'
+}
+[2021-08-20T11:45:31.334] [ERROR] default - /auth/ StdObject {
+  toJSON: [Function (anonymous)],
+  error: -101.1,
+  message: '회원 가입 승인이 완료되지 않았습니다.<br/>승인이 완료되면 알려드리겠습니다.',
+  variables: {},
+  httpStatusCode: 400,
+  stack: null
+}
+[2021-08-20T11:45:31.335] [ERROR] default - [ POST /apid1/d1/auth?user_id=test&password=test&admin=false ]
+ App {
+  error: -101.1,
+  message: '회원 가입 승인이 완료되지 않았습니다.<br/>승인이 완료되면 알려드리겠습니다.',
+  variables: {},
+  httpStatusCode: 200
+}
+[2021-08-20T11:45:31.337] [WARN] default - [MySQL]
+ .returning() is not supported by mysql and will not have any effect.
+[2021-08-20T11:45:31.338] [DEBUG] default - [MySQL]
+ {
+  method: 'insert',
+  options: {},
+  timeout: false,
+  cancelOnTimeout: false,
+  bindings: [
+    'api',
+    '{"error":-101.1,"message":"회원 가입 승인이 완료되지 않았습니다.<br/>승인이 완료되면 알려드리겠습니다.","variables":{},"httpStatusCode":200}',
+    '{"user_id":"ollagaza","password":"1111"}',
+    'POST',
+    '/apid1/d1/auth?user_id=test&password=test&admin=false'
+  ],
+  __knexQueryUid: '40fb971a-6430-472d-9c45-996b2462c401',
+  sql: 'insert into `service_error` (`error_type`, `message`, `request_body`, `request_method`, `request_url`) values (?, ?, ?, ?, ?)'
+}
+[2021-08-20T11:45:50.874] [DEBUG] default - [MySQL]
+ {
+  method: 'first',
+  options: {},
+  timeout: false,
+  cancelOnTimeout: false,
+  bindings: [ 'ollagaza', 1 ],
+  __knexQueryUid: 'f99ffae7-212c-4e21-8c83-88f6d8297de5',
+  sql: 'select * from `member` where `user_id` = ? limit ?'
+}
+[2021-08-20T11:45:50.877] [DEBUG] default - [MySQL]
+ {
+  method: 'update',
+  options: {},
+  timeout: false,
+  cancelOnTimeout: false,
+  bindings: [ '2021-08-20 11:08:50', 4 ],
+  __knexQueryUid: 'fca3fbab-512c-4209-9e0f-df4c256a2ba4',
+  sql: 'update `member` set `lastlogin` = ? where `seq` = ?'
+}
+[2021-08-20T11:45:50.882] [WARN] default - [MySQL]
+ .returning() is not supported by mysql and will not have any effect.
+[2021-08-20T11:45:50.882] [DEBUG] default - [MySQL]
+ {
+  method: 'insert',
+  options: {},
+  timeout: false,
+  cancelOnTimeout: false,
+  bindings: [ '0000', 'login', 4, '127.0.0.1' ],
+  __knexQueryUid: 'b6154296-0833-42e7-9c76-3dcaba9c3c6f',
+  sql: 'insert into `member_log` (`log_code`, `log_text`, `member_seq`, `used_ipaddress`) values (?, ?, ?, ?)'
+}
+[2021-08-20T11:45:58.432] [DEBUG] default - [MySQL]
+ {
+  method: 'first',
+  options: {},
+  timeout: false,
+  cancelOnTimeout: false,
+  bindings: [ 4, 1 ],
+  __knexQueryUid: 'aa2563d8-6c1c-4551-ab7e-8a026ee26ad3',
+  sql: 'select * from `member` where `seq` = ? limit ?'
+}
+[2021-08-20T11:59:51.241] [DEBUG] default - [MySQL]
+ {
+  method: 'first',
+  options: {},
+  timeout: false,
+  cancelOnTimeout: false,
+  bindings: [ 4, 1 ],
+  __knexQueryUid: '3e586619-82b2-4d3e-892c-637e8fae25ff',
+  sql: 'select * from `member` where `seq` = ? limit ?'
+}
+[2021-08-20T12:06:40.272] [DEBUG] default - [MySQL]
+ {
+  method: 'first',
+  options: {},
+  timeout: false,
+  cancelOnTimeout: false,
+  bindings: [ 4, 1 ],
+  __knexQueryUid: '55b27591-7dc9-420b-9970-4207182175e5',
+  sql: 'select * from `member` where `seq` = ? limit ?'
+}
+[2021-08-20T12:12:10.541] [DEBUG] default - [MySQL]
+ {
+  method: 'first',
+  options: {},
+  timeout: false,
+  cancelOnTimeout: false,
+  bindings: [ 4, 1 ],
+  __knexQueryUid: 'a24580c1-6d1b-438f-a595-53974c4a33a1',
+  sql: 'select * from `member` where `seq` = ? limit ?'
+}
+[2021-08-20T12:12:44.203] [DEBUG] default - [MySQL]
+ {
+  method: 'select',
+  options: {},
+  timeout: false,
+  cancelOnTimeout: false,
+  bindings: [ 'test' ],
+  __knexQueryUid: '3fa379ff-745d-4b03-90de-5f05967f15e5',
+  sql: 'select count(*) as `co` from `member` where `user_id` = ?'
+}
+[2021-08-20T12:16:52.936] [INFO] default - {
+  ENV: 'development',
+  IS_RELEASE: false,
+  IS_DEV: true,
+  IS_LOCAL: false,
+  IS_DEMON: false,
+  PRINT_DB_LOG: true,
+  LOG_PATH: 'logs',
+  MYSQL_HOST: null,
+  MONGODB_HOST: null
+}
+[2021-08-20T12:16:53.497] [DEBUG] default - add api ./d1/auth.js /d1/auth
+[2021-08-20T12:16:53.500] [DEBUG] default - add api ./d1/test.js /d1/test
+[2021-08-20T12:16:53.504] [DEBUG] default - add api ./d1/users.js /d1/users
+[2021-08-20T12:16:53.531] [DEBUG] default - Listening on port 3600 -> PID: 27388
+[2021-08-20T12:16:53.532] [DEBUG] default - [InitService] init start
+[2021-08-20T12:16:53.598] [DEBUG] default - [MySQL]
+ {
+  method: 'select',
+  options: {},
+  timeout: false,
+  cancelOnTimeout: false,
+  bindings: [],
+  __knexQueryUid: 'be3122e8-9c55-49b6-8e5a-c5ecb3b795c7',
+  sql: 'select * from `service_config`'
+}
+[2021-08-20T12:16:53.603] [DEBUG] default - [InitService] init complete
+[2021-08-20T12:17:01.227] [DEBUG] default - [MySQL]
+ {
+  method: 'first',
+  options: {},
+  timeout: false,
+  cancelOnTimeout: false,
+  bindings: [ 'test', 1 ],
+  __knexQueryUid: '813b69c7-daea-4aa8-be17-dfd9ae164966',
+  sql: 'select * from `member` where `user_id` = ? limit ?'
+}
+[2021-08-20T12:17:01.234] [DEBUG] default - [MySQL]
+ {
+  method: 'update',
+  options: {},
+  timeout: false,
+  cancelOnTimeout: false,
+  bindings: [ '2021-08-20 12:08:01', 1 ],
+  __knexQueryUid: '8d393385-0268-444f-9fc5-9bdd5f1aed67',
+  sql: 'update `member` set `lastlogin` = ? where `seq` = ?'
+}
+[2021-08-20T12:17:01.242] [WARN] default - [MySQL]
+ .returning() is not supported by mysql and will not have any effect.
+[2021-08-20T12:17:01.243] [DEBUG] default - [MySQL]
+ {
+  method: 'insert',
+  options: {},
+  timeout: false,
+  cancelOnTimeout: false,
+  bindings: [ '0000', 'login', 1, '127.0.0.1' ],
+  __knexQueryUid: '79e7a8f3-2871-4b53-ab6b-ffeb0a48e20c',
+  sql: 'insert into `member_log` (`log_code`, `log_text`, `member_seq`, `used_ipaddress`) values (?, ?, ?, ?)'
+}
+[2021-08-20T12:17:19.783] [DEBUG] default - [MySQL]
+ {
+  method: 'first',
+  options: {},
+  timeout: false,
+  cancelOnTimeout: false,
+  bindings: [ '1111', 1 ],
+  __knexQueryUid: 'e0bc68fd-e451-47c5-92e8-1a0b11655f1e',
+  sql: 'select * from `member` where `user_id` = ? limit ?'
+}
+[2021-08-20T12:17:19.786] [ERROR] default - /auth/ StdObject {
+  toJSON: [Function (anonymous)],
+  error: -1,
+  message: '등록된 회원 정보가 없습니다.',
+  variables: {},
+  httpStatusCode: 400,
+  stack: null
+}
+[2021-08-20T12:17:19.788] [ERROR] default - [ POST /apid1/d1/auth ]
+ App {
+  error: -1,
+  message: '등록된 회원 정보가 없습니다.',
+  variables: {},
+  httpStatusCode: 200
+}
+[2021-08-20T12:17:19.791] [WARN] default - [MySQL]
+ .returning() is not supported by mysql and will not have any effect.
+[2021-08-20T12:17:19.792] [DEBUG] default - [MySQL]
+ {
+  method: 'insert',
+  options: {},
+  timeout: false,
+  cancelOnTimeout: false,
+  bindings: [
+    'api',
+    '{"error":-1,"message":"등록된 회원 정보가 없습니다.","variables":{},"httpStatusCode":200}',
+    '{"user_id":"1111","password":"1111"}',
+    'POST',
+    '/apid1/d1/auth'
+  ],
+  __knexQueryUid: '834afab4-b4fd-4ac2-8f48-ce7ccf55af9c',
+  sql: 'insert into `service_error` (`error_type`, `message`, `request_body`, `request_method`, `request_url`) values (?, ?, ?, ?, ?)'
+}
+[2021-08-20T12:17:23.451] [DEBUG] default - [MySQL]
+ {
+  method: 'first',
+  options: {},
+  timeout: false,
+  cancelOnTimeout: false,
+  bindings: [ 'test', 1 ],
+  __knexQueryUid: '4bd1fdcb-8c56-4b15-8bc9-a1773a567d09',
+  sql: 'select * from `member` where `user_id` = ? limit ?'
+}
+[2021-08-20T12:17:23.455] [DEBUG] default - [MySQL]
+ {
+  method: 'update',
+  options: {},
+  timeout: false,
+  cancelOnTimeout: false,
+  bindings: [ '2021-08-20 12:08:23', 1 ],
+  __knexQueryUid: 'c6b4ac67-5eca-4201-bfae-891fc04e0456',
+  sql: 'update `member` set `lastlogin` = ? where `seq` = ?'
+}
+[2021-08-20T12:17:23.461] [WARN] default - [MySQL]
+ .returning() is not supported by mysql and will not have any effect.
+[2021-08-20T12:17:23.462] [DEBUG] default - [MySQL]
+ {
+  method: 'insert',
+  options: {},
+  timeout: false,
+  cancelOnTimeout: false,
+  bindings: [ '0000', 'login', 1, '127.0.0.1' ],
+  __knexQueryUid: 'e7fe33e9-8101-4b15-ad4f-2ab8109487e8',
+  sql: 'insert into `member_log` (`log_code`, `log_text`, `member_seq`, `used_ipaddress`) values (?, ?, ?, ?)'
+}
+[2021-08-20T12:17:30.509] [DEBUG] default - [MySQL]
+ {
+  method: 'first',
+  options: {},
+  timeout: false,
+  cancelOnTimeout: false,
+  bindings: [ 'test22', 1 ],
+  __knexQueryUid: '3ac3342a-2188-40d1-b838-82b40e64396f',
+  sql: 'select * from `member` where `user_id` = ? limit ?'
+}
+[2021-08-20T12:17:30.512] [ERROR] default - /auth/ StdObject {
+  toJSON: [Function (anonymous)],
+  error: -1,
+  message: '등록된 회원 정보가 없습니다.',
+  variables: {},
+  httpStatusCode: 400,
+  stack: null
+}
+[2021-08-20T12:17:30.513] [ERROR] default - [ POST /apid1/d1/auth ]
+ App {
+  error: -1,
+  message: '등록된 회원 정보가 없습니다.',
+  variables: {},
+  httpStatusCode: 200
+}
+[2021-08-20T12:17:30.515] [WARN] default - [MySQL]
+ .returning() is not supported by mysql and will not have any effect.
+[2021-08-20T12:17:30.516] [DEBUG] default - [MySQL]
+ {
+  method: 'insert',
+  options: {},
+  timeout: false,
+  cancelOnTimeout: false,
+  bindings: [
+    'api',
+    '{"error":-1,"message":"등록된 회원 정보가 없습니다.","variables":{},"httpStatusCode":200}',
+    '{"user_id":"test22","password":"11113"}',
+    'POST',
+    '/apid1/d1/auth'
+  ],
+  __knexQueryUid: '212602dc-dd78-438e-893e-ee3e575577a2',
+  sql: 'insert into `service_error` (`error_type`, `message`, `request_body`, `request_method`, `request_url`) values (?, ?, ?, ?, ?)'
+}
+[2021-08-20T12:17:33.747] [DEBUG] default - [MySQL]
+ {
+  method: 'first',
+  options: {},
+  timeout: false,
+  cancelOnTimeout: false,
+  bindings: [ 'test', 1 ],
+  __knexQueryUid: '4c5ed607-327d-4c7e-bfed-03054d0c168f',
+  sql: 'select * from `member` where `user_id` = ? limit ?'
+}
+[2021-08-20T12:17:33.751] [ERROR] default - /auth/ StdObject {
+  toJSON: [Function (anonymous)],
+  error: -1,
+  message: '회원정보가 일치하지 않습니다.',
+  variables: {},
+  httpStatusCode: 400,
+  stack: null
+}
+[2021-08-20T12:17:33.753] [ERROR] default - [ POST /apid1/d1/auth ]
+ App {
+  error: -1,
+  message: '회원정보가 일치하지 않습니다.',
+  variables: {},
+  httpStatusCode: 200
+}
+[2021-08-20T12:17:33.755] [WARN] default - [MySQL]
+ .returning() is not supported by mysql and will not have any effect.
+[2021-08-20T12:17:33.756] [DEBUG] default - [MySQL]
+ {
+  method: 'insert',
+  options: {},
+  timeout: false,
+  cancelOnTimeout: false,
+  bindings: [
+    'api',
+    '{"error":-1,"message":"회원정보가 일치하지 않습니다.","variables":{},"httpStatusCode":200}',
+    '{"user_id":"test","password":"11113"}',
+    'POST',
+    '/apid1/d1/auth'
+  ],
+  __knexQueryUid: '262e2697-f4ee-435e-b5fe-c48b79d8b197',
+  sql: 'insert into `service_error` (`error_type`, `message`, `request_body`, `request_method`, `request_url`) values (?, ?, ?, ?, ?)'
+}
+[2021-08-20T12:17:38.878] [DEBUG] default - [MySQL]
+ {
+  method: 'first',
+  options: {},
+  timeout: false,
+  cancelOnTimeout: false,
+  bindings: [ 'ollagaza', 1 ],
+  __knexQueryUid: '458ba5a5-1713-4fd5-aede-448c647a97fb',
+  sql: 'select * from `member` where `user_id` = ? limit ?'
+}
+[2021-08-20T12:17:38.881] [DEBUG] default - [MySQL]
+ {
+  method: 'update',
+  options: {},
+  timeout: false,
+  cancelOnTimeout: false,
+  bindings: [ '2021-08-20 12:08:38', 4 ],
+  __knexQueryUid: '69b1e7a1-08ba-4205-a826-8ff319da63d1',
+  sql: 'update `member` set `lastlogin` = ? where `seq` = ?'
+}
+[2021-08-20T12:17:38.888] [WARN] default - [MySQL]
+ .returning() is not supported by mysql and will not have any effect.
+[2021-08-20T12:17:38.888] [DEBUG] default - [MySQL]
+ {
+  method: 'insert',
+  options: {},
+  timeout: false,
+  cancelOnTimeout: false,
+  bindings: [ '0000', 'login', 4, '127.0.0.1' ],
+  __knexQueryUid: '3c3959d1-1e63-4260-9394-5b8cff24f4a7',
+  sql: 'insert into `member_log` (`log_code`, `log_text`, `member_seq`, `used_ipaddress`) values (?, ?, ?, ?)'
+}
+[2021-08-20T12:18:52.498] [DEBUG] default - [MySQL]
+ {
+  method: 'select',
+  options: {},
+  timeout: false,
+  cancelOnTimeout: false,
+  bindings: [ 'test' ],
+  __knexQueryUid: '66e3932e-80aa-4824-8824-67a01020fd40',
+  sql: 'select count(*) as `co` from `member` where `user_id` = ?'
+}
+[2021-08-20T12:19:35.688] [DEBUG] default - [MySQL]
+ {
+  method: 'first',
+  options: {},
+  timeout: false,
+  cancelOnTimeout: false,
+  bindings: [ 4, 1 ],
+  __knexQueryUid: '22123808-c67f-4395-9819-f5c287364673',
+  sql: 'select * from `member` where `seq` = ? limit ?'
+}
+[2021-08-20T12:19:42.792] [WARN] default - [MySQL]
+ .returning() is not supported by mysql and will not have any effect.
+[2021-08-20T12:19:42.793] [DEBUG] default - [MySQL]
+ {
+  method: 'insert',
+  options: {},
+  timeout: false,
+  cancelOnTimeout: false,
+  bindings: [ '1009', 'logout', 4, '127.0.0.1' ],
+  __knexQueryUid: '0c7b063f-e888-4e7e-b743-46496909b2dd',
+  sql: 'insert into `member_log` (`log_code`, `log_text`, `member_seq`, `used_ipaddress`) values (?, ?, ?, ?)'
+}
+[2021-08-20T12:19:47.301] [DEBUG] default - [MySQL]
+ {
+  method: 'first',
+  options: {},
+  timeout: false,
+  cancelOnTimeout: false,
+  bindings: [ 'ollagaza', 1 ],
+  __knexQueryUid: 'bb706797-1e67-41db-8aec-5ba0c1e3dd3d',
+  sql: 'select * from `member` where `user_id` = ? limit ?'
+}
+[2021-08-20T12:19:47.304] [ERROR] default - /auth/ StdObject {
+  toJSON: [Function (anonymous)],
+  error: -1,
+  message: '회원정보가 일치하지 않습니다.',
+  variables: {},
+  httpStatusCode: 400,
+  stack: null
+}
+[2021-08-20T12:19:47.305] [ERROR] default - [ POST /apid1/d1/auth ]
+ App {
+  error: -1,
+  message: '회원정보가 일치하지 않습니다.',
+  variables: {},
+  httpStatusCode: 200
+}
+[2021-08-20T12:19:47.308] [WARN] default - [MySQL]
+ .returning() is not supported by mysql and will not have any effect.
+[2021-08-20T12:19:47.308] [DEBUG] default - [MySQL]
+ {
+  method: 'insert',
+  options: {},
+  timeout: false,
+  cancelOnTimeout: false,
+  bindings: [
+    'api',
+    '{"error":-1,"message":"회원정보가 일치하지 않습니다.","variables":{},"httpStatusCode":200}',
+    '{"user_id":"ollagaza","password":"1234"}',
+    'POST',
+    '/apid1/d1/auth'
+  ],
+  __knexQueryUid: '1db4cdae-227b-459b-96a2-526c0318872c',
+  sql: 'insert into `service_error` (`error_type`, `message`, `request_body`, `request_method`, `request_url`) values (?, ?, ?, ?, ?)'
+}
+[2021-08-20T12:19:49.955] [DEBUG] default - [MySQL]
+ {
+  method: 'first',
+  options: {},
+  timeout: false,
+  cancelOnTimeout: false,
+  bindings: [ 'ollagaza', 1 ],
+  __knexQueryUid: '17b234be-704a-4c31-9ede-03a13650692b',
+  sql: 'select * from `member` where `user_id` = ? limit ?'
+}
+[2021-08-20T12:19:49.959] [DEBUG] default - [MySQL]
+ {
+  method: 'update',
+  options: {},
+  timeout: false,
+  cancelOnTimeout: false,
+  bindings: [ '2021-08-20 12:08:49', 4 ],
+  __knexQueryUid: '0a5d8380-fcc9-44ff-b1a1-1a06084238c4',
+  sql: 'update `member` set `lastlogin` = ? where `seq` = ?'
+}
+[2021-08-20T12:19:49.963] [WARN] default - [MySQL]
+ .returning() is not supported by mysql and will not have any effect.
+[2021-08-20T12:19:49.963] [DEBUG] default - [MySQL]
+ {
+  method: 'insert',
+  options: {},
+  timeout: false,
+  cancelOnTimeout: false,
+  bindings: [ '0000', 'login', 4, '127.0.0.1' ],
+  __knexQueryUid: 'ceb2e226-e763-4fba-a596-f1ada406c515',
+  sql: 'insert into `member_log` (`log_code`, `log_text`, `member_seq`, `used_ipaddress`) values (?, ?, ?, ?)'
+}
+[2021-08-20T12:19:49.986] [DEBUG] default - [MySQL]
+ {
+  method: 'first',
+  options: {},
+  timeout: false,
+  cancelOnTimeout: false,
+  bindings: [ 4, 1 ],
+  __knexQueryUid: '5d47e099-6b70-4843-bf05-1baa53754968',
+  sql: 'select * from `member` where `seq` = ? limit ?'
+}
+[2021-08-20T12:19:56.086] [WARN] default - [MySQL]
+ .returning() is not supported by mysql and will not have any effect.
+[2021-08-20T12:19:56.086] [DEBUG] default - [MySQL]
+ {
+  method: 'insert',
+  options: {},
+  timeout: false,
+  cancelOnTimeout: false,
+  bindings: [ '1009', 'logout', 4, '127.0.0.1' ],
+  __knexQueryUid: '7b5fb0b4-6ad1-4b60-ba35-6b4db5a1b742',
+  sql: 'insert into `member_log` (`log_code`, `log_text`, `member_seq`, `used_ipaddress`) values (?, ?, ?, ?)'
+}
+[2021-08-20T12:20:20.990] [DEBUG] default - [MySQL]
+ {
+  method: 'first',
+  options: {},
+  timeout: false,
+  cancelOnTimeout: false,
+  bindings: [ 'ollagaza', 1 ],
+  __knexQueryUid: 'c5727290-dd33-4fa9-80e4-00dfed2367de',
+  sql: 'select * from `member` where `user_id` = ? limit ?'
+}
+[2021-08-20T12:20:20.993] [ERROR] default - /auth/ StdObject {
+  toJSON: [Function (anonymous)],
+  error: -1,
+  message: '회원정보가 일치하지 않습니다.',
+  variables: {},
+  httpStatusCode: 400,
+  stack: null
+}
+[2021-08-20T12:20:20.995] [ERROR] default - [ POST /apid1/d1/auth ]
+ App {
+  error: -1,
+  message: '회원정보가 일치하지 않습니다.',
+  variables: {},
+  httpStatusCode: 200
+}
+[2021-08-20T12:20:20.997] [WARN] default - [MySQL]
+ .returning() is not supported by mysql and will not have any effect.
+[2021-08-20T12:20:20.997] [DEBUG] default - [MySQL]
+ {
+  method: 'insert',
+  options: {},
+  timeout: false,
+  cancelOnTimeout: false,
+  bindings: [
+    'api',
+    '{"error":-1,"message":"회원정보가 일치하지 않습니다.","variables":{},"httpStatusCode":200}',
+    '{"user_id":"ollagaza","password":"1234"}',
+    'POST',
+    '/apid1/d1/auth'
+  ],
+  __knexQueryUid: '7cd71a40-e3df-48ca-a33a-bc7a42836991',
+  sql: 'insert into `service_error` (`error_type`, `message`, `request_body`, `request_method`, `request_url`) values (?, ?, ?, ?, ?)'
+}
+[2021-08-20T12:20:24.810] [DEBUG] default - [MySQL]
+ {
+  method: 'first',
+  options: {},
+  timeout: false,
+  cancelOnTimeout: false,
+  bindings: [ 'ollagaza', 1 ],
+  __knexQueryUid: 'a2fdde03-6b1c-498e-a4c8-121a05990bce',
+  sql: 'select * from `member` where `user_id` = ? limit ?'
+}
+[2021-08-20T12:20:24.813] [DEBUG] default - [MySQL]
+ {
+  method: 'update',
+  options: {},
+  timeout: false,
+  cancelOnTimeout: false,
+  bindings: [ '2021-08-20 12:08:24', 4 ],
+  __knexQueryUid: '2e8d0c41-be8c-4029-8276-8ee996599a7d',
+  sql: 'update `member` set `lastlogin` = ? where `seq` = ?'
+}
+[2021-08-20T12:20:24.818] [WARN] default - [MySQL]
+ .returning() is not supported by mysql and will not have any effect.
+[2021-08-20T12:20:24.819] [DEBUG] default - [MySQL]
+ {
+  method: 'insert',
+  options: {},
+  timeout: false,
+  cancelOnTimeout: false,
+  bindings: [ '0000', 'login', 4, '127.0.0.1' ],
+  __knexQueryUid: '0a707938-7c0a-4e81-ac76-9e6db9e817bf',
+  sql: 'insert into `member_log` (`log_code`, `log_text`, `member_seq`, `used_ipaddress`) values (?, ?, ?, ?)'
+}
+[2021-08-20T12:20:24.842] [DEBUG] default - [MySQL]
+ {
+  method: 'first',
+  options: {},
+  timeout: false,
+  cancelOnTimeout: false,
+  bindings: [ 4, 1 ],
+  __knexQueryUid: 'daf11e0f-4c9a-4404-8411-0196fa53b7ab',
+  sql: 'select * from `member` where `seq` = ? limit ?'
+}
+[2021-08-20T12:21:33.222] [DEBUG] default - [MySQL]
+ {
+  method: 'first',
+  options: {},
+  timeout: false,
+  cancelOnTimeout: false,
+  bindings: [ 4, 1 ],
+  __knexQueryUid: '782301da-8cd2-447d-a215-c98fa03722fb',
+  sql: 'select * from `member` where `seq` = ? limit ?'
+}
+[2021-08-20T12:21:34.846] [DEBUG] default - [MySQL]
+ {
+  method: 'first',
+  options: {},
+  timeout: false,
+  cancelOnTimeout: false,
+  bindings: [ 4, 1 ],
+  __knexQueryUid: 'd4e61744-22bf-4abf-8cdb-59790fe0c4a2',
+  sql: 'select * from `member` where `seq` = ? limit ?'
+}
+[2021-08-20T12:30:51.231] [DEBUG] default - [MySQL]
+ {
+  method: 'select',
+  options: {},
+  timeout: false,
+  cancelOnTimeout: false,
+  bindings: [ 'test' ],
+  __knexQueryUid: 'a5b374cd-1855-4a78-aaa5-7b563c1619a6',
+  sql: 'select count(*) as `co` from `member` where `user_id` = ?'
+}
+[2021-08-20T12:31:39.114] [WARN] default - [MySQL]
+ .returning() is not supported by mysql and will not have any effect.
+[2021-08-20T12:31:39.114] [DEBUG] default - [MySQL]
+ {
+  method: 'insert',
+  options: {},
+  timeout: false,
+  cancelOnTimeout: false,
+  bindings: [ '1009', 'logout', 4, '127.0.0.1' ],
+  __knexQueryUid: '7331382c-84a2-43eb-aab8-30dc15f2af39',
+  sql: 'insert into `member_log` (`log_code`, `log_text`, `member_seq`, `used_ipaddress`) values (?, ?, ?, ?)'
+}
+[2021-08-20T12:31:50.477] [DEBUG] default - [MySQL]
+ {
+  method: 'first',
+  options: {},
+  timeout: false,
+  cancelOnTimeout: false,
+  bindings: [ '유동진', 'djyu@mteg.co.kr', 1 ],
+  __knexQueryUid: '586afc98-efb7-4ac1-a6d7-5646932c6317',
+  sql: 'select * from `member` where `user_name` = ? and `email_address` = ? limit ?'
+}
+[2021-08-20T12:31:57.733] [DEBUG] default - [MySQL]
+ {
+  method: 'first',
+  options: {},
+  timeout: false,
+  cancelOnTimeout: false,
+  bindings: [ '유동진', 'djyu@mteg.co.kr', 1 ],
+  __knexQueryUid: 'f20c2eeb-4fc3-4390-957e-77e08fe157a1',
+  sql: 'select * from `member` where `user_name` = ? and `email_address` = ? limit ?'
+}
+[2021-08-20T12:31:57.736] [DEBUG] default - [MySQL]
+ {
+  method: 'insert',
+  options: {},
+  timeout: false,
+  cancelOnTimeout: false,
+  bindings: [ 'TaxNBn', 'djyu@mteg.co.kr', 1629430917, 4, '519633' ],
+  __knexQueryUid: '90fa388b-b21b-49bf-99a6-ec956d1ae896',
+  sql: 'insert into `find_pw` (`check_code`, `email_address`, `expire_time`, `member_seq`, `send_code`) values (?, ?, ?, ?, ?)'
+}
+[2021-08-20T12:32:27.226] [DEBUG] default - [MySQL]
+ {
+  method: 'first',
+  options: {},
+  timeout: false,
+  cancelOnTimeout: false,
+  bindings: [ '유동진', 'djyu@mteg.co.kr', 1 ],
+  __knexQueryUid: '5f61896b-435e-4a44-bba9-8901260e5588',
+  sql: 'select * from `member` where `user_name` = ? and `email_address` = ? limit ?'
+}
+[2021-08-20T12:32:27.229] [DEBUG] default - [MySQL]
+ {
+  method: 'insert',
+  options: {},
+  timeout: false,
+  cancelOnTimeout: false,
+  bindings: [ 'SFU9n7', 'djyu@mteg.co.kr', 1629430947, 4, '997096' ],
+  __knexQueryUid: '7b620763-554b-4acf-b089-f76ccf41fc5f',
+  sql: 'insert into `find_pw` (`check_code`, `email_address`, `expire_time`, `member_seq`, `send_code`) values (?, ?, ?, ?, ?)'
+}
+[2021-08-20T12:32:47.198] [DEBUG] default - [MySQL]
+ {
+  method: 'first',
+  options: {},
+  timeout: false,
+  cancelOnTimeout: false,
+  bindings: [ 'ollagaza', 1 ],
+  __knexQueryUid: '16d920da-55d0-45c7-9cb4-081baf05d427',
+  sql: 'select * from `member` where `user_id` = ? limit ?'
+}
+[2021-08-20T12:32:47.205] [DEBUG] default - [MySQL]
+ {
+  method: 'update',
+  options: {},
+  timeout: false,
+  cancelOnTimeout: false,
+  bindings: [ '2021-08-20 12:08:47', 4 ],
+  __knexQueryUid: 'c8406805-85ac-4b4a-8229-8757ea7b5ecc',
+  sql: 'update `member` set `lastlogin` = ? where `seq` = ?'
+}
+[2021-08-20T12:32:47.210] [WARN] default - [MySQL]
+ .returning() is not supported by mysql and will not have any effect.
+[2021-08-20T12:32:47.211] [DEBUG] default - [MySQL]
+ {
+  method: 'insert',
+  options: {},
+  timeout: false,
+  cancelOnTimeout: false,
+  bindings: [ '0000', 'login', 4, '127.0.0.1' ],
+  __knexQueryUid: 'eca6fde3-43b1-45bf-8cda-ed8dd3cba17d',
+  sql: 'insert into `member_log` (`log_code`, `log_text`, `member_seq`, `used_ipaddress`) values (?, ?, ?, ?)'
+}
+[2021-08-20T12:32:47.243] [DEBUG] default - [MySQL]
+ {
+  method: 'first',
+  options: {},
+  timeout: false,
+  cancelOnTimeout: false,
+  bindings: [ 4, 1 ],
+  __knexQueryUid: '5fb0b298-899d-429b-bf06-d4d56f33350d',
+  sql: 'select * from `member` where `seq` = ? limit ?'
+}
+[2021-08-20T12:34:40.152] [DEBUG] default - [MySQL]
+ {
+  method: 'select',
+  options: {},
+  timeout: false,
+  cancelOnTimeout: false,
+  bindings: [ 'test' ],
+  __knexQueryUid: '95c22a6c-e5ff-47a7-9a24-78e82a1014f6',
+  sql: 'select count(*) as `co` from `member` where `user_id` = ?'
+}
+[2021-08-20T12:37:18.469] [WARN] default - [MySQL]
+ .returning() is not supported by mysql and will not have any effect.
+[2021-08-20T12:37:18.470] [DEBUG] default - [MySQL]
+ {
+  method: 'insert',
+  options: {},
+  timeout: false,
+  cancelOnTimeout: false,
+  bindings: [ '1009', 'logout', 4, '127.0.0.1' ],
+  __knexQueryUid: '8916ccb9-a08f-4c81-9a7b-bb82dbfebfb9',
+  sql: 'insert into `member_log` (`log_code`, `log_text`, `member_seq`, `used_ipaddress`) values (?, ?, ?, ?)'
+}
+[2021-08-20T12:37:23.650] [DEBUG] default - [MySQL]
+ {
+  method: 'first',
+  options: {},
+  timeout: false,
+  cancelOnTimeout: false,
+  bindings: [ 'ollagaza', 1 ],
+  __knexQueryUid: '2697d380-de4e-40c7-b2f7-85aa68f7616d',
+  sql: 'select * from `member` where `user_id` = ? limit ?'
+}
+[2021-08-20T12:37:23.653] [DEBUG] default - [MySQL]
+ {
+  method: 'update',
+  options: {},
+  timeout: false,
+  cancelOnTimeout: false,
+  bindings: [ '2021-08-20 12:08:23', 4 ],
+  __knexQueryUid: 'f9e25da0-b072-4420-90e4-b59323cec39b',
+  sql: 'update `member` set `lastlogin` = ? where `seq` = ?'
+}
+[2021-08-20T12:37:23.659] [WARN] default - [MySQL]
+ .returning() is not supported by mysql and will not have any effect.
+[2021-08-20T12:37:23.659] [DEBUG] default - [MySQL]
+ {
+  method: 'insert',
+  options: {},
+  timeout: false,
+  cancelOnTimeout: false,
+  bindings: [ '0000', 'login', 4, '127.0.0.1' ],
+  __knexQueryUid: '7d50fd57-ef75-417a-bc7c-7e8b1577cb43',
+  sql: 'insert into `member_log` (`log_code`, `log_text`, `member_seq`, `used_ipaddress`) values (?, ?, ?, ?)'
+}
+[2021-08-20T12:37:23.678] [DEBUG] default - [MySQL]
+ {
+  method: 'first',
+  options: {},
+  timeout: false,
+  cancelOnTimeout: false,
+  bindings: [ 4, 1 ],
+  __knexQueryUid: 'e2011473-7d59-4a9a-93cb-747e123fd4c1',
+  sql: 'select * from `member` where `seq` = ? limit ?'
+}
+[2021-08-20T12:40:48.310] [WARN] default - [MySQL]
+ .returning() is not supported by mysql and will not have any effect.
+[2021-08-20T12:40:48.311] [DEBUG] default - [MySQL]
+ {
+  method: 'insert',
+  options: {},
+  timeout: false,
+  cancelOnTimeout: false,
+  bindings: [ '1009', 'logout', 4, '127.0.0.1' ],
+  __knexQueryUid: '5140ea24-9fcc-4957-a97c-a1cb93587afc',
+  sql: 'insert into `member_log` (`log_code`, `log_text`, `member_seq`, `used_ipaddress`) values (?, ?, ?, ?)'
+}
+[2021-08-20T12:41:00.424] [DEBUG] default - [MySQL]
+ {
+  method: 'first',
+  options: {},
+  timeout: false,
+  cancelOnTimeout: false,
+  bindings: [ 'ollagaza', 1 ],
+  __knexQueryUid: '54601cd5-5736-4df7-8677-8883c8424b7f',
+  sql: 'select * from `member` where `user_id` = ? limit ?'
+}
+[2021-08-20T12:41:00.426] [DEBUG] default - [MySQL]
+ {
+  method: 'update',
+  options: {},
+  timeout: false,
+  cancelOnTimeout: false,
+  bindings: [ '2021-08-20 12:08:00', 4 ],
+  __knexQueryUid: 'f60fdfcd-9281-4cfa-bff0-db6029afe544',
+  sql: 'update `member` set `lastlogin` = ? where `seq` = ?'
+}
+[2021-08-20T12:41:00.430] [WARN] default - [MySQL]
+ .returning() is not supported by mysql and will not have any effect.
+[2021-08-20T12:41:00.430] [DEBUG] default - [MySQL]
+ {
+  method: 'insert',
+  options: {},
+  timeout: false,
+  cancelOnTimeout: false,
+  bindings: [ '0000', 'login', 4, '127.0.0.1' ],
+  __knexQueryUid: 'a2566582-ab8a-4bd5-bda6-cd939f958fa7',
+  sql: 'insert into `member_log` (`log_code`, `log_text`, `member_seq`, `used_ipaddress`) values (?, ?, ?, ?)'
+}
+[2021-08-20T12:41:00.450] [DEBUG] default - [MySQL]
+ {
+  method: 'first',
+  options: {},
+  timeout: false,
+  cancelOnTimeout: false,
+  bindings: [ 4, 1 ],
+  __knexQueryUid: 'b0059b54-6fc0-4cc7-a65f-d2fc17c0e62c',
+  sql: 'select * from `member` where `seq` = ? limit ?'
+}
+[2021-08-20T13:58:09.244] [DEBUG] default - [MySQL]
+ {
+  method: 'first',
+  options: {},
+  timeout: false,
+  cancelOnTimeout: false,
+  bindings: [ 4, 1 ],
+  __knexQueryUid: 'bf6e584c-3a0a-4312-bf34-b374066a9cb6',
+  sql: 'select * from `member` where `seq` = ? limit ?'
+}
+[2021-08-20T15:10:56.387] [DEBUG] default - [MySQL]
+ {
+  method: 'select',
+  options: {},
+  timeout: false,
+  cancelOnTimeout: false,
+  bindings: [ 'test' ],
+  __knexQueryUid: 'e76f751e-3d90-4bb9-8627-f18a6bdf2613',
+  sql: 'select count(*) as `co` from `member` where `user_id` = ?'
+}
+[2021-08-20T18:15:51.415] [WARN] default - [MySQL]
+ .returning() is not supported by mysql and will not have any effect.
+[2021-08-20T18:15:51.418] [DEBUG] default - [MySQL]
+ {
+  method: 'insert',
+  options: {},
+  timeout: false,
+  cancelOnTimeout: false,
+  bindings: [ '1009', 'logout', 4, '127.0.0.1' ],
+  __knexQueryUid: 'dbdaa4ec-e2a0-44ab-96a9-4379a0f2942b',
+  sql: 'insert into `member_log` (`log_code`, `log_text`, `member_seq`, `used_ipaddress`) values (?, ?, ?, ?)'
+}
+[2021-08-20T18:19:43.735] [INFO] default - {
+  ENV: 'development',
+  IS_RELEASE: false,
+  IS_DEV: true,
+  IS_LOCAL: false,
+  IS_DEMON: false,
+  PRINT_DB_LOG: true,
+  LOG_PATH: 'logs',
+  MYSQL_HOST: null,
+  MONGODB_HOST: null
+}
+[2021-08-20T18:19:45.759] [DEBUG] default - add api ./d1/auth.js /d1/auth
+[2021-08-20T18:19:45.761] [DEBUG] default - add api ./d1/test.js /d1/test
+[2021-08-20T18:19:45.853] [DEBUG] default - add api ./d1/users.js /d1/users
+[2021-08-20T18:19:45.879] [DEBUG] default - Listening on port 3600 -> PID: 12220
+[2021-08-20T18:19:45.879] [DEBUG] default - [InitService] init start
+[2021-08-20T18:19:46.073] [DEBUG] default - [MySQL]
+ {
+  method: 'select',
+  options: {},
+  timeout: false,
+  cancelOnTimeout: false,
+  bindings: [],
+  __knexQueryUid: '648bac59-e28a-4d6d-b23e-28ae352455b2',
+  sql: 'select * from `service_config`'
+}
+[2021-08-20T18:19:46.080] [DEBUG] default - [InitService] init complete
+[2021-08-20T18:23:44.402] [DEBUG] default - [MySQL]
+ {
+  method: 'first',
+  options: {},
+  timeout: false,
+  cancelOnTimeout: false,
+  bindings: [ 'test', 1 ],
+  __knexQueryUid: '18996d9b-3d97-4455-9813-3a8a7c8dd53c',
+  sql: 'select * from `member` where `user_id` = ? limit ?'
+}
+[2021-08-20T18:23:44.410] [DEBUG] default - [MySQL]
+ {
+  method: 'update',
+  options: {},
+  timeout: false,
+  cancelOnTimeout: false,
+  bindings: [ '2021-08-20 18:08:44', 1 ],
+  __knexQueryUid: '4080da9e-0158-479b-b039-8ebfa0b3016d',
+  sql: 'update `member` set `lastlogin` = ? where `seq` = ?'
+}
+[2021-08-20T18:23:44.418] [WARN] default - [MySQL]
+ .returning() is not supported by mysql and will not have any effect.
+[2021-08-20T18:23:44.419] [DEBUG] default - [MySQL]
+ {
+  method: 'insert',
+  options: {},
+  timeout: false,
+  cancelOnTimeout: false,
+  bindings: [ '0000', 'login', 1, '127.0.0.1' ],
+  __knexQueryUid: '8e4b0e48-2770-4e17-b907-4fca4d3a96da',
+  sql: 'insert into `member_log` (`log_code`, `log_text`, `member_seq`, `used_ipaddress`) values (?, ?, ?, ?)'
+}
+[2021-08-20T18:23:44.442] [DEBUG] default - [MySQL]
+ {
+  method: 'first',
+  options: {},
+  timeout: false,
+  cancelOnTimeout: false,
+  bindings: [ 1, 1 ],
+  __knexQueryUid: '4a5eca41-ba78-4371-9c93-41e471221b53',
+  sql: 'select * from `member` where `seq` = ? limit ?'
+}

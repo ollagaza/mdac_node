@@ -1,0 +1,27 @@
+[2021-09-02T17:48:11.081] [INFO] default - {
+  ENV: 'development',
+  IS_RELEASE: false,
+  IS_DEV: true,
+  IS_LOCAL: false,
+  IS_DEMON: false,
+  PRINT_DB_LOG: true,
+  LOG_PATH: 'logs',
+  MYSQL_HOST: null,
+  MONGODB_HOST: null
+}
+[2021-09-02T17:48:11.727] [DEBUG] default - add api ./d1/auth.js /d1/auth
+[2021-09-02T17:48:11.729] [DEBUG] default - add api ./d1/test.js /d1/test
+[2021-09-02T17:48:11.731] [DEBUG] default - add api ./d1/users.js /d1/users
+[2021-09-02T17:48:11.747] [DEBUG] default - Listening on port 3600 -> PID: 3348
+[2021-09-02T17:48:11.747] [DEBUG] default - [InitService] init start
+[2021-09-02T17:48:11.810] [DEBUG] default - [MySQL]
+ {
+  method: 'select',
+  options: {},
+  timeout: false,
+  cancelOnTimeout: false,
+  bindings: [],
+  __knexQueryUid: 'cb0fab60-cab4-41b2-b384-06ca4c62b2f6',
+  sql: 'select * from `service_config`'
+}
+[2021-09-02T17:48:11.816] [DEBUG] default - [InitService] init complete
