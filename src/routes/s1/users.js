@@ -82,11 +82,15 @@ routes.get('/me', Auth.isAuthenticated(Role.LOGIN_USER), Wrap(async (req, res) =
   res.json(output)
 }))
 
+
 routes.get('/list', Auth.isAuthenticated(Role.LOGIN_USER), Wrap(async (req, res) => {
   req.accepts('application/json')
   const token_info = req.token_info
-  const is_used = req.params.is_used
-  const member_info = await MemberService.getMemberInfoList(DBMySQL, is_used)
+  const page = req.query.page ? req.query.page:'1'
+  const is_used = req.query.is_used ? req.query.is_used:''
+  const search_type = req.query.search_type
+  const keyword = req.query.keyword ? req.query.keyword:''
+  const member_info = await MemberService.getMemberInfoList(DBMySQL, page, is_used, search_type, keyword)
 
   const output = new StdObject()
   output.add('member_info', member_info.member_info)
