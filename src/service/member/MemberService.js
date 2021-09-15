@@ -102,34 +102,6 @@ const MemberServiceClass = class {
     }
   }
 
-
-  getMemberInfoList = async (database, page, is_used, search_type, keyword) => {
-    const member_info = await this.getMemberInfoListgo(database, page, is_used, search_type, keyword)
-
-    return {
-      member_info
-    }
-  }
-
-  getMemberInfoListgo = async (database, page, is_used, search_type, keyword) => {
-    const { member_info } = await this.getMemberInfoListWithModel(database, page, is_used, search_type, keyword)
-    return member_info
-  }
-
-  getMemberInfoListWithModel = async (database, page, is_used, search_type, keyword) => {
-    const member_model = this.getMemberModel(database)
-    const member_info = await member_model.getMemberInfoList(page, is_used, search_type, keyword)
-    //if (member_info.isEmpty()) {
-    //  throw new StdObject(-1, '회원정보가 존재하지 않습니다.', 400)
-    //}
-    
-    return {
-      member_model,
-      member_info
-    }
-  }
-
-
   findMemberId = async (database, request_body) => {
     const member_info = new JsonWrapper(request_body, [])
     // logger.debug(member_info.hasValue('user_name'));

@@ -3,10 +3,9 @@ export default {
     client: 'mysql',
     connection: {
       host: '127.0.0.1',
-      port: 3307,
-      database: 'datamanager',
+      database: 'jiinmteg',
       user: 'root',
-      password: '1234',
+      password: '_media_',
       timezone: 'UTC'
     },
     pool: {
@@ -21,10 +20,9 @@ export default {
     client: 'mysql',
     connection: {
       host: '127.0.0.1',
-      port: 3307,
-      database: 'datamanager',
+      database: 'jiinmteg',
       user: 'root',
-      password: '1234',
+      password: '_media_',
       timezone: 'UTC'
     },
     pool: {
@@ -40,10 +38,9 @@ export default {
     client: 'mysql',
     connection: {
       host: '127.0.0.1',
-      port: 3307,
-      database: 'datamanager',
+      database: 'ropmteg',
       user: 'root',
-      password: '1234',
+      password: '_media_',
       timezone: 'UTC'
     },
     pool: {

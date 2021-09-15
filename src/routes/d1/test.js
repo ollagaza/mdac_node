@@ -15,7 +15,7 @@ routes.get('/', Wrap(async (req, res) => {
 routes.get('/page/:data', Wrap(async (req, res) => {
   req.accepts('application/json')
   const param_data = req.params.data;
-  const result = `return : 12${param_data}`;
+  const result = `return : ${param_data}`;
   const output = new StdObject(0, result, 200)
   res.json(output)
 }))

@@ -82,18 +82,6 @@ routes.get('/me', Auth.isAuthenticated(Role.LOGIN_USER), Wrap(async (req, res) =
   res.json(output)
 }))
 
-routes.get('/list', Auth.isAuthenticated(Role.LOGIN_USER), Wrap(async (req, res) => {
-  req.accepts('application/json')
-  const token_info = req.token_info
-  const is_used = req.params.is_used
-  const member_info = await MemberService.getMemberInfoList(DBMySQL, is_used)
-
-  const output = new StdObject()
-  output.add('member_info', member_info.member_info)
-
-  res.json(output)
-}))
-
 routes.post('/find/id', Wrap(async (req, res) => {
   req.accepts('application/json')
 
