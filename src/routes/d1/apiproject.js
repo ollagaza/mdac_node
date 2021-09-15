@@ -24,7 +24,7 @@ routes.get('/getproject', Wrap(async (req, res) => {
     req.accepts('application/json')
     try{
         const result = await ProjectService.GetProject(DBMySQL)
-        const output = new StdObject(0, result, 200)
+        const output = new StdObject(0, 'success', 200, result)
         res.json(output)
     } catch (e) {
         logger.error('/apiproject/getproject', e)
@@ -40,9 +40,10 @@ routes.get('/getproject', Wrap(async (req, res) => {
 routes.get('/getdivision', Wrap(async (req, res) => {
     req.accepts('application/json')
     try{
-        const project_seq = 1;
+        const project_seq = req.query.pseq;
+        console.log(project_seq);
         const result = await ProjectService.GetDivision(DBMySQL, project_seq)
-        const output = new StdObject(0, result, 200)
+        const output = new StdObject(0, 'success', 200, result)
         res.json(output)
     } catch (e) {
         logger.error('/apiproject/getdivision', e)

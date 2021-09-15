@@ -22,5 +22,4 @@ export default class ProjectModel extends MySQLModel {
     const result = await oKnex;
     return new JsonWrapper(result, this.private_fields);
   }
-
 }

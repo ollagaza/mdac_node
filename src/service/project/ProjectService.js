@@ -21,9 +21,9 @@ const ProjectServiceClass = class {
 
   GetDivisionModel = (database = null) => {
     if (database) {
-      return new ProjectModel(database)
+      return new DivisionModel(database)
     }
-    return new ProjectModel(DBMySQL)
+    return new DivisionModel(DBMySQL)
   }
 
   GetProject = async (database) => {
@@ -35,7 +35,7 @@ const ProjectServiceClass = class {
 
   GetDivision = async (database, project_seq) => {
     const division_model = this.GetDivisionModel(database)
-    const result = await division_model.GetDivision();
+    const result = await division_model.GetDivisions(project_seq);
     logger.debug(result);
     return result;
   }
