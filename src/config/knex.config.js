@@ -21,10 +21,10 @@ export default {
     client: 'mysql',
     connection: {
       host: '127.0.0.1',
-      database: 'mteg_test_db',
+      database: 'datamanager',
       user: 'root',
-      password: 'mtegtestdb',
-      port: '3307',
+      password: 'dpaxldlwldb!',
+      port: '3306',
       timezone: 'Asia/Seoul'
     },
     pool: {
