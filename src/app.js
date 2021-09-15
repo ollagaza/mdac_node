@@ -4,11 +4,20 @@ import path from "path";
 import bodyParser from 'body-parser'
 import logger from './libs/logger'
 import StdObject from './wrapper/std-object'
-
+import compression from 'compression';
 
 
 const app = express()
+const shouldCompress = (req, res) => {
+  if (req.headers['x-no-compression']) {
+    return false
+  }
+  return compression.filter(req, res);
+}
 
+app.use(compression({
+  filter: shouldCompress,
+}))
 app.enable('trust proxy', 1)
 
 // Express 라는 것을 숨김
