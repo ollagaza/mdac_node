@@ -3,10 +3,11 @@ export default {
     client: 'mysql',
     connection: {
       host: '127.0.0.1',
-      database: 'jiinmteg',
+      database: 'mteg_test_db',
       user: 'root',
-      password: '_media_',
-      timezone: 'UTC'
+      password: 'mtegtestdb',
+      port: '3307',
+      timezone: 'Asia/Seoul'
     },
     pool: {
       min: 10,
@@ -20,10 +21,11 @@ export default {
     client: 'mysql',
     connection: {
       host: '127.0.0.1',
-      database: 'jiinmteg',
+      database: 'mteg_test_db',
       user: 'root',
-      password: '_media_',
-      timezone: 'UTC'
+      password: 'mtegtestdb',
+      port: '3307',
+      timezone: 'Asia/Seoul'
     },
     pool: {
       min: 2,

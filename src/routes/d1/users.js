@@ -18,9 +18,13 @@ routes.get('/verify/:user_id', async (req, res) => {
 
 routes.post('/createuser', async (req, res) => {
   const request_body = req.body ? req.body : null;
+  // console.log('createuser');
+  // console.log(request_body);
   let result = null;
   if (request_body.user_id) {
+    // console.log(request_body.user_id);
     result = await MemberService.createUser(request_body);
+    // console.log(result);
     if (result.error === 0){
       MemberLogService.createMemberLog(req, result.seq, '1001', 'ok');
     } else {
