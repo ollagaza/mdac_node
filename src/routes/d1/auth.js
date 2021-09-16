@@ -19,7 +19,6 @@ routes.get('/', Wrap(async (req, res) => {
 }))
 
 routes.post('/', Wrap(async (req, res) => {
-  console.log('test')
   req.accepts('application/json')
   try{
     const member_info = await AuthService.login(DBMySQL, req)

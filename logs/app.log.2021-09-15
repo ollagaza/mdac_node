@@ -1,0 +1,3982 @@
+[2021-09-15T16:16:02.496] [INFO] default - {
+  ENV: 'development',
+  IS_RELEASE: false,
+  IS_DEV: true,
+  IS_LOCAL: false,
+  IS_DEMON: false,
+  PRINT_DB_LOG: true,
+  LOG_PATH: 'logs',
+  MYSQL_HOST: null,
+  MONGODB_HOST: null
+}
+[2021-09-15T16:16:07.909] [DEBUG] default - add api ./d1/auth.js /d1/auth
+[2021-09-15T16:16:07.910] [DEBUG] default - add api ./d1/test.js /d1/test
+[2021-09-15T16:16:07.940] [DEBUG] default - add api ./d1/users.js /d1/users
+[2021-09-15T16:16:07.953] [DEBUG] default - Listening on port 3600 -> PID: 24884
+[2021-09-15T16:16:07.953] [DEBUG] default - [InitService] init start
+[2021-09-15T16:16:08.389] [DEBUG] default - [MySQL]
+ {
+  method: 'select',
+  options: {},
+  timeout: false,
+  cancelOnTimeout: false,
+  bindings: [],
+  __knexQueryUid: '8e9529b3-23e6-448b-aa2e-382b5d5f052f',
+  sql: 'select * from `service_config`'
+}
+[2021-09-15T16:16:08.396] [DEBUG] default - [InitService] init complete
+[2021-09-15T16:16:22.741] [ERROR] default - [ POST /apid1/d1/apiauth/ ]
+ 요청하신 API Endpoint가 존재하지 않습니다.
+[2021-09-15T16:16:22.742] [ERROR] default - [ POST /apid1/d1/apiauth/ ]
+ App {
+  error: -1,
+  message: '요청하신 API Endpoint가 존재하지 않습니다.',
+  variables: {},
+  httpStatusCode: 404
+}
+[2021-09-15T16:17:03.172] [INFO] default - {
+  ENV: 'development',
+  IS_RELEASE: false,
+  IS_DEV: true,
+  IS_LOCAL: false,
+  IS_DEMON: false,
+  PRINT_DB_LOG: true,
+  LOG_PATH: 'logs',
+  MYSQL_HOST: null,
+  MONGODB_HOST: null
+}
+[2021-09-15T16:17:03.719] [DEBUG] default - add api ./d1/auth.js /d1/auth
+[2021-09-15T16:17:03.721] [DEBUG] default - add api ./d1/test.js /d1/test
+[2021-09-15T16:17:03.724] [DEBUG] default - add api ./d1/users.js /d1/users
+[2021-09-15T16:17:03.736] [DEBUG] default - Listening on port 3600 -> PID: 24972
+[2021-09-15T16:17:03.737] [DEBUG] default - [InitService] init start
+[2021-09-15T16:17:03.800] [DEBUG] default - [MySQL]
+ {
+  method: 'select',
+  options: {},
+  timeout: false,
+  cancelOnTimeout: false,
+  bindings: [],
+  __knexQueryUid: 'b9c0be00-7de8-437f-b950-3aee6b5229e5',
+  sql: 'select * from `service_config`'
+}
+[2021-09-15T16:17:03.806] [DEBUG] default - [InitService] init complete
+[2021-09-15T16:17:08.453] [ERROR] default - [ POST /apid1/d1/apiauth/ ]
+ 요청하신 API Endpoint가 존재하지 않습니다.
+[2021-09-15T16:17:08.455] [ERROR] default - [ POST /apid1/d1/apiauth/ ]
+ App {
+  error: -1,
+  message: '요청하신 API Endpoint가 존재하지 않습니다.',
+  variables: {},
+  httpStatusCode: 404
+}
+[2021-09-15T16:17:25.981] [INFO] default - {
+  ENV: 'development',
+  IS_RELEASE: false,
+  IS_DEV: true,
+  IS_LOCAL: false,
+  IS_DEMON: false,
+  PRINT_DB_LOG: true,
+  LOG_PATH: 'logs',
+  MYSQL_HOST: null,
+  MONGODB_HOST: null
+}
+[2021-09-15T16:17:26.534] [DEBUG] default - add api ./d1/auth.js /d1/auth
+[2021-09-15T16:17:26.540] [DEBUG] default - add api ./d1/test.js /d1/test
+[2021-09-15T16:17:26.542] [DEBUG] default - add api ./d1/users.js /d1/users
+[2021-09-15T16:17:26.557] [DEBUG] default - Listening on port 3600 -> PID: 24444
+[2021-09-15T16:17:26.558] [DEBUG] default - [InitService] init start
+[2021-09-15T16:17:26.620] [DEBUG] default - [MySQL]
+ {
+  method: 'select',
+  options: {},
+  timeout: false,
+  cancelOnTimeout: false,
+  bindings: [],
+  __knexQueryUid: 'f9b5e62d-c522-429b-b585-952f320b1d94',
+  sql: 'select * from `service_config`'
+}
+[2021-09-15T16:17:26.627] [DEBUG] default - [InitService] init complete
+[2021-09-15T16:17:29.072] [ERROR] default - [ POST /apid1/d1/apiauth/ ]
+ 요청하신 API Endpoint가 존재하지 않습니다.
+[2021-09-15T16:17:29.073] [ERROR] default - [ POST /apid1/d1/apiauth/ ]
+ App {
+  error: -1,
+  message: '요청하신 API Endpoint가 존재하지 않습니다.',
+  variables: {},
+  httpStatusCode: 404
+}
+[2021-09-15T16:17:39.007] [ERROR] default - [ POST /apid1/d1/apiauth/ ]
+ 요청하신 API Endpoint가 존재하지 않습니다.
+[2021-09-15T16:17:39.009] [ERROR] default - [ POST /apid1/d1/apiauth/ ]
+ App {
+  error: -1,
+  message: '요청하신 API Endpoint가 존재하지 않습니다.',
+  variables: {},
+  httpStatusCode: 404
+}
+[2021-09-15T16:18:34.961] [ERROR] default - /auth/ StdObject {
+  toJSON: [Function (anonymous)],
+  error: -1,
+  message: '아이디 비밀번호를 확인해 주세요...',
+  variables: {},
+  httpStatusCode: 400,
+  stack: null
+}
+[2021-09-15T16:18:34.964] [ERROR] default - [ POST /apid1/d1/auth/ ]
+ App {
+  error: -1,
+  message: '아이디 비밀번호를 확인해 주세요...',
+  variables: {},
+  httpStatusCode: 200
+}
+[2021-09-15T16:18:34.969] [WARN] default - [MySQL]
+ .returning() is not supported by mysql and will not have any effect.
+[2021-09-15T16:18:34.971] [DEBUG] default - [MySQL]
+ {
+  method: 'insert',
+  options: {},
+  timeout: false,
+  cancelOnTimeout: false,
+  bindings: [
+    'api',
+    '{"error":-1,"message":"아이디 비밀번호를 확인해 주세요...","variables":{},"httpStatusCode":200}',
+    '{}',
+    'POST',
+    '/apid1/d1/auth/'
+  ],
+  __knexQueryUid: 'f4499a7d-35c3-46d5-b385-b97b9ac6e70f',
+  sql: 'insert into `service_error` (`error_type`, `message`, `request_body`, `request_method`, `request_url`) values (?, ?, ?, ?, ?)'
+}
+[2021-09-15T16:18:47.729] [ERROR] default - [ POST /apid1/d1/apiauth/ ]
+ 요청하신 API Endpoint가 존재하지 않습니다.
+[2021-09-15T16:18:47.731] [ERROR] default - [ POST /apid1/d1/apiauth/ ]
+ App {
+  error: -1,
+  message: '요청하신 API Endpoint가 존재하지 않습니다.',
+  variables: {},
+  httpStatusCode: 404
+}
+[2021-09-15T16:20:47.673] [INFO] default - {
+  ENV: 'development',
+  IS_RELEASE: false,
+  IS_DEV: true,
+  IS_LOCAL: false,
+  IS_DEMON: false,
+  PRINT_DB_LOG: true,
+  LOG_PATH: 'logs',
+  MYSQL_HOST: null,
+  MONGODB_HOST: null
+}
+[2021-09-15T16:20:48.199] [DEBUG] default - add api ./d1/auth.js /d1/auth
+[2021-09-15T16:20:48.201] [DEBUG] default - add api ./d1/test.js /d1/test
+[2021-09-15T16:20:48.203] [DEBUG] default - add api ./d1/users.js /d1/users
+[2021-09-15T16:20:48.216] [DEBUG] default - Listening on port 3600 -> PID: 26020
+[2021-09-15T16:20:48.216] [DEBUG] default - [InitService] init start
+[2021-09-15T16:20:48.293] [DEBUG] default - [MySQL]
+ {
+  method: 'select',
+  options: {},
+  timeout: false,
+  cancelOnTimeout: false,
+  bindings: [],
+  __knexQueryUid: 'c4c83e0c-cf2b-4f3a-828d-24919837a790',
+  sql: 'select * from `service_config`'
+}
+[2021-09-15T16:20:48.298] [DEBUG] default - [InitService] init complete
+[2021-09-15T16:20:48.410] [ERROR] default - [ POST /apid1/d1/apiauth/ ]
+ 요청하신 API Endpoint가 존재하지 않습니다.
+[2021-09-15T16:20:48.411] [ERROR] default - [ POST /apid1/d1/apiauth/ ]
+ App {
+  error: -1,
+  message: '요청하신 API Endpoint가 존재하지 않습니다.',
+  variables: {},
+  httpStatusCode: 404
+}
+[2021-09-15T16:20:53.212] [ERROR] default - [ GET /apid1/d1/apiauth/ ]
+ 요청하신 API Endpoint가 존재하지 않습니다.
+[2021-09-15T16:20:53.212] [ERROR] default - [ GET /apid1/d1/apiauth/ ]
+ App {
+  error: -1,
+  message: '요청하신 API Endpoint가 존재하지 않습니다.',
+  variables: {},
+  httpStatusCode: 404
+}
+[2021-09-15T16:21:00.634] [ERROR] default - [ GET /apid1/d1/apiauth/ ]
+ 요청하신 API Endpoint가 존재하지 않습니다.
+[2021-09-15T16:21:00.635] [ERROR] default - [ GET /apid1/d1/apiauth/ ]
+ App {
+  error: -1,
+  message: '요청하신 API Endpoint가 존재하지 않습니다.',
+  variables: {},
+  httpStatusCode: 404
+}
+[2021-09-15T16:21:06.724] [ERROR] default - [ POST /apid1/d1/apiauth/ ]
+ 요청하신 API Endpoint가 존재하지 않습니다.
+[2021-09-15T16:21:06.725] [ERROR] default - [ POST /apid1/d1/apiauth/ ]
+ App {
+  error: -1,
+  message: '요청하신 API Endpoint가 존재하지 않습니다.',
+  variables: {},
+  httpStatusCode: 404
+}
+[2021-09-15T16:21:18.816] [ERROR] default - [ POST /apid1/d1/apiauth/ ]
+ 요청하신 API Endpoint가 존재하지 않습니다.
+[2021-09-15T16:21:18.825] [ERROR] default - [ POST /apid1/d1/apiauth/ ]
+ App {
+  error: -1,
+  message: '요청하신 API Endpoint가 존재하지 않습니다.',
+  variables: {},
+  httpStatusCode: 404
+}
+[2021-09-15T16:22:07.302] [ERROR] default - [ POST /apid1/d1/apiauth/ ]
+ 요청하신 API Endpoint가 존재하지 않습니다.
+[2021-09-15T16:22:07.303] [ERROR] default - [ POST /apid1/d1/apiauth/ ]
+ App {
+  error: -1,
+  message: '요청하신 API Endpoint가 존재하지 않습니다.',
+  variables: {},
+  httpStatusCode: 404
+}
+[2021-09-15T16:31:25.029] [INFO] default - {
+  ENV: 'development',
+  IS_RELEASE: false,
+  IS_DEV: true,
+  IS_LOCAL: false,
+  IS_DEMON: false,
+  PRINT_DB_LOG: true,
+  LOG_PATH: 'logs',
+  MYSQL_HOST: null,
+  MONGODB_HOST: null
+}
+[2021-09-15T16:31:30.061] [DEBUG] default - add api ./d1/auth.js /d1/auth
+[2021-09-15T16:31:30.063] [DEBUG] default - add api ./d1/test.js /d1/test
+[2021-09-15T16:31:30.065] [DEBUG] default - add api ./d1/users.js /d1/users
+[2021-09-15T16:31:30.078] [DEBUG] default - Listening on port 3600 -> PID: 6320
+[2021-09-15T16:31:30.078] [DEBUG] default - [InitService] init start
+[2021-09-15T16:31:30.466] [ERROR] default - [ POST /apid1/d1/apiauth/aa ]
+ 요청하신 API Endpoint가 존재하지 않습니다.
+[2021-09-15T16:31:30.467] [ERROR] default - [ POST /apid1/d1/apiauth/aa ]
+ App {
+  error: -1,
+  message: '요청하신 API Endpoint가 존재하지 않습니다.',
+  variables: {},
+  httpStatusCode: 404
+}
+[2021-09-15T16:31:30.485] [DEBUG] default - [MySQL]
+ {
+  method: 'select',
+  options: {},
+  timeout: false,
+  cancelOnTimeout: false,
+  bindings: [],
+  __knexQueryUid: '112585f1-20f3-4886-b70e-1803f6c1b598',
+  sql: 'select * from `service_config`'
+}
+[2021-09-15T16:31:30.492] [DEBUG] default - [InitService] init complete
+[2021-09-15T16:32:19.241] [ERROR] default - [ GET /apid1/d1/apiauth/ ]
+ 요청하신 API Endpoint가 존재하지 않습니다.
+[2021-09-15T16:32:19.242] [ERROR] default - [ GET /apid1/d1/apiauth/ ]
+ App {
+  error: -1,
+  message: '요청하신 API Endpoint가 존재하지 않습니다.',
+  variables: {},
+  httpStatusCode: 404
+}
+[2021-09-15T16:35:29.005] [ERROR] default - [ POST /apid1/d1/apiauth/ ]
+ 요청하신 API Endpoint가 존재하지 않습니다.
+[2021-09-15T16:35:29.007] [ERROR] default - [ POST /apid1/d1/apiauth/ ]
+ App {
+  error: -1,
+  message: '요청하신 API Endpoint가 존재하지 않습니다.',
+  variables: {},
+  httpStatusCode: 404
+}
+[2021-09-15T16:35:41.932] [ERROR] default - [ POST /apid1/d1/apiauth/ ]
+ 요청하신 API Endpoint가 존재하지 않습니다.
+[2021-09-15T16:35:41.933] [ERROR] default - [ POST /apid1/d1/apiauth/ ]
+ App {
+  error: -1,
+  message: '요청하신 API Endpoint가 존재하지 않습니다.',
+  variables: {},
+  httpStatusCode: 404
+}
+[2021-09-15T16:41:47.107] [INFO] default - {
+  ENV: 'development',
+  IS_RELEASE: false,
+  IS_DEV: true,
+  IS_LOCAL: false,
+  IS_DEMON: false,
+  PRINT_DB_LOG: true,
+  LOG_PATH: 'logs',
+  MYSQL_HOST: null,
+  MONGODB_HOST: null
+}
+[2021-09-15T16:41:51.798] [DEBUG] default - add api ./d1/auth.js /d1/auth
+[2021-09-15T16:41:51.801] [DEBUG] default - add api ./d1/test.js /d1/test
+[2021-09-15T16:41:51.806] [DEBUG] default - add api ./d1/users.js /d1/users
+[2021-09-15T16:41:51.820] [DEBUG] default - Listening on port 3600 -> PID: 4888
+[2021-09-15T16:41:51.820] [DEBUG] default - [InitService] init start
+[2021-09-15T16:41:52.215] [DEBUG] default - [MySQL]
+ {
+  method: 'select',
+  options: {},
+  timeout: false,
+  cancelOnTimeout: false,
+  bindings: [],
+  __knexQueryUid: '93aeb62f-86ba-4958-b0f9-5260376007f8',
+  sql: 'select * from `service_config`'
+}
+[2021-09-15T16:41:52.221] [DEBUG] default - [InitService] init complete
+[2021-09-15T16:43:31.224] [INFO] default - {
+  ENV: 'development',
+  IS_RELEASE: false,
+  IS_DEV: true,
+  IS_LOCAL: false,
+  IS_DEMON: false,
+  PRINT_DB_LOG: true,
+  LOG_PATH: 'logs',
+  MYSQL_HOST: null,
+  MONGODB_HOST: null
+}
+[2021-09-15T16:43:31.702] [DEBUG] default - add api ./d1/auth.js /d1/auth
+[2021-09-15T16:43:31.707] [DEBUG] default - add api ./d1/test.js /d1/test
+[2021-09-15T16:43:31.712] [DEBUG] default - add api ./d1/users.js /d1/users
+[2021-09-15T16:43:31.726] [DEBUG] default - Listening on port 3600 -> PID: 15112
+[2021-09-15T16:43:31.726] [DEBUG] default - [InitService] init start
+[2021-09-15T16:43:31.785] [DEBUG] default - [MySQL]
+ {
+  method: 'select',
+  options: {},
+  timeout: false,
+  cancelOnTimeout: false,
+  bindings: [],
+  __knexQueryUid: 'c991eeab-879b-42fc-98e2-1b2bb4d7de86',
+  sql: 'select * from `service_config`'
+}
+[2021-09-15T16:43:31.792] [DEBUG] default - [InitService] init complete
+[2021-09-15T16:44:05.276] [INFO] default - {
+  ENV: 'development',
+  IS_RELEASE: false,
+  IS_DEV: true,
+  IS_LOCAL: false,
+  IS_DEMON: false,
+  PRINT_DB_LOG: true,
+  LOG_PATH: 'logs',
+  MYSQL_HOST: null,
+  MONGODB_HOST: null
+}
+[2021-09-15T16:44:05.762] [DEBUG] default - add api ./d1/auth.js /d1/auth
+[2021-09-15T16:44:05.767] [DEBUG] default - add api ./d1/test.js /d1/test
+[2021-09-15T16:44:05.774] [DEBUG] default - add api ./d1/users.js /d1/users
+[2021-09-15T16:44:05.788] [DEBUG] default - Listening on port 3600 -> PID: 24388
+[2021-09-15T16:44:05.788] [DEBUG] default - [InitService] init start
+[2021-09-15T16:44:05.851] [DEBUG] default - [MySQL]
+ {
+  method: 'select',
+  options: {},
+  timeout: false,
+  cancelOnTimeout: false,
+  bindings: [],
+  __knexQueryUid: '1689a0b5-303d-478b-ac9e-7b0000c95a18',
+  sql: 'select * from `service_config`'
+}
+[2021-09-15T16:44:05.873] [DEBUG] default - [InitService] init complete
+[2021-09-15T16:45:08.036] [INFO] default - {
+  ENV: 'development',
+  IS_RELEASE: false,
+  IS_DEV: true,
+  IS_LOCAL: false,
+  IS_DEMON: false,
+  PRINT_DB_LOG: true,
+  LOG_PATH: 'logs',
+  MYSQL_HOST: null,
+  MONGODB_HOST: null
+}
+[2021-09-15T16:45:08.516] [DEBUG] default - add api ./d1/auth.js /d1/auth
+[2021-09-15T16:45:08.522] [DEBUG] default - add api ./d1/test.js /d1/test
+[2021-09-15T16:45:08.530] [DEBUG] default - add api ./d1/users.js /d1/users
+[2021-09-15T16:45:08.543] [DEBUG] default - Listening on port 3600 -> PID: 26144
+[2021-09-15T16:45:08.544] [DEBUG] default - [InitService] init start
+[2021-09-15T16:45:08.603] [DEBUG] default - [MySQL]
+ {
+  method: 'select',
+  options: {},
+  timeout: false,
+  cancelOnTimeout: false,
+  bindings: [],
+  __knexQueryUid: '43e948f0-76c9-406f-a748-5eb049fc5b1c',
+  sql: 'select * from `service_config`'
+}
+[2021-09-15T16:45:08.609] [DEBUG] default - [InitService] init complete
+[2021-09-15T16:48:21.775] [INFO] default - {
+  ENV: 'development',
+  IS_RELEASE: false,
+  IS_DEV: true,
+  IS_LOCAL: false,
+  IS_DEMON: false,
+  PRINT_DB_LOG: true,
+  LOG_PATH: 'logs',
+  MYSQL_HOST: null,
+  MONGODB_HOST: null
+}
+[2021-09-15T16:48:22.307] [DEBUG] default - add api ./d1/apiauth.js /d1/apiauth
+[2021-09-15T16:48:22.327] [DEBUG] default - add api ./d1/apifile.js /d1/apifile
+[2021-09-15T16:48:22.340] [DEBUG] default - add api ./d1/apiproject.js /d1/apiproject
+[2021-09-15T16:48:22.362] [DEBUG] default - add api ./d1/auth.js /d1/auth
+[2021-09-15T16:48:22.365] [DEBUG] default - add api ./d1/test.js /d1/test
+[2021-09-15T16:48:22.368] [DEBUG] default - add api ./d1/users.js /d1/users
+[2021-09-15T16:48:22.380] [DEBUG] default - Listening on port 3600 -> PID: 21884
+[2021-09-15T16:48:22.380] [DEBUG] default - [InitService] init start
+[2021-09-15T16:48:22.447] [DEBUG] default - [MySQL]
+ {
+  method: 'select',
+  options: {},
+  timeout: false,
+  cancelOnTimeout: false,
+  bindings: [],
+  __knexQueryUid: '4142c8ad-6845-402e-b91d-249209c34b70',
+  sql: 'select * from `service_config`'
+}
+[2021-09-15T16:48:22.453] [DEBUG] default - [InitService] init complete
+[2021-09-15T16:48:27.289] [ERROR] default - [ POST /apid1/d1/apiauth/ ]
+ 요청하신 API Endpoint가 존재하지 않습니다.
+[2021-09-15T16:48:27.290] [ERROR] default - [ POST /apid1/d1/apiauth/ ]
+ App {
+  error: -1,
+  message: '요청하신 API Endpoint가 존재하지 않습니다.',
+  variables: {},
+  httpStatusCode: 404
+}
+[2021-09-15T16:48:34.773] [ERROR] default - [ POST /apid1/d1/apiauth/ ]
+ 요청하신 API Endpoint가 존재하지 않습니다.
+[2021-09-15T16:48:34.775] [ERROR] default - [ POST /apid1/d1/apiauth/ ]
+ App {
+  error: -1,
+  message: '요청하신 API Endpoint가 존재하지 않습니다.',
+  variables: {},
+  httpStatusCode: 404
+}
+[2021-09-15T16:48:46.635] [INFO] default - {
+  ENV: 'development',
+  IS_RELEASE: false,
+  IS_DEV: true,
+  IS_LOCAL: false,
+  IS_DEMON: false,
+  PRINT_DB_LOG: true,
+  LOG_PATH: 'logs',
+  MYSQL_HOST: null,
+  MONGODB_HOST: null
+}
+[2021-09-15T16:48:47.208] [DEBUG] default - add api ./d1/apiauth.js /d1/apiauth
+[2021-09-15T16:48:47.211] [DEBUG] default - add api ./d1/apifile.js /d1/apifile
+[2021-09-15T16:48:47.212] [DEBUG] default - add api ./d1/apiproject.js /d1/apiproject
+[2021-09-15T16:48:47.215] [DEBUG] default - add api ./d1/auth.js /d1/auth
+[2021-09-15T16:48:47.217] [DEBUG] default - add api ./d1/test.js /d1/test
+[2021-09-15T16:48:47.220] [DEBUG] default - add api ./d1/users.js /d1/users
+[2021-09-15T16:48:47.234] [DEBUG] default - Listening on port 3600 -> PID: 20464
+[2021-09-15T16:48:47.235] [DEBUG] default - [InitService] init start
+[2021-09-15T16:48:47.298] [DEBUG] default - [MySQL]
+ {
+  method: 'select',
+  options: {},
+  timeout: false,
+  cancelOnTimeout: false,
+  bindings: [],
+  __knexQueryUid: '72b547d6-f721-4f15-85f3-50f04b63dbbd',
+  sql: 'select * from `service_config`'
+}
+[2021-09-15T16:48:47.304] [DEBUG] default - [InitService] init complete
+[2021-09-15T16:48:52.107] [DEBUG] default - [MySQL]
+ {
+  method: 'first',
+  options: {},
+  timeout: false,
+  cancelOnTimeout: false,
+  bindings: [ 'sgbae', 1 ],
+  __knexQueryUid: '737d5a84-10f6-4574-b04b-f55dddefc3f9',
+  sql: 'select * from `member` where `user_id` = ? limit ?'
+}
+[2021-09-15T16:48:52.112] [ERROR] default - /aipauth/ StdObject {
+  toJSON: [Function (anonymous)],
+  error: -1,
+  message: '등록된 회원 정보가 없습니다.',
+  variables: {},
+  httpStatusCode: 400,
+  stack: null
+}
+[2021-09-15T16:48:52.116] [ERROR] default - [ POST /apid1/d1/apiauth/ ]
+ App {
+  error: -1,
+  message: '등록된 회원 정보가 없습니다.',
+  variables: {},
+  httpStatusCode: 200
+}
+[2021-09-15T16:48:52.124] [WARN] default - [MySQL]
+ .returning() is not supported by mysql and will not have any effect.
+[2021-09-15T16:48:52.125] [DEBUG] default - [MySQL]
+ {
+  method: 'insert',
+  options: {},
+  timeout: false,
+  cancelOnTimeout: false,
+  bindings: [
+    'api',
+    '{"error":-1,"message":"등록된 회원 정보가 없습니다.","variables":{},"httpStatusCode":200}',
+    '{"user_id":"sgbae","password":"1111"}',
+    'POST',
+    '/apid1/d1/apiauth/'
+  ],
+  __knexQueryUid: '5090703b-1a51-429a-8cba-4bb52ba020a5',
+  sql: 'insert into `service_error` (`error_type`, `message`, `request_body`, `request_method`, `request_url`) values (?, ?, ?, ?, ?)'
+}
+[2021-09-15T16:49:14.651] [DEBUG] default - [MySQL]
+ {
+  method: 'first',
+  options: {},
+  timeout: false,
+  cancelOnTimeout: false,
+  bindings: [ 'sgbae', 1 ],
+  __knexQueryUid: 'a7f58fa4-1c06-4049-b616-503d4842442e',
+  sql: 'select * from `member` where `user_id` = ? limit ?'
+}
+[2021-09-15T16:49:14.656] [ERROR] default - /aipauth/ StdObject {
+  toJSON: [Function (anonymous)],
+  error: -1,
+  message: '등록된 회원 정보가 없습니다.',
+  variables: {},
+  httpStatusCode: 400,
+  stack: null
+}
+[2021-09-15T16:49:14.659] [ERROR] default - [ POST /apid1/d1/apiauth/ ]
+ App {
+  error: -1,
+  message: '등록된 회원 정보가 없습니다.',
+  variables: {},
+  httpStatusCode: 200
+}
+[2021-09-15T16:49:14.662] [WARN] default - [MySQL]
+ .returning() is not supported by mysql and will not have any effect.
+[2021-09-15T16:49:14.663] [DEBUG] default - [MySQL]
+ {
+  method: 'insert',
+  options: {},
+  timeout: false,
+  cancelOnTimeout: false,
+  bindings: [
+    'api',
+    '{"error":-1,"message":"등록된 회원 정보가 없습니다.","variables":{},"httpStatusCode":200}',
+    '{"user_id":"sgbae","password":"1111"}',
+    'POST',
+    '/apid1/d1/apiauth/'
+  ],
+  __knexQueryUid: '0b4fbc01-b08f-4607-8ebd-1642564bebe7',
+  sql: 'insert into `service_error` (`error_type`, `message`, `request_body`, `request_method`, `request_url`) values (?, ?, ?, ?, ?)'
+}
+[2021-09-15T16:49:25.650] [DEBUG] default - [MySQL]
+ {
+  method: 'first',
+  options: {},
+  timeout: false,
+  cancelOnTimeout: false,
+  bindings: [ 'test', 1 ],
+  __knexQueryUid: '8365d3bf-952b-4037-9305-9b18749a8e29',
+  sql: 'select * from `member` where `user_id` = ? limit ?'
+}
+[2021-09-15T16:49:25.659] [DEBUG] default - [MySQL]
+ {
+  method: 'update',
+  options: {},
+  timeout: false,
+  cancelOnTimeout: false,
+  bindings: [ '2021-09-15 16:09:25', 3 ],
+  __knexQueryUid: '30c99f46-9d4c-437f-869d-ad2831073701',
+  sql: 'update `member` set `lastlogin` = ? where `seq` = ?'
+}
+[2021-09-15T16:49:25.673] [WARN] default - [MySQL]
+ .returning() is not supported by mysql and will not have any effect.
+[2021-09-15T16:49:25.675] [DEBUG] default - [MySQL]
+ {
+  method: 'insert',
+  options: {},
+  timeout: false,
+  cancelOnTimeout: false,
+  bindings: [ '0000', 'apiauto_login', 3, '127.0.0.1' ],
+  __knexQueryUid: '5271dd3c-6cf1-4a0c-a1f7-5c33b559a6e2',
+  sql: 'insert into `member_log` (`log_code`, `log_text`, `member_seq`, `used_ipaddress`) values (?, ?, ?, ?)'
+}
+[2021-09-15T16:49:25.686] [ERROR] default - /aipauth/ Error: ER_BAD_FIELD_ERROR: Unknown column 'log_code' in 'field list'
+    at Query.Sequence._packetToError (D:\repo\dnode\node_modules\mysql\lib\protocol\sequences\Sequence.js:47:14)
+    at Query.ErrorPacket (D:\repo\dnode\node_modules\mysql\lib\protocol\sequences\Query.js:79:18)
+    at Protocol._parsePacket (D:\repo\dnode\node_modules\mysql\lib\protocol\Protocol.js:291:23)
+    at Parser._parsePacket (D:\repo\dnode\node_modules\mysql\lib\protocol\Parser.js:433:10)
+    at Parser.write (D:\repo\dnode\node_modules\mysql\lib\protocol\Parser.js:43:10)
+    at Protocol.write (D:\repo\dnode\node_modules\mysql\lib\protocol\Protocol.js:38:16)
+    at Socket.<anonymous> (D:\repo\dnode\node_modules\mysql\lib\Connection.js:88:28)
+    at Socket.<anonymous> (D:\repo\dnode\node_modules\mysql\lib\Connection.js:526:10)
+    at Socket.emit (events.js:400:28)
+    at addChunk (internal/streams/readable.js:290:12)
+    at readableAddChunk (internal/streams/readable.js:265:9)
+    at Socket.Readable.push (internal/streams/readable.js:204:10)
+    at TCP.onStreamRead (internal/stream_base_commons.js:188:23)
+    at TCP.callbackTrampoline (internal/async_hooks.js:131:17)
+    at Protocol._enqueue (D:\repo\dnode\node_modules\mysql\lib\protocol\Protocol.js:144:48)
+    at Connection.query (D:\repo\dnode\node_modules\mysql\lib\Connection.js:198:25)
+    at D:\repo\dnode\node_modules\knex\lib\dialects\mysql\index.js:144:18
+From previous event:
+    at Client_MySQL._query (D:\repo\dnode\node_modules\knex\lib\dialects\mysql\index.js:135:12)
+    at Client_MySQL.query (D:\repo\dnode\node_modules\knex\lib\client.js:192:17)
+    at Runner.<anonymous> (D:\repo\dnode\node_modules\knex\lib\runner.js:138:36)
+From previous event:
+    at D:\repo\dnode\node_modules\knex\lib\runner.js:47:21
+    at processImmediate (internal/timers.js:464:21)
+    at process.callbackTrampoline (internal/async_hooks.js:131:17)
+From previous event:
+    at Runner.run (D:\repo\dnode\node_modules\knex\lib\runner.js:33:30)
+    at Builder.Target.then (D:\repo\dnode\node_modules\knex\lib\interface.js:23:43) {
+  code: 'ER_BAD_FIELD_ERROR',
+  errno: 1054,
+  sqlMessage: "Unknown column 'log_code' in 'field list'",
+  sqlState: '42S22',
+  index: 0,
+  sql: "insert into `member_log` (`log_code`, `log_text`, `member_seq`, `used_ipaddress`) values ('0000', 'apiauto_login', 3, '127.0.0.1')"
+}
+[2021-09-15T16:49:25.691] [ERROR] default - [ POST /apid1/d1/apiauth/ ]
+ App {
+  error: -1,
+  message: '아이디 혹은 비밀번호가 일치하지 않습니다.<br/>입력한 내용을 다시 확인해 주세요.',
+  variables: {},
+  httpStatusCode: 200
+}
+[2021-09-15T16:49:25.694] [WARN] default - [MySQL]
+ .returning() is not supported by mysql and will not have any effect.
+[2021-09-15T16:49:25.695] [DEBUG] default - [MySQL]
+ {
+  method: 'insert',
+  options: {},
+  timeout: false,
+  cancelOnTimeout: false,
+  bindings: [
+    'api',
+    '{"error":-1,"message":"아이디 혹은 비밀번호가 일치하지 않습니다.<br/>입력한 내용을 다시 확인해 주세요.","variables":{},"httpStatusCode":200}',
+    '{"user_id":"test","password":"1111"}',
+    'POST',
+    '/apid1/d1/apiauth/'
+  ],
+  __knexQueryUid: 'b4a88113-ffd8-4724-9719-46674605d153',
+  sql: 'insert into `service_error` (`error_type`, `message`, `request_body`, `request_method`, `request_url`) values (?, ?, ?, ?, ?)'
+}
+[2021-09-15T16:49:32.113] [DEBUG] default - [MySQL]
+ {
+  method: 'first',
+  options: {},
+  timeout: false,
+  cancelOnTimeout: false,
+  bindings: [ 'sgbae', 1 ],
+  __knexQueryUid: '42de4f08-c45c-4404-aba3-5c4cea7c9777',
+  sql: 'select * from `member` where `user_id` = ? limit ?'
+}
+[2021-09-15T16:49:32.118] [ERROR] default - /aipauth/ StdObject {
+  toJSON: [Function (anonymous)],
+  error: -1,
+  message: '등록된 회원 정보가 없습니다.',
+  variables: {},
+  httpStatusCode: 400,
+  stack: null
+}
+[2021-09-15T16:49:32.121] [ERROR] default - [ POST /apid1/d1/apiauth/ ]
+ App {
+  error: -1,
+  message: '등록된 회원 정보가 없습니다.',
+  variables: {},
+  httpStatusCode: 200
+}
+[2021-09-15T16:49:32.124] [WARN] default - [MySQL]
+ .returning() is not supported by mysql and will not have any effect.
+[2021-09-15T16:49:32.125] [DEBUG] default - [MySQL]
+ {
+  method: 'insert',
+  options: {},
+  timeout: false,
+  cancelOnTimeout: false,
+  bindings: [
+    'api',
+    '{"error":-1,"message":"등록된 회원 정보가 없습니다.","variables":{},"httpStatusCode":200}',
+    '{"user_id":"sgbae","password":"1111"}',
+    'POST',
+    '/apid1/d1/apiauth/'
+  ],
+  __knexQueryUid: '8fc85f89-06bd-45c8-addf-f69909802d9a',
+  sql: 'insert into `service_error` (`error_type`, `message`, `request_body`, `request_method`, `request_url`) values (?, ?, ?, ?, ?)'
+}
+[2021-09-15T16:49:35.555] [DEBUG] default - [MySQL]
+ {
+  method: 'first',
+  options: {},
+  timeout: false,
+  cancelOnTimeout: false,
+  bindings: [ 'test', 1 ],
+  __knexQueryUid: '7a2ab07f-5d82-4b84-8c6d-c1798ec500b8',
+  sql: 'select * from `member` where `user_id` = ? limit ?'
+}
+[2021-09-15T16:49:35.563] [DEBUG] default - [MySQL]
+ {
+  method: 'update',
+  options: {},
+  timeout: false,
+  cancelOnTimeout: false,
+  bindings: [ '2021-09-15 16:09:35', 3 ],
+  __knexQueryUid: 'bcd9b8c2-4f42-4290-afd7-f42869a0b37d',
+  sql: 'update `member` set `lastlogin` = ? where `seq` = ?'
+}
+[2021-09-15T16:49:35.576] [WARN] default - [MySQL]
+ .returning() is not supported by mysql and will not have any effect.
+[2021-09-15T16:49:35.578] [DEBUG] default - [MySQL]
+ {
+  method: 'insert',
+  options: {},
+  timeout: false,
+  cancelOnTimeout: false,
+  bindings: [ '0000', 'apiauto_login', 3, '127.0.0.1' ],
+  __knexQueryUid: 'fdb9fc18-8ae0-4db9-84a2-d8f76f269e2a',
+  sql: 'insert into `member_log` (`log_code`, `log_text`, `member_seq`, `used_ipaddress`) values (?, ?, ?, ?)'
+}
+[2021-09-15T16:49:35.585] [ERROR] default - /aipauth/ Error: ER_BAD_FIELD_ERROR: Unknown column 'log_code' in 'field list'
+    at Query.Sequence._packetToError (D:\repo\dnode\node_modules\mysql\lib\protocol\sequences\Sequence.js:47:14)
+    at Query.ErrorPacket (D:\repo\dnode\node_modules\mysql\lib\protocol\sequences\Query.js:79:18)
+    at Protocol._parsePacket (D:\repo\dnode\node_modules\mysql\lib\protocol\Protocol.js:291:23)
+    at Parser._parsePacket (D:\repo\dnode\node_modules\mysql\lib\protocol\Parser.js:433:10)
+    at Parser.write (D:\repo\dnode\node_modules\mysql\lib\protocol\Parser.js:43:10)
+    at Protocol.write (D:\repo\dnode\node_modules\mysql\lib\protocol\Protocol.js:38:16)
+    at Socket.<anonymous> (D:\repo\dnode\node_modules\mysql\lib\Connection.js:88:28)
+    at Socket.<anonymous> (D:\repo\dnode\node_modules\mysql\lib\Connection.js:526:10)
+    at Socket.emit (events.js:400:28)
+    at addChunk (internal/streams/readable.js:290:12)
+    at readableAddChunk (internal/streams/readable.js:265:9)
+    at Socket.Readable.push (internal/streams/readable.js:204:10)
+    at TCP.onStreamRead (internal/stream_base_commons.js:188:23)
+    at TCP.callbackTrampoline (internal/async_hooks.js:131:17)
+    at Protocol._enqueue (D:\repo\dnode\node_modules\mysql\lib\protocol\Protocol.js:144:48)
+    at Connection.query (D:\repo\dnode\node_modules\mysql\lib\Connection.js:198:25)
+    at D:\repo\dnode\node_modules\knex\lib\dialects\mysql\index.js:144:18
+From previous event:
+    at Client_MySQL._query (D:\repo\dnode\node_modules\knex\lib\dialects\mysql\index.js:135:12)
+    at Client_MySQL.query (D:\repo\dnode\node_modules\knex\lib\client.js:192:17)
+    at Runner.<anonymous> (D:\repo\dnode\node_modules\knex\lib\runner.js:138:36)
+From previous event:
+    at D:\repo\dnode\node_modules\knex\lib\runner.js:47:21
+    at processImmediate (internal/timers.js:464:21)
+    at process.callbackTrampoline (internal/async_hooks.js:131:17)
+From previous event:
+    at Runner.run (D:\repo\dnode\node_modules\knex\lib\runner.js:33:30)
+    at Builder.Target.then (D:\repo\dnode\node_modules\knex\lib\interface.js:23:43) {
+  code: 'ER_BAD_FIELD_ERROR',
+  errno: 1054,
+  sqlMessage: "Unknown column 'log_code' in 'field list'",
+  sqlState: '42S22',
+  index: 0,
+  sql: "insert into `member_log` (`log_code`, `log_text`, `member_seq`, `used_ipaddress`) values ('0000', 'apiauto_login', 3, '127.0.0.1')"
+}
+[2021-09-15T16:49:35.591] [ERROR] default - [ POST /apid1/d1/apiauth/ ]
+ App {
+  error: -1,
+  message: '아이디 혹은 비밀번호가 일치하지 않습니다.<br/>입력한 내용을 다시 확인해 주세요.',
+  variables: {},
+  httpStatusCode: 200
+}
+[2021-09-15T16:49:35.594] [WARN] default - [MySQL]
+ .returning() is not supported by mysql and will not have any effect.
+[2021-09-15T16:49:35.595] [DEBUG] default - [MySQL]
+ {
+  method: 'insert',
+  options: {},
+  timeout: false,
+  cancelOnTimeout: false,
+  bindings: [
+    'api',
+    '{"error":-1,"message":"아이디 혹은 비밀번호가 일치하지 않습니다.<br/>입력한 내용을 다시 확인해 주세요.","variables":{},"httpStatusCode":200}',
+    '{"user_id":"test","password":"1111"}',
+    'POST',
+    '/apid1/d1/apiauth/'
+  ],
+  __knexQueryUid: 'fee89b05-e63d-401a-a484-86e47d8f45d2',
+  sql: 'insert into `service_error` (`error_type`, `message`, `request_body`, `request_method`, `request_url`) values (?, ?, ?, ?, ?)'
+}
+[2021-09-15T16:49:46.472] [DEBUG] default - [MySQL]
+ {
+  method: 'first',
+  options: {},
+  timeout: false,
+  cancelOnTimeout: false,
+  bindings: [ 'test', 1 ],
+  __knexQueryUid: 'b66aa06e-e575-4d89-9153-0657a6931329',
+  sql: 'select * from `member` where `user_id` = ? limit ?'
+}
+[2021-09-15T16:49:46.477] [ERROR] default - /aipauth/ StdObject {
+  toJSON: [Function (anonymous)],
+  error: -1,
+  message: '회원정보가 일치하지 않습니다.',
+  variables: {},
+  httpStatusCode: 400,
+  stack: null
+}
+[2021-09-15T16:49:46.480] [ERROR] default - [ POST /apid1/d1/apiauth/ ]
+ App {
+  error: -1,
+  message: '회원정보가 일치하지 않습니다.',
+  variables: {},
+  httpStatusCode: 200
+}
+[2021-09-15T16:49:46.484] [WARN] default - [MySQL]
+ .returning() is not supported by mysql and will not have any effect.
+[2021-09-15T16:49:46.485] [DEBUG] default - [MySQL]
+ {
+  method: 'insert',
+  options: {},
+  timeout: false,
+  cancelOnTimeout: false,
+  bindings: [
+    'api',
+    '{"error":-1,"message":"회원정보가 일치하지 않습니다.","variables":{},"httpStatusCode":200}',
+    '{"user_id":"test","password":"0000"}',
+    'POST',
+    '/apid1/d1/apiauth/'
+  ],
+  __knexQueryUid: '3499f889-1513-4efb-8553-990c911c788d',
+  sql: 'insert into `service_error` (`error_type`, `message`, `request_body`, `request_method`, `request_url`) values (?, ?, ?, ?, ?)'
+}
+[2021-09-15T16:49:52.472] [DEBUG] default - [MySQL]
+ {
+  method: 'first',
+  options: {},
+  timeout: false,
+  cancelOnTimeout: false,
+  bindings: [ 'test', 1 ],
+  __knexQueryUid: 'e888263d-9b23-487e-a113-589124a4a070',
+  sql: 'select * from `member` where `user_id` = ? limit ?'
+}
+[2021-09-15T16:49:52.478] [DEBUG] default - [MySQL]
+ {
+  method: 'update',
+  options: {},
+  timeout: false,
+  cancelOnTimeout: false,
+  bindings: [ '2021-09-15 16:09:52', 3 ],
+  __knexQueryUid: 'f35934ff-89b6-44bb-b3a6-b0e4133c5381',
+  sql: 'update `member` set `lastlogin` = ? where `seq` = ?'
+}
+[2021-09-15T16:49:52.487] [WARN] default - [MySQL]
+ .returning() is not supported by mysql and will not have any effect.
+[2021-09-15T16:49:52.488] [DEBUG] default - [MySQL]
+ {
+  method: 'insert',
+  options: {},
+  timeout: false,
+  cancelOnTimeout: false,
+  bindings: [ '0000', 'apiauto_login', 3, '127.0.0.1' ],
+  __knexQueryUid: '3826a220-64ed-4855-bd5f-34aa3e20eb78',
+  sql: 'insert into `member_log` (`log_code`, `log_text`, `member_seq`, `used_ipaddress`) values (?, ?, ?, ?)'
+}
+[2021-09-15T16:49:52.495] [ERROR] default - /aipauth/ Error: ER_BAD_FIELD_ERROR: Unknown column 'log_code' in 'field list'
+    at Query.Sequence._packetToError (D:\repo\dnode\node_modules\mysql\lib\protocol\sequences\Sequence.js:47:14)
+    at Query.ErrorPacket (D:\repo\dnode\node_modules\mysql\lib\protocol\sequences\Query.js:79:18)
+    at Protocol._parsePacket (D:\repo\dnode\node_modules\mysql\lib\protocol\Protocol.js:291:23)
+    at Parser._parsePacket (D:\repo\dnode\node_modules\mysql\lib\protocol\Parser.js:433:10)
+    at Parser.write (D:\repo\dnode\node_modules\mysql\lib\protocol\Parser.js:43:10)
+    at Protocol.write (D:\repo\dnode\node_modules\mysql\lib\protocol\Protocol.js:38:16)
+    at Socket.<anonymous> (D:\repo\dnode\node_modules\mysql\lib\Connection.js:88:28)
+    at Socket.<anonymous> (D:\repo\dnode\node_modules\mysql\lib\Connection.js:526:10)
+    at Socket.emit (events.js:400:28)
+    at addChunk (internal/streams/readable.js:290:12)
+    at readableAddChunk (internal/streams/readable.js:265:9)
+    at Socket.Readable.push (internal/streams/readable.js:204:10)
+    at TCP.onStreamRead (internal/stream_base_commons.js:188:23)
+    at TCP.callbackTrampoline (internal/async_hooks.js:131:17)
+    at Protocol._enqueue (D:\repo\dnode\node_modules\mysql\lib\protocol\Protocol.js:144:48)
+    at Connection.query (D:\repo\dnode\node_modules\mysql\lib\Connection.js:198:25)
+    at D:\repo\dnode\node_modules\knex\lib\dialects\mysql\index.js:144:18
+From previous event:
+    at Client_MySQL._query (D:\repo\dnode\node_modules\knex\lib\dialects\mysql\index.js:135:12)
+    at Client_MySQL.query (D:\repo\dnode\node_modules\knex\lib\client.js:192:17)
+    at Runner.<anonymous> (D:\repo\dnode\node_modules\knex\lib\runner.js:138:36)
+From previous event:
+    at D:\repo\dnode\node_modules\knex\lib\runner.js:47:21
+    at processImmediate (internal/timers.js:464:21)
+    at process.callbackTrampoline (internal/async_hooks.js:131:17)
+From previous event:
+    at Runner.run (D:\repo\dnode\node_modules\knex\lib\runner.js:33:30)
+    at Builder.Target.then (D:\repo\dnode\node_modules\knex\lib\interface.js:23:43) {
+  code: 'ER_BAD_FIELD_ERROR',
+  errno: 1054,
+  sqlMessage: "Unknown column 'log_code' in 'field list'",
+  sqlState: '42S22',
+  index: 0,
+  sql: "insert into `member_log` (`log_code`, `log_text`, `member_seq`, `used_ipaddress`) values ('0000', 'apiauto_login', 3, '127.0.0.1')"
+}
+[2021-09-15T16:49:52.500] [ERROR] default - [ POST /apid1/d1/apiauth/ ]
+ App {
+  error: -1,
+  message: '아이디 혹은 비밀번호가 일치하지 않습니다.<br/>입력한 내용을 다시 확인해 주세요.',
+  variables: {},
+  httpStatusCode: 200
+}
+[2021-09-15T16:49:52.504] [WARN] default - [MySQL]
+ .returning() is not supported by mysql and will not have any effect.
+[2021-09-15T16:49:52.505] [DEBUG] default - [MySQL]
+ {
+  method: 'insert',
+  options: {},
+  timeout: false,
+  cancelOnTimeout: false,
+  bindings: [
+    'api',
+    '{"error":-1,"message":"아이디 혹은 비밀번호가 일치하지 않습니다.<br/>입력한 내용을 다시 확인해 주세요.","variables":{},"httpStatusCode":200}',
+    '{"user_id":"test","password":"1111"}',
+    'POST',
+    '/apid1/d1/apiauth/'
+  ],
+  __knexQueryUid: '3d7f975a-4b86-4016-93e3-ef44c04fdb7e',
+  sql: 'insert into `service_error` (`error_type`, `message`, `request_body`, `request_method`, `request_url`) values (?, ?, ?, ?, ?)'
+}
+[2021-09-15T16:50:16.846] [DEBUG] default - [MySQL]
+ {
+  method: 'first',
+  options: {},
+  timeout: false,
+  cancelOnTimeout: false,
+  bindings: [ 'test', 1 ],
+  __knexQueryUid: 'af2bb2f3-ec74-4ad4-a96d-b1b65d2f3b43',
+  sql: 'select * from `member` where `user_id` = ? limit ?'
+}
+[2021-09-15T16:50:16.852] [DEBUG] default - [MySQL]
+ {
+  method: 'update',
+  options: {},
+  timeout: false,
+  cancelOnTimeout: false,
+  bindings: [ '2021-09-15 16:09:16', 3 ],
+  __knexQueryUid: 'ae1102d7-7abd-4ee9-925c-a68ac4dc9cfb',
+  sql: 'update `member` set `lastlogin` = ? where `seq` = ?'
+}
+[2021-09-15T16:50:30.417] [WARN] default - [MySQL]
+ .returning() is not supported by mysql and will not have any effect.
+[2021-09-15T16:50:30.419] [DEBUG] default - [MySQL]
+ {
+  method: 'insert',
+  options: {},
+  timeout: false,
+  cancelOnTimeout: false,
+  bindings: [ '0000', 'apiauto_login', 3, '127.0.0.1' ],
+  __knexQueryUid: '5a0f057c-53a1-4ba0-8f65-b4e81b58c754',
+  sql: 'insert into `member_log` (`log_code`, `log_text`, `member_seq`, `used_ipaddress`) values (?, ?, ?, ?)'
+}
+[2021-09-15T16:50:45.254] [ERROR] default - /aipauth/ Error: ER_BAD_FIELD_ERROR: Unknown column 'log_code' in 'field list'
+    at Query.Sequence._packetToError (D:\repo\dnode\node_modules\mysql\lib\protocol\sequences\Sequence.js:47:14)
+    at Query.ErrorPacket (D:\repo\dnode\node_modules\mysql\lib\protocol\sequences\Query.js:79:18)
+    at Protocol._parsePacket (D:\repo\dnode\node_modules\mysql\lib\protocol\Protocol.js:291:23)
+    at Parser._parsePacket (D:\repo\dnode\node_modules\mysql\lib\protocol\Parser.js:433:10)
+    at Parser.write (D:\repo\dnode\node_modules\mysql\lib\protocol\Parser.js:43:10)
+    at Protocol.write (D:\repo\dnode\node_modules\mysql\lib\protocol\Protocol.js:38:16)
+    at Socket.<anonymous> (D:\repo\dnode\node_modules\mysql\lib\Connection.js:88:28)
+    at Socket.<anonymous> (D:\repo\dnode\node_modules\mysql\lib\Connection.js:526:10)
+    at Socket.emit (events.js:400:28)
+    at addChunk (internal/streams/readable.js:290:12)
+    at readableAddChunk (internal/streams/readable.js:265:9)
+    at Socket.Readable.push (internal/streams/readable.js:204:10)
+    at TCP.onStreamRead (internal/stream_base_commons.js:188:23)
+    at TCP.callbackTrampoline (internal/async_hooks.js:131:17)
+    at Protocol._enqueue (D:\repo\dnode\node_modules\mysql\lib\protocol\Protocol.js:144:48)
+    at Connection.query (D:\repo\dnode\node_modules\mysql\lib\Connection.js:198:25)
+    at D:\repo\dnode\node_modules\knex\lib\dialects\mysql\index.js:144:18
+From previous event:
+    at Client_MySQL._query (D:\repo\dnode\node_modules\knex\lib\dialects\mysql\index.js:135:12)
+    at Client_MySQL.query (D:\repo\dnode\node_modules\knex\lib\client.js:192:17)
+    at Runner.<anonymous> (D:\repo\dnode\node_modules\knex\lib\runner.js:138:36)
+From previous event:
+    at D:\repo\dnode\node_modules\knex\lib\runner.js:47:21
+    at processImmediate (internal/timers.js:464:21)
+    at process.callbackTrampoline (internal/async_hooks.js:131:17)
+From previous event:
+    at Runner.run (D:\repo\dnode\node_modules\knex\lib\runner.js:33:30)
+    at Builder.Target.then (D:\repo\dnode\node_modules\knex\lib\interface.js:23:43) {
+  code: 'ER_BAD_FIELD_ERROR',
+  errno: 1054,
+  sqlMessage: "Unknown column 'log_code' in 'field list'",
+  sqlState: '42S22',
+  index: 0,
+  sql: "insert into `member_log` (`log_code`, `log_text`, `member_seq`, `used_ipaddress`) values ('0000', 'apiauto_login', 3, '127.0.0.1')"
+}
+[2021-09-15T16:50:45.258] [ERROR] default - [ POST /apid1/d1/apiauth/ ]
+ App {
+  error: -1,
+  message: '아이디 혹은 비밀번호가 일치하지 않습니다.<br/>입력한 내용을 다시 확인해 주세요.',
+  variables: {},
+  httpStatusCode: 200
+}
+[2021-09-15T16:50:45.261] [WARN] default - [MySQL]
+ .returning() is not supported by mysql and will not have any effect.
+[2021-09-15T16:50:45.262] [DEBUG] default - [MySQL]
+ {
+  method: 'insert',
+  options: {},
+  timeout: false,
+  cancelOnTimeout: false,
+  bindings: [
+    'api',
+    '{"error":-1,"message":"아이디 혹은 비밀번호가 일치하지 않습니다.<br/>입력한 내용을 다시 확인해 주세요.","variables":{},"httpStatusCode":200}',
+    '{"user_id":"test","password":"1111"}',
+    'POST',
+    '/apid1/d1/apiauth/'
+  ],
+  __knexQueryUid: '04cd21e1-bbcf-4f58-afcd-581a0b97f911',
+  sql: 'insert into `service_error` (`error_type`, `message`, `request_body`, `request_method`, `request_url`) values (?, ?, ?, ?, ?)'
+}
+[2021-09-15T16:54:53.571] [INFO] default - {
+  ENV: 'development',
+  IS_RELEASE: false,
+  IS_DEV: true,
+  IS_LOCAL: false,
+  IS_DEMON: false,
+  PRINT_DB_LOG: true,
+  LOG_PATH: 'logs',
+  MYSQL_HOST: null,
+  MONGODB_HOST: null
+}
+[2021-09-15T16:54:58.590] [DEBUG] default - add api ./d1/apiauth.js /d1/apiauth
+[2021-09-15T16:54:58.592] [DEBUG] default - add api ./d1/apifile.js /d1/apifile
+[2021-09-15T16:54:58.594] [DEBUG] default - add api ./d1/apiproject.js /d1/apiproject
+[2021-09-15T16:54:58.596] [DEBUG] default - add api ./d1/auth.js /d1/auth
+[2021-09-15T16:54:58.598] [DEBUG] default - add api ./d1/test.js /d1/test
+[2021-09-15T16:54:58.600] [DEBUG] default - add api ./d1/users.js /d1/users
+[2021-09-15T16:54:58.612] [DEBUG] default - Listening on port 3600 -> PID: 10004
+[2021-09-15T16:54:58.612] [DEBUG] default - [InitService] init start
+[2021-09-15T16:54:59.003] [DEBUG] default - [MySQL]
+ {
+  method: 'select',
+  options: {},
+  timeout: false,
+  cancelOnTimeout: false,
+  bindings: [],
+  __knexQueryUid: '5785f543-701a-4324-a8ed-9a55b48901a2',
+  sql: 'select * from `service_config`'
+}
+[2021-09-15T16:54:59.010] [DEBUG] default - [InitService] init complete
+[2021-09-15T16:55:05.108] [DEBUG] default - [MySQL]
+ {
+  method: 'first',
+  options: {},
+  timeout: false,
+  cancelOnTimeout: false,
+  bindings: [ 'test', 1 ],
+  __knexQueryUid: '1578746b-cd97-474d-9beb-892206859f05',
+  sql: 'select * from `member` where `user_id` = ? limit ?'
+}
+[2021-09-15T16:55:05.117] [DEBUG] default - [MySQL]
+ {
+  method: 'update',
+  options: {},
+  timeout: false,
+  cancelOnTimeout: false,
+  bindings: [ '2021-09-15 16:09:05', 3 ],
+  __knexQueryUid: '2d693a96-a4c4-43cb-a323-9c8c059242a9',
+  sql: 'update `member` set `lastlogin` = ? where `seq` = ?'
+}
+[2021-09-15T16:55:14.174] [WARN] default - [MySQL]
+ .returning() is not supported by mysql and will not have any effect.
+[2021-09-15T16:55:14.176] [DEBUG] default - [MySQL]
+ {
+  method: 'insert',
+  options: {},
+  timeout: false,
+  cancelOnTimeout: false,
+  bindings: [ '127.0.0.1', '0000', 3, 'apiauto_login' ],
+  __knexQueryUid: 'abc37bef-b5ef-4fdb-8883-ebc0023b9a27',
+  sql: 'insert into `member_log` (`ip_addr`, `log_type`, `member_seq`, `memo`) values (?, ?, ?, ?)'
+}
+[2021-09-15T16:55:14.478] [ERROR] default - /aipauth/ Error: ER_NO_DEFAULT_FOR_FIELD: Field 'mod_member_seq' doesn't have a default value
+    at Query.Sequence._packetToError (D:\repo\dnode\node_modules\mysql\lib\protocol\sequences\Sequence.js:47:14)
+    at Query.ErrorPacket (D:\repo\dnode\node_modules\mysql\lib\protocol\sequences\Query.js:79:18)
+    at Protocol._parsePacket (D:\repo\dnode\node_modules\mysql\lib\protocol\Protocol.js:291:23)
+    at Parser._parsePacket (D:\repo\dnode\node_modules\mysql\lib\protocol\Parser.js:433:10)
+    at Parser.write (D:\repo\dnode\node_modules\mysql\lib\protocol\Parser.js:43:10)
+    at Protocol.write (D:\repo\dnode\node_modules\mysql\lib\protocol\Protocol.js:38:16)
+    at Socket.<anonymous> (D:\repo\dnode\node_modules\mysql\lib\Connection.js:88:28)
+    at Socket.<anonymous> (D:\repo\dnode\node_modules\mysql\lib\Connection.js:526:10)
+    at Socket.emit (events.js:400:28)
+    at addChunk (internal/streams/readable.js:290:12)
+    at readableAddChunk (internal/streams/readable.js:265:9)
+    at Socket.Readable.push (internal/streams/readable.js:204:10)
+    at TCP.onStreamRead (internal/stream_base_commons.js:188:23)
+    at TCP.callbackTrampoline (internal/async_hooks.js:131:17)
+    at Protocol._enqueue (D:\repo\dnode\node_modules\mysql\lib\protocol\Protocol.js:144:48)
+    at Connection.query (D:\repo\dnode\node_modules\mysql\lib\Connection.js:198:25)
+    at D:\repo\dnode\node_modules\knex\lib\dialects\mysql\index.js:144:18
+From previous event:
+    at Client_MySQL._query (D:\repo\dnode\node_modules\knex\lib\dialects\mysql\index.js:135:12)
+    at Client_MySQL.query (D:\repo\dnode\node_modules\knex\lib\client.js:192:17)
+    at Runner.<anonymous> (D:\repo\dnode\node_modules\knex\lib\runner.js:138:36)
+From previous event:
+    at D:\repo\dnode\node_modules\knex\lib\runner.js:47:21
+    at processImmediate (internal/timers.js:464:21)
+    at process.callbackTrampoline (internal/async_hooks.js:131:17)
+From previous event:
+    at Runner.run (D:\repo\dnode\node_modules\knex\lib\runner.js:33:30)
+    at Builder.Target.then (D:\repo\dnode\node_modules\knex\lib\interface.js:23:43) {
+  code: 'ER_NO_DEFAULT_FOR_FIELD',
+  errno: 1364,
+  sqlMessage: "Field 'mod_member_seq' doesn't have a default value",
+  sqlState: 'HY000',
+  index: 0,
+  sql: "insert into `member_log` (`ip_addr`, `log_type`, `member_seq`, `memo`) values ('127.0.0.1', '0000', 3, 'apiauto_login')"
+}
+[2021-09-15T16:55:19.062] [ERROR] default - [ POST /apid1/d1/apiauth/ ]
+ App {
+  error: -1,
+  message: '아이디 혹은 비밀번호가 일치하지 않습니다.<br/>입력한 내용을 다시 확인해 주세요.',
+  variables: {},
+  httpStatusCode: 200
+}
+[2021-09-15T16:55:19.068] [WARN] default - [MySQL]
+ .returning() is not supported by mysql and will not have any effect.
+[2021-09-15T16:55:19.070] [DEBUG] default - [MySQL]
+ {
+  method: 'insert',
+  options: {},
+  timeout: false,
+  cancelOnTimeout: false,
+  bindings: [
+    'api',
+    '{"error":-1,"message":"아이디 혹은 비밀번호가 일치하지 않습니다.<br/>입력한 내용을 다시 확인해 주세요.","variables":{},"httpStatusCode":200}',
+    '{"user_id":"test","password":"1111"}',
+    'POST',
+    '/apid1/d1/apiauth/'
+  ],
+  __knexQueryUid: 'ddf28233-5eb6-4085-accb-b10e20a8e3bb',
+  sql: 'insert into `service_error` (`error_type`, `message`, `request_body`, `request_method`, `request_url`) values (?, ?, ?, ?, ?)'
+}
+[2021-09-15T16:55:36.116] [INFO] default - {
+  ENV: 'development',
+  IS_RELEASE: false,
+  IS_DEV: true,
+  IS_LOCAL: false,
+  IS_DEMON: false,
+  PRINT_DB_LOG: true,
+  LOG_PATH: 'logs',
+  MYSQL_HOST: null,
+  MONGODB_HOST: null
+}
+[2021-09-15T16:55:36.669] [DEBUG] default - add api ./d1/apiauth.js /d1/apiauth
+[2021-09-15T16:55:36.671] [DEBUG] default - add api ./d1/apifile.js /d1/apifile
+[2021-09-15T16:55:36.675] [DEBUG] default - add api ./d1/apiproject.js /d1/apiproject
+[2021-09-15T16:55:36.677] [DEBUG] default - add api ./d1/auth.js /d1/auth
+[2021-09-15T16:55:36.679] [DEBUG] default - add api ./d1/test.js /d1/test
+[2021-09-15T16:55:36.682] [DEBUG] default - add api ./d1/users.js /d1/users
+[2021-09-15T16:55:36.695] [DEBUG] default - Listening on port 3600 -> PID: 21032
+[2021-09-15T16:55:36.696] [DEBUG] default - [InitService] init start
+[2021-09-15T16:55:36.766] [DEBUG] default - [MySQL]
+ {
+  method: 'select',
+  options: {},
+  timeout: false,
+  cancelOnTimeout: false,
+  bindings: [],
+  __knexQueryUid: 'c49aa5b3-d896-4ca4-aafd-17efe0879dd4',
+  sql: 'select * from `service_config`'
+}
+[2021-09-15T16:55:36.773] [DEBUG] default - [InitService] init complete
+[2021-09-15T16:55:40.090] [DEBUG] default - [MySQL]
+ {
+  method: 'first',
+  options: {},
+  timeout: false,
+  cancelOnTimeout: false,
+  bindings: [ 'test', 1 ],
+  __knexQueryUid: '7fe2958c-98ac-4622-98c1-51b256a67e84',
+  sql: 'select * from `member` where `user_id` = ? limit ?'
+}
+[2021-09-15T16:55:40.099] [DEBUG] default - [MySQL]
+ {
+  method: 'update',
+  options: {},
+  timeout: false,
+  cancelOnTimeout: false,
+  bindings: [ '2021-09-15 16:09:40', 3 ],
+  __knexQueryUid: '870a2940-e640-4c3e-8fbd-a92955d8567e',
+  sql: 'update `member` set `lastlogin` = ? where `seq` = ?'
+}
+[2021-09-15T16:55:44.515] [ERROR] default - /aipauth/ ReferenceError: member_log_model is not defined
+    at MemberLogServiceClass.createMemberLog (D:/repo/dnode/src/service/member/MemberLogService.js:27:5)
+    at D:/repo/dnode/src/routes/d1/apiauth.js:29:30
+[2021-09-15T16:55:44.521] [ERROR] default - [ POST /apid1/d1/apiauth/ ]
+ App {
+  error: -1,
+  message: '아이디 혹은 비밀번호가 일치하지 않습니다.<br/>입력한 내용을 다시 확인해 주세요.',
+  variables: {},
+  httpStatusCode: 200
+}
+[2021-09-15T16:55:44.529] [WARN] default - [MySQL]
+ .returning() is not supported by mysql and will not have any effect.
+[2021-09-15T16:55:44.531] [DEBUG] default - [MySQL]
+ {
+  method: 'insert',
+  options: {},
+  timeout: false,
+  cancelOnTimeout: false,
+  bindings: [
+    'api',
+    '{"error":-1,"message":"아이디 혹은 비밀번호가 일치하지 않습니다.<br/>입력한 내용을 다시 확인해 주세요.","variables":{},"httpStatusCode":200}',
+    '{"user_id":"test","password":"1111"}',
+    'POST',
+    '/apid1/d1/apiauth/'
+  ],
+  __knexQueryUid: '56a49dbc-a29d-4bfe-bf61-fcc326a32e6a',
+  sql: 'insert into `service_error` (`error_type`, `message`, `request_body`, `request_method`, `request_url`) values (?, ?, ?, ?, ?)'
+}
+[2021-09-15T16:55:51.186] [DEBUG] default - [MySQL]
+ {
+  method: 'first',
+  options: {},
+  timeout: false,
+  cancelOnTimeout: false,
+  bindings: [ 'test', 1 ],
+  __knexQueryUid: 'dd71a0a0-81f4-48da-85e7-12f023596a07',
+  sql: 'select * from `member` where `user_id` = ? limit ?'
+}
+[2021-09-15T16:55:51.193] [DEBUG] default - [MySQL]
+ {
+  method: 'update',
+  options: {},
+  timeout: false,
+  cancelOnTimeout: false,
+  bindings: [ '2021-09-15 16:09:51', 3 ],
+  __knexQueryUid: '3234a83a-c267-4a3e-837b-7283434bb29f',
+  sql: 'update `member` set `lastlogin` = ? where `seq` = ?'
+}
+[2021-09-15T16:55:51.201] [ERROR] default - /aipauth/ ReferenceError: member_log_model is not defined
+    at MemberLogServiceClass.createMemberLog (D:/repo/dnode/src/service/member/MemberLogService.js:27:5)
+    at D:/repo/dnode/src/routes/d1/apiauth.js:29:30
+[2021-09-15T16:55:51.204] [ERROR] default - [ POST /apid1/d1/apiauth/ ]
+ App {
+  error: -1,
+  message: '아이디 혹은 비밀번호가 일치하지 않습니다.<br/>입력한 내용을 다시 확인해 주세요.',
+  variables: {},
+  httpStatusCode: 200
+}
+[2021-09-15T16:55:51.207] [WARN] default - [MySQL]
+ .returning() is not supported by mysql and will not have any effect.
+[2021-09-15T16:55:51.211] [DEBUG] default - [MySQL]
+ {
+  method: 'insert',
+  options: {},
+  timeout: false,
+  cancelOnTimeout: false,
+  bindings: [
+    'api',
+    '{"error":-1,"message":"아이디 혹은 비밀번호가 일치하지 않습니다.<br/>입력한 내용을 다시 확인해 주세요.","variables":{},"httpStatusCode":200}',
+    '{"user_id":"test","password":"1111"}',
+    'POST',
+    '/apid1/d1/apiauth/'
+  ],
+  __knexQueryUid: 'c2d2b72e-305b-4eaf-b92f-88bcf0b41eb5',
+  sql: 'insert into `service_error` (`error_type`, `message`, `request_body`, `request_method`, `request_url`) values (?, ?, ?, ?, ?)'
+}
+[2021-09-15T16:56:02.198] [DEBUG] default - [MySQL]
+ {
+  method: 'first',
+  options: {},
+  timeout: false,
+  cancelOnTimeout: false,
+  bindings: [ 'test', 1 ],
+  __knexQueryUid: '2b57c5bf-18bc-4879-81b0-d94b331d2ca6',
+  sql: 'select * from `member` where `user_id` = ? limit ?'
+}
+[2021-09-15T16:56:02.204] [DEBUG] default - [MySQL]
+ {
+  method: 'update',
+  options: {},
+  timeout: false,
+  cancelOnTimeout: false,
+  bindings: [ '2021-09-15 16:09:02', 3 ],
+  __knexQueryUid: 'a910c367-0d4d-4136-b130-362baba5ac57',
+  sql: 'update `member` set `lastlogin` = ? where `seq` = ?'
+}
+[2021-09-15T16:56:10.912] [INFO] default - {
+  ENV: 'development',
+  IS_RELEASE: false,
+  IS_DEV: true,
+  IS_LOCAL: false,
+  IS_DEMON: false,
+  PRINT_DB_LOG: true,
+  LOG_PATH: 'logs',
+  MYSQL_HOST: null,
+  MONGODB_HOST: null
+}
+[2021-09-15T16:56:11.435] [DEBUG] default - add api ./d1/apiauth.js /d1/apiauth
+[2021-09-15T16:56:11.436] [DEBUG] default - add api ./d1/apifile.js /d1/apifile
+[2021-09-15T16:56:11.438] [DEBUG] default - add api ./d1/apiproject.js /d1/apiproject
+[2021-09-15T16:56:11.440] [DEBUG] default - add api ./d1/auth.js /d1/auth
+[2021-09-15T16:56:11.441] [DEBUG] default - add api ./d1/test.js /d1/test
+[2021-09-15T16:56:11.445] [DEBUG] default - add api ./d1/users.js /d1/users
+[2021-09-15T16:56:11.457] [DEBUG] default - Listening on port 3600 -> PID: 17396
+[2021-09-15T16:56:11.458] [DEBUG] default - [InitService] init start
+[2021-09-15T16:56:11.520] [DEBUG] default - [MySQL]
+ {
+  method: 'select',
+  options: {},
+  timeout: false,
+  cancelOnTimeout: false,
+  bindings: [],
+  __knexQueryUid: 'b3779e11-a339-4a19-a51c-6b66d9d0746f',
+  sql: 'select * from `service_config`'
+}
+[2021-09-15T16:56:11.525] [DEBUG] default - [InitService] init complete
+[2021-09-15T16:56:16.787] [INFO] default - {
+  ENV: 'development',
+  IS_RELEASE: false,
+  IS_DEV: true,
+  IS_LOCAL: false,
+  IS_DEMON: false,
+  PRINT_DB_LOG: true,
+  LOG_PATH: 'logs',
+  MYSQL_HOST: null,
+  MONGODB_HOST: null
+}
+[2021-09-15T16:56:17.317] [DEBUG] default - add api ./d1/apiauth.js /d1/apiauth
+[2021-09-15T16:56:17.321] [DEBUG] default - add api ./d1/apifile.js /d1/apifile
+[2021-09-15T16:56:17.323] [DEBUG] default - add api ./d1/apiproject.js /d1/apiproject
+[2021-09-15T16:56:17.325] [DEBUG] default - add api ./d1/auth.js /d1/auth
+[2021-09-15T16:56:17.327] [DEBUG] default - add api ./d1/test.js /d1/test
+[2021-09-15T16:56:17.330] [DEBUG] default - add api ./d1/users.js /d1/users
+[2021-09-15T16:56:17.343] [DEBUG] default - Listening on port 3600 -> PID: 26192
+[2021-09-15T16:56:17.343] [DEBUG] default - [InitService] init start
+[2021-09-15T16:56:17.404] [DEBUG] default - [MySQL]
+ {
+  method: 'select',
+  options: {},
+  timeout: false,
+  cancelOnTimeout: false,
+  bindings: [],
+  __knexQueryUid: '3870af5d-5f01-4458-9644-d937274208eb',
+  sql: 'select * from `service_config`'
+}
+[2021-09-15T16:56:17.409] [DEBUG] default - [InitService] init complete
+[2021-09-15T16:56:22.236] [DEBUG] default - [MySQL]
+ {
+  method: 'first',
+  options: {},
+  timeout: false,
+  cancelOnTimeout: false,
+  bindings: [ 'test', 1 ],
+  __knexQueryUid: '1346874a-9c6f-454e-9fd6-78091ce5cf3d',
+  sql: 'select * from `member` where `user_id` = ? limit ?'
+}
+[2021-09-15T16:56:22.246] [DEBUG] default - [MySQL]
+ {
+  method: 'update',
+  options: {},
+  timeout: false,
+  cancelOnTimeout: false,
+  bindings: [ '2021-09-15 16:09:22', 3 ],
+  __knexQueryUid: '087df3f5-0473-476e-817a-498de85df8df',
+  sql: 'update `member` set `lastlogin` = ? where `seq` = ?'
+}
+[2021-09-15T16:56:35.606] [DEBUG] default - [MySQL]
+ {
+  method: 'first',
+  options: {},
+  timeout: false,
+  cancelOnTimeout: false,
+  bindings: [ 'sgbae', 1 ],
+  __knexQueryUid: 'a932f0f5-58c2-40c4-8e4c-379b7f949d97',
+  sql: 'select * from `member` where `user_id` = ? limit ?'
+}
+[2021-09-15T16:56:35.611] [ERROR] default - /aipauth/ StdObject {
+  toJSON: [Function (anonymous)],
+  error: -1,
+  message: '등록된 회원 정보가 없습니다.',
+  variables: {},
+  httpStatusCode: 400,
+  stack: null
+}
+[2021-09-15T16:56:35.615] [ERROR] default - [ POST /apid1/d1/apiauth/ ]
+ App {
+  error: -1,
+  message: '등록된 회원 정보가 없습니다.',
+  variables: {},
+  httpStatusCode: 200
+}
+[2021-09-15T16:56:35.620] [WARN] default - [MySQL]
+ .returning() is not supported by mysql and will not have any effect.
+[2021-09-15T16:56:35.622] [DEBUG] default - [MySQL]
+ {
+  method: 'insert',
+  options: {},
+  timeout: false,
+  cancelOnTimeout: false,
+  bindings: [
+    'api',
+    '{"error":-1,"message":"등록된 회원 정보가 없습니다.","variables":{},"httpStatusCode":200}',
+    '{"user_id":"sgbae","password":"1111"}',
+    'POST',
+    '/apid1/d1/apiauth/'
+  ],
+  __knexQueryUid: '62297e15-c0be-46bd-97d5-971b07bad5a0',
+  sql: 'insert into `service_error` (`error_type`, `message`, `request_body`, `request_method`, `request_url`) values (?, ?, ?, ?, ?)'
+}
+[2021-09-15T16:56:49.208] [DEBUG] default - [MySQL]
+ {
+  method: 'first',
+  options: {},
+  timeout: false,
+  cancelOnTimeout: false,
+  bindings: [ 'test', 1 ],
+  __knexQueryUid: 'bfadea3a-fd04-4ae3-bf7b-60c00e035735',
+  sql: 'select * from `member` where `user_id` = ? limit ?'
+}
+[2021-09-15T16:56:49.213] [ERROR] default - /aipauth/ StdObject {
+  toJSON: [Function (anonymous)],
+  error: -1,
+  message: '회원정보가 일치하지 않습니다.',
+  variables: {},
+  httpStatusCode: 400,
+  stack: null
+}
+[2021-09-15T16:56:49.216] [ERROR] default - [ POST /apid1/d1/apiauth/ ]
+ App {
+  error: -1,
+  message: '회원정보가 일치하지 않습니다.',
+  variables: {},
+  httpStatusCode: 200
+}
+[2021-09-15T16:56:49.219] [WARN] default - [MySQL]
+ .returning() is not supported by mysql and will not have any effect.
+[2021-09-15T16:56:49.220] [DEBUG] default - [MySQL]
+ {
+  method: 'insert',
+  options: {},
+  timeout: false,
+  cancelOnTimeout: false,
+  bindings: [
+    'api',
+    '{"error":-1,"message":"회원정보가 일치하지 않습니다.","variables":{},"httpStatusCode":200}',
+    '{"user_id":"test","password":"0000"}',
+    'POST',
+    '/apid1/d1/apiauth/'
+  ],
+  __knexQueryUid: '9e1144d9-228a-45ce-89ab-22531c742d04',
+  sql: 'insert into `service_error` (`error_type`, `message`, `request_body`, `request_method`, `request_url`) values (?, ?, ?, ?, ?)'
+}
+[2021-09-15T16:56:52.918] [DEBUG] default - [MySQL]
+ {
+  method: 'first',
+  options: {},
+  timeout: false,
+  cancelOnTimeout: false,
+  bindings: [ 'test', 1 ],
+  __knexQueryUid: '6661a54b-98f1-45da-ad88-58977a26e728',
+  sql: 'select * from `member` where `user_id` = ? limit ?'
+}
+[2021-09-15T16:56:52.926] [DEBUG] default - [MySQL]
+ {
+  method: 'update',
+  options: {},
+  timeout: false,
+  cancelOnTimeout: false,
+  bindings: [ '2021-09-15 16:09:52', 3 ],
+  __knexQueryUid: 'c7394638-6520-40dc-a4bb-215a2f061b45',
+  sql: 'update `member` set `lastlogin` = ? where `seq` = ?'
+}
+[2021-09-15T16:57:02.925] [INFO] default - {
+  ENV: 'development',
+  IS_RELEASE: false,
+  IS_DEV: true,
+  IS_LOCAL: false,
+  IS_DEMON: false,
+  PRINT_DB_LOG: true,
+  LOG_PATH: 'logs',
+  MYSQL_HOST: null,
+  MONGODB_HOST: null
+}
+[2021-09-15T16:57:03.432] [DEBUG] default - add api ./d1/apiauth.js /d1/apiauth
+[2021-09-15T16:57:03.435] [DEBUG] default - add api ./d1/apifile.js /d1/apifile
+[2021-09-15T16:57:03.437] [DEBUG] default - add api ./d1/apiproject.js /d1/apiproject
+[2021-09-15T16:57:03.439] [DEBUG] default - add api ./d1/auth.js /d1/auth
+[2021-09-15T16:57:03.441] [DEBUG] default - add api ./d1/test.js /d1/test
+[2021-09-15T16:57:03.445] [DEBUG] default - add api ./d1/users.js /d1/users
+[2021-09-15T16:57:03.456] [DEBUG] default - Listening on port 3600 -> PID: 5916
+[2021-09-15T16:57:03.457] [DEBUG] default - [InitService] init start
+[2021-09-15T16:57:03.523] [DEBUG] default - [MySQL]
+ {
+  method: 'select',
+  options: {},
+  timeout: false,
+  cancelOnTimeout: false,
+  bindings: [],
+  __knexQueryUid: '97d93605-909f-4b32-9042-024520d19136',
+  sql: 'select * from `service_config`'
+}
+[2021-09-15T16:57:03.529] [DEBUG] default - [InitService] init complete
+[2021-09-15T16:57:06.050] [INFO] default - {
+  ENV: 'development',
+  IS_RELEASE: false,
+  IS_DEV: true,
+  IS_LOCAL: false,
+  IS_DEMON: false,
+  PRINT_DB_LOG: true,
+  LOG_PATH: 'logs',
+  MYSQL_HOST: null,
+  MONGODB_HOST: null
+}
+[2021-09-15T16:57:06.559] [DEBUG] default - add api ./d1/apiauth.js /d1/apiauth
+[2021-09-15T16:57:06.562] [DEBUG] default - add api ./d1/apifile.js /d1/apifile
+[2021-09-15T16:57:06.564] [DEBUG] default - add api ./d1/apiproject.js /d1/apiproject
+[2021-09-15T16:57:06.566] [DEBUG] default - add api ./d1/auth.js /d1/auth
+[2021-09-15T16:57:06.568] [DEBUG] default - add api ./d1/test.js /d1/test
+[2021-09-15T16:57:06.570] [DEBUG] default - add api ./d1/users.js /d1/users
+[2021-09-15T16:57:06.582] [DEBUG] default - Listening on port 3600 -> PID: 22196
+[2021-09-15T16:57:06.583] [DEBUG] default - [InitService] init start
+[2021-09-15T16:57:06.644] [DEBUG] default - [MySQL]
+ {
+  method: 'select',
+  options: {},
+  timeout: false,
+  cancelOnTimeout: false,
+  bindings: [],
+  __knexQueryUid: 'f551a416-ce2a-441b-94c3-7fbfe8d0dcfa',
+  sql: 'select * from `service_config`'
+}
+[2021-09-15T16:57:06.651] [DEBUG] default - [InitService] init complete
+[2021-09-15T16:57:09.375] [DEBUG] default - [MySQL]
+ {
+  method: 'first',
+  options: {},
+  timeout: false,
+  cancelOnTimeout: false,
+  bindings: [ 'test', 1 ],
+  __knexQueryUid: '94b68c40-4681-4a50-a6b2-0fe96e7ad33f',
+  sql: 'select * from `member` where `user_id` = ? limit ?'
+}
+[2021-09-15T16:57:09.384] [DEBUG] default - [MySQL]
+ {
+  method: 'update',
+  options: {},
+  timeout: false,
+  cancelOnTimeout: false,
+  bindings: [ '2021-09-15 16:09:09', 3 ],
+  __knexQueryUid: 'f894d73f-2cdf-40bd-a2df-a370edadddac',
+  sql: 'update `member` set `lastlogin` = ? where `seq` = ?'
+}
+[2021-09-15T16:57:09.395] [WARN] default - [MySQL]
+ .returning() is not supported by mysql and will not have any effect.
+[2021-09-15T16:57:09.397] [DEBUG] default - [MySQL]
+ {
+  method: 'insert',
+  options: {},
+  timeout: false,
+  cancelOnTimeout: false,
+  bindings: [ '127.0.0.1', '0000', 3, 'apiauto_login' ],
+  __knexQueryUid: 'c246d3b2-8fd1-4a82-8008-ea12e439e25c',
+  sql: 'insert into `member_log` (`ip_addr`, `log_type`, `member_seq`, `memo`) values (?, ?, ?, ?)'
+}
+[2021-09-15T16:57:09.406] [ERROR] default - /aipauth/ Error: ER_NO_DEFAULT_FOR_FIELD: Field 'mod_member_seq' doesn't have a default value
+    at Query.Sequence._packetToError (D:\repo\dnode\node_modules\mysql\lib\protocol\sequences\Sequence.js:47:14)
+    at Query.ErrorPacket (D:\repo\dnode\node_modules\mysql\lib\protocol\sequences\Query.js:79:18)
+    at Protocol._parsePacket (D:\repo\dnode\node_modules\mysql\lib\protocol\Protocol.js:291:23)
+    at Parser._parsePacket (D:\repo\dnode\node_modules\mysql\lib\protocol\Parser.js:433:10)
+    at Parser.write (D:\repo\dnode\node_modules\mysql\lib\protocol\Parser.js:43:10)
+    at Protocol.write (D:\repo\dnode\node_modules\mysql\lib\protocol\Protocol.js:38:16)
+    at Socket.<anonymous> (D:\repo\dnode\node_modules\mysql\lib\Connection.js:88:28)
+    at Socket.<anonymous> (D:\repo\dnode\node_modules\mysql\lib\Connection.js:526:10)
+    at Socket.emit (events.js:400:28)
+    at addChunk (internal/streams/readable.js:290:12)
+    at readableAddChunk (internal/streams/readable.js:265:9)
+    at Socket.Readable.push (internal/streams/readable.js:204:10)
+    at TCP.onStreamRead (internal/stream_base_commons.js:188:23)
+    at TCP.callbackTrampoline (internal/async_hooks.js:131:17)
+    at Protocol._enqueue (D:\repo\dnode\node_modules\mysql\lib\protocol\Protocol.js:144:48)
+    at Connection.query (D:\repo\dnode\node_modules\mysql\lib\Connection.js:198:25)
+    at D:\repo\dnode\node_modules\knex\lib\dialects\mysql\index.js:144:18
+From previous event:
+    at Client_MySQL._query (D:\repo\dnode\node_modules\knex\lib\dialects\mysql\index.js:135:12)
+    at Client_MySQL.query (D:\repo\dnode\node_modules\knex\lib\client.js:192:17)
+    at Runner.<anonymous> (D:\repo\dnode\node_modules\knex\lib\runner.js:138:36)
+From previous event:
+    at D:\repo\dnode\node_modules\knex\lib\runner.js:47:21
+    at processImmediate (internal/timers.js:464:21)
+    at process.callbackTrampoline (internal/async_hooks.js:131:17)
+From previous event:
+    at Runner.run (D:\repo\dnode\node_modules\knex\lib\runner.js:33:30)
+    at Builder.Target.then (D:\repo\dnode\node_modules\knex\lib\interface.js:23:43) {
+  code: 'ER_NO_DEFAULT_FOR_FIELD',
+  errno: 1364,
+  sqlMessage: "Field 'mod_member_seq' doesn't have a default value",
+  sqlState: 'HY000',
+  index: 0,
+  sql: "insert into `member_log` (`ip_addr`, `log_type`, `member_seq`, `memo`) values ('127.0.0.1', '0000', 3, 'apiauto_login')"
+}
+[2021-09-15T16:57:09.413] [ERROR] default - [ POST /apid1/d1/apiauth/ ]
+ App {
+  error: -1,
+  message: '아이디 혹은 비밀번호가 일치하지 않습니다.<br/>입력한 내용을 다시 확인해 주세요.',
+  variables: {},
+  httpStatusCode: 200
+}
+[2021-09-15T16:57:09.420] [WARN] default - [MySQL]
+ .returning() is not supported by mysql and will not have any effect.
+[2021-09-15T16:57:09.421] [DEBUG] default - [MySQL]
+ {
+  method: 'insert',
+  options: {},
+  timeout: false,
+  cancelOnTimeout: false,
+  bindings: [
+    'api',
+    '{"error":-1,"message":"아이디 혹은 비밀번호가 일치하지 않습니다.<br/>입력한 내용을 다시 확인해 주세요.","variables":{},"httpStatusCode":200}',
+    '{"user_id":"test","password":"1111"}',
+    'POST',
+    '/apid1/d1/apiauth/'
+  ],
+  __knexQueryUid: '8f8c7863-9122-45be-afc3-49d0c2f438a6',
+  sql: 'insert into `service_error` (`error_type`, `message`, `request_body`, `request_method`, `request_url`) values (?, ?, ?, ?, ?)'
+}
+[2021-09-15T16:57:25.087] [DEBUG] default - [MySQL]
+ {
+  method: 'first',
+  options: {},
+  timeout: false,
+  cancelOnTimeout: false,
+  bindings: [ 'test', 1 ],
+  __knexQueryUid: 'b7c656e5-2f09-4252-942a-adcfbf908591',
+  sql: 'select * from `member` where `user_id` = ? limit ?'
+}
+[2021-09-15T16:57:25.094] [DEBUG] default - [MySQL]
+ {
+  method: 'update',
+  options: {},
+  timeout: false,
+  cancelOnTimeout: false,
+  bindings: [ '2021-09-15 16:09:25', 3 ],
+  __knexQueryUid: '9dc931f1-986c-4980-a509-f46f45ba083d',
+  sql: 'update `member` set `lastlogin` = ? where `seq` = ?'
+}
+[2021-09-15T16:59:27.500] [WARN] default - [MySQL]
+ .returning() is not supported by mysql and will not have any effect.
+[2021-09-15T16:59:27.501] [DEBUG] default - [MySQL]
+ {
+  method: 'insert',
+  options: {},
+  timeout: false,
+  cancelOnTimeout: false,
+  bindings: [ '127.0.0.1', '0000', 3, 'apiauto_login' ],
+  __knexQueryUid: '5b40010f-79af-4129-b294-7d70460ef9df',
+  sql: 'insert into `member_log` (`ip_addr`, `log_type`, `member_seq`, `memo`) values (?, ?, ?, ?)'
+}
+[2021-09-15T16:59:36.020] [ERROR] default - /aipauth/ Error: ER_NO_DEFAULT_FOR_FIELD: Field 'mod_member_seq' doesn't have a default value
+    at Query.Sequence._packetToError (D:\repo\dnode\node_modules\mysql\lib\protocol\sequences\Sequence.js:47:14)
+    at Query.ErrorPacket (D:\repo\dnode\node_modules\mysql\lib\protocol\sequences\Query.js:79:18)
+    at Protocol._parsePacket (D:\repo\dnode\node_modules\mysql\lib\protocol\Protocol.js:291:23)
+    at Parser._parsePacket (D:\repo\dnode\node_modules\mysql\lib\protocol\Parser.js:433:10)
+    at Parser.write (D:\repo\dnode\node_modules\mysql\lib\protocol\Parser.js:43:10)
+    at Protocol.write (D:\repo\dnode\node_modules\mysql\lib\protocol\Protocol.js:38:16)
+    at Socket.<anonymous> (D:\repo\dnode\node_modules\mysql\lib\Connection.js:88:28)
+    at Socket.<anonymous> (D:\repo\dnode\node_modules\mysql\lib\Connection.js:526:10)
+    at Socket.emit (events.js:400:28)
+    at addChunk (internal/streams/readable.js:290:12)
+    at readableAddChunk (internal/streams/readable.js:265:9)
+    at Socket.Readable.push (internal/streams/readable.js:204:10)
+    at TCP.onStreamRead (internal/stream_base_commons.js:188:23)
+    at TCP.callbackTrampoline (internal/async_hooks.js:131:17)
+    at Protocol._enqueue (D:\repo\dnode\node_modules\mysql\lib\protocol\Protocol.js:144:48)
+    at Connection.query (D:\repo\dnode\node_modules\mysql\lib\Connection.js:198:25)
+    at D:\repo\dnode\node_modules\knex\lib\dialects\mysql\index.js:144:18
+From previous event:
+    at Client_MySQL._query (D:\repo\dnode\node_modules\knex\lib\dialects\mysql\index.js:135:12)
+    at Client_MySQL.query (D:\repo\dnode\node_modules\knex\lib\client.js:192:17)
+    at Runner.<anonymous> (D:\repo\dnode\node_modules\knex\lib\runner.js:138:36)
+From previous event:
+    at D:\repo\dnode\node_modules\knex\lib\runner.js:47:21
+    at processImmediate (internal/timers.js:464:21)
+    at process.callbackTrampoline (internal/async_hooks.js:131:17)
+From previous event:
+    at Runner.run (D:\repo\dnode\node_modules\knex\lib\runner.js:33:30)
+    at Builder.Target.then (D:\repo\dnode\node_modules\knex\lib\interface.js:23:43) {
+  code: 'ER_NO_DEFAULT_FOR_FIELD',
+  errno: 1364,
+  sqlMessage: "Field 'mod_member_seq' doesn't have a default value",
+  sqlState: 'HY000',
+  index: 0,
+  sql: "insert into `member_log` (`ip_addr`, `log_type`, `member_seq`, `memo`) values ('127.0.0.1', '0000', 3, 'apiauto_login')"
+}
+[2021-09-15T17:00:09.653] [ERROR] default - [ POST /apid1/d1/apiauth/ ]
+ App {
+  error: -1,
+  message: '아이디 혹은 비밀번호가 일치하지 않습니다.<br/>입력한 내용을 다시 확인해 주세요.',
+  variables: {},
+  httpStatusCode: 200
+}
+[2021-09-15T17:00:09.657] [WARN] default - [MySQL]
+ .returning() is not supported by mysql and will not have any effect.
+[2021-09-15T17:00:09.658] [DEBUG] default - [MySQL]
+ {
+  method: 'insert',
+  options: {},
+  timeout: false,
+  cancelOnTimeout: false,
+  bindings: [
+    'api',
+    '{"error":-1,"message":"아이디 혹은 비밀번호가 일치하지 않습니다.<br/>입력한 내용을 다시 확인해 주세요.","variables":{},"httpStatusCode":200}',
+    '{"user_id":"test","password":"1111"}',
+    'POST',
+    '/apid1/d1/apiauth/'
+  ],
+  __knexQueryUid: '4a453add-9c01-4bcb-bbd0-1db6bd128770',
+  sql: 'insert into `service_error` (`error_type`, `message`, `request_body`, `request_method`, `request_url`) values (?, ?, ?, ?, ?)'
+}
+[2021-09-15T17:01:30.009] [INFO] default - {
+  ENV: 'development',
+  IS_RELEASE: false,
+  IS_DEV: true,
+  IS_LOCAL: false,
+  IS_DEMON: false,
+  PRINT_DB_LOG: true,
+  LOG_PATH: 'logs',
+  MYSQL_HOST: null,
+  MONGODB_HOST: null
+}
+[2021-09-15T17:01:30.413] [DEBUG] default - add api ./d1/apiauth.js /d1/apiauth
+[2021-09-15T17:01:30.415] [DEBUG] default - add api ./d1/apifile.js /d1/apifile
+[2021-09-15T17:01:30.416] [DEBUG] default - add api ./d1/apiproject.js /d1/apiproject
+[2021-09-15T17:01:30.418] [DEBUG] default - add api ./d1/auth.js /d1/auth
+[2021-09-15T17:01:30.420] [DEBUG] default - add api ./d1/test.js /d1/test
+[2021-09-15T17:01:30.421] [DEBUG] default - add api ./d1/users.js /d1/users
+[2021-09-15T17:01:30.434] [DEBUG] default - Listening on port 3600 -> PID: 25496
+[2021-09-15T17:01:30.434] [DEBUG] default - [InitService] init start
+[2021-09-15T17:01:30.482] [DEBUG] default - [MySQL]
+ {
+  method: 'select',
+  options: {},
+  timeout: false,
+  cancelOnTimeout: false,
+  bindings: [],
+  __knexQueryUid: 'b375bad9-b042-4a61-8d37-66aacf20fe75',
+  sql: 'select * from `service_config`'
+}
+[2021-09-15T17:01:30.487] [DEBUG] default - [InitService] init complete
+[2021-09-15T17:01:45.124] [DEBUG] default - [MySQL]
+ {
+  method: 'first',
+  options: {},
+  timeout: false,
+  cancelOnTimeout: false,
+  bindings: [ 'test', 1 ],
+  __knexQueryUid: 'ce3c3911-865a-42a1-9be5-0c2c94451ec1',
+  sql: 'select * from `member` where `user_id` = ? limit ?'
+}
+[2021-09-15T17:01:45.131] [DEBUG] default - [MySQL]
+ {
+  method: 'update',
+  options: {},
+  timeout: false,
+  cancelOnTimeout: false,
+  bindings: [ '2021-09-15 17:09:45', 3 ],
+  __knexQueryUid: 'a118cfb7-10af-45e3-b9df-afff9fcbc5d8',
+  sql: 'update `member` set `lastlogin` = ? where `seq` = ?'
+}
+[2021-09-15T17:01:45.141] [WARN] default - [MySQL]
+ .returning() is not supported by mysql and will not have any effect.
+[2021-09-15T17:01:45.142] [DEBUG] default - [MySQL]
+ {
+  method: 'insert',
+  options: {},
+  timeout: false,
+  cancelOnTimeout: false,
+  bindings: [ '127.0.0.1', '0000', 3, 'apiauto_login', 3 ],
+  __knexQueryUid: '1a54abfd-872e-4004-af62-266ecda4e97c',
+  sql: 'insert into `member_log` (`ip_addr`, `log_type`, `member_seq`, `memo`, `mod_member_seq`) values (?, ?, ?, ?, ?)'
+}
+[2021-09-15T18:17:00.911] [INFO] default - {
+  ENV: 'development',
+  IS_RELEASE: false,
+  IS_DEV: true,
+  IS_LOCAL: false,
+  IS_DEMON: false,
+  PRINT_DB_LOG: true,
+  LOG_PATH: 'logs',
+  MYSQL_HOST: null,
+  MONGODB_HOST: null
+}
+[2021-09-15T18:17:03.227] [DEBUG] default - add api ./d1/apiauth.js /d1/apiauth
+[2021-09-15T18:17:03.229] [DEBUG] default - add api ./d1/apifile.js /d1/apifile
+[2021-09-15T18:17:03.272] [DEBUG] default - add api ./d1/apiproject.js /d1/apiproject
+[2021-09-15T18:17:03.273] [DEBUG] default - add api ./d1/auth.js /d1/auth
+[2021-09-15T18:17:03.274] [DEBUG] default - add api ./d1/test.js /d1/test
+[2021-09-15T18:17:03.276] [DEBUG] default - add api ./d1/users.js /d1/users
+[2021-09-15T18:17:03.287] [DEBUG] default - Listening on port 3600 -> PID: 20536
+[2021-09-15T18:17:03.288] [DEBUG] default - [InitService] init start
+[2021-09-15T18:17:03.677] [DEBUG] default - [MySQL]
+ {
+  method: 'select',
+  options: {},
+  timeout: false,
+  cancelOnTimeout: false,
+  bindings: [],
+  __knexQueryUid: 'dea5437d-e045-4d18-bf8c-ca7fc9a296a2',
+  sql: 'select * from `service_config`'
+}
+[2021-09-15T18:17:03.682] [DEBUG] default - [InitService] init complete
+[2021-09-15T18:17:38.933] [INFO] default - {
+  ENV: 'development',
+  IS_RELEASE: false,
+  IS_DEV: true,
+  IS_LOCAL: false,
+  IS_DEMON: false,
+  PRINT_DB_LOG: true,
+  LOG_PATH: 'logs',
+  MYSQL_HOST: null,
+  MONGODB_HOST: null
+}
+[2021-09-15T18:17:39.290] [DEBUG] default - add api ./d1/apiauth.js /d1/apiauth
+[2021-09-15T18:17:39.292] [DEBUG] default - add api ./d1/apifile.js /d1/apifile
+[2021-09-15T18:17:39.333] [DEBUG] default - add api ./d1/apiproject.js /d1/apiproject
+[2021-09-15T18:17:39.335] [DEBUG] default - add api ./d1/auth.js /d1/auth
+[2021-09-15T18:17:39.336] [DEBUG] default - add api ./d1/test.js /d1/test
+[2021-09-15T18:17:39.338] [DEBUG] default - add api ./d1/users.js /d1/users
+[2021-09-15T18:17:39.348] [DEBUG] default - Listening on port 3600 -> PID: 27428
+[2021-09-15T18:17:39.349] [DEBUG] default - [InitService] init start
+[2021-09-15T18:17:39.397] [DEBUG] default - [MySQL]
+ {
+  method: 'select',
+  options: {},
+  timeout: false,
+  cancelOnTimeout: false,
+  bindings: [],
+  __knexQueryUid: '80e4d63d-485b-44bc-9b24-b878b24e694f',
+  sql: 'select * from `service_config`'
+}
+[2021-09-15T18:17:39.402] [DEBUG] default - [InitService] init complete
+[2021-09-15T18:17:50.374] [INFO] default - {
+  ENV: 'development',
+  IS_RELEASE: false,
+  IS_DEV: true,
+  IS_LOCAL: false,
+  IS_DEMON: false,
+  PRINT_DB_LOG: true,
+  LOG_PATH: 'logs',
+  MYSQL_HOST: null,
+  MONGODB_HOST: null
+}
+[2021-09-15T18:17:50.767] [DEBUG] default - add api ./d1/apiauth.js /d1/apiauth
+[2021-09-15T18:17:50.769] [DEBUG] default - add api ./d1/apifile.js /d1/apifile
+[2021-09-15T18:17:50.811] [DEBUG] default - add api ./d1/apiproject.js /d1/apiproject
+[2021-09-15T18:17:50.813] [DEBUG] default - add api ./d1/auth.js /d1/auth
+[2021-09-15T18:17:50.814] [DEBUG] default - add api ./d1/test.js /d1/test
+[2021-09-15T18:17:50.816] [DEBUG] default - add api ./d1/users.js /d1/users
+[2021-09-15T18:17:50.827] [DEBUG] default - Listening on port 3600 -> PID: 20780
+[2021-09-15T18:17:50.827] [DEBUG] default - [InitService] init start
+[2021-09-15T18:17:50.876] [DEBUG] default - [MySQL]
+ {
+  method: 'select',
+  options: {},
+  timeout: false,
+  cancelOnTimeout: false,
+  bindings: [],
+  __knexQueryUid: '4a369d0a-54a8-4a2f-9f4a-8b8e8fbbd467',
+  sql: 'select * from `service_config`'
+}
+[2021-09-15T18:17:50.881] [DEBUG] default - [InitService] init complete
+[2021-09-15T18:18:24.153] [INFO] default - {
+  ENV: 'development',
+  IS_RELEASE: false,
+  IS_DEV: true,
+  IS_LOCAL: false,
+  IS_DEMON: false,
+  PRINT_DB_LOG: true,
+  LOG_PATH: 'logs',
+  MYSQL_HOST: null,
+  MONGODB_HOST: null
+}
+[2021-09-15T18:18:24.509] [DEBUG] default - add api ./d1/apiauth.js /d1/apiauth
+[2021-09-15T18:18:24.511] [DEBUG] default - add api ./d1/apifile.js /d1/apifile
+[2021-09-15T18:18:24.555] [DEBUG] default - add api ./d1/apiproject.js /d1/apiproject
+[2021-09-15T18:18:24.557] [DEBUG] default - add api ./d1/auth.js /d1/auth
+[2021-09-15T18:18:24.558] [DEBUG] default - add api ./d1/test.js /d1/test
+[2021-09-15T18:18:24.560] [DEBUG] default - add api ./d1/users.js /d1/users
+[2021-09-15T18:18:24.571] [DEBUG] default - Listening on port 3600 -> PID: 3012
+[2021-09-15T18:18:24.572] [DEBUG] default - [InitService] init start
+[2021-09-15T18:18:24.641] [DEBUG] default - [MySQL]
+ {
+  method: 'select',
+  options: {},
+  timeout: false,
+  cancelOnTimeout: false,
+  bindings: [],
+  __knexQueryUid: '941a0c05-e8e6-4d58-bbbf-6196c4a75ce2',
+  sql: 'select * from `service_config`'
+}
+[2021-09-15T18:18:24.646] [DEBUG] default - [InitService] init complete
+[2021-09-15T18:18:40.816] [INFO] default - {
+  ENV: 'development',
+  IS_RELEASE: false,
+  IS_DEV: true,
+  IS_LOCAL: false,
+  IS_DEMON: false,
+  PRINT_DB_LOG: true,
+  LOG_PATH: 'logs',
+  MYSQL_HOST: null,
+  MONGODB_HOST: null
+}
+[2021-09-15T18:18:41.177] [DEBUG] default - add api ./d1/apiauth.js /d1/apiauth
+[2021-09-15T18:18:41.178] [DEBUG] default - add api ./d1/apifile.js /d1/apifile
+[2021-09-15T18:18:41.222] [DEBUG] default - add api ./d1/apiproject.js /d1/apiproject
+[2021-09-15T18:18:41.223] [DEBUG] default - add api ./d1/auth.js /d1/auth
+[2021-09-15T18:18:41.225] [DEBUG] default - add api ./d1/test.js /d1/test
+[2021-09-15T18:18:41.227] [DEBUG] default - add api ./d1/users.js /d1/users
+[2021-09-15T18:18:41.237] [DEBUG] default - Listening on port 3600 -> PID: 6440
+[2021-09-15T18:18:41.238] [DEBUG] default - [InitService] init start
+[2021-09-15T18:18:41.286] [DEBUG] default - [MySQL]
+ {
+  method: 'select',
+  options: {},
+  timeout: false,
+  cancelOnTimeout: false,
+  bindings: [],
+  __knexQueryUid: '28eba556-3cf5-4bf1-8d57-90e25b9db70f',
+  sql: 'select * from `service_config`'
+}
+[2021-09-15T18:18:41.291] [DEBUG] default - [InitService] init complete
+[2021-09-15T18:19:10.505] [INFO] default - {
+  ENV: 'development',
+  IS_RELEASE: false,
+  IS_DEV: true,
+  IS_LOCAL: false,
+  IS_DEMON: false,
+  PRINT_DB_LOG: true,
+  LOG_PATH: 'logs',
+  MYSQL_HOST: null,
+  MONGODB_HOST: null
+}
+[2021-09-15T18:19:10.867] [DEBUG] default - add api ./d1/apiauth.js /d1/apiauth
+[2021-09-15T18:19:10.869] [DEBUG] default - add api ./d1/apifile.js /d1/apifile
+[2021-09-15T18:19:10.915] [DEBUG] default - add api ./d1/apiproject.js /d1/apiproject
+[2021-09-15T18:19:10.917] [DEBUG] default - add api ./d1/auth.js /d1/auth
+[2021-09-15T18:19:10.919] [DEBUG] default - add api ./d1/test.js /d1/test
+[2021-09-15T18:19:10.920] [DEBUG] default - add api ./d1/users.js /d1/users
+[2021-09-15T18:19:10.931] [DEBUG] default - Listening on port 3600 -> PID: 23436
+[2021-09-15T18:19:10.931] [DEBUG] default - [InitService] init start
+[2021-09-15T18:19:10.980] [DEBUG] default - [MySQL]
+ {
+  method: 'select',
+  options: {},
+  timeout: false,
+  cancelOnTimeout: false,
+  bindings: [],
+  __knexQueryUid: 'cdadbf13-39f9-4a51-afe0-1e10363b528c',
+  sql: 'select * from `service_config`'
+}
+[2021-09-15T18:19:10.986] [DEBUG] default - [InitService] init complete
+[2021-09-15T18:19:12.148] [INFO] default - {
+  ENV: 'development',
+  IS_RELEASE: false,
+  IS_DEV: true,
+  IS_LOCAL: false,
+  IS_DEMON: false,
+  PRINT_DB_LOG: true,
+  LOG_PATH: 'logs',
+  MYSQL_HOST: null,
+  MONGODB_HOST: null
+}
+[2021-09-15T18:19:12.527] [DEBUG] default - add api ./d1/apiauth.js /d1/apiauth
+[2021-09-15T18:19:12.528] [DEBUG] default - add api ./d1/apifile.js /d1/apifile
+[2021-09-15T18:19:12.573] [DEBUG] default - add api ./d1/apiproject.js /d1/apiproject
+[2021-09-15T18:19:12.575] [DEBUG] default - add api ./d1/auth.js /d1/auth
+[2021-09-15T18:19:12.576] [DEBUG] default - add api ./d1/test.js /d1/test
+[2021-09-15T18:19:12.578] [DEBUG] default - add api ./d1/users.js /d1/users
+[2021-09-15T18:19:12.589] [DEBUG] default - Listening on port 3600 -> PID: 7352
+[2021-09-15T18:19:12.589] [DEBUG] default - [InitService] init start
+[2021-09-15T18:19:12.637] [DEBUG] default - [MySQL]
+ {
+  method: 'select',
+  options: {},
+  timeout: false,
+  cancelOnTimeout: false,
+  bindings: [],
+  __knexQueryUid: 'c34e9ca9-f34f-42c1-954a-35f16e2358d6',
+  sql: 'select * from `service_config`'
+}
+[2021-09-15T18:19:12.642] [DEBUG] default - [InitService] init complete
+[2021-09-15T18:19:38.331] [INFO] default - {
+  ENV: 'development',
+  IS_RELEASE: false,
+  IS_DEV: true,
+  IS_LOCAL: false,
+  IS_DEMON: false,
+  PRINT_DB_LOG: true,
+  LOG_PATH: 'logs',
+  MYSQL_HOST: null,
+  MONGODB_HOST: null
+}
+[2021-09-15T18:19:38.694] [DEBUG] default - add api ./d1/apiauth.js /d1/apiauth
+[2021-09-15T18:19:38.695] [DEBUG] default - add api ./d1/apifile.js /d1/apifile
+[2021-09-15T18:19:38.742] [DEBUG] default - add api ./d1/apiproject.js /d1/apiproject
+[2021-09-15T18:19:38.744] [DEBUG] default - add api ./d1/auth.js /d1/auth
+[2021-09-15T18:19:38.745] [DEBUG] default - add api ./d1/test.js /d1/test
+[2021-09-15T18:19:38.747] [DEBUG] default - add api ./d1/users.js /d1/users
+[2021-09-15T18:19:38.759] [DEBUG] default - Listening on port 3600 -> PID: 25744
+[2021-09-15T18:19:38.759] [DEBUG] default - [InitService] init start
+[2021-09-15T18:19:38.808] [DEBUG] default - [MySQL]
+ {
+  method: 'select',
+  options: {},
+  timeout: false,
+  cancelOnTimeout: false,
+  bindings: [],
+  __knexQueryUid: '6e4dd726-1357-4e79-b0e9-00bd160977e7',
+  sql: 'select * from `service_config`'
+}
+[2021-09-15T18:19:38.813] [DEBUG] default - [InitService] init complete
+[2021-09-15T18:19:47.743] [INFO] default - {
+  ENV: 'development',
+  IS_RELEASE: false,
+  IS_DEV: true,
+  IS_LOCAL: false,
+  IS_DEMON: false,
+  PRINT_DB_LOG: true,
+  LOG_PATH: 'logs',
+  MYSQL_HOST: null,
+  MONGODB_HOST: null
+}
+[2021-09-15T18:19:48.099] [DEBUG] default - add api ./d1/apiauth.js /d1/apiauth
+[2021-09-15T18:19:48.101] [DEBUG] default - add api ./d1/apifile.js /d1/apifile
+[2021-09-15T18:19:48.147] [DEBUG] default - add api ./d1/apiproject.js /d1/apiproject
+[2021-09-15T18:19:48.148] [DEBUG] default - add api ./d1/auth.js /d1/auth
+[2021-09-15T18:19:48.150] [DEBUG] default - add api ./d1/test.js /d1/test
+[2021-09-15T18:19:48.151] [DEBUG] default - add api ./d1/users.js /d1/users
+[2021-09-15T18:19:48.162] [DEBUG] default - Listening on port 3600 -> PID: 24764
+[2021-09-15T18:19:48.162] [DEBUG] default - [InitService] init start
+[2021-09-15T18:19:48.211] [DEBUG] default - [MySQL]
+ {
+  method: 'select',
+  options: {},
+  timeout: false,
+  cancelOnTimeout: false,
+  bindings: [],
+  __knexQueryUid: '1d68864d-cb19-4bef-b82a-b8426ee46718',
+  sql: 'select * from `service_config`'
+}
+[2021-09-15T18:19:48.216] [DEBUG] default - [InitService] init complete
+[2021-09-15T18:23:06.523] [INFO] default - {
+  ENV: 'development',
+  IS_RELEASE: false,
+  IS_DEV: true,
+  IS_LOCAL: false,
+  IS_DEMON: false,
+  PRINT_DB_LOG: true,
+  LOG_PATH: 'logs',
+  MYSQL_HOST: null,
+  MONGODB_HOST: null
+}
+[2021-09-15T18:23:06.891] [DEBUG] default - add api ./d1/apiauth.js /d1/apiauth
+[2021-09-15T18:23:06.892] [DEBUG] default - add api ./d1/apifile.js /d1/apifile
+[2021-09-15T18:23:06.938] [DEBUG] default - add api ./d1/apiproject.js /d1/apiproject
+[2021-09-15T18:23:06.939] [DEBUG] default - add api ./d1/auth.js /d1/auth
+[2021-09-15T18:23:06.941] [DEBUG] default - add api ./d1/test.js /d1/test
+[2021-09-15T18:23:06.942] [DEBUG] default - add api ./d1/users.js /d1/users
+[2021-09-15T18:23:06.953] [DEBUG] default - Listening on port 3600 -> PID: 1640
+[2021-09-15T18:23:06.954] [DEBUG] default - [InitService] init start
+[2021-09-15T18:23:07.003] [DEBUG] default - [MySQL]
+ {
+  method: 'select',
+  options: {},
+  timeout: false,
+  cancelOnTimeout: false,
+  bindings: [],
+  __knexQueryUid: 'e7b4ef78-6c36-466b-b7d2-f35daa989034',
+  sql: 'select * from `service_config`'
+}
+[2021-09-15T18:23:07.008] [DEBUG] default - [InitService] init complete
+[2021-09-15T18:49:22.798] [INFO] default - {
+  ENV: 'development',
+  IS_RELEASE: false,
+  IS_DEV: true,
+  IS_LOCAL: false,
+  IS_DEMON: false,
+  PRINT_DB_LOG: true,
+  LOG_PATH: 'logs',
+  MYSQL_HOST: null,
+  MONGODB_HOST: null
+}
+[2021-09-15T18:49:27.792] [DEBUG] default - add api ./d1/apiauth.js /d1/apiauth
+[2021-09-15T18:49:27.793] [DEBUG] default - add api ./d1/apifile.js /d1/apifile
+[2021-09-15T18:49:27.830] [DEBUG] default - add api ./d1/apiproject.js /d1/apiproject
+[2021-09-15T18:49:27.832] [DEBUG] default - add api ./d1/auth.js /d1/auth
+[2021-09-15T18:49:27.834] [DEBUG] default - add api ./d1/test.js /d1/test
+[2021-09-15T18:49:27.836] [DEBUG] default - add api ./d1/users.js /d1/users
+[2021-09-15T18:49:27.848] [DEBUG] default - Listening on port 3600 -> PID: 4596
+[2021-09-15T18:49:27.848] [DEBUG] default - [InitService] init start
+[2021-09-15T18:49:28.247] [DEBUG] default - [MySQL]
+ {
+  method: 'select',
+  options: {},
+  timeout: false,
+  cancelOnTimeout: false,
+  bindings: [],
+  __knexQueryUid: '91ce08f7-dc41-4b69-9bc5-49bd21a9960e',
+  sql: 'select * from `service_config`'
+}
+[2021-09-15T18:49:28.253] [DEBUG] default - [InitService] init complete
+[2021-09-15T18:49:57.200] [ERROR] default - /apiproject/getproject ReferenceError: DBMySQL is not defined
+    at D:/repo/dnode/src/routes/d1/apiproject.js:26:56
+    at D:/repo/dnode/src/utils/express-async.js:12:12
+    at Layer.handle [as handle_request] (D:\repo\dnode\node_modules\express\lib\router\layer.js:95:5)
+    at next (D:\repo\dnode\node_modules\express\lib\router\route.js:137:13)
+    at Route.dispatch (D:\repo\dnode\node_modules\express\lib\router\route.js:112:3)
+    at Layer.handle [as handle_request] (D:\repo\dnode\node_modules\express\lib\router\layer.js:95:5)
+    at D:\repo\dnode\node_modules\express\lib\router\index.js:281:22
+    at Function.process_params (D:\repo\dnode\node_modules\express\lib\router\index.js:335:12)
+    at next (D:\repo\dnode\node_modules\express\lib\router\index.js:275:10)
+    at Function.handle (D:\repo\dnode\node_modules\express\lib\router\index.js:174:3)
+    at router (D:\repo\dnode\node_modules\express\lib\router\index.js:47:12)
+    at Layer.handle [as handle_request] (D:\repo\dnode\node_modules\express\lib\router\layer.js:95:5)
+    at trim_prefix (D:\repo\dnode\node_modules\express\lib\router\index.js:317:13)
+    at D:\repo\dnode\node_modules\express\lib\router\index.js:284:7
+    at Function.process_params (D:\repo\dnode\node_modules\express\lib\router\index.js:335:12)
+    at next (D:\repo\dnode\node_modules\express\lib\router\index.js:275:10)
+    at Function.handle (D:\repo\dnode\node_modules\express\lib\router\index.js:174:3)
+    at router (D:\repo\dnode\node_modules\express\lib\router\index.js:47:12)
+    at Layer.handle [as handle_request] (D:\repo\dnode\node_modules\express\lib\router\layer.js:95:5)
+    at trim_prefix (D:\repo\dnode\node_modules\express\lib\router\index.js:317:13)
+    at D:\repo\dnode\node_modules\express\lib\router\index.js:284:7
+    at Function.process_params (D:\repo\dnode\node_modules\express\lib\router\index.js:335:12)
+[2021-09-15T18:49:57.210] [ERROR] default - [ GET /apid1/d1/apiproject/getproject ]
+ App { error: -1, message: '', variables: {}, httpStatusCode: 200 }
+[2021-09-15T18:49:57.218] [WARN] default - [MySQL]
+ .returning() is not supported by mysql and will not have any effect.
+[2021-09-15T18:49:57.220] [DEBUG] default - [MySQL]
+ {
+  method: 'insert',
+  options: {},
+  timeout: false,
+  cancelOnTimeout: false,
+  bindings: [
+    'api',
+    '{"error":-1,"message":"","variables":{},"httpStatusCode":200}',
+    '{}',
+    'GET',
+    '/apid1/d1/apiproject/getproject'
+  ],
+  __knexQueryUid: 'c44fbb4e-2d96-4a1c-bad3-ec1e41a0917a',
+  sql: 'insert into `service_error` (`error_type`, `message`, `request_body`, `request_method`, `request_url`) values (?, ?, ?, ?, ?)'
+}
+[2021-09-15T18:50:33.166] [ERROR] default - /apiproject/getproject ReferenceError: DBMySQL is not defined
+    at D:/repo/dnode/src/routes/d1/apiproject.js:26:56
+    at D:/repo/dnode/src/utils/express-async.js:12:12
+    at Layer.handle [as handle_request] (D:\repo\dnode\node_modules\express\lib\router\layer.js:95:5)
+    at next (D:\repo\dnode\node_modules\express\lib\router\route.js:137:13)
+    at Route.dispatch (D:\repo\dnode\node_modules\express\lib\router\route.js:112:3)
+    at Layer.handle [as handle_request] (D:\repo\dnode\node_modules\express\lib\router\layer.js:95:5)
+    at D:\repo\dnode\node_modules\express\lib\router\index.js:281:22
+    at Function.process_params (D:\repo\dnode\node_modules\express\lib\router\index.js:335:12)
+    at next (D:\repo\dnode\node_modules\express\lib\router\index.js:275:10)
+    at Function.handle (D:\repo\dnode\node_modules\express\lib\router\index.js:174:3)
+    at router (D:\repo\dnode\node_modules\express\lib\router\index.js:47:12)
+    at Layer.handle [as handle_request] (D:\repo\dnode\node_modules\express\lib\router\layer.js:95:5)
+    at trim_prefix (D:\repo\dnode\node_modules\express\lib\router\index.js:317:13)
+    at D:\repo\dnode\node_modules\express\lib\router\index.js:284:7
+    at Function.process_params (D:\repo\dnode\node_modules\express\lib\router\index.js:335:12)
+    at next (D:\repo\dnode\node_modules\express\lib\router\index.js:275:10)
+    at Function.handle (D:\repo\dnode\node_modules\express\lib\router\index.js:174:3)
+    at router (D:\repo\dnode\node_modules\express\lib\router\index.js:47:12)
+    at Layer.handle [as handle_request] (D:\repo\dnode\node_modules\express\lib\router\layer.js:95:5)
+    at trim_prefix (D:\repo\dnode\node_modules\express\lib\router\index.js:317:13)
+    at D:\repo\dnode\node_modules\express\lib\router\index.js:284:7
+    at Function.process_params (D:\repo\dnode\node_modules\express\lib\router\index.js:335:12)
+[2021-09-15T18:50:33.170] [ERROR] default - [ GET /apid1/d1/apiproject/getproject ]
+ App { error: -1, message: '', variables: {}, httpStatusCode: 200 }
+[2021-09-15T18:50:33.174] [WARN] default - [MySQL]
+ .returning() is not supported by mysql and will not have any effect.
+[2021-09-15T18:50:33.175] [DEBUG] default - [MySQL]
+ {
+  method: 'insert',
+  options: {},
+  timeout: false,
+  cancelOnTimeout: false,
+  bindings: [
+    'api',
+    '{"error":-1,"message":"","variables":{},"httpStatusCode":200}',
+    '{}',
+    'GET',
+    '/apid1/d1/apiproject/getproject'
+  ],
+  __knexQueryUid: 'c564ad20-fa82-4fdb-838a-2e3efb39ba6c',
+  sql: 'insert into `service_error` (`error_type`, `message`, `request_body`, `request_method`, `request_url`) values (?, ?, ?, ?, ?)'
+}
+[2021-09-15T18:50:53.033] [INFO] default - {
+  ENV: 'development',
+  IS_RELEASE: false,
+  IS_DEV: true,
+  IS_LOCAL: false,
+  IS_DEMON: false,
+  PRINT_DB_LOG: true,
+  LOG_PATH: 'logs',
+  MYSQL_HOST: null,
+  MONGODB_HOST: null
+}
+[2021-09-15T18:50:53.523] [DEBUG] default - add api ./d1/apiauth.js /d1/apiauth
+[2021-09-15T18:50:53.524] [DEBUG] default - add api ./d1/apifile.js /d1/apifile
+[2021-09-15T18:50:53.583] [DEBUG] default - add api ./d1/apiproject.js /d1/apiproject
+[2021-09-15T18:50:53.585] [DEBUG] default - add api ./d1/auth.js /d1/auth
+[2021-09-15T18:50:53.586] [DEBUG] default - add api ./d1/test.js /d1/test
+[2021-09-15T18:50:53.588] [DEBUG] default - add api ./d1/users.js /d1/users
+[2021-09-15T18:50:53.600] [DEBUG] default - Listening on port 3600 -> PID: 26248
+[2021-09-15T18:50:53.601] [DEBUG] default - [InitService] init start
+[2021-09-15T18:50:53.664] [DEBUG] default - [MySQL]
+ {
+  method: 'select',
+  options: {},
+  timeout: false,
+  cancelOnTimeout: false,
+  bindings: [],
+  __knexQueryUid: '77b1c3b3-3d65-43dc-94b3-2da467e30085',
+  sql: 'select * from `service_config`'
+}
+[2021-09-15T18:50:53.670] [DEBUG] default - [InitService] init complete
+[2021-09-15T18:50:59.060] [DEBUG] default - [MySQL]
+ {
+  method: 'select',
+  options: {},
+  timeout: false,
+  cancelOnTimeout: false,
+  bindings: [],
+  __knexQueryUid: '5caf2538-2a6a-48df-8355-117e4af148c2',
+  sql: 'select `seq`, `project_name`, `is_class`, `status`, `memo`, `reg_member_seq`, `reg_date` from `project`'
+}
+[2021-09-15T18:50:59.065] [DEBUG] default - undefined
+[2021-09-15T18:53:18.802] [INFO] default - {
+  ENV: 'development',
+  IS_RELEASE: false,
+  IS_DEV: true,
+  IS_LOCAL: false,
+  IS_DEMON: false,
+  PRINT_DB_LOG: true,
+  LOG_PATH: 'logs',
+  MYSQL_HOST: null,
+  MONGODB_HOST: null
+}
+[2021-09-15T18:53:19.274] [DEBUG] default - add api ./d1/apiauth.js /d1/apiauth
+[2021-09-15T18:53:19.276] [DEBUG] default - add api ./d1/apifile.js /d1/apifile
+[2021-09-15T18:53:19.336] [DEBUG] default - add api ./d1/apiproject.js /d1/apiproject
+[2021-09-15T18:53:19.338] [DEBUG] default - add api ./d1/auth.js /d1/auth
+[2021-09-15T18:53:19.340] [DEBUG] default - add api ./d1/test.js /d1/test
+[2021-09-15T18:53:19.342] [DEBUG] default - add api ./d1/users.js /d1/users
+[2021-09-15T18:53:19.355] [DEBUG] default - Listening on port 3600 -> PID: 8496
+[2021-09-15T18:53:19.356] [DEBUG] default - [InitService] init start
+[2021-09-15T18:53:19.417] [DEBUG] default - [MySQL]
+ {
+  method: 'select',
+  options: {},
+  timeout: false,
+  cancelOnTimeout: false,
+  bindings: [],
+  __knexQueryUid: '580a3270-ece2-49ff-9243-1760cbccebd0',
+  sql: 'select * from `service_config`'
+}
+[2021-09-15T18:53:19.422] [DEBUG] default - [InitService] init complete
+[2021-09-15T18:53:22.544] [DEBUG] default - [MySQL]
+ {
+  method: 'select',
+  options: {},
+  timeout: false,
+  cancelOnTimeout: false,
+  bindings: [],
+  __knexQueryUid: 'fdfe77f6-09ca-40d1-bd79-dbc507b88626',
+  sql: 'select `seq`, `project_name`, `is_class`, `status`, `memo`, `reg_member_seq`, `reg_date` from `project`'
+}
+[2021-09-15T18:53:22.549] [DEBUG] default - undefined
+[2021-09-15T18:53:56.322] [DEBUG] default - [MySQL]
+ {
+  method: 'select',
+  options: {},
+  timeout: false,
+  cancelOnTimeout: false,
+  bindings: [],
+  __knexQueryUid: 'da68b577-7508-497e-b85f-54911cc2fbcf',
+  sql: 'select `seq`, `project_name`, `is_class`, `status`, `memo`, `reg_member_seq`, `reg_date` from `project`'
+}
+[2021-09-15T18:53:56.328] [DEBUG] default - undefined
+[2021-09-15T18:54:52.472] [DEBUG] default - [MySQL]
+ {
+  method: 'select',
+  options: {},
+  timeout: false,
+  cancelOnTimeout: false,
+  bindings: [],
+  __knexQueryUid: 'd29accca-715b-4225-8894-c0acee42f481',
+  sql: 'select `seq`, `project_name`, `is_class`, `status`, `memo`, `reg_member_seq`, `reg_date` from `project`'
+}
+[2021-09-15T18:55:01.800] [DEBUG] default - undefined
+[2021-09-15T18:55:54.560] [INFO] default - {
+  ENV: 'development',
+  IS_RELEASE: false,
+  IS_DEV: true,
+  IS_LOCAL: false,
+  IS_DEMON: false,
+  PRINT_DB_LOG: true,
+  LOG_PATH: 'logs',
+  MYSQL_HOST: null,
+  MONGODB_HOST: null
+}
+[2021-09-15T18:55:55.071] [DEBUG] default - add api ./d1/apiauth.js /d1/apiauth
+[2021-09-15T18:55:55.072] [DEBUG] default - add api ./d1/apifile.js /d1/apifile
+[2021-09-15T18:55:55.078] [DEBUG] default - add api ./d1/apiproject.js /d1/apiproject
+[2021-09-15T18:55:55.080] [DEBUG] default - add api ./d1/auth.js /d1/auth
+[2021-09-15T18:55:55.081] [DEBUG] default - add api ./d1/test.js /d1/test
+[2021-09-15T18:55:55.083] [DEBUG] default - add api ./d1/users.js /d1/users
+[2021-09-15T18:55:55.095] [DEBUG] default - Listening on port 3600 -> PID: 17060
+[2021-09-15T18:55:55.095] [DEBUG] default - [InitService] init start
+[2021-09-15T18:55:55.144] [DEBUG] default - [MySQL]
+ {
+  method: 'select',
+  options: {},
+  timeout: false,
+  cancelOnTimeout: false,
+  bindings: [],
+  __knexQueryUid: '2a12c535-bbf2-4e0a-b274-426b158e3fed',
+  sql: 'select * from `service_config`'
+}
+[2021-09-15T18:55:55.149] [DEBUG] default - [InitService] init complete
+[2021-09-15T18:56:03.982] [INFO] default - {
+  ENV: 'development',
+  IS_RELEASE: false,
+  IS_DEV: true,
+  IS_LOCAL: false,
+  IS_DEMON: false,
+  PRINT_DB_LOG: true,
+  LOG_PATH: 'logs',
+  MYSQL_HOST: null,
+  MONGODB_HOST: null
+}
+[2021-09-15T18:56:04.346] [DEBUG] default - add api ./d1/apiauth.js /d1/apiauth
+[2021-09-15T18:56:04.347] [DEBUG] default - add api ./d1/apifile.js /d1/apifile
+[2021-09-15T18:56:04.395] [DEBUG] default - add api ./d1/apiproject.js /d1/apiproject
+[2021-09-15T18:56:04.397] [DEBUG] default - add api ./d1/auth.js /d1/auth
+[2021-09-15T18:56:04.398] [DEBUG] default - add api ./d1/test.js /d1/test
+[2021-09-15T18:56:04.400] [DEBUG] default - add api ./d1/users.js /d1/users
+[2021-09-15T18:56:04.411] [DEBUG] default - Listening on port 3600 -> PID: 15864
+[2021-09-15T18:56:04.412] [DEBUG] default - [InitService] init start
+[2021-09-15T18:56:04.464] [DEBUG] default - [MySQL]
+ {
+  method: 'select',
+  options: {},
+  timeout: false,
+  cancelOnTimeout: false,
+  bindings: [],
+  __knexQueryUid: '52502379-4410-495a-a3b4-11358e549728',
+  sql: 'select * from `service_config`'
+}
+[2021-09-15T18:56:04.468] [DEBUG] default - [InitService] init complete
+[2021-09-15T18:56:22.153] [INFO] default - {
+  ENV: 'development',
+  IS_RELEASE: false,
+  IS_DEV: true,
+  IS_LOCAL: false,
+  IS_DEMON: false,
+  PRINT_DB_LOG: true,
+  LOG_PATH: 'logs',
+  MYSQL_HOST: null,
+  MONGODB_HOST: null
+}
+[2021-09-15T18:56:22.519] [DEBUG] default - add api ./d1/apiauth.js /d1/apiauth
+[2021-09-15T18:56:22.521] [DEBUG] default - add api ./d1/apifile.js /d1/apifile
+[2021-09-15T18:56:22.567] [DEBUG] default - add api ./d1/apiproject.js /d1/apiproject
+[2021-09-15T18:56:22.569] [DEBUG] default - add api ./d1/auth.js /d1/auth
+[2021-09-15T18:56:22.570] [DEBUG] default - add api ./d1/test.js /d1/test
+[2021-09-15T18:56:22.572] [DEBUG] default - add api ./d1/users.js /d1/users
+[2021-09-15T18:56:22.584] [DEBUG] default - Listening on port 3600 -> PID: 25316
+[2021-09-15T18:56:22.584] [DEBUG] default - [InitService] init start
+[2021-09-15T18:56:22.634] [DEBUG] default - [MySQL]
+ {
+  method: 'select',
+  options: {},
+  timeout: false,
+  cancelOnTimeout: false,
+  bindings: [],
+  __knexQueryUid: 'fe39ed82-e3b9-4a7e-823c-22057a763f2c',
+  sql: 'select * from `service_config`'
+}
+[2021-09-15T18:56:22.639] [DEBUG] default - [InitService] init complete
+[2021-09-15T18:56:25.947] [DEBUG] default - [MySQL]
+ {
+  method: 'select',
+  options: {},
+  timeout: false,
+  cancelOnTimeout: false,
+  bindings: [],
+  __knexQueryUid: '633f7703-1f06-4109-b0de-ebd35a5c2e3c',
+  sql: 'select `seq`, `project_name`, `is_class`, `status`, `memo`, `reg_member_seq`, `reg_date` from `project`'
+}
+[2021-09-15T18:56:25.951] [ERROR] default - /apiproject/getproject ReferenceError: query_result is not defined
+    at ProjectModel.GetProjects (D:/repo/dnode/src/database/mysql/project/ProjectModel.js:23:28)
+    at ProjectServiceClass.GetProject (D:/repo/dnode/src/service/project/ProjectService.js:23:20)
+    at D:/repo/dnode/src/routes/d1/apiproject.js:26:24
+[2021-09-15T18:56:25.958] [ERROR] default - [ GET /apid1/d1/apiproject/getproject ]
+ App { error: -1, message: '', variables: {}, httpStatusCode: 200 }
+[2021-09-15T18:56:25.963] [WARN] default - [MySQL]
+ .returning() is not supported by mysql and will not have any effect.
+[2021-09-15T18:56:25.964] [DEBUG] default - [MySQL]
+ {
+  method: 'insert',
+  options: {},
+  timeout: false,
+  cancelOnTimeout: false,
+  bindings: [
+    'api',
+    '{"error":-1,"message":"","variables":{},"httpStatusCode":200}',
+    '{}',
+    'GET',
+    '/apid1/d1/apiproject/getproject'
+  ],
+  __knexQueryUid: '1288d9ec-fcdf-477c-a01a-d77ebe3bf8b2',
+  sql: 'insert into `service_error` (`error_type`, `message`, `request_body`, `request_method`, `request_url`) values (?, ?, ?, ?, ?)'
+}
+[2021-09-15T18:56:33.177] [DEBUG] default - [MySQL]
+ {
+  method: 'select',
+  options: {},
+  timeout: false,
+  cancelOnTimeout: false,
+  bindings: [],
+  __knexQueryUid: 'ecf6f9ca-0706-4631-b787-dc8761b1cd0b',
+  sql: 'select `seq`, `project_name`, `is_class`, `status`, `memo`, `reg_member_seq`, `reg_date` from `project`'
+}
+[2021-09-15T18:56:33.181] [ERROR] default - /apiproject/getproject ReferenceError: query_result is not defined
+    at ProjectModel.GetProjects (D:/repo/dnode/src/database/mysql/project/ProjectModel.js:23:28)
+    at ProjectServiceClass.GetProject (D:/repo/dnode/src/service/project/ProjectService.js:23:20)
+    at D:/repo/dnode/src/routes/d1/apiproject.js:26:24
+[2021-09-15T18:56:33.183] [ERROR] default - [ GET /apid1/d1/apiproject/getproject ]
+ App { error: -1, message: '', variables: {}, httpStatusCode: 200 }
+[2021-09-15T18:56:33.184] [WARN] default - [MySQL]
+ .returning() is not supported by mysql and will not have any effect.
+[2021-09-15T18:56:33.185] [DEBUG] default - [MySQL]
+ {
+  method: 'insert',
+  options: {},
+  timeout: false,
+  cancelOnTimeout: false,
+  bindings: [
+    'api',
+    '{"error":-1,"message":"","variables":{},"httpStatusCode":200}',
+    '{}',
+    'GET',
+    '/apid1/d1/apiproject/getproject'
+  ],
+  __knexQueryUid: '153876f9-7f89-4624-b59d-e2850878896b',
+  sql: 'insert into `service_error` (`error_type`, `message`, `request_body`, `request_method`, `request_url`) values (?, ?, ?, ?, ?)'
+}
+[2021-09-15T18:56:51.349] [DEBUG] default - [MySQL]
+ {
+  method: 'select',
+  options: {},
+  timeout: false,
+  cancelOnTimeout: false,
+  bindings: [],
+  __knexQueryUid: '23f811ac-1a52-42bb-95ea-b8c127a53c12',
+  sql: 'select `seq`, `project_name`, `is_class`, `status`, `memo`, `reg_member_seq`, `reg_date` from `project`'
+}
+[2021-09-15T18:56:51.353] [ERROR] default - /apiproject/getproject ReferenceError: query_result is not defined
+    at ProjectModel.GetProjects (D:/repo/dnode/src/database/mysql/project/ProjectModel.js:23:28)
+    at ProjectServiceClass.GetProject (D:/repo/dnode/src/service/project/ProjectService.js:23:20)
+    at D:/repo/dnode/src/routes/d1/apiproject.js:26:24
+[2021-09-15T18:56:51.354] [ERROR] default - [ GET /apid1/d1/apiproject/getproject ]
+ App { error: -1, message: '', variables: {}, httpStatusCode: 200 }
+[2021-09-15T18:56:51.355] [WARN] default - [MySQL]
+ .returning() is not supported by mysql and will not have any effect.
+[2021-09-15T18:56:51.356] [DEBUG] default - [MySQL]
+ {
+  method: 'insert',
+  options: {},
+  timeout: false,
+  cancelOnTimeout: false,
+  bindings: [
+    'api',
+    '{"error":-1,"message":"","variables":{},"httpStatusCode":200}',
+    '{}',
+    'GET',
+    '/apid1/d1/apiproject/getproject'
+  ],
+  __knexQueryUid: '84d31fa8-e247-4e31-a994-49cc171c3a6d',
+  sql: 'insert into `service_error` (`error_type`, `message`, `request_body`, `request_method`, `request_url`) values (?, ?, ?, ?, ?)'
+}
+[2021-09-15T18:57:05.126] [DEBUG] default - [MySQL]
+ {
+  method: 'select',
+  options: {},
+  timeout: false,
+  cancelOnTimeout: false,
+  bindings: [],
+  __knexQueryUid: 'f9f87031-70cb-4bef-9b89-327eac220a95',
+  sql: 'select `seq`, `project_name`, `is_class`, `status`, `memo`, `reg_member_seq`, `reg_date` from `project`'
+}
+[2021-09-15T18:57:05.129] [ERROR] default - /apiproject/getproject ReferenceError: query_result is not defined
+    at ProjectModel.GetProjects (D:/repo/dnode/src/database/mysql/project/ProjectModel.js:23:28)
+    at ProjectServiceClass.GetProject (D:/repo/dnode/src/service/project/ProjectService.js:23:20)
+    at D:/repo/dnode/src/routes/d1/apiproject.js:26:24
+[2021-09-15T18:57:05.130] [ERROR] default - [ GET /apid1/d1/apiproject/getproject ]
+ App { error: -1, message: '', variables: {}, httpStatusCode: 200 }
+[2021-09-15T18:57:05.132] [WARN] default - [MySQL]
+ .returning() is not supported by mysql and will not have any effect.
+[2021-09-15T18:57:05.132] [DEBUG] default - [MySQL]
+ {
+  method: 'insert',
+  options: {},
+  timeout: false,
+  cancelOnTimeout: false,
+  bindings: [
+    'api',
+    '{"error":-1,"message":"","variables":{},"httpStatusCode":200}',
+    '{}',
+    'GET',
+    '/apid1/d1/apiproject/getproject'
+  ],
+  __knexQueryUid: '6306c12b-a88a-4d3b-990e-850ab958d84f',
+  sql: 'insert into `service_error` (`error_type`, `message`, `request_body`, `request_method`, `request_url`) values (?, ?, ?, ?, ?)'
+}
+[2021-09-15T18:57:09.258] [DEBUG] default - [MySQL]
+ {
+  method: 'select',
+  options: {},
+  timeout: false,
+  cancelOnTimeout: false,
+  bindings: [],
+  __knexQueryUid: 'e4cdf42e-477f-4d59-8bab-be9fbbf6ae50',
+  sql: 'select `seq`, `project_name`, `is_class`, `status`, `memo`, `reg_member_seq`, `reg_date` from `project`'
+}
+[2021-09-15T18:57:09.261] [ERROR] default - /apiproject/getproject ReferenceError: query_result is not defined
+    at ProjectModel.GetProjects (D:/repo/dnode/src/database/mysql/project/ProjectModel.js:23:28)
+    at ProjectServiceClass.GetProject (D:/repo/dnode/src/service/project/ProjectService.js:23:20)
+    at D:/repo/dnode/src/routes/d1/apiproject.js:26:24
+[2021-09-15T18:57:09.262] [ERROR] default - [ GET /apid1/d1/apiproject/getproject ]
+ App { error: -1, message: '', variables: {}, httpStatusCode: 200 }
+[2021-09-15T18:57:09.264] [WARN] default - [MySQL]
+ .returning() is not supported by mysql and will not have any effect.
+[2021-09-15T18:57:09.264] [DEBUG] default - [MySQL]
+ {
+  method: 'insert',
+  options: {},
+  timeout: false,
+  cancelOnTimeout: false,
+  bindings: [
+    'api',
+    '{"error":-1,"message":"","variables":{},"httpStatusCode":200}',
+    '{}',
+    'GET',
+    '/apid1/d1/apiproject/getproject'
+  ],
+  __knexQueryUid: '1a04c865-ab5e-49d0-a977-32f4592aaca4',
+  sql: 'insert into `service_error` (`error_type`, `message`, `request_body`, `request_method`, `request_url`) values (?, ?, ?, ?, ?)'
+}
+[2021-09-15T18:57:22.133] [DEBUG] default - [MySQL]
+ {
+  method: 'select',
+  options: {},
+  timeout: false,
+  cancelOnTimeout: false,
+  bindings: [],
+  __knexQueryUid: 'b30c9bfa-cd68-4956-8f1a-4bf28f5d3666',
+  sql: 'select `seq`, `project_name`, `is_class`, `status`, `memo`, `reg_member_seq`, `reg_date` from `project`'
+}
+[2021-09-15T18:57:22.137] [ERROR] default - /apiproject/getproject ReferenceError: query_result is not defined
+    at ProjectModel.GetProjects (D:/repo/dnode/src/database/mysql/project/ProjectModel.js:23:28)
+    at ProjectServiceClass.GetProject (D:/repo/dnode/src/service/project/ProjectService.js:23:20)
+    at D:/repo/dnode/src/routes/d1/apiproject.js:26:24
+[2021-09-15T18:57:22.138] [ERROR] default - [ GET /apid1/d1/apiproject/getproject ]
+ App { error: -1, message: '', variables: {}, httpStatusCode: 200 }
+[2021-09-15T18:57:22.139] [WARN] default - [MySQL]
+ .returning() is not supported by mysql and will not have any effect.
+[2021-09-15T18:57:22.140] [DEBUG] default - [MySQL]
+ {
+  method: 'insert',
+  options: {},
+  timeout: false,
+  cancelOnTimeout: false,
+  bindings: [
+    'api',
+    '{"error":-1,"message":"","variables":{},"httpStatusCode":200}',
+    '{}',
+    'GET',
+    '/apid1/d1/apiproject/getproject'
+  ],
+  __knexQueryUid: '6101e88e-a2fb-4a84-a6d9-e4befd24c4b9',
+  sql: 'insert into `service_error` (`error_type`, `message`, `request_body`, `request_method`, `request_url`) values (?, ?, ?, ?, ?)'
+}
+[2021-09-15T18:57:31.033] [DEBUG] default - [MySQL]
+ {
+  method: 'select',
+  options: {},
+  timeout: false,
+  cancelOnTimeout: false,
+  bindings: [],
+  __knexQueryUid: '467a55d3-203f-46b1-974a-61e71c9b6d21',
+  sql: 'select `seq`, `project_name`, `is_class`, `status`, `memo`, `reg_member_seq`, `reg_date` from `project`'
+}
+[2021-09-15T18:57:31.035] [ERROR] default - /apiproject/getproject ReferenceError: query_result is not defined
+    at ProjectModel.GetProjects (D:/repo/dnode/src/database/mysql/project/ProjectModel.js:23:28)
+    at ProjectServiceClass.GetProject (D:/repo/dnode/src/service/project/ProjectService.js:23:20)
+    at D:/repo/dnode/src/routes/d1/apiproject.js:26:24
+[2021-09-15T18:57:31.036] [ERROR] default - [ GET /apid1/d1/apiproject/getproject ]
+ App { error: -1, message: '', variables: {}, httpStatusCode: 200 }
+[2021-09-15T18:57:31.038] [WARN] default - [MySQL]
+ .returning() is not supported by mysql and will not have any effect.
+[2021-09-15T18:57:31.038] [DEBUG] default - [MySQL]
+ {
+  method: 'insert',
+  options: {},
+  timeout: false,
+  cancelOnTimeout: false,
+  bindings: [
+    'api',
+    '{"error":-1,"message":"","variables":{},"httpStatusCode":200}',
+    '{}',
+    'GET',
+    '/apid1/d1/apiproject/getproject'
+  ],
+  __knexQueryUid: 'f28c1a2c-7dde-48fe-a36a-68d9ad7616b8',
+  sql: 'insert into `service_error` (`error_type`, `message`, `request_body`, `request_method`, `request_url`) values (?, ?, ?, ?, ?)'
+}
+[2021-09-15T18:57:47.803] [INFO] default - {
+  ENV: 'development',
+  IS_RELEASE: false,
+  IS_DEV: true,
+  IS_LOCAL: false,
+  IS_DEMON: false,
+  PRINT_DB_LOG: true,
+  LOG_PATH: 'logs',
+  MYSQL_HOST: null,
+  MONGODB_HOST: null
+}
+[2021-09-15T18:57:48.305] [DEBUG] default - add api ./d1/apiauth.js /d1/apiauth
+[2021-09-15T18:57:48.307] [DEBUG] default - add api ./d1/apifile.js /d1/apifile
+[2021-09-15T18:57:48.353] [DEBUG] default - add api ./d1/apiproject.js /d1/apiproject
+[2021-09-15T18:57:48.355] [DEBUG] default - add api ./d1/auth.js /d1/auth
+[2021-09-15T18:57:48.357] [DEBUG] default - add api ./d1/test.js /d1/test
+[2021-09-15T18:57:48.360] [DEBUG] default - add api ./d1/users.js /d1/users
+[2021-09-15T18:57:48.373] [DEBUG] default - Listening on port 3600 -> PID: 15088
+[2021-09-15T18:57:48.374] [DEBUG] default - [InitService] init start
+[2021-09-15T18:57:48.440] [DEBUG] default - [MySQL]
+ {
+  method: 'select',
+  options: {},
+  timeout: false,
+  cancelOnTimeout: false,
+  bindings: [],
+  __knexQueryUid: 'ba21a8d1-2eba-432a-a31d-ce0eca8d2674',
+  sql: 'select * from `service_config`'
+}
+[2021-09-15T18:57:48.446] [DEBUG] default - [InitService] init complete
+[2021-09-15T18:58:05.892] [DEBUG] default - [MySQL]
+ {
+  method: 'select',
+  options: {},
+  timeout: false,
+  cancelOnTimeout: false,
+  bindings: [],
+  __knexQueryUid: 'd544ee37-9a1a-49b4-a430-26a915883052',
+  sql: 'select `seq`, `project_name`, `is_class`, `status`, `memo`, `reg_member_seq`, `reg_date` from `project`'
+}
+[2021-09-15T18:58:06.754] [ERROR] default - /apiproject/getproject ReferenceError: query_result is not defined
+    at ProjectModel.GetProjects (D:/repo/dnode/src/database/mysql/project/ProjectModel.js:23:28)
+    at ProjectServiceClass.GetProject (D:/repo/dnode/src/service/project/ProjectService.js:23:20)
+    at D:/repo/dnode/src/routes/d1/apiproject.js:26:24
+[2021-09-15T18:58:06.768] [ERROR] default - [ GET /apid1/d1/apiproject/getproject ]
+ App { error: -1, message: '', variables: {}, httpStatusCode: 200 }
+[2021-09-15T18:58:06.777] [WARN] default - [MySQL]
+ .returning() is not supported by mysql and will not have any effect.
+[2021-09-15T18:58:06.779] [DEBUG] default - [MySQL]
+ {
+  method: 'insert',
+  options: {},
+  timeout: false,
+  cancelOnTimeout: false,
+  bindings: [
+    'api',
+    '{"error":-1,"message":"","variables":{},"httpStatusCode":200}',
+    '{}',
+    'GET',
+    '/apid1/d1/apiproject/getproject'
+  ],
+  __knexQueryUid: '962c62dc-57f1-4b7f-821b-144e4e64d2bc',
+  sql: 'insert into `service_error` (`error_type`, `message`, `request_body`, `request_method`, `request_url`) values (?, ?, ?, ?, ?)'
+}
+[2021-09-15T18:58:14.879] [DEBUG] default - [MySQL]
+ {
+  method: 'select',
+  options: {},
+  timeout: false,
+  cancelOnTimeout: false,
+  bindings: [],
+  __knexQueryUid: 'efbfcfa4-f93f-497e-834f-fedd6e607172',
+  sql: 'select `seq`, `project_name`, `is_class`, `status`, `memo`, `reg_member_seq`, `reg_date` from `project`'
+}
+[2021-09-15T18:58:19.611] [ERROR] default - /apiproject/getproject ReferenceError: query_result is not defined
+    at ProjectModel.GetProjects (D:/repo/dnode/src/database/mysql/project/ProjectModel.js:23:28)
+    at ProjectServiceClass.GetProject (D:/repo/dnode/src/service/project/ProjectService.js:23:20)
+    at D:/repo/dnode/src/routes/d1/apiproject.js:26:24
+[2021-09-15T18:58:19.614] [ERROR] default - [ GET /apid1/d1/apiproject/getproject ]
+ App { error: -1, message: '', variables: {}, httpStatusCode: 200 }
+[2021-09-15T18:58:19.616] [WARN] default - [MySQL]
+ .returning() is not supported by mysql and will not have any effect.
+[2021-09-15T18:58:19.616] [DEBUG] default - [MySQL]
+ {
+  method: 'insert',
+  options: {},
+  timeout: false,
+  cancelOnTimeout: false,
+  bindings: [
+    'api',
+    '{"error":-1,"message":"","variables":{},"httpStatusCode":200}',
+    '{}',
+    'GET',
+    '/apid1/d1/apiproject/getproject'
+  ],
+  __knexQueryUid: '7ed99eab-cb31-4f8b-a7c1-403be7613b19',
+  sql: 'insert into `service_error` (`error_type`, `message`, `request_body`, `request_method`, `request_url`) values (?, ?, ?, ?, ?)'
+}
+[2021-09-15T18:58:24.552] [INFO] default - {
+  ENV: 'development',
+  IS_RELEASE: false,
+  IS_DEV: true,
+  IS_LOCAL: false,
+  IS_DEMON: false,
+  PRINT_DB_LOG: true,
+  LOG_PATH: 'logs',
+  MYSQL_HOST: null,
+  MONGODB_HOST: null
+}
+[2021-09-15T18:58:24.920] [DEBUG] default - add api ./d1/apiauth.js /d1/apiauth
+[2021-09-15T18:58:24.922] [DEBUG] default - add api ./d1/apifile.js /d1/apifile
+[2021-09-15T18:58:24.973] [DEBUG] default - add api ./d1/apiproject.js /d1/apiproject
+[2021-09-15T18:58:24.975] [DEBUG] default - add api ./d1/auth.js /d1/auth
+[2021-09-15T18:58:24.976] [DEBUG] default - add api ./d1/test.js /d1/test
+[2021-09-15T18:58:24.978] [DEBUG] default - add api ./d1/users.js /d1/users
+[2021-09-15T18:58:24.989] [DEBUG] default - Listening on port 3600 -> PID: 26740
+[2021-09-15T18:58:24.989] [DEBUG] default - [InitService] init start
+[2021-09-15T18:58:25.039] [DEBUG] default - [MySQL]
+ {
+  method: 'select',
+  options: {},
+  timeout: false,
+  cancelOnTimeout: false,
+  bindings: [],
+  __knexQueryUid: '9f7426bb-b033-4f91-b8c5-c126fb72bb10',
+  sql: 'select * from `service_config`'
+}
+[2021-09-15T18:58:25.044] [DEBUG] default - [InitService] init complete
+[2021-09-15T18:58:26.773] [DEBUG] default - [MySQL]
+ {
+  method: 'select',
+  options: {},
+  timeout: false,
+  cancelOnTimeout: false,
+  bindings: [],
+  __knexQueryUid: '9512704c-89dd-40b4-835b-9ad024ebcdaa',
+  sql: 'select `seq`, `project_name`, `is_class`, `status`, `memo`, `reg_member_seq`, `reg_date` from `project`'
+}
+[2021-09-15T18:58:26.778] [DEBUG] default - JsonWrapper {
+  '0': RowDataPacket {
+    seq: 1,
+    project_name: 'project1',
+    is_class: null,
+    status: null,
+    memo: null,
+    reg_member_seq: null,
+    reg_date: '2021-09-15 09:53:44'
+  },
+  '1': RowDataPacket {
+    seq: 2,
+    project_name: 'project2',
+    is_class: null,
+    status: null,
+    memo: null,
+    reg_member_seq: null,
+    reg_date: '2021-09-15 09:53:53'
+  },
+  setThrowException: [Function (anonymous)],
+  setIgnoreEmpty: [Function (anonymous)],
+  setAutoTrim: [Function (anonymous)],
+  setKeys: [Function (anonymous)],
+  addKey: [Function (anonymous)],
+  addPrivateKey: [Function (anonymous)],
+  removePrivateKey: [Function (anonymous)],
+  isEmpty: [Function (anonymous)],
+  hasValue: [Function (anonymous)],
+  setExportXml: [Function (anonymous)],
+  toJSON: [Function (anonymous)],
+  getObjectJson: [Function (anonymous)],
+  getXmlJson: [Function (anonymous)],
+  toString: [Function (anonymous)],
+  returnBoolean: [Function (anonymous)],
+  getXmlText: [Function (anonymous)],
+  json_keys: [ '0', '1' ],
+  private_key_map: {
+    seq: true,
+    project_name: true,
+    is_class: true,
+    status: true,
+    memo: true
+  },
+  is_empty: false,
+  thorw_exception: true,
+  ignore_empty: false,
+  auto_trim: false,
+  export_xml: false
+}
+[2021-09-15T19:32:39.346] [INFO] default - {
+  ENV: 'development',
+  IS_RELEASE: false,
+  IS_DEV: true,
+  IS_LOCAL: false,
+  IS_DEMON: false,
+  PRINT_DB_LOG: true,
+  LOG_PATH: 'logs',
+  MYSQL_HOST: null,
+  MONGODB_HOST: null
+}
+[2021-09-15T19:32:43.431] [DEBUG] default - add api ./d1/apiauth.js /d1/apiauth
+[2021-09-15T19:32:43.433] [DEBUG] default - add api ./d1/apifile.js /d1/apifile
+[2021-09-15T19:32:43.436] [DEBUG] default - add api ./d1/apiproject.js /d1/apiproject
+[2021-09-15T19:32:43.438] [DEBUG] default - add api ./d1/auth.js /d1/auth
+[2021-09-15T19:32:43.439] [DEBUG] default - add api ./d1/test.js /d1/test
+[2021-09-15T19:32:43.441] [DEBUG] default - add api ./d1/users.js /d1/users
+[2021-09-15T19:32:43.452] [DEBUG] default - Listening on port 3600 -> PID: 25864
+[2021-09-15T19:32:43.452] [DEBUG] default - [InitService] init start
+[2021-09-15T19:32:43.835] [DEBUG] default - [MySQL]
+ {
+  method: 'select',
+  options: {},
+  timeout: false,
+  cancelOnTimeout: false,
+  bindings: [],
+  __knexQueryUid: 'b9f43b46-fe3d-423e-bbaf-f74a4fcad588',
+  sql: 'select * from `service_config`'
+}
+[2021-09-15T19:32:43.840] [DEBUG] default - [InitService] init complete
+[2021-09-15T19:32:48.586] [INFO] default - {
+  ENV: 'development',
+  IS_RELEASE: false,
+  IS_DEV: true,
+  IS_LOCAL: false,
+  IS_DEMON: false,
+  PRINT_DB_LOG: true,
+  LOG_PATH: 'logs',
+  MYSQL_HOST: null,
+  MONGODB_HOST: null
+}
+[2021-09-15T19:32:48.947] [DEBUG] default - add api ./d1/apiauth.js /d1/apiauth
+[2021-09-15T19:32:48.949] [DEBUG] default - add api ./d1/apifile.js /d1/apifile
+[2021-09-15T19:32:48.953] [DEBUG] default - add api ./d1/apiproject.js /d1/apiproject
+[2021-09-15T19:32:48.954] [DEBUG] default - add api ./d1/auth.js /d1/auth
+[2021-09-15T19:32:48.956] [DEBUG] default - add api ./d1/test.js /d1/test
+[2021-09-15T19:32:48.958] [DEBUG] default - add api ./d1/users.js /d1/users
+[2021-09-15T19:32:48.971] [DEBUG] default - Listening on port 3600 -> PID: 27580
+[2021-09-15T19:32:48.972] [DEBUG] default - [InitService] init start
+[2021-09-15T19:32:49.020] [DEBUG] default - [MySQL]
+ {
+  method: 'select',
+  options: {},
+  timeout: false,
+  cancelOnTimeout: false,
+  bindings: [],
+  __knexQueryUid: '9d3aec64-ab26-4eda-8a20-eb0e74ed8c68',
+  sql: 'select * from `service_config`'
+}
+[2021-09-15T19:32:49.025] [DEBUG] default - [InitService] init complete
+[2021-09-15T19:32:59.238] [INFO] default - {
+  ENV: 'development',
+  IS_RELEASE: false,
+  IS_DEV: true,
+  IS_LOCAL: false,
+  IS_DEMON: false,
+  PRINT_DB_LOG: true,
+  LOG_PATH: 'logs',
+  MYSQL_HOST: null,
+  MONGODB_HOST: null
+}
+[2021-09-15T19:32:59.602] [DEBUG] default - add api ./d1/apiauth.js /d1/apiauth
+[2021-09-15T19:32:59.604] [DEBUG] default - add api ./d1/apifile.js /d1/apifile
+[2021-09-15T19:32:59.608] [DEBUG] default - add api ./d1/apiproject.js /d1/apiproject
+[2021-09-15T19:32:59.610] [DEBUG] default - add api ./d1/auth.js /d1/auth
+[2021-09-15T19:32:59.611] [DEBUG] default - add api ./d1/test.js /d1/test
+[2021-09-15T19:32:59.613] [DEBUG] default - add api ./d1/users.js /d1/users
+[2021-09-15T19:32:59.624] [DEBUG] default - Listening on port 3600 -> PID: 21796
+[2021-09-15T19:32:59.625] [DEBUG] default - [InitService] init start
+[2021-09-15T19:32:59.668] [DEBUG] default - [MySQL]
+ {
+  method: 'select',
+  options: {},
+  timeout: false,
+  cancelOnTimeout: false,
+  bindings: [],
+  __knexQueryUid: 'd00f2311-b04e-4733-8c41-54f315868b40',
+  sql: 'select * from `service_config`'
+}
+[2021-09-15T19:32:59.673] [DEBUG] default - [InitService] init complete
+[2021-09-15T21:18:21.278] [INFO] default - {
+  ENV: 'development',
+  IS_RELEASE: false,
+  IS_DEV: true,
+  IS_LOCAL: false,
+  IS_DEMON: false,
+  PRINT_DB_LOG: true,
+  LOG_PATH: 'logs',
+  MYSQL_HOST: null,
+  MONGODB_HOST: null
+}
+[2021-09-15T21:18:26.130] [DEBUG] default - add api ./d1/apiauth.js /d1/apiauth
+[2021-09-15T21:18:26.132] [DEBUG] default - add api ./d1/apifile.js /d1/apifile
+[2021-09-15T21:18:26.244] [DEBUG] default - add api ./d1/apiproject.js /d1/apiproject
+[2021-09-15T21:18:26.247] [DEBUG] default - add api ./d1/auth.js /d1/auth
+[2021-09-15T21:18:26.249] [DEBUG] default - add api ./d1/test.js /d1/test
+[2021-09-15T21:18:26.251] [DEBUG] default - add api ./d1/users.js /d1/users
+[2021-09-15T21:18:26.263] [DEBUG] default - Listening on port 3600 -> PID: 30456
+[2021-09-15T21:18:26.264] [DEBUG] default - [InitService] init start
+[2021-09-15T21:18:26.678] [DEBUG] default - [MySQL]
+ {
+  method: 'select',
+  options: {},
+  timeout: false,
+  cancelOnTimeout: false,
+  bindings: [],
+  __knexQueryUid: 'edfaea2c-c788-4606-841e-fe15d94b1633',
+  sql: 'select * from `service_config`'
+}
+[2021-09-15T21:18:26.684] [DEBUG] default - [InitService] init complete
+[2021-09-15T21:19:05.864] [DEBUG] default - [MySQL]
+ {
+  method: 'select',
+  options: {},
+  timeout: false,
+  cancelOnTimeout: false,
+  bindings: [],
+  __knexQueryUid: '2efa66b4-ece4-4d7e-9f7c-a00c6113a4a0',
+  sql: 'select `seq`, `project_name`, `is_class`, `status`, `memo`, `reg_member_seq`, `reg_date` from `project`'
+}
+[2021-09-15T21:19:05.870] [DEBUG] default - JsonWrapper {
+  '0': RowDataPacket {
+    seq: 1,
+    project_name: 'project1',
+    is_class: null,
+    status: null,
+    memo: null,
+    reg_member_seq: null,
+    reg_date: '2021-09-15 09:53:44'
+  },
+  '1': RowDataPacket {
+    seq: 2,
+    project_name: 'project2',
+    is_class: null,
+    status: null,
+    memo: null,
+    reg_member_seq: null,
+    reg_date: '2021-09-15 09:53:53'
+  },
+  setThrowException: [Function (anonymous)],
+  setIgnoreEmpty: [Function (anonymous)],
+  setAutoTrim: [Function (anonymous)],
+  setKeys: [Function (anonymous)],
+  addKey: [Function (anonymous)],
+  addPrivateKey: [Function (anonymous)],
+  removePrivateKey: [Function (anonymous)],
+  isEmpty: [Function (anonymous)],
+  hasValue: [Function (anonymous)],
+  setExportXml: [Function (anonymous)],
+  toJSON: [Function (anonymous)],
+  getObjectJson: [Function (anonymous)],
+  getXmlJson: [Function (anonymous)],
+  toString: [Function (anonymous)],
+  returnBoolean: [Function (anonymous)],
+  getXmlText: [Function (anonymous)],
+  json_keys: [ '0', '1' ],
+  private_key_map: {
+    seq: true,
+    project_name: true,
+    is_class: true,
+    status: true,
+    memo: true
+  },
+  is_empty: false,
+  thorw_exception: true,
+  ignore_empty: false,
+  auto_trim: false,
+  export_xml: false
+}
+[2021-09-15T21:19:39.939] [DEBUG] default - [MySQL]
+ {
+  method: 'select',
+  options: {},
+  timeout: false,
+  cancelOnTimeout: false,
+  bindings: [],
+  __knexQueryUid: '6cec2249-d62d-42c1-8adf-fd4204a2d20d',
+  sql: 'select `seq`, `project_name`, `is_class`, `status`, `memo`, `reg_member_seq`, `reg_date` from `project`'
+}
+[2021-09-15T21:19:39.944] [DEBUG] default - JsonWrapper {
+  '0': RowDataPacket {
+    seq: 1,
+    project_name: 'project1',
+    is_class: null,
+    status: null,
+    memo: null,
+    reg_member_seq: null,
+    reg_date: '2021-09-15 09:53:44'
+  },
+  '1': RowDataPacket {
+    seq: 2,
+    project_name: 'project2',
+    is_class: null,
+    status: null,
+    memo: null,
+    reg_member_seq: null,
+    reg_date: '2021-09-15 09:53:53'
+  },
+  setThrowException: [Function (anonymous)],
+  setIgnoreEmpty: [Function (anonymous)],
+  setAutoTrim: [Function (anonymous)],
+  setKeys: [Function (anonymous)],
+  addKey: [Function (anonymous)],
+  addPrivateKey: [Function (anonymous)],
+  removePrivateKey: [Function (anonymous)],
+  isEmpty: [Function (anonymous)],
+  hasValue: [Function (anonymous)],
+  setExportXml: [Function (anonymous)],
+  toJSON: [Function (anonymous)],
+  getObjectJson: [Function (anonymous)],
+  getXmlJson: [Function (anonymous)],
+  toString: [Function (anonymous)],
+  returnBoolean: [Function (anonymous)],
+  getXmlText: [Function (anonymous)],
+  json_keys: [ '0', '1' ],
+  private_key_map: {
+    seq: true,
+    project_name: true,
+    is_class: true,
+    status: true,
+    memo: true
+  },
+  is_empty: false,
+  thorw_exception: true,
+  ignore_empty: false,
+  auto_trim: false,
+  export_xml: false
+}
+[2021-09-15T21:20:44.894] [ERROR] default - [ GET /apid1/d1/apiproject/getdivision?pid=1 ]
+ 요청하신 API Endpoint가 존재하지 않습니다.
+[2021-09-15T21:20:44.895] [ERROR] default - [ GET /apid1/d1/apiproject/getdivision?pid=1 ]
+ App {
+  error: -1,
+  message: '요청하신 API Endpoint가 존재하지 않습니다.',
+  variables: {},
+  httpStatusCode: 404
+}
+[2021-09-15T21:21:02.415] [ERROR] default - [ GET /apid1/d1/apiproject/getdivision?pid=1 ]
+ 요청하신 API Endpoint가 존재하지 않습니다.
+[2021-09-15T21:21:02.416] [ERROR] default - [ GET /apid1/d1/apiproject/getdivision?pid=1 ]
+ App {
+  error: -1,
+  message: '요청하신 API Endpoint가 존재하지 않습니다.',
+  variables: {},
+  httpStatusCode: 404
+}
+[2021-09-15T21:21:45.973] [ERROR] default - [ GET /apid1/d1/apiproject/getdivision?pid=1 ]
+ 요청하신 API Endpoint가 존재하지 않습니다.
+[2021-09-15T21:21:45.974] [ERROR] default - [ GET /apid1/d1/apiproject/getdivision?pid=1 ]
+ App {
+  error: -1,
+  message: '요청하신 API Endpoint가 존재하지 않습니다.',
+  variables: {},
+  httpStatusCode: 404
+}
+[2021-09-15T21:22:23.964] [ERROR] default - [ GET /apid1/d1/apiproject/getdivision?pid=1 ]
+ 요청하신 API Endpoint가 존재하지 않습니다.
+[2021-09-15T21:22:23.966] [ERROR] default - [ GET /apid1/d1/apiproject/getdivision?pid=1 ]
+ App {
+  error: -1,
+  message: '요청하신 API Endpoint가 존재하지 않습니다.',
+  variables: {},
+  httpStatusCode: 404
+}
+[2021-09-15T21:25:04.263] [INFO] default - {
+  ENV: 'development',
+  IS_RELEASE: false,
+  IS_DEV: true,
+  IS_LOCAL: false,
+  IS_DEMON: false,
+  PRINT_DB_LOG: true,
+  LOG_PATH: 'logs',
+  MYSQL_HOST: null,
+  MONGODB_HOST: null
+}
+[2021-09-15T21:25:04.745] [DEBUG] default - add api ./d1/apiauth.js /d1/apiauth
+[2021-09-15T21:25:04.747] [DEBUG] default - add api ./d1/apifile.js /d1/apifile
+[2021-09-15T21:25:04.814] [DEBUG] default - add api ./d1/apiproject.js /d1/apiproject
+[2021-09-15T21:25:04.816] [DEBUG] default - add api ./d1/auth.js /d1/auth
+[2021-09-15T21:25:04.818] [DEBUG] default - add api ./d1/test.js /d1/test
+[2021-09-15T21:25:04.820] [DEBUG] default - add api ./d1/users.js /d1/users
+[2021-09-15T21:25:04.832] [DEBUG] default - Listening on port 3600 -> PID: 31500
+[2021-09-15T21:25:04.832] [DEBUG] default - [InitService] init start
+[2021-09-15T21:25:04.897] [DEBUG] default - [MySQL]
+ {
+  method: 'select',
+  options: {},
+  timeout: false,
+  cancelOnTimeout: false,
+  bindings: [],
+  __knexQueryUid: '0f3f9f4c-2c20-47a0-ad57-0634091520f3',
+  sql: 'select * from `service_config`'
+}
+[2021-09-15T21:25:04.903] [DEBUG] default - [InitService] init complete
+[2021-09-15T21:25:18.284] [ERROR] default - [ GET /apid1/d1/apiproject/getdivision?pseq=1 ]
+ 요청하신 API Endpoint가 존재하지 않습니다.
+[2021-09-15T21:25:18.285] [ERROR] default - [ GET /apid1/d1/apiproject/getdivision?pseq=1 ]
+ App {
+  error: -1,
+  message: '요청하신 API Endpoint가 존재하지 않습니다.',
+  variables: {},
+  httpStatusCode: 404
+}
+[2021-09-15T21:25:29.831] [INFO] default - {
+  ENV: 'development',
+  IS_RELEASE: false,
+  IS_DEV: true,
+  IS_LOCAL: false,
+  IS_DEMON: false,
+  PRINT_DB_LOG: true,
+  LOG_PATH: 'logs',
+  MYSQL_HOST: null,
+  MONGODB_HOST: null
+}
+[2021-09-15T21:25:30.385] [DEBUG] default - add api ./d1/apiauth.js /d1/apiauth
+[2021-09-15T21:25:30.387] [DEBUG] default - add api ./d1/apifile.js /d1/apifile
+[2021-09-15T21:25:30.478] [DEBUG] default - add api ./d1/apiproject.js /d1/apiproject
+[2021-09-15T21:25:30.481] [DEBUG] default - add api ./d1/auth.js /d1/auth
+[2021-09-15T21:25:30.485] [DEBUG] default - add api ./d1/test.js /d1/test
+[2021-09-15T21:25:30.488] [DEBUG] default - add api ./d1/users.js /d1/users
+[2021-09-15T21:25:30.502] [DEBUG] default - Listening on port 3600 -> PID: 25488
+[2021-09-15T21:25:30.503] [DEBUG] default - [InitService] init start
+[2021-09-15T21:25:30.573] [DEBUG] default - [MySQL]
+ {
+  method: 'select',
+  options: {},
+  timeout: false,
+  cancelOnTimeout: false,
+  bindings: [],
+  __knexQueryUid: 'c4936c25-5d5c-4ff9-bc4e-a7f236a664ae',
+  sql: 'select * from `service_config`'
+}
+[2021-09-15T21:25:30.583] [DEBUG] default - [InitService] init complete
+[2021-09-15T21:25:52.511] [ERROR] default - /apiproject/getdivision TypeError: division_model.GetDivision is not a function
+    at ProjectServiceClass.GetDivision (D:/repo/dnode/src/service/project/ProjectService.js:38:41)
+    at D:/repo/dnode/src/routes/d1/apiproject.js:46:45
+    at D:/repo/dnode/src/utils/express-async.js:12:12
+    at Layer.handle [as handle_request] (D:\repo\dnode\node_modules\express\lib\router\layer.js:95:5)
+    at next (D:\repo\dnode\node_modules\express\lib\router\route.js:137:13)
+    at Route.dispatch (D:\repo\dnode\node_modules\express\lib\router\route.js:112:3)
+    at Layer.handle [as handle_request] (D:\repo\dnode\node_modules\express\lib\router\layer.js:95:5)
+    at D:\repo\dnode\node_modules\express\lib\router\index.js:281:22
+    at Function.process_params (D:\repo\dnode\node_modules\express\lib\router\index.js:335:12)
+    at next (D:\repo\dnode\node_modules\express\lib\router\index.js:275:10)
+    at Function.handle (D:\repo\dnode\node_modules\express\lib\router\index.js:174:3)
+    at router (D:\repo\dnode\node_modules\express\lib\router\index.js:47:12)
+    at Layer.handle [as handle_request] (D:\repo\dnode\node_modules\express\lib\router\layer.js:95:5)
+    at trim_prefix (D:\repo\dnode\node_modules\express\lib\router\index.js:317:13)
+    at D:\repo\dnode\node_modules\express\lib\router\index.js:284:7
+    at Function.process_params (D:\repo\dnode\node_modules\express\lib\router\index.js:335:12)
+    at next (D:\repo\dnode\node_modules\express\lib\router\index.js:275:10)
+    at Function.handle (D:\repo\dnode\node_modules\express\lib\router\index.js:174:3)
+    at router (D:\repo\dnode\node_modules\express\lib\router\index.js:47:12)
+    at Layer.handle [as handle_request] (D:\repo\dnode\node_modules\express\lib\router\layer.js:95:5)
+    at trim_prefix (D:\repo\dnode\node_modules\express\lib\router\index.js:317:13)
+    at D:\repo\dnode\node_modules\express\lib\router\index.js:284:7
+[2021-09-15T21:25:52.523] [ERROR] default - [ GET /apid1/d1/apiproject/getdivision?pseq=1 ]
+ App { error: -1, message: '', variables: {}, httpStatusCode: 200 }
+[2021-09-15T21:25:52.530] [WARN] default - [MySQL]
+ .returning() is not supported by mysql and will not have any effect.
+[2021-09-15T21:25:52.532] [DEBUG] default - [MySQL]
+ {
+  method: 'insert',
+  options: {},
+  timeout: false,
+  cancelOnTimeout: false,
+  bindings: [
+    'api',
+    '{"error":-1,"message":"","variables":{},"httpStatusCode":200}',
+    '{}',
+    'GET',
+    '/apid1/d1/apiproject/getdivision?pseq=1'
+  ],
+  __knexQueryUid: 'a08bfb02-fef3-4672-be5b-bd33f11f5619',
+  sql: 'insert into `service_error` (`error_type`, `message`, `request_body`, `request_method`, `request_url`) values (?, ?, ?, ?, ?)'
+}
+[2021-09-15T21:26:00.322] [INFO] default - {
+  ENV: 'development',
+  IS_RELEASE: false,
+  IS_DEV: true,
+  IS_LOCAL: false,
+  IS_DEMON: false,
+  PRINT_DB_LOG: true,
+  LOG_PATH: 'logs',
+  MYSQL_HOST: null,
+  MONGODB_HOST: null
+}
+[2021-09-15T21:26:00.814] [DEBUG] default - add api ./d1/apiauth.js /d1/apiauth
+[2021-09-15T21:26:00.816] [DEBUG] default - add api ./d1/apifile.js /d1/apifile
+[2021-09-15T21:26:00.888] [DEBUG] default - add api ./d1/apiproject.js /d1/apiproject
+[2021-09-15T21:26:00.890] [DEBUG] default - add api ./d1/auth.js /d1/auth
+[2021-09-15T21:26:00.891] [DEBUG] default - add api ./d1/test.js /d1/test
+[2021-09-15T21:26:00.894] [DEBUG] default - add api ./d1/users.js /d1/users
+[2021-09-15T21:26:00.906] [DEBUG] default - Listening on port 3600 -> PID: 15556
+[2021-09-15T21:26:00.907] [DEBUG] default - [InitService] init start
+[2021-09-15T21:26:00.970] [DEBUG] default - [MySQL]
+ {
+  method: 'select',
+  options: {},
+  timeout: false,
+  cancelOnTimeout: false,
+  bindings: [],
+  __knexQueryUid: 'ac06b263-5ab5-4300-aa58-dfc549645635',
+  sql: 'select * from `service_config`'
+}
+[2021-09-15T21:26:00.977] [DEBUG] default - [InitService] init complete
+[2021-09-15T21:26:03.215] [ERROR] default - [ GET /apid1/d1/apiproject/getdivision?pseq=1 ]
+ 요청하신 API Endpoint가 존재하지 않습니다.
+[2021-09-15T21:26:03.216] [ERROR] default - [ GET /apid1/d1/apiproject/getdivision?pseq=1 ]
+ App {
+  error: -1,
+  message: '요청하신 API Endpoint가 존재하지 않습니다.',
+  variables: {},
+  httpStatusCode: 404
+}
+[2021-09-15T21:26:42.845] [ERROR] default - /apiproject/getdivision TypeError: division_model.GetDivision is not a function
+    at ProjectServiceClass.GetDivision (D:/repo/dnode/src/service/project/ProjectService.js:38:41)
+    at D:/repo/dnode/src/routes/d1/apiproject.js:46:45
+    at D:/repo/dnode/src/utils/express-async.js:12:12
+    at Layer.handle [as handle_request] (D:\repo\dnode\node_modules\express\lib\router\layer.js:95:5)
+    at next (D:\repo\dnode\node_modules\express\lib\router\route.js:137:13)
+    at Route.dispatch (D:\repo\dnode\node_modules\express\lib\router\route.js:112:3)
+    at Layer.handle [as handle_request] (D:\repo\dnode\node_modules\express\lib\router\layer.js:95:5)
+    at D:\repo\dnode\node_modules\express\lib\router\index.js:281:22
+    at param (D:\repo\dnode\node_modules\express\lib\router\index.js:354:14)
+    at param (D:\repo\dnode\node_modules\express\lib\router\index.js:365:14)
+    at Function.process_params (D:\repo\dnode\node_modules\express\lib\router\index.js:410:3)
+    at next (D:\repo\dnode\node_modules\express\lib\router\index.js:275:10)
+    at Function.handle (D:\repo\dnode\node_modules\express\lib\router\index.js:174:3)
+    at router (D:\repo\dnode\node_modules\express\lib\router\index.js:47:12)
+    at Layer.handle [as handle_request] (D:\repo\dnode\node_modules\express\lib\router\layer.js:95:5)
+    at trim_prefix (D:\repo\dnode\node_modules\express\lib\router\index.js:317:13)
+    at D:\repo\dnode\node_modules\express\lib\router\index.js:284:7
+    at Function.process_params (D:\repo\dnode\node_modules\express\lib\router\index.js:335:12)
+    at next (D:\repo\dnode\node_modules\express\lib\router\index.js:275:10)
+    at Function.handle (D:\repo\dnode\node_modules\express\lib\router\index.js:174:3)
+    at router (D:\repo\dnode\node_modules\express\lib\router\index.js:47:12)
+    at Layer.handle [as handle_request] (D:\repo\dnode\node_modules\express\lib\router\layer.js:95:5)
+[2021-09-15T21:26:42.852] [ERROR] default - [ GET /apid1/d1/apiproject/getdivision/pseq=1 ]
+ App { error: -1, message: '', variables: {}, httpStatusCode: 200 }
+[2021-09-15T21:26:42.856] [WARN] default - [MySQL]
+ .returning() is not supported by mysql and will not have any effect.
+[2021-09-15T21:26:42.858] [DEBUG] default - [MySQL]
+ {
+  method: 'insert',
+  options: {},
+  timeout: false,
+  cancelOnTimeout: false,
+  bindings: [
+    'api',
+    '{"error":-1,"message":"","variables":{},"httpStatusCode":200}',
+    '{}',
+    'GET',
+    '/apid1/d1/apiproject/getdivision/pseq=1'
+  ],
+  __knexQueryUid: '9b8e37b8-a517-44c5-893e-773f2f9b08dd',
+  sql: 'insert into `service_error` (`error_type`, `message`, `request_body`, `request_method`, `request_url`) values (?, ?, ?, ?, ?)'
+}
+[2021-09-15T21:27:06.718] [ERROR] default - [ GET /apid1/d1/apiproject/getdivision?pseq=1 ]
+ 요청하신 API Endpoint가 존재하지 않습니다.
+[2021-09-15T21:27:06.719] [ERROR] default - [ GET /apid1/d1/apiproject/getdivision?pseq=1 ]
+ App {
+  error: -1,
+  message: '요청하신 API Endpoint가 존재하지 않습니다.',
+  variables: {},
+  httpStatusCode: 404
+}
+[2021-09-15T21:27:38.183] [INFO] default - {
+  ENV: 'development',
+  IS_RELEASE: false,
+  IS_DEV: true,
+  IS_LOCAL: false,
+  IS_DEMON: false,
+  PRINT_DB_LOG: true,
+  LOG_PATH: 'logs',
+  MYSQL_HOST: null,
+  MONGODB_HOST: null
+}
+[2021-09-15T21:27:38.694] [DEBUG] default - add api ./d1/apiauth.js /d1/apiauth
+[2021-09-15T21:27:38.695] [DEBUG] default - add api ./d1/apifile.js /d1/apifile
+[2021-09-15T21:27:38.766] [DEBUG] default - add api ./d1/apiproject.js /d1/apiproject
+[2021-09-15T21:27:38.769] [DEBUG] default - add api ./d1/auth.js /d1/auth
+[2021-09-15T21:27:38.771] [DEBUG] default - add api ./d1/test.js /d1/test
+[2021-09-15T21:27:38.773] [DEBUG] default - add api ./d1/users.js /d1/users
+[2021-09-15T21:27:38.785] [DEBUG] default - Listening on port 3600 -> PID: 32868
+[2021-09-15T21:27:38.786] [DEBUG] default - [InitService] init start
+[2021-09-15T21:27:38.853] [DEBUG] default - [MySQL]
+ {
+  method: 'select',
+  options: {},
+  timeout: false,
+  cancelOnTimeout: false,
+  bindings: [],
+  __knexQueryUid: '50aa4dd5-ff53-40b3-b6bb-6ab4262eaed8',
+  sql: 'select * from `service_config`'
+}
+[2021-09-15T21:27:38.859] [DEBUG] default - [InitService] init complete
+[2021-09-15T21:27:41.368] [ERROR] default - [ GET /apid1/d1/apiproject/getdivision?pseq=1 ]
+ 요청하신 API Endpoint가 존재하지 않습니다.
+[2021-09-15T21:27:41.369] [ERROR] default - [ GET /apid1/d1/apiproject/getdivision?pseq=1 ]
+ App {
+  error: -1,
+  message: '요청하신 API Endpoint가 존재하지 않습니다.',
+  variables: {},
+  httpStatusCode: 404
+}
+[2021-09-15T21:38:01.570] [INFO] default - {
+  ENV: 'development',
+  IS_RELEASE: false,
+  IS_DEV: true,
+  IS_LOCAL: false,
+  IS_DEMON: false,
+  PRINT_DB_LOG: true,
+  LOG_PATH: 'logs',
+  MYSQL_HOST: null,
+  MONGODB_HOST: null
+}
+[2021-09-15T21:38:02.061] [DEBUG] default - add api ./d1/apiauth.js /d1/apiauth
+[2021-09-15T21:38:02.063] [DEBUG] default - add api ./d1/apifile.js /d1/apifile
+[2021-09-15T21:38:02.134] [DEBUG] default - add api ./d1/apiproject.js /d1/apiproject
+[2021-09-15T21:38:02.136] [DEBUG] default - add api ./d1/auth.js /d1/auth
+[2021-09-15T21:38:02.138] [DEBUG] default - add api ./d1/test.js /d1/test
+[2021-09-15T21:38:02.140] [DEBUG] default - add api ./d1/users.js /d1/users
+[2021-09-15T21:38:02.153] [DEBUG] default - Listening on port 3600 -> PID: 24724
+[2021-09-15T21:38:02.153] [DEBUG] default - [InitService] init start
+[2021-09-15T21:38:02.217] [DEBUG] default - [MySQL]
+ {
+  method: 'select',
+  options: {},
+  timeout: false,
+  cancelOnTimeout: false,
+  bindings: [],
+  __knexQueryUid: '736f21a0-f93e-41f0-9be7-57f325226653',
+  sql: 'select * from `service_config`'
+}
+[2021-09-15T21:38:02.224] [DEBUG] default - [InitService] init complete
+[2021-09-15T21:40:09.827] [INFO] default - {
+  ENV: 'development',
+  IS_RELEASE: false,
+  IS_DEV: true,
+  IS_LOCAL: false,
+  IS_DEMON: false,
+  PRINT_DB_LOG: true,
+  LOG_PATH: 'logs',
+  MYSQL_HOST: null,
+  MONGODB_HOST: null
+}
+[2021-09-15T21:40:10.312] [DEBUG] default - add api ./d1/apiauth.js /d1/apiauth
+[2021-09-15T21:40:10.314] [DEBUG] default - add api ./d1/apifile.js /d1/apifile
+[2021-09-15T21:40:10.384] [DEBUG] default - add api ./d1/apiproject.js /d1/apiproject
+[2021-09-15T21:40:10.386] [DEBUG] default - add api ./d1/auth.js /d1/auth
+[2021-09-15T21:40:10.388] [DEBUG] default - add api ./d1/test.js /d1/test
+[2021-09-15T21:40:10.390] [DEBUG] default - add api ./d1/users.js /d1/users
+[2021-09-15T21:40:10.403] [DEBUG] default - Listening on port 3600 -> PID: 26420
+[2021-09-15T21:40:10.403] [DEBUG] default - [InitService] init start
+[2021-09-15T21:40:10.466] [DEBUG] default - [MySQL]
+ {
+  method: 'select',
+  options: {},
+  timeout: false,
+  cancelOnTimeout: false,
+  bindings: [],
+  __knexQueryUid: 'b8d60f0a-918f-4d4e-99cf-52e8479e7481',
+  sql: 'select * from `service_config`'
+}
+[2021-09-15T21:40:10.473] [DEBUG] default - [InitService] init complete
+[2021-09-15T21:40:22.247] [INFO] default - {
+  ENV: 'development',
+  IS_RELEASE: false,
+  IS_DEV: true,
+  IS_LOCAL: false,
+  IS_DEMON: false,
+  PRINT_DB_LOG: true,
+  LOG_PATH: 'logs',
+  MYSQL_HOST: null,
+  MONGODB_HOST: null
+}
+[2021-09-15T21:40:22.748] [DEBUG] default - add api ./d1/apiauth.js /d1/apiauth
+[2021-09-15T21:40:22.750] [DEBUG] default - add api ./d1/apifile.js /d1/apifile
+[2021-09-15T21:40:22.821] [DEBUG] default - add api ./d1/apiproject.js /d1/apiproject
+[2021-09-15T21:40:22.823] [DEBUG] default - add api ./d1/auth.js /d1/auth
+[2021-09-15T21:40:22.827] [DEBUG] default - add api ./d1/test.js /d1/test
+[2021-09-15T21:40:22.830] [DEBUG] default - add api ./d1/users.js /d1/users
+[2021-09-15T21:40:22.842] [DEBUG] default - Listening on port 3600 -> PID: 26712
+[2021-09-15T21:40:22.842] [DEBUG] default - [InitService] init start
+[2021-09-15T21:40:22.904] [DEBUG] default - [MySQL]
+ {
+  method: 'select',
+  options: {},
+  timeout: false,
+  cancelOnTimeout: false,
+  bindings: [],
+  __knexQueryUid: '740c9c3d-ea51-45be-bbc1-cb1aa678c6e2',
+  sql: 'select * from `service_config`'
+}
+[2021-09-15T21:40:22.912] [DEBUG] default - [InitService] init complete
+[2021-09-15T21:40:30.027] [INFO] default - {
+  ENV: 'development',
+  IS_RELEASE: false,
+  IS_DEV: true,
+  IS_LOCAL: false,
+  IS_DEMON: false,
+  PRINT_DB_LOG: true,
+  LOG_PATH: 'logs',
+  MYSQL_HOST: null,
+  MONGODB_HOST: null
+}
+[2021-09-15T21:40:30.508] [DEBUG] default - add api ./d1/apiauth.js /d1/apiauth
+[2021-09-15T21:40:30.510] [DEBUG] default - add api ./d1/apifile.js /d1/apifile
+[2021-09-15T21:40:30.578] [DEBUG] default - add api ./d1/apiproject.js /d1/apiproject
+[2021-09-15T21:40:30.580] [DEBUG] default - add api ./d1/auth.js /d1/auth
+[2021-09-15T21:40:30.582] [DEBUG] default - add api ./d1/test.js /d1/test
+[2021-09-15T21:40:30.584] [DEBUG] default - add api ./d1/users.js /d1/users
+[2021-09-15T21:40:30.597] [DEBUG] default - Listening on port 3600 -> PID: 18724
+[2021-09-15T21:40:30.598] [DEBUG] default - [InitService] init start
+[2021-09-15T21:40:30.659] [DEBUG] default - [MySQL]
+ {
+  method: 'select',
+  options: {},
+  timeout: false,
+  cancelOnTimeout: false,
+  bindings: [],
+  __knexQueryUid: '4449200f-c293-414c-b476-90645c478682',
+  sql: 'select * from `service_config`'
+}
+[2021-09-15T21:40:30.668] [DEBUG] default - [InitService] init complete
+[2021-09-15T21:40:57.256] [ERROR] default - /apiproject/getdivision TypeError: division_model.GetDivision is not a function
+    at ProjectServiceClass.GetDivision (D:/repo/dnode/src/service/project/ProjectService.js:38:41)
+    at D:/repo/dnode/src/routes/d1/apiproject.js:47:45
+    at D:/repo/dnode/src/utils/express-async.js:12:12
+    at Layer.handle [as handle_request] (D:\repo\dnode\node_modules\express\lib\router\layer.js:95:5)
+    at next (D:\repo\dnode\node_modules\express\lib\router\route.js:137:13)
+    at Route.dispatch (D:\repo\dnode\node_modules\express\lib\router\route.js:112:3)
+    at Layer.handle [as handle_request] (D:\repo\dnode\node_modules\express\lib\router\layer.js:95:5)
+    at D:\repo\dnode\node_modules\express\lib\router\index.js:281:22
+    at Function.process_params (D:\repo\dnode\node_modules\express\lib\router\index.js:335:12)
+    at next (D:\repo\dnode\node_modules\express\lib\router\index.js:275:10)
+    at Function.handle (D:\repo\dnode\node_modules\express\lib\router\index.js:174:3)
+    at router (D:\repo\dnode\node_modules\express\lib\router\index.js:47:12)
+    at Layer.handle [as handle_request] (D:\repo\dnode\node_modules\express\lib\router\layer.js:95:5)
+    at trim_prefix (D:\repo\dnode\node_modules\express\lib\router\index.js:317:13)
+    at D:\repo\dnode\node_modules\express\lib\router\index.js:284:7
+    at Function.process_params (D:\repo\dnode\node_modules\express\lib\router\index.js:335:12)
+    at next (D:\repo\dnode\node_modules\express\lib\router\index.js:275:10)
+    at Function.handle (D:\repo\dnode\node_modules\express\lib\router\index.js:174:3)
+    at router (D:\repo\dnode\node_modules\express\lib\router\index.js:47:12)
+    at Layer.handle [as handle_request] (D:\repo\dnode\node_modules\express\lib\router\layer.js:95:5)
+    at trim_prefix (D:\repo\dnode\node_modules\express\lib\router\index.js:317:13)
+    at D:\repo\dnode\node_modules\express\lib\router\index.js:284:7
+[2021-09-15T21:40:57.269] [ERROR] default - [ GET /apid1/d1/apiproject/getdivision?pseq=1 ]
+ App { error: -1, message: '', variables: {}, httpStatusCode: 200 }
+[2021-09-15T21:40:57.277] [WARN] default - [MySQL]
+ .returning() is not supported by mysql and will not have any effect.
+[2021-09-15T21:40:57.279] [DEBUG] default - [MySQL]
+ {
+  method: 'insert',
+  options: {},
+  timeout: false,
+  cancelOnTimeout: false,
+  bindings: [
+    'api',
+    '{"error":-1,"message":"","variables":{},"httpStatusCode":200}',
+    '{}',
+    'GET',
+    '/apid1/d1/apiproject/getdivision?pseq=1'
+  ],
+  __knexQueryUid: 'c0312712-6932-47c1-b192-55ff921a2aab',
+  sql: 'insert into `service_error` (`error_type`, `message`, `request_body`, `request_method`, `request_url`) values (?, ?, ?, ?, ?)'
+}
+[2021-09-15T21:41:16.992] [INFO] default - {
+  ENV: 'development',
+  IS_RELEASE: false,
+  IS_DEV: true,
+  IS_LOCAL: false,
+  IS_DEMON: false,
+  PRINT_DB_LOG: true,
+  LOG_PATH: 'logs',
+  MYSQL_HOST: null,
+  MONGODB_HOST: null
+}
+[2021-09-15T21:41:17.485] [DEBUG] default - add api ./d1/apiauth.js /d1/apiauth
+[2021-09-15T21:41:17.487] [DEBUG] default - add api ./d1/apifile.js /d1/apifile
+[2021-09-15T21:41:17.558] [DEBUG] default - add api ./d1/apiproject.js /d1/apiproject
+[2021-09-15T21:41:17.560] [DEBUG] default - add api ./d1/auth.js /d1/auth
+[2021-09-15T21:41:17.562] [DEBUG] default - add api ./d1/test.js /d1/test
+[2021-09-15T21:41:17.564] [DEBUG] default - add api ./d1/users.js /d1/users
+[2021-09-15T21:41:17.576] [DEBUG] default - Listening on port 3600 -> PID: 26000
+[2021-09-15T21:41:17.577] [DEBUG] default - [InitService] init start
+[2021-09-15T21:41:17.638] [DEBUG] default - [MySQL]
+ {
+  method: 'select',
+  options: {},
+  timeout: false,
+  cancelOnTimeout: false,
+  bindings: [],
+  __knexQueryUid: '0e1ac0a4-ae26-4232-bd8f-e623bec3ea0b',
+  sql: 'select * from `service_config`'
+}
+[2021-09-15T21:41:17.646] [DEBUG] default - [InitService] init complete
+[2021-09-15T21:41:24.214] [INFO] default - {
+  ENV: 'development',
+  IS_RELEASE: false,
+  IS_DEV: true,
+  IS_LOCAL: false,
+  IS_DEMON: false,
+  PRINT_DB_LOG: true,
+  LOG_PATH: 'logs',
+  MYSQL_HOST: null,
+  MONGODB_HOST: null
+}
+[2021-09-15T21:41:24.693] [DEBUG] default - add api ./d1/apiauth.js /d1/apiauth
+[2021-09-15T21:41:24.695] [DEBUG] default - add api ./d1/apifile.js /d1/apifile
+[2021-09-15T21:41:24.765] [DEBUG] default - add api ./d1/apiproject.js /d1/apiproject
+[2021-09-15T21:41:24.768] [DEBUG] default - add api ./d1/auth.js /d1/auth
+[2021-09-15T21:41:24.769] [DEBUG] default - add api ./d1/test.js /d1/test
+[2021-09-15T21:41:24.773] [DEBUG] default - add api ./d1/users.js /d1/users
+[2021-09-15T21:41:24.785] [DEBUG] default - Listening on port 3600 -> PID: 34476
+[2021-09-15T21:41:24.785] [DEBUG] default - [InitService] init start
+[2021-09-15T21:41:24.847] [DEBUG] default - [MySQL]
+ {
+  method: 'select',
+  options: {},
+  timeout: false,
+  cancelOnTimeout: false,
+  bindings: [],
+  __knexQueryUid: '7b349df4-187b-44bd-9473-92949d7917cc',
+  sql: 'select * from `service_config`'
+}
+[2021-09-15T21:41:24.856] [DEBUG] default - [InitService] init complete
+[2021-09-15T21:42:24.475] [ERROR] default - /apiproject/getdivision TypeError: division_model.GetDivision is not a function
+    at ProjectServiceClass.GetDivision (D:/repo/dnode/src/service/project/ProjectService.js:38:41)
+    at D:/repo/dnode/src/routes/d1/apiproject.js:45:45
+    at D:/repo/dnode/src/utils/express-async.js:12:12
+    at Layer.handle [as handle_request] (D:\repo\dnode\node_modules\express\lib\router\layer.js:95:5)
+    at next (D:\repo\dnode\node_modules\express\lib\router\route.js:137:13)
+    at Route.dispatch (D:\repo\dnode\node_modules\express\lib\router\route.js:112:3)
+    at Layer.handle [as handle_request] (D:\repo\dnode\node_modules\express\lib\router\layer.js:95:5)
+    at D:\repo\dnode\node_modules\express\lib\router\index.js:281:22
+    at Function.process_params (D:\repo\dnode\node_modules\express\lib\router\index.js:335:12)
+    at next (D:\repo\dnode\node_modules\express\lib\router\index.js:275:10)
+    at Function.handle (D:\repo\dnode\node_modules\express\lib\router\index.js:174:3)
+    at router (D:\repo\dnode\node_modules\express\lib\router\index.js:47:12)
+    at Layer.handle [as handle_request] (D:\repo\dnode\node_modules\express\lib\router\layer.js:95:5)
+    at trim_prefix (D:\repo\dnode\node_modules\express\lib\router\index.js:317:13)
+    at D:\repo\dnode\node_modules\express\lib\router\index.js:284:7
+    at Function.process_params (D:\repo\dnode\node_modules\express\lib\router\index.js:335:12)
+    at next (D:\repo\dnode\node_modules\express\lib\router\index.js:275:10)
+    at Function.handle (D:\repo\dnode\node_modules\express\lib\router\index.js:174:3)
+    at router (D:\repo\dnode\node_modules\express\lib\router\index.js:47:12)
+    at Layer.handle [as handle_request] (D:\repo\dnode\node_modules\express\lib\router\layer.js:95:5)
+    at trim_prefix (D:\repo\dnode\node_modules\express\lib\router\index.js:317:13)
+    at D:\repo\dnode\node_modules\express\lib\router\index.js:284:7
+[2021-09-15T21:42:26.904] [ERROR] default - [ GET /apid1/d1/apiproject/getdivision?pseq=1 ]
+ App { error: -1, message: '', variables: {}, httpStatusCode: 200 }
+[2021-09-15T21:42:26.912] [WARN] default - [MySQL]
+ .returning() is not supported by mysql and will not have any effect.
+[2021-09-15T21:42:26.914] [DEBUG] default - [MySQL]
+ {
+  method: 'insert',
+  options: {},
+  timeout: false,
+  cancelOnTimeout: false,
+  bindings: [
+    'api',
+    '{"error":-1,"message":"","variables":{},"httpStatusCode":200}',
+    '{}',
+    'GET',
+    '/apid1/d1/apiproject/getdivision?pseq=1'
+  ],
+  __knexQueryUid: '3b55f7fe-90bb-444f-aa39-74964070b4c8',
+  sql: 'insert into `service_error` (`error_type`, `message`, `request_body`, `request_method`, `request_url`) values (?, ?, ?, ?, ?)'
+}
+[2021-09-15T21:43:04.479] [ERROR] default - /apiproject/getdivision TypeError: division_model.GetDivision is not a function
+    at ProjectServiceClass.GetDivision (D:/repo/dnode/src/service/project/ProjectService.js:38:41)
+    at D:/repo/dnode/src/routes/d1/apiproject.js:45:45
+    at D:/repo/dnode/src/utils/express-async.js:12:12
+    at Layer.handle [as handle_request] (D:\repo\dnode\node_modules\express\lib\router\layer.js:95:5)
+    at next (D:\repo\dnode\node_modules\express\lib\router\route.js:137:13)
+    at Route.dispatch (D:\repo\dnode\node_modules\express\lib\router\route.js:112:3)
+    at Layer.handle [as handle_request] (D:\repo\dnode\node_modules\express\lib\router\layer.js:95:5)
+    at D:\repo\dnode\node_modules\express\lib\router\index.js:281:22
+    at Function.process_params (D:\repo\dnode\node_modules\express\lib\router\index.js:335:12)
+    at next (D:\repo\dnode\node_modules\express\lib\router\index.js:275:10)
+    at Function.handle (D:\repo\dnode\node_modules\express\lib\router\index.js:174:3)
+    at router (D:\repo\dnode\node_modules\express\lib\router\index.js:47:12)
+    at Layer.handle [as handle_request] (D:\repo\dnode\node_modules\express\lib\router\layer.js:95:5)
+    at trim_prefix (D:\repo\dnode\node_modules\express\lib\router\index.js:317:13)
+    at D:\repo\dnode\node_modules\express\lib\router\index.js:284:7
+    at Function.process_params (D:\repo\dnode\node_modules\express\lib\router\index.js:335:12)
+    at next (D:\repo\dnode\node_modules\express\lib\router\index.js:275:10)
+    at Function.handle (D:\repo\dnode\node_modules\express\lib\router\index.js:174:3)
+    at router (D:\repo\dnode\node_modules\express\lib\router\index.js:47:12)
+    at Layer.handle [as handle_request] (D:\repo\dnode\node_modules\express\lib\router\layer.js:95:5)
+    at trim_prefix (D:\repo\dnode\node_modules\express\lib\router\index.js:317:13)
+    at D:\repo\dnode\node_modules\express\lib\router\index.js:284:7
+[2021-09-15T21:43:04.483] [ERROR] default - [ GET /apid1/d1/apiproject/getdivision?pseq=1 ]
+ App { error: -1, message: '', variables: {}, httpStatusCode: 200 }
+[2021-09-15T21:43:04.486] [WARN] default - [MySQL]
+ .returning() is not supported by mysql and will not have any effect.
+[2021-09-15T21:43:04.487] [DEBUG] default - [MySQL]
+ {
+  method: 'insert',
+  options: {},
+  timeout: false,
+  cancelOnTimeout: false,
+  bindings: [
+    'api',
+    '{"error":-1,"message":"","variables":{},"httpStatusCode":200}',
+    '{}',
+    'GET',
+    '/apid1/d1/apiproject/getdivision?pseq=1'
+  ],
+  __knexQueryUid: 'ff26cee7-d32f-42db-9244-4ff61b379509',
+  sql: 'insert into `service_error` (`error_type`, `message`, `request_body`, `request_method`, `request_url`) values (?, ?, ?, ?, ?)'
+}
+[2021-09-15T21:43:26.667] [ERROR] default - /apiproject/getdivision TypeError: division_model.GetDivision is not a function
+    at ProjectServiceClass.GetDivision (D:/repo/dnode/src/service/project/ProjectService.js:38:41)
+    at D:/repo/dnode/src/routes/d1/apiproject.js:45:45
+    at D:/repo/dnode/src/utils/express-async.js:12:12
+    at Layer.handle [as handle_request] (D:\repo\dnode\node_modules\express\lib\router\layer.js:95:5)
+    at next (D:\repo\dnode\node_modules\express\lib\router\route.js:137:13)
+    at Route.dispatch (D:\repo\dnode\node_modules\express\lib\router\route.js:112:3)
+    at Layer.handle [as handle_request] (D:\repo\dnode\node_modules\express\lib\router\layer.js:95:5)
+    at D:\repo\dnode\node_modules\express\lib\router\index.js:281:22
+    at Function.process_params (D:\repo\dnode\node_modules\express\lib\router\index.js:335:12)
+    at next (D:\repo\dnode\node_modules\express\lib\router\index.js:275:10)
+    at Function.handle (D:\repo\dnode\node_modules\express\lib\router\index.js:174:3)
+    at router (D:\repo\dnode\node_modules\express\lib\router\index.js:47:12)
+    at Layer.handle [as handle_request] (D:\repo\dnode\node_modules\express\lib\router\layer.js:95:5)
+    at trim_prefix (D:\repo\dnode\node_modules\express\lib\router\index.js:317:13)
+    at D:\repo\dnode\node_modules\express\lib\router\index.js:284:7
+    at Function.process_params (D:\repo\dnode\node_modules\express\lib\router\index.js:335:12)
+    at next (D:\repo\dnode\node_modules\express\lib\router\index.js:275:10)
+    at Function.handle (D:\repo\dnode\node_modules\express\lib\router\index.js:174:3)
+    at router (D:\repo\dnode\node_modules\express\lib\router\index.js:47:12)
+    at Layer.handle [as handle_request] (D:\repo\dnode\node_modules\express\lib\router\layer.js:95:5)
+    at trim_prefix (D:\repo\dnode\node_modules\express\lib\router\index.js:317:13)
+    at D:\repo\dnode\node_modules\express\lib\router\index.js:284:7
+[2021-09-15T21:43:26.672] [ERROR] default - [ GET /apid1/d1/apiproject/getdivision?pseq=1 ]
+ App { error: -1, message: '', variables: {}, httpStatusCode: 200 }
+[2021-09-15T21:43:26.676] [WARN] default - [MySQL]
+ .returning() is not supported by mysql and will not have any effect.
+[2021-09-15T21:43:26.677] [DEBUG] default - [MySQL]
+ {
+  method: 'insert',
+  options: {},
+  timeout: false,
+  cancelOnTimeout: false,
+  bindings: [
+    'api',
+    '{"error":-1,"message":"","variables":{},"httpStatusCode":200}',
+    '{}',
+    'GET',
+    '/apid1/d1/apiproject/getdivision?pseq=1'
+  ],
+  __knexQueryUid: 'ef8d3878-4711-4f54-9345-008bfc79906f',
+  sql: 'insert into `service_error` (`error_type`, `message`, `request_body`, `request_method`, `request_url`) values (?, ?, ?, ?, ?)'
+}
+[2021-09-15T21:44:07.665] [INFO] default - {
+  ENV: 'development',
+  IS_RELEASE: false,
+  IS_DEV: true,
+  IS_LOCAL: false,
+  IS_DEMON: false,
+  PRINT_DB_LOG: true,
+  LOG_PATH: 'logs',
+  MYSQL_HOST: null,
+  MONGODB_HOST: null
+}
+[2021-09-15T21:44:08.165] [DEBUG] default - add api ./d1/apiauth.js /d1/apiauth
+[2021-09-15T21:44:08.167] [DEBUG] default - add api ./d1/apifile.js /d1/apifile
+[2021-09-15T21:44:08.250] [DEBUG] default - add api ./d1/apiproject.js /d1/apiproject
+[2021-09-15T21:44:08.253] [DEBUG] default - add api ./d1/auth.js /d1/auth
+[2021-09-15T21:44:08.255] [DEBUG] default - add api ./d1/test.js /d1/test
+[2021-09-15T21:44:08.258] [DEBUG] default - add api ./d1/users.js /d1/users
+[2021-09-15T21:44:08.271] [DEBUG] default - Listening on port 3600 -> PID: 27812
+[2021-09-15T21:44:08.272] [DEBUG] default - [InitService] init start
+[2021-09-15T21:44:08.337] [DEBUG] default - [MySQL]
+ {
+  method: 'select',
+  options: {},
+  timeout: false,
+  cancelOnTimeout: false,
+  bindings: [],
+  __knexQueryUid: '89bd0379-3588-4bee-990f-5d6844a68462',
+  sql: 'select * from `service_config`'
+}
+[2021-09-15T21:44:08.343] [DEBUG] default - [InitService] init complete
+[2021-09-15T21:44:28.098] [INFO] default - {
+  ENV: 'development',
+  IS_RELEASE: false,
+  IS_DEV: true,
+  IS_LOCAL: false,
+  IS_DEMON: false,
+  PRINT_DB_LOG: true,
+  LOG_PATH: 'logs',
+  MYSQL_HOST: null,
+  MONGODB_HOST: null
+}
+[2021-09-15T21:44:28.599] [DEBUG] default - add api ./d1/apiauth.js /d1/apiauth
+[2021-09-15T21:44:28.601] [DEBUG] default - add api ./d1/apifile.js /d1/apifile
+[2021-09-15T21:44:28.684] [DEBUG] default - add api ./d1/apiproject.js /d1/apiproject
+[2021-09-15T21:44:28.686] [DEBUG] default - add api ./d1/auth.js /d1/auth
+[2021-09-15T21:44:28.687] [DEBUG] default - add api ./d1/test.js /d1/test
+[2021-09-15T21:44:28.690] [DEBUG] default - add api ./d1/users.js /d1/users
+[2021-09-15T21:44:28.703] [DEBUG] default - Listening on port 3600 -> PID: 35216
+[2021-09-15T21:44:28.704] [DEBUG] default - [InitService] init start
+[2021-09-15T21:44:28.767] [DEBUG] default - [MySQL]
+ {
+  method: 'select',
+  options: {},
+  timeout: false,
+  cancelOnTimeout: false,
+  bindings: [],
+  __knexQueryUid: '5652de70-e460-43a4-ab5a-f07fe7989656',
+  sql: 'select * from `service_config`'
+}
+[2021-09-15T21:44:28.773] [DEBUG] default - [InitService] init complete
+[2021-09-15T21:44:44.979] [INFO] default - {
+  ENV: 'development',
+  IS_RELEASE: false,
+  IS_DEV: true,
+  IS_LOCAL: false,
+  IS_DEMON: false,
+  PRINT_DB_LOG: true,
+  LOG_PATH: 'logs',
+  MYSQL_HOST: null,
+  MONGODB_HOST: null
+}
+[2021-09-15T21:44:45.472] [DEBUG] default - add api ./d1/apiauth.js /d1/apiauth
+[2021-09-15T21:44:45.474] [DEBUG] default - add api ./d1/apifile.js /d1/apifile
+[2021-09-15T21:44:45.558] [DEBUG] default - add api ./d1/apiproject.js /d1/apiproject
+[2021-09-15T21:44:45.560] [DEBUG] default - add api ./d1/auth.js /d1/auth
+[2021-09-15T21:44:45.562] [DEBUG] default - add api ./d1/test.js /d1/test
+[2021-09-15T21:44:45.564] [DEBUG] default - add api ./d1/users.js /d1/users
+[2021-09-15T21:44:45.578] [DEBUG] default - Listening on port 3600 -> PID: 34596
+[2021-09-15T21:44:45.579] [DEBUG] default - [InitService] init start
+[2021-09-15T21:44:45.638] [DEBUG] default - [MySQL]
+ {
+  method: 'select',
+  options: {},
+  timeout: false,
+  cancelOnTimeout: false,
+  bindings: [],
+  __knexQueryUid: 'f8527a6d-53dd-456a-8afc-d30e7117466d',
+  sql: 'select * from `service_config`'
+}
+[2021-09-15T21:44:45.643] [DEBUG] default - [InitService] init complete
+[2021-09-15T21:44:52.826] [DEBUG] default - [MySQL]
+ {
+  method: 'select',
+  options: {},
+  timeout: false,
+  cancelOnTimeout: false,
+  bindings: [ '1' ],
+  __knexQueryUid: 'b0fc1602-45d9-426c-acc3-6057b6e8c5c0',
+  sql: 'select `seq`, `project_seq`, `parent_division_seq`, `division_id`, `division_name`, `is_used`, `reg_member_seq`, `reg_date` from `division` where `project_seq` = ?'
+}
+[2021-09-15T21:44:56.139] [DEBUG] default - JsonWrapper {
+  '0': RowDataPacket {
+    seq: 1,
+    project_seq: 1,
+    parent_division_seq: null,
+    division_id: '',
+    division_name: 'division1',
+    is_used: 'Y',
+    reg_member_seq: null,
+    reg_date: '2021-09-15 12:41:49'
+  },
+  setThrowException: [Function (anonymous)],
+  setIgnoreEmpty: [Function (anonymous)],
+  setAutoTrim: [Function (anonymous)],
+  setKeys: [Function (anonymous)],
+  addKey: [Function (anonymous)],
+  addPrivateKey: [Function (anonymous)],
+  removePrivateKey: [Function (anonymous)],
+  isEmpty: [Function (anonymous)],
+  hasValue: [Function (anonymous)],
+  setExportXml: [Function (anonymous)],
+  toJSON: [Function (anonymous)],
+  getObjectJson: [Function (anonymous)],
+  getXmlJson: [Function (anonymous)],
+  toString: [Function (anonymous)],
+  returnBoolean: [Function (anonymous)],
+  getXmlText: [Function (anonymous)],
+  json_keys: [ '0' ],
+  private_key_map: {
+    seq: true,
+    project_seq: true,
+    parent_division_seq: true,
+    division_id: true,
+    division_name: true,
+    is_used: true
+  },
+  is_empty: false,
+  thorw_exception: true,
+  ignore_empty: false,
+  auto_trim: false,
+  export_xml: false
+}
+[2021-09-15T21:46:52.740] [INFO] default - {
+  ENV: 'development',
+  IS_RELEASE: false,
+  IS_DEV: true,
+  IS_LOCAL: false,
+  IS_DEMON: false,
+  PRINT_DB_LOG: true,
+  LOG_PATH: 'logs',
+  MYSQL_HOST: null,
+  MONGODB_HOST: null
+}
+[2021-09-15T21:46:53.228] [DEBUG] default - add api ./d1/apiauth.js /d1/apiauth
+[2021-09-15T21:46:53.230] [DEBUG] default - add api ./d1/apifile.js /d1/apifile
+[2021-09-15T21:46:53.302] [DEBUG] default - add api ./d1/apiproject.js /d1/apiproject
+[2021-09-15T21:46:53.304] [DEBUG] default - add api ./d1/auth.js /d1/auth
+[2021-09-15T21:46:53.305] [DEBUG] default - add api ./d1/test.js /d1/test
+[2021-09-15T21:46:53.308] [DEBUG] default - add api ./d1/users.js /d1/users
+[2021-09-15T21:46:53.320] [DEBUG] default - Listening on port 3600 -> PID: 30836
+[2021-09-15T21:46:53.320] [DEBUG] default - [InitService] init start
+[2021-09-15T21:46:53.384] [DEBUG] default - [MySQL]
+ {
+  method: 'select',
+  options: {},
+  timeout: false,
+  cancelOnTimeout: false,
+  bindings: [],
+  __knexQueryUid: '7972f3b0-1861-4a17-b899-c037ef51172b',
+  sql: 'select * from `service_config`'
+}
+[2021-09-15T21:46:53.390] [DEBUG] default - [InitService] init complete
+[2021-09-15T21:47:01.324] [DEBUG] default - [MySQL]
+ {
+  method: 'select',
+  options: {},
+  timeout: false,
+  cancelOnTimeout: false,
+  bindings: [],
+  __knexQueryUid: 'e876e954-8507-45e7-8ce6-5561bf64d738',
+  sql: 'select `seq`, `project_name`, `is_class`, `status`, `memo`, `reg_member_seq`, `reg_date` from `project`'
+}
+[2021-09-15T21:47:01.330] [DEBUG] default - JsonWrapper {
+  '0': RowDataPacket {
+    seq: 1,
+    project_name: 'project1',
+    is_class: null,
+    status: null,
+    memo: null,
+    reg_member_seq: null,
+    reg_date: '2021-09-15 09:53:44'
+  },
+  '1': RowDataPacket {
+    seq: 2,
+    project_name: 'project2',
+    is_class: null,
+    status: null,
+    memo: null,
+    reg_member_seq: null,
+    reg_date: '2021-09-15 09:53:53'
+  },
+  setThrowException: [Function (anonymous)],
+  setIgnoreEmpty: [Function (anonymous)],
+  setAutoTrim: [Function (anonymous)],
+  setKeys: [Function (anonymous)],
+  addKey: [Function (anonymous)],
+  addPrivateKey: [Function (anonymous)],
+  removePrivateKey: [Function (anonymous)],
+  isEmpty: [Function (anonymous)],
+  hasValue: [Function (anonymous)],
+  setExportXml: [Function (anonymous)],
+  toJSON: [Function (anonymous)],
+  getObjectJson: [Function (anonymous)],
+  getXmlJson: [Function (anonymous)],
+  toString: [Function (anonymous)],
+  returnBoolean: [Function (anonymous)],
+  getXmlText: [Function (anonymous)],
+  json_keys: [ '0', '1' ],
+  private_key_map: {
+    seq: true,
+    project_name: true,
+    is_class: true,
+    status: true,
+    memo: true
+  },
+  is_empty: false,
+  thorw_exception: true,
+  ignore_empty: false,
+  auto_trim: false,
+  export_xml: false
+}
+[2021-09-15T21:47:09.333] [DEBUG] default - [MySQL]
+ {
+  method: 'select',
+  options: {},
+  timeout: false,
+  cancelOnTimeout: false,
+  bindings: [ '1' ],
+  __knexQueryUid: '40119c7c-5aa8-465b-8224-a43cfbbdf0ea',
+  sql: 'select `seq`, `project_seq`, `parent_division_seq`, `division_id`, `division_name`, `is_used`, `reg_member_seq`, `reg_date` from `division` where `project_seq` = ?'
+}
+[2021-09-15T21:47:09.337] [DEBUG] default - JsonWrapper {
+  '0': RowDataPacket {
+    seq: 1,
+    project_seq: 1,
+    parent_division_seq: null,
+    division_id: '',
+    division_name: 'division1',
+    is_used: 'Y',
+    reg_member_seq: null,
+    reg_date: '2021-09-15 12:41:49'
+  },
+  setThrowException: [Function (anonymous)],
+  setIgnoreEmpty: [Function (anonymous)],
+  setAutoTrim: [Function (anonymous)],
+  setKeys: [Function (anonymous)],
+  addKey: [Function (anonymous)],
+  addPrivateKey: [Function (anonymous)],
+  removePrivateKey: [Function (anonymous)],
+  isEmpty: [Function (anonymous)],
+  hasValue: [Function (anonymous)],
+  setExportXml: [Function (anonymous)],
+  toJSON: [Function (anonymous)],
+  getObjectJson: [Function (anonymous)],
+  getXmlJson: [Function (anonymous)],
+  toString: [Function (anonymous)],
+  returnBoolean: [Function (anonymous)],
+  getXmlText: [Function (anonymous)],
+  json_keys: [ '0' ],
+  private_key_map: {
+    seq: true,
+    project_seq: true,
+    parent_division_seq: true,
+    division_id: true,
+    division_name: true,
+    is_used: true
+  },
+  is_empty: false,
+  thorw_exception: true,
+  ignore_empty: false,
+  auto_trim: false,
+  export_xml: false
+}

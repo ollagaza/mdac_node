@@ -20,8 +20,9 @@ routes.get('/', Wrap(async (req, res) => {
 }))
 
 // getProject
-routes.get('/getproject', Wrap(async (req, res) => {
+routes.get('/getproject', Auth.isAuthenticated(Role.LOGIN_USER), Wrap(async (req, res) => {
     req.accepts('application/json')
+    const token_info = req.token_info
     try{
         const result = await ProjectService.GetProject(DBMySQL)
         const output = new StdObject(0, 'success', 200, result)
@@ -37,7 +38,7 @@ routes.get('/getproject', Wrap(async (req, res) => {
 }))
 
 // getDivision
-routes.get('/getdivision', Wrap(async (req, res) => {
+routes.get('/getdivision', Auth.isAuthenticated(Role.LOGIN_USER), Wrap(async (req, res) => {
     req.accepts('application/json')
     try{
         const project_seq = req.query.pseq;
@@ -56,7 +57,43 @@ routes.get('/getdivision', Wrap(async (req, res) => {
 }))
 
 // getOrgFile
+routes.get('/getorgfile', Wrap(async (req, res) => {
+    req.accepts('application/json')
+    try{
+        const division_seq = req.query.dseq; // division seq
+        console.log(division_seq);
+        const result = await ProjectService.GetDivision(DBMySQL, project_seq)
+        const output = new StdObject(0, 'success', 200, result)
+        res.json(output)
+    } catch (e) {
+        logger.error('/apiproject/getdivision', e)
+        if (e.error < 0) {
+            throw new StdObject(e.error, e.message, 200)
+        } else {
+            throw new StdObject(-1, '', 200)
+        }
+    }
+}))
+
 // getLabelingFile
+routes.get('/getlabelingfile', Wrap(async (req, res) => {
+    req.accepts('application/json')
+    try{
+        const division_seq = req.query.dseq; // division seq
+        console.log(division_seq);
+        const result = await ProjectService.GetDivision(DBMySQL, project_seq)
+        const output = new StdObject(0, 'success', 200, result)
+        res.json(output)
+    } catch (e) {
+        logger.error('/apiproject/getdivision', e)
+        if (e.error < 0) {
+            throw new StdObject(e.error, e.message, 200)
+        } else {
+            throw new StdObject(-1, '', 200)
+        }
+    }
+}))
+
 // getWorkItem
 // setCheckResult
 // getLabelingClass
