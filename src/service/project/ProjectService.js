@@ -16,59 +16,63 @@ const ProjectServiceClass = class {
 
   GetProjectModel = (database = null) => {
     if (database) {
-      return new ProjectModel(database)
+      return new ProjectModel(database);
     }
-    return new ProjectModel(DBMySQL)
+    return new ProjectModel(DBMySQL);
   }
 
   GetDivisionModel = (database = null) => {
     if (database) {
-      return new DivisionModel(database)
+      return new DivisionModel(database);
     }
-    return new DivisionModel(DBMySQL)
+    return new DivisionModel(DBMySQL);
   }
 
   GetFileModel = (database = null) => {
     if (database) {
-      return new FileModel(database)
+      return new FileModel(database);
     }
-    return new FileModel(DBMySQL)
+    return new FileModel(DBMySQL);
   }
 
   GetResultFileModel = (database = null) => {
     if (database) {
-      return new ResultFileModel(database)
+      return new ResultFileModel(database);
     }
-    return new ResultFileModel(DBMySQL)
+    return new ResultFileModel(DBMySQL);
   }
 
-  GetProject = async (database) => {
-    const project_model = this.GetProjectModel(database)
+  GetProjects = async (database) => {
+    const project_model = this.GetProjectModel(database);
     const result = await project_model.GetProjects();
     logger.debug(result);
     return result;
   }
 
-  GetDivision = async (database, project_seq) => {
-    const division_model = this.GetDivisionModel(database)
+  GetDivisions = async (database, project_seq) => {
+    const division_model = this.GetDivisionModel(database);
     const result = await division_model.GetDivisions(project_seq);
-
-    // get division full path
-
-
+    for (let item of result) {
+        console.log(item.toJson);
+    }
 
     logger.debug(result);
     return result;
   }
 
-  GetOrgFile = async (database, division_seq) => {
-      const file_model = this.GetResultFileModel(database)
-      const result = await file_model.GetOrgFile(division_seq);
-
+  GetOrgFiles = async (database, division_seq) => {
+      const file_model = this.GetFileModel(database);
+      const result = await file_model.GetOrgFiles(division_seq);
+      logger.debug(result);
+      return result;
   }
 
-  GetLabelingFile = async (database, division_seq) => {
-
+  GetLabelingFiles = async (database, division_seq) => {
+    const file_model = this.GetResultFileModel(database);
+    const result = await file_model.GetResFiles(division_seq);
+    // get result file list by file seq
+    logger.debug(result);
+    return result;
   }
 
 }

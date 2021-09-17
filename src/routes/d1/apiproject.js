@@ -24,8 +24,10 @@ routes.get('/getproject', Auth.isAuthenticated(Role.LOGIN_USER), Wrap(async (req
     req.accepts('application/json')
     const token_info = req.token_info
     try{
-        const result = await ProjectService.GetProject(DBMySQL)
-        const output = new StdObject(0, 'success', 200, result)
+        const result = await ProjectService.GetProjects(DBMySQL)
+        // const output = new StdObject(0, 'success', 200, result)
+        const output = new StdObject(0, 'success', 200);
+        output.add('data', result);
         res.json(output)
     } catch (e) {
         logger.error('/apiproject/getproject', e)
@@ -42,9 +44,10 @@ routes.get('/getdivision', Auth.isAuthenticated(Role.LOGIN_USER), Wrap(async (re
     req.accepts('application/json')
     try{
         const project_seq = req.query.pseq;
-        console.log(project_seq);
-        const result = await ProjectService.GetDivision(DBMySQL, project_seq)
-        const output = new StdObject(0, 'success', 200, result)
+        const result = await ProjectService.GetDivisions(DBMySQL, project_seq);
+        // const output = new StdObject(0, 'success', 200, result);
+        const output = new StdObject(0, 'success', 200);
+        output.add('data', result);
         res.json(output)
     } catch (e) {
         logger.error('/apiproject/getdivision', e)
@@ -62,7 +65,7 @@ routes.get('/getorgfile', Wrap(async (req, res) => {
     try{
         const division_seq = req.query.dseq; // division seq
         console.log(division_seq);
-        const result = await ProjectService.GetDivision(DBMySQL, project_seq)
+        const result = await ProjectService.GetDivisions(DBMySQL, project_seq)
         const output = new StdObject(0, 'success', 200, result)
         res.json(output)
     } catch (e) {
