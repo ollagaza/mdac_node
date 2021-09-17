@@ -64,8 +64,7 @@ routes.get('/getorgfile', Wrap(async (req, res) => {
     req.accepts('application/json')
     try{
         const division_seq = req.query.dseq; // division seq
-        console.log(division_seq);
-        const result = await ProjectService.GetDivisions(DBMySQL, project_seq)
+        const result = await ProjectService.GetOrgFiles(DBMySQL, division_seq)
         const output = new StdObject(0, 'success', 200, result)
         res.json(output)
     } catch (e) {
@@ -83,8 +82,7 @@ routes.get('/getlabelingfile', Wrap(async (req, res) => {
     req.accepts('application/json')
     try{
         const division_seq = req.query.dseq; // division seq
-        console.log(division_seq);
-        const result = await ProjectService.GetDivision(DBMySQL, project_seq)
+        const result = await ProjectService.GetLabelingFiles(DBMySQL, division_seq)
         const output = new StdObject(0, 'success', 200, result)
         res.json(output)
     } catch (e) {

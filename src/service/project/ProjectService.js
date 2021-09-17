@@ -14,6 +14,36 @@ const ProjectServiceClass = class {
     this.log_prefix = '[ProjectServiceClass]'
   }
 
+  GetDivisionFullPath = (divisions, key, name) => {
+    //   for (let division of divisions) {
+    //       console.log(division);
+    //       division.fullpath = 'test';
+    //   }
+      
+      let data = divisions[key];
+      if (data.parent_division_seq === null) {
+          let res = `${data.division_name}>${name}`
+          console.log(res);
+          return res;
+      } else {
+          let path = '';
+          if (name === null) {
+              return data.division_name;
+          } else {
+              path = `${data.division_name}>${name}`;
+          }
+          return this.GetDivisionFullPath(divisions, data.parent_division_seq, path);
+      }
+  }
+
+  GetAllDivisionFullPath = (divisions) => {
+      for (let div in divisions) {
+        divisions[div].fullpath = this.GetDivisionFullPath(divisions, div, '');
+      }
+
+      return divisions;
+  }
+
   GetProjectModel = (database = null) => {
     if (database) {
       return new ProjectModel(database);
@@ -52,12 +82,16 @@ const ProjectServiceClass = class {
   GetDivisions = async (database, project_seq) => {
     const division_model = this.GetDivisionModel(database);
     const result = await division_model.GetDivisions(project_seq);
+    var dicDivision = {};
     for (let item of result) {
-        console.log(item.toJson);
+        console.log(item.seq);
+        dicDivision[item.seq] = item;
     }
-
-    logger.debug(result);
-    return result;
+    
+    // result = this.GetAllDivisionFullPath(dicDivision);
+    // return result;
+    const res = this.GetAllDivisionFullPath(dicDivision);
+    return res;
   }
 
   GetOrgFiles = async (database, division_seq) => {
@@ -68,9 +102,14 @@ const ProjectServiceClass = class {
   }
 
   GetLabelingFiles = async (database, division_seq) => {
-    const file_model = this.GetResultFileModel(database);
-    const result = await file_model.GetResFiles(division_seq);
-    // get result file list by file seq
+    const file_model = this.GetFileModel(database);
+    const files = await file_model.GetOrgFiles(division_seq);
+    // get file seq list
+
+    const res_file_model = this.GetResultFileModel(database);
+    const result = await res_file_model.GetResFiles(division_seq);
+    // get result file list by file seq list
+
     logger.debug(result);
     return result;
   }

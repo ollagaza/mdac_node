@@ -21,10 +21,6 @@ export default class DivisionModel extends MySQLModel {
     // const select = ['*']
     const oKnex = this.database.select(select).from(this.table_name).where("project_seq", project_seq);
     const result = await oKnex;
-    for (let item of result) {
-        item.fullpath = '';
-    }
-
     return result;
     // return new JsonWrapper(result, this.private_fields);
   }
