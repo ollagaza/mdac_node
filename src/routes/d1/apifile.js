@@ -19,6 +19,26 @@ routes.get('/', Wrap(async (req, res) => {
 }))
 
 // uploadOrgFile
+routes.post('/uploadorgfile', Auth.isAuthenticated(Role.LOGIN_USER), Wrap(async (req, res) => {
+  req.accepts('application/json')
+  try{
+      // const project_seq = req.query.pseq;
+      // console.log(project_seq);
+
+      // const result = await ProjectService.GetDivisions(DBMySQL, project_seq);
+      const output = new StdObject(0, 'success', 200);
+      output.add('data', '');
+      res.json(output);
+  } catch (e) {
+      logger.error('/apifile/uploadorgfile', e)
+      if (e.error < 0) {
+          throw new StdObject(e.error, e.message, 200)
+      } else {
+          throw new StdObject(-1, '', 200)
+      }
+  }
+}))
+
 // downloadOrgFile
 // uploadLabelingFile
 // downloadLabelingFile

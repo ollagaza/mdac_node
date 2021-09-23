@@ -21,4 +21,6 @@ export default class FileModel extends MySQLModel {
     const result = await oKnex;
     return new JsonWrapper(result, this.private_fields);
   }
+
+  
 }
