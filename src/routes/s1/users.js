@@ -22,9 +22,9 @@ routes.post('/createuser', async (req, res) => {
   if (request_body.user_id) {
     result = await MemberService.createUser(request_body);
     if (result.error === 0){
-      MemberLogService.createMemberLog(req, result.seq, '1001', 'ok');
+      MemberLogService.createMemberLog(req, result.seq, result.seq,  '1001', 'ok');
     } else {
-      MemberLogService.createMemberLog(req, result.seq, '9998', result.message);
+      MemberLogService.createMemberLog(req, result.seq, result.seq, '9998', result.message);
     }
     res.json(result);
   } else {
@@ -37,7 +37,7 @@ routes.post('/:member_seq(\\d+)/updateUser', async (req, res) => {
   const member_seq = Util.parseInt(req.params.member_seq)
   if (member_seq < 0) {
     const out = new StdObject(-1, '잘못된 사용자 입니다.', 404);
-    MemberLogService.createMemberLog(req, result.seq, '9998', '잘못된 사용자 입니다.');
+    MemberLogService.createMemberLog(req, result.seq, result.seq,  '9998', '잘못된 사용자 입니다.');
     res.json(out);
     return;
   }
@@ -45,7 +45,7 @@ routes.post('/:member_seq(\\d+)/updateUser', async (req, res) => {
   let result = null;
   if (request_body.user_id) {
     result = await MemberService.updateUser(member_seq, request_body);
-    MemberLogService.createMemberLog(req, member_seq, '1002', result.message);
+    MemberLogService.createMemberLog(req, member_seq, member_seq, '1002', result.message);
     res.json(result);
   } else {
     const out = new StdObject(-1, '등록된 값이 없습니다.', 404);

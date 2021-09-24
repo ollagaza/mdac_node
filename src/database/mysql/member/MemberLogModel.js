@@ -10,12 +10,13 @@ export default class MemberLogModel extends MySQLModel {
     this.log_prefix = '[MemberLogModel]'
   }
 
-  createMemberLog = async (member_seq = null, code, text, ip) => {
+  createMemberLog = async (member_seq = null, mod_member_seq, code, text, ip) => {
     const memberLog = {
       member_seq: member_seq,
-      log_code: code,
+      mod_member_seq: mod_member_seq,
+      log_type: code,
       log_text: text,
-      used_ipaddress: ip,
+      ip_addr: ip,
     }
     // log.debug(memberLog.log_code)
     return await this.create(memberLog, 'seq')

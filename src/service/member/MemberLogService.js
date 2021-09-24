@@ -17,19 +17,24 @@ const MemberLogServiceClass = class {
     return new MemberLogModel(DBMySQL)
   }
 
-  createMemberLog = async (req, member_seq = null, code = '0000', text = '') => {
+  createMemberLog = async (req, member_seq = null, mod_member_seq, code = '0000', text = '') => {
     const ip = req.headers['x-forwarded-for'] ||
       req.connection.remoteAddress ||
       req.socket.remoteAddress ||
       req.connection.socket.remoteAddress;
 
     const member_log_model = this.getMemberLogModel(DBMySQL)
-    return member_log_model.createMemberLog(member_seq, code, text, ip)
+    return member_log_model.createMemberLog(member_seq, mod_member_seq, code, text, ip)
   }
 
-  memberModifyLog = async (req, member_seq) => {
+  memberModifyLog = async (req, member_seq, mod_member_seq) => {
     try {
-      await this.createMemberLog(req, member_seq, '1002', 'Info Mod');
+      const ip = req.headers['x-forwarded-for'] ||
+      req.connection.remoteAddress ||
+      req.socket.remoteAddress ||
+      req.connection.socket.remoteAddress;
+
+      await this.createMemberLog(req, member_seq, mod_member_seq, '1002', 'Info Mod', ip);
     } catch (error) {
       log.error(this.log_prefix, '[memberModifyLog]', error);
     }
@@ -37,7 +42,7 @@ const MemberLogServiceClass = class {
 
   memberLogout = async (req, member_seq, leave_text) => {
     try {
-      await this.createMemberLog(req, member_seq, '1009', leave_text)
+      await this.createMemberLog(req, member_seq, 0, '1009', leave_text)
     } catch (error) {
       log.error(this.log_prefix, '[memberLeaveLog]', error)
     }
@@ -45,7 +50,7 @@ const MemberLogServiceClass = class {
 
   memberLeaveLog = async (req, member_seq, leave_text) => {
     try {
-      await this.createMemberLog(req, member_seq, '9999', leave_text)
+      await this.createMemberLog(req, member_seq, member_seq, '9999', leave_text)
     } catch (error) {
       log.error(this.log_prefix, '[memberLeaveLog]', error)
     }

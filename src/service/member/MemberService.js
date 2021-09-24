@@ -103,32 +103,16 @@ const MemberServiceClass = class {
   }
 
 
-  getMemberInfoList = async (database, page, is_used, search_type, keyword) => {
-    const member_info = await this.getMemberInfoListgo(database, page, is_used, search_type, keyword)
-
-    return {
-      member_info
-    }
-  }
-
-  getMemberInfoListgo = async (database, page, is_used, search_type, keyword) => {
-    const { member_info } = await this.getMemberInfoListWithModel(database, page, is_used, search_type, keyword)
-    return member_info
-  }
-
-  getMemberInfoListWithModel = async (database, page, is_used, search_type, keyword) => {
+  getMemberInfoList = async (database, start, end, is_used, search_type, keyword, member_seq) => {
     const member_model = this.getMemberModel(database)
-    const member_info = await member_model.getMemberInfoList(page, is_used, search_type, keyword)
-    //if (member_info.isEmpty()) {
-    //  throw new StdObject(-1, '회원정보가 존재하지 않습니다.', 400)
-    //}
+    const member_info = await member_model.getMemberInfoList(start, end, is_used, search_type, keyword, member_seq)
+    const member_paging = await member_model.getMemberInfoListPaging(start, end, is_used, search_type, keyword, member_seq)
     
     return {
-      member_model,
-      member_info
+      member_info,
+      member_paging
     }
   }
-
 
   findMemberId = async (database, request_body) => {
     const member_info = new JsonWrapper(request_body, [])
@@ -285,7 +269,68 @@ const MemberServiceClass = class {
     logger.debug(result);
     return result;
   }
+
+  updateUsersUsed = async (database, req_body) => {
+    const arr_member_seq = req_body.params.users;
+    const used = req_body.params.used;
+    // logger.debug('updateUsersUsed 1', req_body.params.used, used);
+    let reason = req_body.params.reason;
+    const params = {}
+    params.is_used = used;
+    if (reason === undefined){
+      reason = '';
+    }
+    params.reason = reason;
+
+    const member_model = this.getMemberModel(database)
+    const result = await member_model.updateUsersUsed(params, arr_member_seq);
+    // 메일 발송 부분 주석처리 by djyu 2021.09.17
+    // if (result.error ===0 && reason.length > 0){
+    //   const send_mail = new SendMail()
+    //   // logger.debug(arr_member_seq);
+    //   for (const key of Object.keys(arr_member_seq)) {
+    //     const seq = arr_member_seq[key];
+    //     const find_member_info = await MemberService.getMemberInfo(database, seq);
+
+    //     // logger.debug('seq', seq, find_member_info.email);
+    //     if (find_member_info.email_address && find_member_info.email.length > 0) {
+    //       const mail_to = [find_member_info.email_address]
+    //       const subject = '[알림] 회원 강제 탈퇴 안내'
+    //       const template_data = {
+    //         'user_name': find_member_info.user_name,
+    //         'user_id': find_member_info.user_id,
+    //         'email_address': find_member_info.email,
+    //         'rejectText': reason,
+    //         'service_name': 'Data Manager System',
+    //         'request_domain': 'http://jjin.com',
+    //       }
+    //       try {
+    //         const send_mail_result = await send_mail.sendMailHtml(mail_to, subject, MemberTemplate.memberUsed2(template_data))
+    //         // logger.debug('send_mail_result', send_mail_result);
+    //       } catch (e) {
+    //         logger.error('send email ', e);
+    //       }
+    //     }
+    //   }
+    // }
+    return result;
+  }
+
+  deleteUser = async (database, req_body) => {
+    const arr_member_seq = req_body.params.users;
+    const used = req_body.params.used;
+    // logger.debug('updateUsersUsed 1', req_body.params.used, used);
+    let reason = req_body.params.reason;
+    const params = {}
+    params.is_used = used;
+
+    const member_model = this.getMemberModel(database)
+    const result = await member_model.deleteUser(params, arr_member_seq);
+    
+    return result;
+  }    
 }
+
 
 
 const member_service = new MemberServiceClass()
