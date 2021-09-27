@@ -1,0 +1,9 @@
+.DS_Store
+.idea
+.idea/*
+node_modules/
+dist/
+test/unit/coverage
+test/e2e/reports
+*.log
+package-lock.json
