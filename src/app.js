@@ -4,6 +4,7 @@ import path from "path";
 import bodyParser from 'body-parser'
 import logger from './libs/logger'
 import StdObject from './wrapper/std-object'
+<<<<<<< HEAD
 import compression from 'compression';
 
 
@@ -18,6 +19,14 @@ const shouldCompress = (req, res) => {
 app.use(compression({
   filter: shouldCompress,
 }))
+=======
+
+let cors = require('cors'); // cross domain 허용해주는 미들웨어
+
+
+const app = express()
+
+>>>>>>> 2f6467e9af1401a91d29a4baf4010cc67056f9c6
 app.enable('trust proxy', 1)
 
 // Express 라는 것을 숨김
@@ -27,6 +36,10 @@ app.disable('x-powered-by')
 // View engine setup
 app.set('views', path.join(__dirname, '../views'))
 app.set('view engine', 'pug')
+<<<<<<< HEAD
+=======
+app.use(cors());
+>>>>>>> 2f6467e9af1401a91d29a4baf4010cc67056f9c6
 app.use(logger.express)
 app.use(bodyParser.json({
   limit: '50mb'
