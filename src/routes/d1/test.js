@@ -14,6 +14,10 @@ routes.get('/', Wrap(async (req, res) => {
 }))
 
 routes.get('/page/:data', Wrap(async (req, res) => {
+
+});
+
+routes.get('/page/:data', Wrap(async (req, res) => {
   req.accepts('application/json')
   const param_data = req.params.data;
   const data = [];
