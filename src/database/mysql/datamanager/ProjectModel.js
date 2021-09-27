@@ -66,7 +66,7 @@ export default class ProjectModel extends MySQLModel {
       knex.raw('( SELECT COUNT(checker) FROM ( SELECT project_seq, checker1_member_seq AS checker FROM job WHERE checker1_member_seq IS NOT NULL GROUP BY checker1_member_seq UNION SELECT project_seq, checker2_member_seq AS checker FROM job WHERE checker2_member_seq IS NOT NULL GROUP BY checker2_member_seq UNION SELECT project_seq, checker3_member_seq AS checker FROM job WHERE checker3_member_seq IS NOT NULL GROUP BY checker3_member_seq ) AS CHECKER WHERE CHECKER.project_seq=project.seq ) AS checker_cnt')
     ]
     const oKnex = this.database.select(select);
-    oKnex.from(this.table_name).where('seq','<>',0);
+    oKnex.from(this.table_name)
 
     if(project_seq === '')
     {
@@ -77,7 +77,9 @@ export default class ProjectModel extends MySQLModel {
         oKnex.where(`${search_type}`,'like',`%${keyword}%`);
       }
       oKnex.orderBy('seq','desc');
-      oKnex.limit(end).offset(start)
+      if(end !== '') {
+        oKnex.limit(end).offset(start)
+      }
     }else{
       oKnex.where('seq',project_seq);
     }
@@ -110,7 +112,9 @@ export default class ProjectModel extends MySQLModel {
 
     if(project_seq === '')
     {
-      oKnex.limit(end).offset(start)
+      if(end !== '') {
+        oKnex.limit(end).offset(start)
+      }
     }
 
     const result = await oKnex;
