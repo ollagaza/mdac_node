@@ -13,9 +13,6 @@ routes.get('/', Wrap(async (req, res) => {
   res.json(output)
 }))
 
-routes.get('/page/:data', Wrap(async (req, res) => {
-
-});
 
 routes.get('/page/:data', Wrap(async (req, res) => {
   req.accepts('application/json')
