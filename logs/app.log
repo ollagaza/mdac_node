@@ -50174,3 +50174,246 @@
   __knexQueryUid: 'dbb59518-14a3-449b-ad18-b8f60b9be52f',
   sql: 'select count(*) as `total_count` from (select `class`.`seq` from `class` inner join `project` on `class`.`project_seq` = `project`.`seq` order by `class`.`seq` desc) as `list` limit ?'
 }
+[2021-09-27T17:56:12.090] [INFO] default - {
+  ENV: 'development',
+  IS_RELEASE: false,
+  IS_DEV: true,
+  IS_LOCAL: false,
+  IS_DEMON: false,
+  PRINT_DB_LOG: true,
+  LOG_PATH: 'logs',
+  MYSQL_HOST: null,
+  MONGODB_HOST: null
+}
+[2021-09-27T17:56:12.542] [DEBUG] default - add api ./d1/admin.js /d1/admin
+[2021-09-27T17:56:12.546] [DEBUG] default - add api ./d1/auth.js /d1/auth
+[2021-09-27T17:56:12.689] [DEBUG] default - add api ./d1/datamanager.js /d1/datamanager
+[2021-09-27T17:56:12.691] [DEBUG] default - add api ./d1/project.js /d1/project
+[2021-09-27T17:56:12.693] [DEBUG] default - add api ./d1/test.js /d1/test
+[2021-09-27T17:56:12.695] [DEBUG] default - add api ./d1/users.js /d1/users
+[2021-09-27T17:56:12.698] [DEBUG] default - add api ./s1/auth.js /s1/auth
+[2021-09-27T17:56:12.699] [DEBUG] default - add api ./s1/test.js /s1/test
+[2021-09-27T17:56:12.701] [DEBUG] default - add api ./s1/users.js /s1/users
+[2021-09-27T17:56:12.734] [DEBUG] default - Listening on port 3600 -> PID: 33540
+[2021-09-27T17:56:12.734] [DEBUG] default - [InitService] init start
+[2021-09-27T17:56:12.811] [DEBUG] default - [MySQL]
+ {
+  method: 'select',
+  options: {},
+  timeout: false,
+  cancelOnTimeout: false,
+  bindings: [],
+  __knexQueryUid: 'f6bd3b1a-9882-4836-b681-db9ccb8f4481',
+  sql: 'select * from `service_config`'
+}
+[2021-09-27T17:56:12.816] [DEBUG] default - [InitService] init complete
+[2021-09-27T17:56:15.151] [DEBUG] default - [MySQL]
+ {
+  method: 'select',
+  options: {},
+  timeout: false,
+  cancelOnTimeout: false,
+  bindings: [],
+  __knexQueryUid: '069db85b-77d8-424d-be3f-f0f5901c446f',
+  sql: 'select `seq`, `project_name`, `is_class`, `status`, `memo`, `reason`, `reg_member_seq`, `reg_date`, (\tSELECT COUNT(labeler_member_seq)\tFROM ( SELECT project_seq, labeler_member_seq FROM job GROUP BY labeler_member_seq ) AS LABELER\tWHERE LABELER.project_seq=project.seq ) AS labeler_cnt, ( SELECT COUNT(checker) FROM ( SELECT project_seq, checker1_member_seq AS checker FROM job WHERE checker1_member_seq IS NOT NULL GROUP BY checker1_member_seq UNION SELECT project_seq, checker2_member_seq AS checker FROM job WHERE checker2_member_seq IS NOT NULL GROUP BY checker2_member_seq UNION SELECT project_seq, checker3_member_seq AS checker FROM job WHERE checker3_member_seq IS NOT NULL GROUP BY checker3_member_seq ) AS CHECKER WHERE CHECKER.project_seq=project.seq ) AS checker_cnt from `project` order by `seq` desc'
+}
+[2021-09-27T17:56:15.163] [DEBUG] default - [MySQL]
+ {
+  method: 'select',
+  options: {},
+  timeout: false,
+  cancelOnTimeout: false,
+  bindings: [ 20 ],
+  __knexQueryUid: '18f48ce5-d314-41f2-b8b9-d9a7f55f6621',
+  sql: 'select `class`.`seq`, `class`.`project_seq`, `project`.`project_name`, `class`.`class_id`, `class`.`class_name`, `class`.`is_used`, `class`.`reg_date` from `class` inner join `project` on `class`.`project_seq` = `project`.`seq` order by `class`.`seq` desc limit ?'
+}
+[2021-09-27T17:56:15.167] [DEBUG] default - [MySQL]
+ {
+  method: 'select',
+  options: {},
+  timeout: false,
+  cancelOnTimeout: false,
+  bindings: [ 0 ],
+  __knexQueryUid: '3c866c8d-05b7-4cea-b7f0-6f23fa1d7598',
+  sql: 'select * from `project` where `seq` <> ? order by `seq` desc'
+}
+[2021-09-27T17:56:15.171] [DEBUG] default - [MySQL]
+ {
+  method: 'select',
+  options: {},
+  timeout: false,
+  cancelOnTimeout: false,
+  bindings: [ 20 ],
+  __knexQueryUid: '0d4206d3-73d5-4a8a-8bfa-c2f26a966a94',
+  sql: 'select `class`.`seq` from `class` inner join `project` on `class`.`project_seq` = `project`.`seq` order by `class`.`seq` desc limit ?'
+}
+[2021-09-27T17:56:15.175] [DEBUG] default - [MySQL]
+ {
+  method: 'first',
+  options: {},
+  timeout: false,
+  cancelOnTimeout: false,
+  bindings: [ 0, 1 ],
+  __knexQueryUid: '70b656be-2dc0-4ae4-afba-cd7dbe101bff',
+  sql: 'select count(*) as `total_count` from (select * from `project` where `seq` <> ? order by `seq` desc) as `list` limit ?'
+}
+[2021-09-27T17:56:15.179] [DEBUG] default - [MySQL]
+ {
+  method: 'first',
+  options: {},
+  timeout: false,
+  cancelOnTimeout: false,
+  bindings: [ 1 ],
+  __knexQueryUid: '932ec09b-3a11-4a06-a9af-ce2ad791015a',
+  sql: 'select count(*) as `total_count` from (select `class`.`seq` from `class` inner join `project` on `class`.`project_seq` = `project`.`seq` order by `class`.`seq` desc) as `list` limit ?'
+}
+[2021-09-27T17:56:17.281] [DEBUG] default - [MySQL]
+ {
+  method: 'select',
+  options: {},
+  timeout: false,
+  cancelOnTimeout: false,
+  bindings: [],
+  __knexQueryUid: '90919d33-0baf-4c26-84f6-605213cc955d',
+  sql: 'select `seq`, `project_name`, `is_class`, `status`, `memo`, `reason`, `reg_member_seq`, `reg_date`, (\tSELECT COUNT(labeler_member_seq)\tFROM ( SELECT project_seq, labeler_member_seq FROM job GROUP BY labeler_member_seq ) AS LABELER\tWHERE LABELER.project_seq=project.seq ) AS labeler_cnt, ( SELECT COUNT(checker) FROM ( SELECT project_seq, checker1_member_seq AS checker FROM job WHERE checker1_member_seq IS NOT NULL GROUP BY checker1_member_seq UNION SELECT project_seq, checker2_member_seq AS checker FROM job WHERE checker2_member_seq IS NOT NULL GROUP BY checker2_member_seq UNION SELECT project_seq, checker3_member_seq AS checker FROM job WHERE checker3_member_seq IS NOT NULL GROUP BY checker3_member_seq ) AS CHECKER WHERE CHECKER.project_seq=project.seq ) AS checker_cnt from `project` order by `seq` desc'
+}
+[2021-09-27T17:56:17.284] [DEBUG] default - [MySQL]
+ {
+  method: 'select',
+  options: {},
+  timeout: false,
+  cancelOnTimeout: false,
+  bindings: [ 0 ],
+  __knexQueryUid: '775096ff-472a-48cb-8eb2-293c00deced2',
+  sql: 'select * from `project` where `seq` <> ? order by `seq` desc'
+}
+[2021-09-27T17:56:17.288] [DEBUG] default - [MySQL]
+ {
+  method: 'first',
+  options: {},
+  timeout: false,
+  cancelOnTimeout: false,
+  bindings: [ 0, 1 ],
+  __knexQueryUid: '9f446e14-aea3-49a7-9e20-e02b6ba4d429',
+  sql: 'select count(*) as `total_count` from (select * from `project` where `seq` <> ? order by `seq` desc) as `list` limit ?'
+}
+[2021-09-27T17:56:22.001] [DEBUG] default - [MySQL]
+ {
+  method: 'select',
+  options: {},
+  timeout: false,
+  cancelOnTimeout: false,
+  bindings: [],
+  __knexQueryUid: '285316bb-8183-4449-944a-812943ce6cbc',
+  sql: 'select `seq`, `project_name`, `is_class`, `status`, `memo`, `reason`, `reg_member_seq`, `reg_date`, (\tSELECT COUNT(labeler_member_seq)\tFROM ( SELECT project_seq, labeler_member_seq FROM job GROUP BY labeler_member_seq ) AS LABELER\tWHERE LABELER.project_seq=project.seq ) AS labeler_cnt, ( SELECT COUNT(checker) FROM ( SELECT project_seq, checker1_member_seq AS checker FROM job WHERE checker1_member_seq IS NOT NULL GROUP BY checker1_member_seq UNION SELECT project_seq, checker2_member_seq AS checker FROM job WHERE checker2_member_seq IS NOT NULL GROUP BY checker2_member_seq UNION SELECT project_seq, checker3_member_seq AS checker FROM job WHERE checker3_member_seq IS NOT NULL GROUP BY checker3_member_seq ) AS CHECKER WHERE CHECKER.project_seq=project.seq ) AS checker_cnt from `project` order by `seq` desc'
+}
+[2021-09-27T17:56:22.004] [DEBUG] default - [MySQL]
+ {
+  method: 'select',
+  options: {},
+  timeout: false,
+  cancelOnTimeout: false,
+  bindings: [ 20 ],
+  __knexQueryUid: '8141b7ea-feb2-4b1d-bf2d-75082b89c2a3',
+  sql: 'select `class`.`seq`, `class`.`project_seq`, `project`.`project_name`, `class`.`class_id`, `class`.`class_name`, `class`.`is_used`, `class`.`reg_date` from `class` inner join `project` on `class`.`project_seq` = `project`.`seq` order by `class`.`seq` desc limit ?'
+}
+[2021-09-27T17:56:22.009] [DEBUG] default - [MySQL]
+ {
+  method: 'select',
+  options: {},
+  timeout: false,
+  cancelOnTimeout: false,
+  bindings: [ 0 ],
+  __knexQueryUid: '64681a31-e7b8-44a1-a5df-753f66e72bee',
+  sql: 'select * from `project` where `seq` <> ? order by `seq` desc'
+}
+[2021-09-27T17:56:22.012] [DEBUG] default - [MySQL]
+ {
+  method: 'select',
+  options: {},
+  timeout: false,
+  cancelOnTimeout: false,
+  bindings: [ 20 ],
+  __knexQueryUid: 'dc935ce6-ca9a-47ba-b4de-91eecd630288',
+  sql: 'select `class`.`seq` from `class` inner join `project` on `class`.`project_seq` = `project`.`seq` order by `class`.`seq` desc limit ?'
+}
+[2021-09-27T17:56:22.017] [DEBUG] default - [MySQL]
+ {
+  method: 'first',
+  options: {},
+  timeout: false,
+  cancelOnTimeout: false,
+  bindings: [ 0, 1 ],
+  __knexQueryUid: '5aab7541-f13a-44a2-94f3-5d0afd251b65',
+  sql: 'select count(*) as `total_count` from (select * from `project` where `seq` <> ? order by `seq` desc) as `list` limit ?'
+}
+[2021-09-27T17:56:22.020] [DEBUG] default - [MySQL]
+ {
+  method: 'first',
+  options: {},
+  timeout: false,
+  cancelOnTimeout: false,
+  bindings: [ 1 ],
+  __knexQueryUid: '3c27168a-b75d-4d65-b2dc-d5262135fb29',
+  sql: 'select count(*) as `total_count` from (select `class`.`seq` from `class` inner join `project` on `class`.`project_seq` = `project`.`seq` order by `class`.`seq` desc) as `list` limit ?'
+}
+[2021-09-27T17:56:23.066] [DEBUG] default - [MySQL]
+ {
+  method: 'select',
+  options: {},
+  timeout: false,
+  cancelOnTimeout: false,
+  bindings: [],
+  __knexQueryUid: 'c8b13031-7f10-4a67-b90a-94417c8675df',
+  sql: 'select `seq`, `project_name`, `is_class`, `status`, `memo`, `reason`, `reg_member_seq`, `reg_date`, (\tSELECT COUNT(labeler_member_seq)\tFROM ( SELECT project_seq, labeler_member_seq FROM job GROUP BY labeler_member_seq ) AS LABELER\tWHERE LABELER.project_seq=project.seq ) AS labeler_cnt, ( SELECT COUNT(checker) FROM ( SELECT project_seq, checker1_member_seq AS checker FROM job WHERE checker1_member_seq IS NOT NULL GROUP BY checker1_member_seq UNION SELECT project_seq, checker2_member_seq AS checker FROM job WHERE checker2_member_seq IS NOT NULL GROUP BY checker2_member_seq UNION SELECT project_seq, checker3_member_seq AS checker FROM job WHERE checker3_member_seq IS NOT NULL GROUP BY checker3_member_seq ) AS CHECKER WHERE CHECKER.project_seq=project.seq ) AS checker_cnt from `project` order by `seq` desc'
+}
+[2021-09-27T17:56:23.071] [DEBUG] default - [MySQL]
+ {
+  method: 'select',
+  options: {},
+  timeout: false,
+  cancelOnTimeout: false,
+  bindings: [ 20 ],
+  __knexQueryUid: '84097c4d-9d0f-499b-9a2a-419672af2873',
+  sql: 'select `class`.`seq`, `class`.`project_seq`, `project`.`project_name`, `class`.`class_id`, `class`.`class_name`, `class`.`is_used`, `class`.`reg_date` from `class` inner join `project` on `class`.`project_seq` = `project`.`seq` order by `class`.`seq` desc limit ?'
+}
+[2021-09-27T17:56:23.076] [DEBUG] default - [MySQL]
+ {
+  method: 'select',
+  options: {},
+  timeout: false,
+  cancelOnTimeout: false,
+  bindings: [ 0 ],
+  __knexQueryUid: 'f2e7423b-79ad-4a4a-b68e-f71ffb293089',
+  sql: 'select * from `project` where `seq` <> ? order by `seq` desc'
+}
+[2021-09-27T17:56:23.083] [DEBUG] default - [MySQL]
+ {
+  method: 'select',
+  options: {},
+  timeout: false,
+  cancelOnTimeout: false,
+  bindings: [ 20 ],
+  __knexQueryUid: '0b31e8f8-a49d-484a-a1e9-29ad36295135',
+  sql: 'select `class`.`seq` from `class` inner join `project` on `class`.`project_seq` = `project`.`seq` order by `class`.`seq` desc limit ?'
+}
+[2021-09-27T17:56:23.088] [DEBUG] default - [MySQL]
+ {
+  method: 'first',
+  options: {},
+  timeout: false,
+  cancelOnTimeout: false,
+  bindings: [ 0, 1 ],
+  __knexQueryUid: '5d532be2-bcc6-440e-a4f9-233732d7c9ff',
+  sql: 'select count(*) as `total_count` from (select * from `project` where `seq` <> ? order by `seq` desc) as `list` limit ?'
+}
+[2021-09-27T17:56:23.091] [DEBUG] default - [MySQL]
+ {
+  method: 'first',
+  options: {},
+  timeout: false,
+  cancelOnTimeout: false,
+  bindings: [ 1 ],
+  __knexQueryUid: 'a756417a-9ea5-4622-95ab-e9711905f7c9',
+  sql: 'select count(*) as `total_count` from (select `class`.`seq` from `class` inner join `project` on `class`.`project_seq` = `project`.`seq` order by `class`.`seq` desc) as `list` limit ?'
+}
