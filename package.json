@@ -30,7 +30,10 @@
     "body-parser": "^1.18.2",
     "canvas": "^2.6.1",
     "child-process": "^1.0.2",
+<<<<<<< HEAD
     "compression": "^1.7.4",
+=======
+>>>>>>> 2f6467e9af1401a91d29a4baf4010cc67056f9c6
     "cors": "^2.8.5",
     "dateformat": "^3.0.3",
     "express": "^4.16.2",
