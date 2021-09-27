@@ -3,7 +3,10 @@ import Wrap from '../../utils/express-async'
 import StdObject from '../../wrapper/std-object'
 import logger from '../../libs/logger'
 import DBMySQL from "../../database/knex-mysql";
+<<<<<<< HEAD
 import fs from 'fs';
+=======
+>>>>>>> 2f6467e9af1401a91d29a4baf4010cc67056f9c6
 
 const routes = Router()
 
@@ -16,15 +19,20 @@ routes.get('/', Wrap(async (req, res) => {
 routes.get('/page/:data', Wrap(async (req, res) => {
   req.accepts('application/json')
   const param_data = req.params.data;
+<<<<<<< HEAD
   const data = [];
   for (let i = 0; i<100;i++){
     data.push({meta: i});
   }
   const result = data;//`return : ${param_data}`;
+=======
+  const result = `return : 12${param_data}`;
+>>>>>>> 2f6467e9af1401a91d29a4baf4010cc67056f9c6
   const output = new StdObject(0, result, 200)
   res.json(output)
 }))
 
+<<<<<<< HEAD
 
 routes.get('/stream/:data', Wrap(async (req, res) => {
   req.accepts('application/json')
@@ -66,4 +74,6 @@ routes.get('/stream/:data', Wrap(async (req, res) => {
 
 
 
+=======
+>>>>>>> 2f6467e9af1401a91d29a4baf4010cc67056f9c6
 export default routes

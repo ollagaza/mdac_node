@@ -27,6 +27,7 @@ const AuthServiceClass = class {
     }
     await MemberService.checkPassword(database, member_info, req_body.password, true)
     // await MemberService.updateLastLogin(DBMySQL, member_info.seq);
+<<<<<<< HEAD
     switch (member_info.used) {
       case 0:
         if (member_info.user_type === 'P') {
@@ -45,6 +46,26 @@ const AuthServiceClass = class {
       default:
         break
     }
+=======
+    switch (member_info.is_used) {
+      case 'N':
+        throw new StdObject(-105, '현재 사용 중지 중입니다.', 400)
+      //case 6:
+      //  throw new StdObject(-106, '회원 가입 승인이 거절 되었습니다.<br/>상세한 사항은 이메일을 확인 하여 주시기 바랍니다.', 400)
+      default:
+        break
+    }
+
+    switch (member_info.is_admin) {
+      case 'N':
+        throw new StdObject(-105, '관리자만 로그인이 가능합니다.', 400)
+      //case 6:
+      //  throw new StdObject(-106, '회원 가입 승인이 거절 되었습니다.<br/>상세한 사항은 이메일을 확인 하여 주시기 바랍니다.', 400)
+      default:
+        break
+    }
+
+>>>>>>> 2f6467e9af1401a91d29a4baf4010cc67056f9c6
     // logger.debug(member_info);
     return member_info;
   }
