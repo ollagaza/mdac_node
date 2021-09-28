@@ -26,6 +26,7 @@ routes.post('/', Wrap(async (req, res) => {
 
     // 주석주석....유동진
     //await MemberLogService.createMemberLog(req,  member_info.seq, '0000', 'login')
+    console.log('login')
     return res.json(output)
   } catch (e) {
     logger.error('/auth/', e)
