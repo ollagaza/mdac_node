@@ -116,7 +116,7 @@ const MemberServiceClass = class {
 
   findMemberId = async (database, request_body) => {
     const member_info = new JsonWrapper(request_body, [])
-    logger.debug(member_info.hasValue('user_name'));
+    // logger.debug(member_info.hasValue('user_name'));
     if (!member_info.hasValue('user_name')){
       return new StdObject(-1, '잘못된 요청입니다.', 400)
     }
