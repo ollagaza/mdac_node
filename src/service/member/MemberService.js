@@ -102,8 +102,6 @@ const MemberServiceClass = class {
     }
   }
 
-<<<<<<< HEAD
-=======
 
   getMemberInfoList = async (database, start, end, is_used, search_type, keyword, member_seq) => {
     const member_model = this.getMemberModel(database)
@@ -116,7 +114,6 @@ const MemberServiceClass = class {
     }
   }
 
->>>>>>> 2f6467e9af1401a91d29a4baf4010cc67056f9c6
   findMemberId = async (database, request_body) => {
     const member_info = new JsonWrapper(request_body, [])
     // logger.debug(member_info.hasValue('user_name'));
@@ -272,11 +269,6 @@ const MemberServiceClass = class {
     logger.debug(result);
     return result;
   }
-<<<<<<< HEAD
-}
-
-
-=======
 
   updateUsersUsed = async (database, req_body) => {
     const arr_member_seq = req_body.params.users;
@@ -341,7 +333,6 @@ const MemberServiceClass = class {
 
 
 
->>>>>>> 2f6467e9af1401a91d29a4baf4010cc67056f9c6
 const member_service = new MemberServiceClass()
 
 export default member_service
