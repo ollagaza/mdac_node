@@ -112,7 +112,17 @@ export default class MemberModel extends MySQLModel {
     const query_result = await this.findOne({'user_id': user_id})
     // logger.debug('[query_result]', query_result);
     if (query_result && query_result.regist_date) {
-      query_result.regist_date = Util.dateFormat(query_result.regist_date.getTime())
+      // console.log(query_result.regist_date)
+      // console.log(Date.now())
+      // console.log(query_result.regist_date)
+      // let date1 = Util.dateFormatter(query_result.regist_date)
+      // console.log(date1)
+      // console.log(query_result.regist_date.getTime())
+      let parts = query_result.regist_date.match(/(\d+)/g)
+      let date = new Date(parts[0], parts[1]-1, parts[2], parts[3], parts[4], parts[5])
+      console.log(date)
+      query_result.regist_date = Util.dateFormat(date)
+      // query_result.regist_date = Util.dateFormat(query_result.regist_date.getTime())
     }
     return new JsonWrapper(query_result, this.private_fields)
   }
