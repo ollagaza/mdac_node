@@ -1,5 +1,5 @@
 import DBMySQL from '../../database/knex-mysql'
-import log from '../../libs/logger'
+import logger from '../../libs/logger'
 import MemberLogModel from '../../database/mysql/member/MemberLogModel'
 // import GroupService from './GroupService'
 
@@ -17,25 +17,13 @@ const MemberLogServiceClass = class {
     return new MemberLogModel(DBMySQL)
   }
 
-<<<<<<< HEAD
-  createMemberLog = async (req, member_seq = null, code = '0000', text = '') => {
-=======
   createMemberLog = async (req, member_seq = null, mod_member_seq, code = '0000', text = '') => {
->>>>>>> 2f6467e9af1401a91d29a4baf4010cc67056f9c6
     const ip = req.headers['x-forwarded-for'] ||
       req.connection.remoteAddress ||
       req.socket.remoteAddress ||
       req.connection.socket.remoteAddress;
 
     const member_log_model = this.getMemberLogModel(DBMySQL)
-<<<<<<< HEAD
-    return member_log_model.createMemberLog(member_seq, code, text, ip)
-  }
-
-  memberModifyLog = async (req, member_seq) => {
-    try {
-      await this.createMemberLog(req, member_seq, '1002', 'Info Mod');
-=======
     return member_log_model.createMemberLog(member_seq, mod_member_seq, code, text, ip)
   }
 
@@ -47,33 +35,24 @@ const MemberLogServiceClass = class {
       req.connection.socket.remoteAddress;
 
       await this.createMemberLog(req, member_seq, mod_member_seq, '1002', 'Info Mod', ip);
->>>>>>> 2f6467e9af1401a91d29a4baf4010cc67056f9c6
     } catch (error) {
-      log.error(this.log_prefix, '[memberModifyLog]', error);
+      logger.error(this.log_prefix, '[memberModifyLog]', error);
     }
   }
 
   memberLogout = async (req, member_seq, leave_text) => {
     try {
-<<<<<<< HEAD
-      await this.createMemberLog(req, member_seq, '1009', leave_text)
-=======
       await this.createMemberLog(req, member_seq, 0, '1009', leave_text)
->>>>>>> 2f6467e9af1401a91d29a4baf4010cc67056f9c6
     } catch (error) {
-      log.error(this.log_prefix, '[memberLeaveLog]', error)
+      logger.error(this.log_prefix, '[memberLeaveLog]', error)
     }
   }
 
   memberLeaveLog = async (req, member_seq, leave_text) => {
     try {
-<<<<<<< HEAD
-      await this.createMemberLog(req, member_seq, '9999', leave_text)
-=======
       await this.createMemberLog(req, member_seq, member_seq, '9999', leave_text)
->>>>>>> 2f6467e9af1401a91d29a4baf4010cc67056f9c6
     } catch (error) {
-      log.error(this.log_prefix, '[memberLeaveLog]', error)
+      logger.error(this.log_prefix, '[memberLeaveLog]', error)
     }
   }
 }

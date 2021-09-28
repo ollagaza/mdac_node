@@ -102,8 +102,6 @@ const MemberServiceClass = class {
     }
   }
 
-<<<<<<< HEAD
-=======
 
   getMemberInfoList = async (database, start, end, is_used, search_type, keyword, member_seq) => {
     const member_model = this.getMemberModel(database)
@@ -116,10 +114,9 @@ const MemberServiceClass = class {
     }
   }
 
->>>>>>> 2f6467e9af1401a91d29a4baf4010cc67056f9c6
   findMemberId = async (database, request_body) => {
     const member_info = new JsonWrapper(request_body, [])
-    // logger.debug(member_info.hasValue('user_name'));
+    logger.debug(member_info.hasValue('user_name'));
     if (!member_info.hasValue('user_name')){
       return new StdObject(-1, '잘못된 요청입니다.', 400)
     }
@@ -272,16 +269,11 @@ const MemberServiceClass = class {
     logger.debug(result);
     return result;
   }
-<<<<<<< HEAD
-}
-
-
-=======
 
   updateUsersUsed = async (database, req_body) => {
     const arr_member_seq = req_body.params.users;
     const used = req_body.params.used;
-    // logger.debug('updateUsersUsed 1', req_body.params.used, used);
+    logger.debug('updateUsersUsed 1', req_body.params.used, used);
     let reason = req_body.params.reason;
     const params = {}
     params.is_used = used;
@@ -327,7 +319,7 @@ const MemberServiceClass = class {
   deleteUser = async (database, req_body) => {
     const arr_member_seq = req_body.params.users;
     const used = req_body.params.used;
-    // logger.debug('updateUsersUsed 1', req_body.params.used, used);
+
     let reason = req_body.params.reason;
     const params = {}
     params.is_used = used;
@@ -341,7 +333,6 @@ const MemberServiceClass = class {
 
 
 
->>>>>>> 2f6467e9af1401a91d29a4baf4010cc67056f9c6
 const member_service = new MemberServiceClass()
 
 export default member_service

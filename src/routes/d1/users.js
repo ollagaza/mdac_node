@@ -16,17 +16,6 @@ routes.get('/verify/:user_id', async (req, res) => {
   res.json(result);
 });
 
-<<<<<<< HEAD
-routes.post('/createuser', async (req, res) => {
-  const request_body = req.body ? req.body : null;
-  let result = null;
-  if (request_body.user_id) {
-    result = await MemberService.createUser(request_body);
-    if (result.error === 0){
-      MemberLogService.createMemberLog(req, result.seq, '1001', 'ok');
-    } else {
-      MemberLogService.createMemberLog(req, result.seq, '9998', result.message);
-=======
 routes.post('/createuser', Auth.isAuthenticated(Role.ADMIN), async (req, res) => {
   const request_body = req.body ? req.body : null;
   let result = null;
@@ -40,7 +29,6 @@ routes.post('/createuser', Auth.isAuthenticated(Role.ADMIN), async (req, res) =>
       MemberLogService.createMemberLog(req, result.seq, mod_member_seq, '1001', 'ok');
     } else {
       MemberLogService.createMemberLog(req, result.seq, mod_member_seq, '9998', result.message);
->>>>>>> 2f6467e9af1401a91d29a4baf4010cc67056f9c6
     }
     res.json(result);
   } else {
@@ -51,34 +39,21 @@ routes.post('/createuser', Auth.isAuthenticated(Role.ADMIN), async (req, res) =>
 
 routes.post('/:member_seq(\\d+)/updateUser', async (req, res) => {
   const member_seq = Util.parseInt(req.params.member_seq)
-<<<<<<< HEAD
-  if (member_seq < 0) {
-    const out = new StdObject(-1, '잘못된 사용자 입니다.', 404);
-    MemberLogService.createMemberLog(req, result.seq, '9998', '잘못된 사용자 입니다.');
-=======
 
   const mod_member_seq = req.body.mod_member_seq
 
   if (member_seq < 0) {
     const out = new StdObject(-1, '잘못된 사용자 입니다.', 404);
     MemberLogService.createMemberLog(req, result.seq, mod_member_seq, '9998', '잘못된 사용자 입니다.');
->>>>>>> 2f6467e9af1401a91d29a4baf4010cc67056f9c6
     res.json(out);
     return;
   }
   const request_body = req.body ? req.body : null;
-<<<<<<< HEAD
-  let result = null;
-  if (request_body.user_id) {
-    result = await MemberService.updateUser(member_seq, request_body);
-    MemberLogService.createMemberLog(req, member_seq, '1002', result.message);
-=======
   //console.log(request_body)
   let result = null;
   if (request_body.user_id) {
     result = await MemberService.updateUser(member_seq, request_body);
     MemberLogService.createMemberLog(req, member_seq, mod_member_seq, '1002', result.message);
->>>>>>> 2f6467e9af1401a91d29a4baf4010cc67056f9c6
     res.json(result);
   } else {
     const out = new StdObject(-1, '등록된 값이 없습니다.', 404);
@@ -86,11 +61,7 @@ routes.post('/:member_seq(\\d+)/updateUser', async (req, res) => {
   }
 });
 
-<<<<<<< HEAD
-routes.get('/:member_seq(\\d+)/data', Auth.isAuthenticated(Role.LOGIN_USER), Wrap(async (req, res) => {
-=======
 routes.get('/:member_seq(\\d+)/data', Auth.isAuthenticated(Role.ADMIN), Wrap(async (req, res) => {
->>>>>>> 2f6467e9af1401a91d29a4baf4010cc67056f9c6
   const token_info = req.token_info
   const member_seq = Util.parseInt(req.params.member_seq)
   if (!MemberService.checkMyToken(token_info, member_seq)) {
@@ -109,10 +80,6 @@ routes.get('/me', Auth.isAuthenticated(Role.LOGIN_USER), Wrap(async (req, res) =
   const lang = Auth.getLanguage(req)
   const token_info = req.token_info
   const member_seq = token_info.getId()
-<<<<<<< HEAD
-  const group_seq = token_info.getGroupSeq()
-=======
->>>>>>> 2f6467e9af1401a91d29a4baf4010cc67056f9c6
   const member_info = await MemberService.getMemberInfoWithSub(DBMySQL, member_seq, lang)
 
   const output = new StdObject()
@@ -122,8 +89,6 @@ routes.get('/me', Auth.isAuthenticated(Role.LOGIN_USER), Wrap(async (req, res) =
   res.json(output)
 }))
 
-<<<<<<< HEAD
-=======
 
 routes.get('/userinfo', Auth.isAuthenticated(Role.ADMIN), Wrap(async (req, res) => {
   req.accepts('application/json')
@@ -180,7 +145,7 @@ routes.get('/userinfo', Auth.isAuthenticated(Role.ADMIN), Wrap(async (req, res) 
 routes.post('/userinfo', Auth.isAuthenticated(Role.ADMIN), Wrap(async (req, res) => {
   req.accepts('application/json')
 
-  const token_info = req.token_info
+  // const token_info = req.token_info
   const page = req.body.page ? req.body.page:'1'
   const ipp = req.body.ipp ? req.body.ipp:'20'
   const is_used = req.body.is_used ? req.body.is_used:''
@@ -227,7 +192,6 @@ routes.post('/userinfo', Auth.isAuthenticated(Role.ADMIN), Wrap(async (req, res)
   res.json(output)
 }))
 
->>>>>>> 2f6467e9af1401a91d29a4baf4010cc67056f9c6
 routes.post('/find/id', Wrap(async (req, res) => {
   req.accepts('application/json')
 
@@ -271,8 +235,6 @@ routes.post('/changePassword/:member_seq', Auth.isAuthenticated(Role.DEFAULT), W
   res.json(output)
 }))
 
-<<<<<<< HEAD
-=======
 routes.post('/setusersdata',  Auth.isAuthenticated(Role.ADMIN), Wrap(async (req, res) => {
   req.accepts('application/json')
 
@@ -330,6 +292,5 @@ routes.post('/delusers',  Auth.isAuthenticated(Role.ADMIN), Wrap(async (req, res
   }
   res.json(output)
 }));
->>>>>>> 2f6467e9af1401a91d29a4baf4010cc67056f9c6
 
 export default routes

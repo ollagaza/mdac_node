@@ -27,26 +27,6 @@ const AuthServiceClass = class {
     }
     await MemberService.checkPassword(database, member_info, req_body.password, true)
     // await MemberService.updateLastLogin(DBMySQL, member_info.seq);
-<<<<<<< HEAD
-    switch (member_info.used) {
-      case 0:
-        if (member_info.user_type === 'P') {
-          throw new StdObject(-101.1, '회원 가입 승인이 완료되지 않았습니다.<br/>승인이 완료되면 알려드리겠습니다.', 400)
-        }
-      case 2:
-        throw new StdObject(-102, '관리자에 의하여 강제 탈퇴 되었습니다.', 400)
-      case 3:
-        throw new StdObject(-103, '자발적 탈퇴를 하였습니다..', 400)
-      case 4:
-        throw new StdObject(-104, '현재 휴면 상태 입니다.', 400)
-      case 5:
-        throw new StdObject(-105, '현재 사용 중지 중입니다.', 400)
-      case 6:
-        throw new StdObject(-106, '회원 가입 승인이 거절 되었습니다.<br/>상세한 사항은 이메일을 확인 하여 주시기 바랍니다.', 400)
-      default:
-        break
-    }
-=======
     switch (member_info.is_used) {
       case 'N':
         throw new StdObject(-105, '현재 사용 중지 중입니다.', 400)
@@ -65,8 +45,7 @@ const AuthServiceClass = class {
         break
     }
 
->>>>>>> 2f6467e9af1401a91d29a4baf4010cc67056f9c6
-    // logger.debug(member_info);
+    logger.debug(member_info);
     return member_info;
   }
 }
