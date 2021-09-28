@@ -145,7 +145,7 @@ routes.get('/userinfo', Auth.isAuthenticated(Role.ADMIN), Wrap(async (req, res) 
 routes.post('/userinfo', Auth.isAuthenticated(Role.ADMIN), Wrap(async (req, res) => {
   req.accepts('application/json')
 
-  const token_info = req.token_info
+  // const token_info = req.token_info
   const page = req.body.page ? req.body.page:'1'
   const ipp = req.body.ipp ? req.body.ipp:'20'
   const is_used = req.body.is_used ? req.body.is_used:''
