@@ -3,14 +3,10 @@ export default {
     client: 'mysql',
     connection: {
       host: '127.0.0.1',
-      port: 3307,
+      port: 3308,
       database: 'datamanager',
       user: 'root',
-<<<<<<< HEAD
       password: '_media_',
-=======
-      password: '1234',
->>>>>>> dev
       timezone: 'UTC'
     },
     pool: {
