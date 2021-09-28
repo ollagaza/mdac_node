@@ -327,7 +327,7 @@ const MemberServiceClass = class {
   deleteUser = async (database, req_body) => {
     const arr_member_seq = req_body.params.users;
     const used = req_body.params.used;
-    logger.debug('deleteUser')
+    //logger.debug('deleteUser')
     let reason = req_body.params.reason;
     const params = {}
     params.is_used = used;

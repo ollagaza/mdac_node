@@ -34,8 +34,6 @@ const MemberLogServiceClass = class {
       req.socket.remoteAddress ||
       req.connection.socket.remoteAddress;
 
-      
-    logger.debug('memberModifyLog');
       await this.createMemberLog(req, member_seq, mod_member_seq, '1002', 'Info Mod', ip);
     } catch (error) {
       logger.error(this.log_prefix, '[memberModifyLog]', error);
