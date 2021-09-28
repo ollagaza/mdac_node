@@ -45,7 +45,7 @@ const AuthServiceClass = class {
         break
     }
 
-    // logger.debug(member_info);
+    logger.debug(member_info);
     return member_info;
   }
 }
