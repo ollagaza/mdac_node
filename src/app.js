@@ -6,7 +6,6 @@ import logger from './libs/logger'
 import StdObject from './wrapper/std-object'
 import compression from 'compression';
 
-
 const app = express()
 let cors = require('cors'); // cross domain 허용해주는 미들웨어
 
@@ -21,6 +20,11 @@ app.use(compression({
   filter: shouldCompress,
 }))
 
+<<<<<<< HEAD
+=======
+let cors = require('cors'); // cross domain 허용해주는 미들웨어
+
+>>>>>>> dev
 app.enable('trust proxy', 1)
 
 // Express 라는 것을 숨김

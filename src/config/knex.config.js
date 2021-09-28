@@ -6,7 +6,11 @@ export default {
       port: 3307,
       database: 'datamanager',
       user: 'root',
+<<<<<<< HEAD
       password: '_media_',
+=======
+      password: '1234',
+>>>>>>> dev
       timezone: 'UTC'
     },
     pool: {
