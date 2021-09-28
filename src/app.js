@@ -7,6 +7,8 @@ import StdObject from './wrapper/std-object'
 import compression from 'compression';
 
 const app = express()
+let cors = require('cors'); // cross domain 허용해주는 미들웨어
+
 const shouldCompress = (req, res) => {
   if (req.headers['x-no-compression']) {
     return false
