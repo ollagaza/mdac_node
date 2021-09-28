@@ -42,7 +42,7 @@ export default class MemberModel extends MySQLModel {
     //member_info.gender = 1;
     member_info.is_admin = 'N';
     member_info.is_used = 'Y';
-    //member_info.user_type = 'P';
+    member_info.user_type = 'P';
     delete member_info.mod_member_seq; // 변수 삭제(없는 필드-로그용)
 >>>>>>> 2f6467e9af1401a91d29a4baf4010cc67056f9c6
     // logger.debug(member_info)

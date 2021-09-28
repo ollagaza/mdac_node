@@ -27,7 +27,7 @@ export default class MemberLogModel extends MySQLModel {
       ip_addr: ip,
 >>>>>>> 2f6467e9af1401a91d29a4baf4010cc67056f9c6
     }
-    // log.debug(memberLog.log_code)
+    log.debug(memberLog.code)
     return await this.create(memberLog, 'seq')
   }
 }
