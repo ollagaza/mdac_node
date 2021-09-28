@@ -58,28 +58,42 @@ export default class DivisionModel extends MySQLModel {
     // }
     // // return new MemberInfo(query_result, this.private_fields)
     // return new JsonWrapper(query_result, this.private_fields)
+    
+    // knex.raw('CONCAT(CASE WHEN a.division_name IS NULL THEN `` ELSE CONCAT(a.division_name,`>`) END, CASE WHEN b.division_name IS NULL THEN `` ELSE CONCAT(b.division_name,>`) END, CASE WHEN c.division_name IS NULL THEN `` ELSE CONCAT(c.division_name,`>`) END, CASE WHEN d.division_name IS NULL THEN `` ELSE CONCAT(d.division_name,`>`) END, CASE WHEN e.division_name IS NULL THEN `` ELSE CONCAT(e.division_name,`>`) END) AS parent_path'),
 
-    const select = ['CONCAT(CASE WHEN a.division_name IS NULL THEN `` ELSE CONCAT(a.division_name,`>`) END, CASE WHEN b.division_name IS NULL THEN `` ELSE CONCAT(b.division_name,>`) END, CASE WHEN c.division_name IS NULL THEN `` ELSE CONCAT(c.division_name,`>`) END, CASE WHEN d.division_name IS NULL THEN `` ELSE CONCAT(d.division_name,`>`) END, CASE WHEN e.division_name IS NULL THEN `` ELSE CONCAT(e.division_name,`>`) END) AS parent_path','division.project_seq','project.project_name','division.division_id','division.division_name','division.is_used','division.reg_date']
+    const select = [knex.raw(`CONCAT(CASE WHEN a.division_name IS NULL THEN '' ELSE CONCAT(a.division_name,'>') END, CASE WHEN b.division_name IS NULL THEN '' ELSE CONCAT(b.division_name,'>') END, CASE WHEN c.division_name IS NULL THEN '' ELSE CONCAT(c.division_name,'>') END, CASE WHEN d.division_name IS NULL THEN '' ELSE CONCAT(d.division_name,'>') END, CASE WHEN e.division_name IS NULL THEN '' ELSE CONCAT(e.division_name,'>') END) AS parent_path`),'f.project_seq', 'p.project_name', 'f.seq', 'f.division_id', 'f.division_name', 'f.is_used','f.reg_date']
+    
     const oKnex = this.database.select(select);
-    oKnex.from('division').join('project', function() {
-      this.on('division.project_seq','=','project.seq')})
-
+    oKnex.from({ a: 'division' }).rightJoin({ b: 'division'}, function() {
+      this.on('a.seq','=','b.parent_division_seq')})
+    oKnex.rightJoin({ c: 'division'}, function() {
+      this.on('b.seq','=','c.parent_division_seq')})
+    oKnex.rightJoin({ d: 'division'}, function() {
+      this.on('c.seq','=','d.parent_division_seq')})
+    oKnex.rightJoin({ e: 'division'}, function() {
+      this.on('d.seq','=','e.parent_division_seq')})
+    oKnex.rightJoin({ f: 'division'}, function() {
+      this.on('e.seq','=','f.parent_division_seq')})
+    oKnex.join({ p: 'project'}, function() {
+      this.on('p.seq','=','f.project_seq')})
+                
+    oKnex.where('f.seq','<>',0)
     if(division_seq === '')
     {
       if(is_used !== '') {
-        oKnex.where('division.is_used',is_used)
+        oKnex.andWhere('f.is_used',is_used)
       }
       if(project_seq !== '') {
-        oKnex.where('division.project_seq',project_seq);
+        oKnex.andWhere('f.project_seq',project_seq);
       }
 
       if(keyword !== '') {
-        oKnex.where(`division.${search_type}`,'like',`%${keyword}%`);
+        oKnex.andWhere(`f.${search_type}`,'like',`%${keyword}%`);
       }
-      oKnex.orderBy('division.seq','desc');
+      oKnex.orderBy('f.seq','desc');
       oKnex.limit(end).offset(start)
     }else{
-      oKnex.where('division.seq',division_seq);
+      oKnex.andWhere('f.seq',division_seq);
     }
 
     const result = await oKnex;
@@ -92,22 +106,23 @@ export default class DivisionModel extends MySQLModel {
     const oKnex = this.database.select(select);
     oKnex.from('division').join('project', function() {
       this.on('division.project_seq','=','project.seq')})
-
+      
+    oKnex.where('division.seq','<>',0)
     if(division_seq === '')
     {
       if(is_used !== '') {
-        oKnex.where('division.is_used',is_used)
+        oKnex.andWhere('division.is_used',is_used)
       }
       if(project_seq !== '') {
-        oKnex.where('division.project_seq',project_seq);
+        oKnex.andWhere('division.project_seq',project_seq);
       }
 
       if(keyword !== '') {
-        oKnex.where(`division.${search_type}`,'like',`%${keyword}%`);
+        oKnex.andWhere(`division.${search_type}`,'like',`%${keyword}%`);
       }
       oKnex.orderBy('division.seq','desc');
     }else{
-      oKnex.where('division.seq',division_seq);
+      oKnex.andWhere('division.seq',division_seq);
     }
 
     const oCountKnex = this.database.from(oKnex.clone().as('list'))
@@ -117,7 +132,7 @@ export default class DivisionModel extends MySQLModel {
       oKnex.limit(end).offset(start)
     }
 
-    const result = await oKnex;
+    // const result = await oKnex;
    
     // 총 갯수
     const [{ total_count }] = await Promise.all([

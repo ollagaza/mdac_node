@@ -185,7 +185,7 @@ routes.post('/divisioninfo', Auth.isAuthenticated(Role.ADMIN), Wrap(async (req, 
   end_page = start_page * block;
   const division_info = await ProjectService.getDivisionInfo(DBMySQL, start, end, is_used, search_type, keyword, project_seq, division_seq)
   const output = new StdObject()
-  output.add('cdivision_info', division_info.division_info)
+  output.add('division_info', division_info.division_info)
   //output.add('paging', )
 
   totalCount = division_info.division_paging;

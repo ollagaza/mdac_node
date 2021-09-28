@@ -59,27 +59,26 @@ export default class ClassModel extends MySQLModel {
     // // return new MemberInfo(query_result, this.private_fields)
     // return new JsonWrapper(query_result, this.private_fields)
 
-    const select = ['class.seq','class.project_seq','project.project_name','class.class_id','class.class_name','class.is_used','class.reg_date']
+    const select = ['c.seq','c.project_seq','p.project_name','c.class_id','c.class_name','c.is_used','c.reg_date']
     const oKnex = this.database.select(select);
-    oKnex.from('class').join('project', function() {
-      this.on('class.project_seq','=','project.seq')})
+    oKnex.from({c: 'class'}).join({p: 'project'}, function() {
+      this.on('c.project_seq','=','p.seq')});
 
     if(class_seq === '')
     {
       if(is_used !== '') {
-        oKnex.where('class.is_used',is_used)
       }
       if(project_seq !== '') {
-        oKnex.where('class.project_seq',project_seq);
+        oKnex.where('c.project_seq',project_seq);
       }
 
       if(keyword !== '') {
-        oKnex.where(`class.${search_type}`,'like',`%${keyword}%`);
+        oKnex.where(`c.${search_type}`,'like',`%${keyword}%`);
       }
-      oKnex.orderBy('class.seq','desc');
+      oKnex.orderBy('c.seq','desc');
       oKnex.limit(end).offset(start)
     }else{
-      oKnex.where('class.seq',class_seq);
+      oKnex.where('c.seq',class_seq);
     }
 
     const result = await oKnex;
@@ -88,26 +87,26 @@ export default class ClassModel extends MySQLModel {
   }
   
   getClassInfoPaging = async (start, end, is_used, search_type, keyword, project_seq, class_seq) => {
-    const select = ['class.seq']
+    const select = ['c.seq']
     const oKnex = this.database.select(select);
-    oKnex.from('class').join('project', function() {
-      this.on('class.project_seq','=','project.seq')})
+    oKnex.from({c: 'class'}).join({p: 'project'}, function() {
+      this.on('c.project_seq','=','p.seq')})
 
     if(class_seq === '')
     {
       if(is_used !== '') {
-        oKnex.where('class.is_used',is_used)
+        oKnex.where('c.is_used',is_used)
       }
       if(project_seq !== '') {
-        oKnex.where('class.project_seq',project_seq);
+        oKnex.where('c.project_seq',project_seq);
       }
 
       if(keyword !== '') {
-        oKnex.where(`class.${search_type}`,'like',`%${keyword}%`);
+        oKnex.where(`c.${search_type}`,'like',`%${keyword}%`);
       }
-      oKnex.orderBy('class.seq','desc');
+      oKnex.orderBy('c.seq','desc');
     }else{
-      oKnex.where('class.seq',class_seq);
+      oKnex.where('c.seq',class_seq);
     }
 
     const oCountKnex = this.database.from(oKnex.clone().as('list'))
@@ -123,8 +122,10 @@ export default class ClassModel extends MySQLModel {
     const [{ total_count }] = await Promise.all([
       oCountKnex.count('* as total_count').first()
     ])
-    
-    return total_count;    
+    // const rslt = {}
+    // rslt.aaa = result;
+    // rslt.bbb = total_count;
+    return total_count
   }
  
   updateClassUsed = async (params, arr_class_seq) => {
