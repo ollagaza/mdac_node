@@ -1,3 +1,14 @@
+<<<<<<< Updated upstream
 node_modules/
 logs/
 .vscode/
+=======
+
+#directory
+#logs directory
+logs/
+#node modules directory
+node_modules/
+.vscode/
+package-lock.json
+>>>>>>> Stashed changes
