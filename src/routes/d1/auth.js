@@ -22,16 +22,10 @@ routes.post('/', Wrap(async (req, res) => {
   req.accepts('application/json')
   try{
     const member_info = await AuthService.login(DBMySQL, req)
-<<<<<<< HEAD
-    const output = await Auth.getTokenResult(res, member_info, member_info.used_admin !== 'A' ? Role.MEMBER : Role.ADMIN)
-
-    await MemberLogService.createMemberLog(req,  member_info.seq, '0000', 'login')
-=======
     const output = await Auth.getTokenResult(res, member_info, member_info.is_admin !== 'Y' ? Role.MEMBER : Role.ADMIN)
 
     // 주석주석....유동진
     //await MemberLogService.createMemberLog(req,  member_info.seq, '0000', 'login')
->>>>>>> 2f6467e9af1401a91d29a4baf4010cc67056f9c6
     return res.json(output)
   } catch (e) {
     logger.error('/auth/', e)
@@ -49,11 +43,7 @@ routes.post('/token/refresh', Auth.isAuthenticated(Role.LOGIN_USER), Wrap(async 
 
   const member_info = await MemberService.getMemberInfo(DBMySQL, member_seq)
 
-<<<<<<< HEAD
-  const output = await Auth.getTokenResult(res, member_info, member_info.used_admin !== 'A' ? Role.MEMBER : Role.ADMIN)
-=======
   const output = await Auth.getTokenResult(res, member_info, member_info.is_admin !== 'Y' ? Role.MEMBER : Role.ADMIN)
->>>>>>> 2f6467e9af1401a91d29a4baf4010cc67056f9c6
   return res.json(output)
 }))
 
