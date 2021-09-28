@@ -1,5 +1,5 @@
 import DBMySQL from '../../database/knex-mysql'
-import log from '../../libs/logger'
+import logger from '../../libs/logger'
 import MemberLogModel from '../../database/mysql/member/MemberLogModel'
 // import GroupService from './GroupService'
 
@@ -34,9 +34,11 @@ const MemberLogServiceClass = class {
       req.socket.remoteAddress ||
       req.connection.socket.remoteAddress;
 
+      
+    logger.debug('memberModifyLog');
       await this.createMemberLog(req, member_seq, mod_member_seq, '1002', 'Info Mod', ip);
     } catch (error) {
-      log.error(this.log_prefix, '[memberModifyLog]', error);
+      logger.error(this.log_prefix, '[memberModifyLog]', error);
     }
   }
 
@@ -44,7 +46,7 @@ const MemberLogServiceClass = class {
     try {
       await this.createMemberLog(req, member_seq, 0, '1009', leave_text)
     } catch (error) {
-      log.error(this.log_prefix, '[memberLeaveLog]', error)
+      logger.error(this.log_prefix, '[memberLeaveLog]', error)
     }
   }
 
@@ -52,7 +54,7 @@ const MemberLogServiceClass = class {
     try {
       await this.createMemberLog(req, member_seq, member_seq, '9999', leave_text)
     } catch (error) {
-      log.error(this.log_prefix, '[memberLeaveLog]', error)
+      logger.error(this.log_prefix, '[memberLeaveLog]', error)
     }
   }
 }

@@ -26,7 +26,7 @@ routes.post('/', Wrap(async (req, res) => {
 
     // 주석주석....유동진
     //await MemberLogService.createMemberLog(req,  member_info.seq, '0000', 'login')
-    console.log('login')
+    logger.debug('login')
     return res.json(output)
   } catch (e) {
     logger.error('/auth/', e)
@@ -53,6 +53,7 @@ routes.get('/logout', Auth.isAuthenticated(Role.LOGIN_USER), Wrap(async (req, re
   if (!token_info){
     return new StdObject(-1, 'not login', 400);
   }
+  
   const member_seq = token_info.getId()
   await MemberLogService.memberLogout(req, member_seq, 'logout');
   const output = new StdObject(0, 'logout', 200)
