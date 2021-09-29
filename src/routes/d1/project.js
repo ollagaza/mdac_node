@@ -206,7 +206,7 @@ routes.post('/divisioninfo', Auth.isAuthenticated(Role.ADMIN), Wrap(async (req, 
   output.add('division_info', division_info.division_info)
   //output.add('paging', )
 
-  totalCount = division_info.division_paging;
+  totalCount = division_info.paging;
 
   //totalCount = rows[1];
   total_page = Math.ceil(totalCount/ipp);
@@ -334,12 +334,12 @@ routes.post('/classinfo', Auth.isAuthenticated(Role.ADMIN), Wrap(async (req, res
   start_page = Math.ceil(page / block);
   end_page = start_page * block;
   const class_info = await ProjectService.getClassInfo(DBMySQL, start, end, is_used, search_type, keyword, project_seq, class_seq)
-  console.log(`class_seq===${class_seq}`)
+  // console.log(`class_seq===${class_seq}`)
   const output = new StdObject()
   output.add('class_info', class_info.class_info)
   //output.add('paging', )
 
-  totalCount = class_info.class_paging;
+  totalCount = class_info.paging;
 
   //totalCount = rows[1];
   total_page = Math.ceil(totalCount/ipp);

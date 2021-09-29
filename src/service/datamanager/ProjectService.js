@@ -85,12 +85,9 @@ const ProjectServiceClass = class {
   getDivisionInfo = async (database, start, end, is_used, search_type, keyword, project_seq, division_seq) => {
     const division_model = this.getDivisionModel(database)
     const division_info = await division_model.getDivisionInfo(start, end, is_used, search_type, keyword, project_seq, division_seq)
-    const division_paging = await division_model.getDivisionInfoPaging(start, end, is_used, search_type, keyword, project_seq, division_seq)
+    // const division_paging = await division_model.getDivisionInfoPaging(start, end, is_used, search_type, keyword, project_seq, division_seq)
     
-    return {
-      division_info,
-      division_paging
-    }
+    return division_info
   }
   
   updateDivisionUsed = async (database, req_body) => {
@@ -143,12 +140,9 @@ const ProjectServiceClass = class {
   getClassInfo = async (database, start, end, is_used, search_type, keyword, project_seq, class_seq) => {
     const class_model = this.getClassModel(database)
     const class_info = await class_model.getClassInfo(start, end, is_used, search_type, keyword, project_seq, class_seq)
-    const class_paging = await class_model.getClassInfoPaging(start, end, is_used, search_type, keyword, project_seq, class_seq)
+    // const class_paging = await class_model.getClassInfoPaging(start, end, is_used, search_type, keyword, project_seq, class_seq)
     
-    return {
-      class_info,
-      class_paging
-    }
+    return class_info
   }
   
   updateClassUsed = async (database, req_body) => {
