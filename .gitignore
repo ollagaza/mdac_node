@@ -9,3 +9,5 @@ test/e2e/reports
 package-lock.json
 src/config/knex.config.js
 .gitignore
+logs/
+.vscode/

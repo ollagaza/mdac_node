@@ -58,6 +58,8 @@ const isAuthenticated = (require_roles) => {
     // log.debug('res')
     // log.debug(res)
     const token = getToken(req)
+    console.log(token)
+    console.log(require_roles)
     if (!token && (require_roles == null || require_roles === Role.ALL)) {
       return next()
     }
