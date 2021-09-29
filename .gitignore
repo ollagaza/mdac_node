@@ -8,3 +8,5 @@ test/e2e/reports
 *.log
 package-lock.json
 src/config/knex.config.js
+
+logs/

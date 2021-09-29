@@ -3,7 +3,7 @@ export default {
     client: 'mysql',
     connection: {
       host: '127.0.0.1',
-      port: 3308,
+      port: 3306,
       database: 'datamanager',
       user: 'root',
       password: '_media_',

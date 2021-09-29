@@ -107,7 +107,7 @@ const MemberServiceClass = class {
     const member_model = this.getMemberModel(database)
     const member_info = await member_model.getMemberInfoList(start, end, is_used, search_type, keyword, member_seq)
     const member_paging = await member_model.getMemberInfoListPaging(start, end, is_used, search_type, keyword, member_seq)
-    
+
     return {
       member_info,
       member_paging
@@ -247,7 +247,7 @@ const MemberServiceClass = class {
 
   checkPassword = async (database, member_info, password, db_update = true) => {
     const member_model = this.getMemberModel(database)
-    // logger.debug(member_info.password, member_model.encryptPassword(password))
+    logger.debug(member_info.password, member_model.encryptPassword(password))
     if (member_info.password !== member_model.encryptPassword(password)) {
       throw new StdObject(-1, '회원정보가 일치하지 않습니다.', 400)
     }
@@ -326,9 +326,9 @@ const MemberServiceClass = class {
 
     const member_model = this.getMemberModel(database)
     const result = await member_model.deleteUser(params, arr_member_seq);
-    
+
     return result;
-  }    
+  }
 }
 
 
