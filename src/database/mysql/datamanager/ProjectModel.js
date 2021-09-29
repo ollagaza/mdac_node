@@ -117,7 +117,7 @@ export default class ProjectModel extends MySQLModel {
       }
     }
 
-    const result = await oKnex;
+    //const result = await oKnex;
    
     // 총 갯수
     const [{ total_count }] = await Promise.all([

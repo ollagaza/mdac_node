@@ -159,6 +159,24 @@ routes.post('/:division_seq(\\d+)/updatedivision', async (req, res) => {
   }
 });
 
+routes.post('/division', Auth.isAuthenticated(Role.ADMIN), Wrap(async (req, res) => {
+  req.accepts('application/json')
+
+  const token_info = req.token_info
+  const dmode = req.body.dmode ? req.body.dmode: ''
+  const project_seq = req.body.project_seq ? req.body.project_seq: ''
+  const parent_division_seq = req.body.parent_division_seq ? req.body.parent_division_seq: ''
+  const division_seq = req.body.division_seq ? req.body.division_seq: ''
+
+  console.log(`[project.js-project_seq]===${project_seq}`)
+  const division_info = await ProjectService.getDivision(DBMySQL, dmode, project_seq, parent_division_seq, division_seq)
+  const output = new StdObject()
+  output.add('division_info', division_info.division_info)
+  //output.add('paging', )
+
+  res.json(output)
+}))
+
 routes.post('/divisioninfo', Auth.isAuthenticated(Role.ADMIN), Wrap(async (req, res) => {
   req.accepts('application/json')
 
@@ -185,7 +203,7 @@ routes.post('/divisioninfo', Auth.isAuthenticated(Role.ADMIN), Wrap(async (req, 
   end_page = start_page * block;
   const division_info = await ProjectService.getDivisionInfo(DBMySQL, start, end, is_used, search_type, keyword, project_seq, division_seq)
   const output = new StdObject()
-  output.add('cdivision_info', division_info.division_info)
+  output.add('division_info', division_info.division_info)
   //output.add('paging', )
 
   totalCount = division_info.division_paging;
