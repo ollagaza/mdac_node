@@ -73,6 +73,15 @@ const ProjectServiceClass = class {
     return result;
   }
 
+  getDivision = async (database, dmode, project_seq, parent_division_seq, division_seq) => {
+    const division_model = this.getDivisionModel(database)
+    const division_info = await division_model.getDivision(dmode, project_seq, parent_division_seq, division_seq)
+    
+    return {
+      division_info
+    }
+  }
+  
   getDivisionInfo = async (database, start, end, is_used, search_type, keyword, project_seq, division_seq) => {
     const division_model = this.getDivisionModel(database)
     const division_info = await division_model.getDivisionInfo(start, end, is_used, search_type, keyword, project_seq, division_seq)
