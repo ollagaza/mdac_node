@@ -93,7 +93,7 @@ export default class DivisionModel extends MySQLModel {
   }
   
   getDivisionInfo = async (start, end, is_used, search_type, keyword, project_seq, division_seq) => {
-
+    const result = {}
     // knex.raw('CONCAT(CASE WHEN a.division_name IS NULL THEN `` ELSE CONCAT(a.division_name,`>`) END, CASE WHEN b.division_name IS NULL THEN `` ELSE CONCAT(b.division_name,>`) END, CASE WHEN c.division_name IS NULL THEN `` ELSE CONCAT(c.division_name,`>`) END, CASE WHEN d.division_name IS NULL THEN `` ELSE CONCAT(d.division_name,`>`) END, CASE WHEN e.division_name IS NULL THEN `` ELSE CONCAT(e.division_name,`>`) END) AS parent_path'),
 
     const select = [knex.raw(`TRIM(TRAILING ' > ' FROM CONCAT(CASE WHEN a.division_name IS NULL THEN '' ELSE CONCAT(a.division_name,' > ') END, CASE WHEN b.division_name IS NULL THEN '' ELSE CONCAT(b.division_name,' > ') END, CASE WHEN c.division_name IS NULL THEN '' ELSE CONCAT(c.division_name,' > ') END, CASE WHEN d.division_name IS NULL THEN '' ELSE CONCAT(d.division_name,' > ') END, CASE WHEN e.division_name IS NULL THEN '' ELSE CONCAT(e.division_name,' > ') END)) AS parent_path`),'f.project_seq', 'p.project_name', 'f.seq', 'f.parent_division_seq', 'f.division_id', 'f.division_name', 'f.is_used','f.reg_date']
@@ -125,15 +125,26 @@ export default class DivisionModel extends MySQLModel {
       if(keyword !== '') {
         oKnex.andWhere(`f.${search_type}`,'like',`%${keyword}%`);
       }
+    }
+    
+    const oCountKnex = this.database.from(oKnex.clone().as('list'))
+
+    if(division_seq === '')
+    {
       oKnex.orderBy('f.seq','desc');
       oKnex.limit(end).offset(start)
     }else{
       oKnex.andWhere('f.seq',division_seq);
     }
+
     //const mKNex = this.database.raw(`CALL spGetDivisionInfo`)
-    const result = await oKnex;
+    result.division_info = await oKnex;
+
+    // 총 갯수
+    const { total_count } = await oCountKnex.count('* as total_count').first()
+
+    result.paging = total_count
     return result;
-    //return new JsonWrapper(result, this.private_fields)
   }
   
   getDivisionInfoPaging = async (start, end, is_used, search_type, keyword, project_seq, division_seq) => {

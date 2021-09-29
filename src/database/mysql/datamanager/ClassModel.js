@@ -51,14 +51,8 @@ export default class ClassModel extends MySQLModel {
   }
 
   getClassInfo = async (start, end, is_used, search_type, keyword, project_seq, class_seq) => {
-
-    // const query_result = await this.findOne({ is_used: is_used })
-    // if (query_result && query_result.reg_date) {
-    //   query_result.reg_date = Util.dateFormat(query_result.reg_date.getTime())
-    // }
-    // // return new MemberInfo(query_result, this.private_fields)
-    // return new JsonWrapper(query_result, this.private_fields)
-
+    const result = {}
+    
     const select = ['c.seq','c.project_seq','p.project_name','c.class_id','c.class_name','c.is_used','c.reg_date']
     const oKnex = this.database.select(select);
     oKnex.from({c: 'class'}).join({p: 'project'}, function() {
@@ -75,15 +69,23 @@ export default class ClassModel extends MySQLModel {
       if(keyword !== '') {
         oKnex.where(`c.${search_type}`,'like',`%${keyword}%`);
       }
+    }
+    const oCountKnex = this.database.from(oKnex.clone().as('list'))
+    if(class_seq === '')
+    {
       oKnex.orderBy('c.seq','desc');
       oKnex.limit(end).offset(start)
     }else{
       oKnex.where('c.seq',class_seq);
     }
 
-    const result = await oKnex;
-    return result;
-    //return new JsonWrapper(result, this.private_fields)
+    result.class_info = await oKnex;
+   
+    // 총 갯수
+    const { total_count } = await oCountKnex.count('* as total_count').first()
+
+    result.paging = total_count
+    return result
   }
   
   getClassInfoPaging = async (start, end, is_used, search_type, keyword, project_seq, class_seq) => {
