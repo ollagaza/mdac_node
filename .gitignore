@@ -8,11 +8,7 @@ test/e2e/reports
 *.log
 package-lock.json
 src/config/knex.config.js
-<<<<<<< HEAD
-
 logs/
-=======
 .gitignore
-logs/
 .vscode/
->>>>>>> dev
+
