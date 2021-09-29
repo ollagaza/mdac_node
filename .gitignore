@@ -11,3 +11,4 @@ src/config/knex.config.js
 .gitignore
 logs/
 .vscode/
+src/config/knex.config.js
