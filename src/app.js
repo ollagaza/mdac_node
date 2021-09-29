@@ -20,8 +20,6 @@ app.use(compression({
   filter: shouldCompress,
 }))
 
-let cors = require('cors'); // cross domain 허용해주는 미들웨어
-
 app.enable('trust proxy', 1)
 
 // Express 라는 것을 숨김
