@@ -64,7 +64,7 @@ export default class MemberModel extends MySQLModel {
   updateProjectsUsed = async (params, arr_member_seq) => {
     const result = {};
     result.error = 0;
-    result.mesage = '';
+    result.message = '';
     try {
       const result = await this.database
         .from(this.table_name)
@@ -73,7 +73,7 @@ export default class MemberModel extends MySQLModel {
       // logger.debug(result);
     }catch (e) {
       result.error = 0;
-      result.mesage = '';
+      result.message = '';
     }
     return result;
   }
