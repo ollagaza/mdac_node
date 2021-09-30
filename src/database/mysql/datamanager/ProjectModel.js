@@ -70,13 +70,28 @@ export default class ProjectModel extends MySQLModel {
     const oKnex = this.database.select(select);
     oKnex.from(this.table_name)
 
+    let subquery = {};
+
     if(project_seq === '')
     {
       if(status !== '') {
         oKnex.where('status',status);
       }
       if(keyword !== '') {
-        oKnex.where(`${search_type}`,'like',`%${keyword}%`);
+        if(search_type==='LABELER') { // labeler 검색
+          subquery = knex.raw(`SELECT DISTINCT J.project_seq FROM job J JOIN member M ON J.labeler_member_seq=M.seq WHERE M.user_name LIKE '%${keyword}%' AND J.labeler_member_seq IS NOT NULL`)
+          oKnex.andWhere('seq', 'in', subquery)      
+        }else if(search_type==='CHECKER') { // checker 검색
+          subquery[0] = knex.raw(`SELECT DISTINCT J.project_seq FROM job J JOIN member M ON J.checker1_member_seq=M.seq WHERE M.user_name LIKE '%${keyword}%' AND J.checker1_member_seq IS NOT NULL`)
+          subquery[1] = knex.raw(`SELECT DISTINCT J.project_seq FROM job J JOIN member M ON J.checker2_member_seq=M.seq WHERE M.user_name LIKE '%${keyword}%' AND J.checker2_member_seq IS NOT NULL`)
+          subquery[2] = knex.raw(`SELECT DISTINCT J.project_seq FROM job J JOIN member M ON J.checker2_member_seq=M.seq WHERE M.user_name LIKE '%${keyword}%' AND J.checker2_member_seq IS NOT NULL`)
+          oKnex.andWhere(function() {
+            this.where('seq', 'in', subquery[0]).orWhere('seq', 'in', subquery[1]).orWhere('seq', 'in', subquery[2])    
+          })
+
+        }else{
+          oKnex.where(`${search_type}`,'like',`%${keyword}%`);
+        }
       }
     }
     const oCountKnex = this.database.from(oKnex.clone().as('list'))
