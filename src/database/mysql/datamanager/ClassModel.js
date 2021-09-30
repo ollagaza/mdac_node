@@ -1,3 +1,11 @@
+/*
+=======================================
+'	파일명 : ClassModel.js
+'	작성자 : djyu
+'	작성일 : 2021.09.30
+'	기능   : class model
+'	=====================================
+*/
 import Util from '../../../utils/baseutil'
 import MySQLModel from '../../mysql-model'
 import JsonWrapper from '../../../wrapper/json-wrapper'
@@ -88,47 +96,48 @@ export default class ClassModel extends MySQLModel {
     return result
   }
   
-  getClassInfoPaging = async (start, end, is_used, search_type, keyword, project_seq, class_seq) => {
-    const select = ['c.seq']
-    const oKnex = this.database.select(select);
-    oKnex.from({c: 'class'}).join({p: 'project'}, function() {
-      this.on('c.project_seq','=','p.seq')})
+  // 나중에 지울거.. by djyu 2021.09.30
+  // getClassInfoPaging = async (start, end, is_used, search_type, keyword, project_seq, class_seq) => {
+  //   const select = ['c.seq']
+  //   const oKnex = this.database.select(select);
+  //   oKnex.from({c: 'class'}).join({p: 'project'}, function() {
+  //     this.on('c.project_seq','=','p.seq')})
 
-    if(class_seq === '')
-    {
-      if(is_used !== '') {
-        oKnex.where('c.is_used',is_used)
-      }
-      if(project_seq !== '') {
-        oKnex.where('c.project_seq',project_seq);
-      }
+  //   if(class_seq === '')
+  //   {
+  //     if(is_used !== '') {
+  //       oKnex.where('c.is_used',is_used)
+  //     }
+  //     if(project_seq !== '') {
+  //       oKnex.where('c.project_seq',project_seq);
+  //     }
 
-      if(keyword !== '') {
-        oKnex.where(`c.${search_type}`,'like',`%${keyword}%`);
-      }
-      oKnex.orderBy('c.seq','desc');
-    }else{
-      oKnex.where('c.seq',class_seq);
-    }
+  //     if(keyword !== '') {
+  //       oKnex.where(`c.${search_type}`,'like',`%${keyword}%`);
+  //     }
+  //     oKnex.orderBy('c.seq','desc');
+  //   }else{
+  //     oKnex.where('c.seq',class_seq);
+  //   }
 
-    const oCountKnex = this.database.from(oKnex.clone().as('list'))
+  //   const oCountKnex = this.database.from(oKnex.clone().as('list'))
 
-    if(project_seq === '')
-    {
-      oKnex.limit(end).offset(start)
-    }
+  //   if(project_seq === '')
+  //   {
+  //     oKnex.limit(end).offset(start)
+  //   }
 
-    const result = await oKnex;
+  //   const result = await oKnex;
    
-    // 총 갯수
-    const [{ total_count }] = await Promise.all([
-      oCountKnex.count('* as total_count').first()
-    ])
-    // const rslt = {}
-    // rslt.aaa = result;
-    // rslt.bbb = total_count;
-    return total_count
-  }
+  //   // 총 갯수
+  //   const [{ total_count }] = await Promise.all([
+  //     oCountKnex.count('* as total_count').first()
+  //   ])
+  //   // const rslt = {}
+  //   // rslt.aaa = result;
+  //   // rslt.bbb = total_count;
+  //   return total_count
+  // }
  
   updateClassUsed = async (params, arr_class_seq) => {
     const result = {};

@@ -1,3 +1,11 @@
+/*
+=======================================
+'	파일명 : ProjectService.js
+'	작성자 : djyu
+'	작성일 : 2021.09.30
+'	기능   : project service
+'	=====================================
+*/
 import StdObject from '../../wrapper/std-object'
 import DBMySQL from '../../database/knex-mysql'
 import ProjectModel from '../../database/mysql/datamanager/ProjectModel'
@@ -37,12 +45,13 @@ const ProjectServiceClass = class {
   getProjectInfo = async (database, start, end, status, search_type, keyword, project_seq) => {
     const project_model = this.getProjectModel(database)
     const project_info = await project_model.getProjectInfo(start, end, status, search_type, keyword, project_seq)
-    const project_paging = await project_model.getProjectInfoPaging(start, end, status, search_type, keyword, project_seq)
+    //const project_paging = await project_model.getProjectInfoPaging(start, end, status, search_type, keyword, project_seq)
     
-    return {
-      project_info,
-      project_paging
-    }
+    return project_info
+    // return {
+    //   project_info,
+    //   project_paging
+    // }
   }
 
   ProjectMemberCount = async (database) => {
