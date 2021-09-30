@@ -142,7 +142,7 @@ export default class ClassModel extends MySQLModel {
   updateClassUsed = async (params, arr_class_seq) => {
     const result = {};
     result.error = 0;
-    result.mesage = '';
+    result.message = '';
     try {
       const result = await this.database
         .from(this.table_name)
@@ -150,8 +150,8 @@ export default class ClassModel extends MySQLModel {
         .update(params);
       // logger.debug(result);
     }catch (e) {
-      result.error = 0;
-      result.mesage = '';
+      result.error = -1;
+      result.message = '업데이트 오류가 발생했습니다.  관리자에게 문의해 주세요';
     }
     return result;
   }
@@ -159,16 +159,30 @@ export default class ClassModel extends MySQLModel {
   deleteClass = async (params, arr_class_seq) => {
     const result = {};
     result.error = 0;
-    result.mesage = '';
+    result.message = '';
     try {
-      const result = await this.database
-        .from(this.table_name)
-        .whereIn('seq', arr_class_seq)
-        .delete(params);
-      // logger.debug(result);
+  
+      const select = ['seq']
+      const oKnex = this.database.select(select);
+      oKnex.from('job')
+      oKnex.whereIn('class_seq', arr_class_seq)
+  
+      // 총 갯수
+      const { total_count } = await oKnex.count('* as total_count').first()
+
+      if(total_count > 0) {
+        result.error = -1;
+        result.message = '선택한 클래스에 할당된 작업이 있어 삭제가 불가합니다';
+      } else {
+        const result = await this.database
+          .from(this.table_name)
+          .whereIn('seq', arr_class_seq)
+          .delete(params);
+        // logger.debug(result);
+      }
     }catch (e) {
-      result.error = 0;
-      result.mesage = '';
+      result.error = -1;
+      result.message = '삭제 오류가 발생했습니다.  관리자에게 문의해 주세요';
     }
     return result;
   }
