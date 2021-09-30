@@ -1,3 +1,11 @@
+/*
+=======================================
+'	파일명 : ProjectModel.js
+'	작성자 : djyu
+'	작성일 : 2021.09.30
+'	기능   : project model
+'	=====================================
+*/
 import Util from '../../../utils/baseutil'
 import MySQLModel from '../../mysql-model'
 import JsonWrapper from '../../../wrapper/json-wrapper'
@@ -52,13 +60,7 @@ export default class ProjectModel extends MySQLModel {
   }
 
   getProjectInfo = async (start, end, status, search_type, keyword, project_seq) => {
-
-    // const query_result = await this.findOne({ is_used: is_used })
-    // if (query_result && query_result.reg_date) {
-    //   query_result.reg_date = Util.dateFormat(query_result.reg_date.getTime())
-    // }
-    // // return new MemberInfo(query_result, this.private_fields)
-    // return new JsonWrapper(query_result, this.private_fields)
+    const result = {}
 
     const select = ['seq','project_name', 'is_class', 'status', 'memo', 'reason', 'reg_member_seq','reg_date', 
       //knex.raw('(select count(*) FROM job) as ttt'),
@@ -76,6 +78,11 @@ export default class ProjectModel extends MySQLModel {
       if(keyword !== '') {
         oKnex.where(`${search_type}`,'like',`%${keyword}%`);
       }
+    }
+    const oCountKnex = this.database.from(oKnex.clone().as('list'))
+
+    if(project_seq === '')
+    {
       oKnex.orderBy('seq','desc');
       if(end !== '') {
         oKnex.limit(end).offset(start)
@@ -84,9 +91,13 @@ export default class ProjectModel extends MySQLModel {
       oKnex.where('seq',project_seq);
     }
 
+    result.project_info = await oKnex;
+   
+    // 총 갯수
+    const { total_count } = await oCountKnex.count('* as total_count').first()
 
-    const result = await oKnex;
-    return result;
+    result.paging = total_count
+    return result
     //return new JsonWrapper(result, this.private_fields)
   }
   

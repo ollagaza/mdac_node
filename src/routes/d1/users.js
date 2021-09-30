@@ -98,8 +98,8 @@ routes.get('/userinfo', Auth.isAuthenticated(Role.ADMIN), Wrap(async (req, res) 
   req.accepts('application/json')
 
   const token_info = req.token_info
-  const page = req.query.page ? req.query.page:'1'
-  const ipp = req.query.ipp ? req.query.ipp:'20'
+  const cur_page = req.query.cur_page ? req.query.cur_page:'1'
+  const list_count = req.query.list_count ? req.query.list_count:'20'
   const is_used = req.query.is_used ? req.query.is_used:''
   const search_type = req.query.search_type
   const keyword = req.query.keyword ? req.query.keyword:''
@@ -107,16 +107,16 @@ routes.get('/userinfo', Auth.isAuthenticated(Role.ADMIN), Wrap(async (req, res) 
 
   // paging에 필요한 변수
   let totalCount = 0;
-  let block = 10;
+  let page_count = 10;
   let total_page = 0;
   let start = 0;
-  let end = ipp;
+  let end = list_count;
   let start_page = 1;
   let end_page = block;
 
-  start = (page - 1) * 10;
-  start_page = Math.ceil(page / block);
-  end_page = start_page * block;
+  start = (cur_page - 1) * 10;
+  start_page = Math.ceil(cur_page / page_count);
+  end_page = start_page * page_count;
 
   const member_info = await MemberService.getMemberInfoList(DBMySQL, start, end, is_used, search_type, keyword, member_seq)
 
@@ -127,17 +127,20 @@ routes.get('/userinfo', Auth.isAuthenticated(Role.ADMIN), Wrap(async (req, res) 
   totalCount = member_info.member_paging;
 
   //totalCount = rows[1];
-  total_page = Math.ceil(totalCount/ipp);
+  total_page = Math.ceil(totalCount/list_count);
 
   if(total_page < end_page) end_page = total_page;
 
   let paging = {
-    "totalCount":totalCount
-    ,"total_page": total_page
-    ,"page":page
-    ,"start_page":start_page
-    ,"end_page":end_page
-    ,"ipp":ipp
+    "total_count":totalCount
+    ,"cur_page": cur_page
+    ,"page": cur_page
+    ,"first_page": start_page
+    ,"last_page": end_page
+    ,"list_count": list_count
+    ,"page_count": page_count
+    ,"start": start
+    ,"end": end
   }
   output.add('paging', paging)
 
@@ -150,8 +153,8 @@ routes.post('/userinfo', Auth.isAuthenticated(Role.ADMIN), Wrap(async (req, res)
   req.accepts('application/json')
 
   // const token_info = req.token_info
-  const page = req.body.page ? req.body.page:'1'
-  const ipp = req.body.ipp ? req.body.ipp:'20'
+  const cur_page = req.body.cur_page ? req.body.cur_page:'1'
+  const list_count = req.body.list_count ? req.body.list_count:'20'
   const is_used = req.body.is_used ? req.body.is_used:''
   const search_type = req.body.search_type
   const keyword = req.body.keyword ? req.body.keyword:''
@@ -159,17 +162,16 @@ routes.post('/userinfo', Auth.isAuthenticated(Role.ADMIN), Wrap(async (req, res)
 
   // paging에 필요한 변수
   let totalCount = 0;
-  let block = 10;
+  let page_count = 10;
   let total_page = 0;
   let start = 0;
-  let end = ipp;
+  let end = list_count;
   let start_page = 1;
-  let end_page = block;
+  let end_page = page_count;
 
-  start = (page - 1) * 10;
-  start_page = Math.ceil(page / block);
-  end_page = start_page * block;
-
+  start = (cur_page - 1) * list_count;
+  start_page = Math.ceil(cur_page / page_count);
+  end_page = start_page * page_count;
   const member_info = await MemberService.getMemberInfoList(DBMySQL, start, end, is_used, search_type, keyword, member_seq)
 
   const output = new StdObject()
@@ -179,17 +181,19 @@ routes.post('/userinfo', Auth.isAuthenticated(Role.ADMIN), Wrap(async (req, res)
   totalCount = member_info.member_paging;
 
   //totalCount = rows[1];
-  total_page = Math.ceil(totalCount/ipp);
+  total_page = Math.ceil(totalCount/list_count);
 
   if(total_page < end_page) end_page = total_page;
 
   let paging = {
-    "totalCount":totalCount
-    ,"total_page": total_page
-    ,"page":page
-    ,"start_page":start_page
-    ,"end_page":end_page
-    ,"ipp":ipp
+    "total_count":totalCount
+    ,"cur_page": cur_page
+    ,"first_page": start_page
+    ,"last_page": end_page
+    ,"list_count": list_count
+    ,"page_count": page_count
+    ,"start": start
+    ,"end": end
   }
   output.add('paging', paging)
 

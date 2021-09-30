@@ -137,7 +137,7 @@ export default class DivisionModel extends MySQLModel {
       oKnex.andWhere('f.seq',division_seq);
     }
 
-    //const mKNex = this.database.raw(`CALL spGetDivisionInfo`)
+    // const mKNex = this.database.raw(`CALL spGetDivisionInfo`)
     result.division_info = await oKnex;
 
     // 총 갯수
@@ -147,46 +147,47 @@ export default class DivisionModel extends MySQLModel {
     return result;
   }
   
-  getDivisionInfoPaging = async (start, end, is_used, search_type, keyword, project_seq, division_seq) => {
-    const select = ['division.seq']
-    const oKnex = this.database.select(select);
-    oKnex.from('division').join('project', function() {
-      this.on('division.project_seq','=','project.seq')})
+  // 나중에 지울것. by djyu 2021.09.30
+  // getDivisionInfoPaging = async (start, end, is_used, search_type, keyword, project_seq, division_seq) => {
+  //   const select = ['division.seq']
+  //   const oKnex = this.database.select(select);
+  //   oKnex.from('division').join('project', function() {
+  //     this.on('division.project_seq','=','project.seq')})
       
-    oKnex.where('division.seq','<>',0)
-    if(division_seq === '')
-    {
-      if(is_used !== '') {
-        oKnex.andWhere('division.is_used',is_used)
-      }
-      if(project_seq !== '') {
-        oKnex.andWhere('division.project_seq',project_seq);
-      }
+  //   oKnex.where('division.seq','<>',0)
+  //   if(division_seq === '')
+  //   {
+  //     if(is_used !== '') {
+  //       oKnex.andWhere('division.is_used',is_used)
+  //     }
+  //     if(project_seq !== '') {
+  //       oKnex.andWhere('division.project_seq',project_seq);
+  //     }
 
-      if(keyword !== '') {
-        oKnex.andWhere(`division.${search_type}`,'like',`%${keyword}%`);
-      }
-      oKnex.orderBy('division.seq','desc');
-    }else{
-      oKnex.andWhere('division.seq',division_seq);
-    }
+  //     if(keyword !== '') {
+  //       oKnex.andWhere(`division.${search_type}`,'like',`%${keyword}%`);
+  //     }
+  //     oKnex.orderBy('division.seq','desc');
+  //   }else{
+  //     oKnex.andWhere('division.seq',division_seq);
+  //   }
 
-    const oCountKnex = this.database.from(oKnex.clone().as('list'))
+  //   const oCountKnex = this.database.from(oKnex.clone().as('list'))
 
-    if(project_seq === '')
-    {
-      oKnex.limit(end).offset(start)
-    }
+  //   if(project_seq === '')
+  //   {
+  //     oKnex.limit(end).offset(start)
+  //   }
 
-    // const result = await oKnex;
+  //   // const result = await oKnex;
    
-    // 총 갯수
-    const [{ total_count }] = await Promise.all([
-      oCountKnex.count('* as total_count').first()
-    ])
+  //   // 총 갯수
+  //   const [{ total_count }] = await Promise.all([
+  //     oCountKnex.count('* as total_count').first()
+  //   ])
     
-    return total_count;    
-  }
+  //   return total_count;    
+  // }
  
   updateDivisionUsed = async (params, arr_division_seq) => {
     const result = {};
