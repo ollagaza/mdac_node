@@ -4,5 +4,6 @@ logs/
 #node modules directory
 node_modules/
 .vscode/
+uploads/
 
 package-lock.json

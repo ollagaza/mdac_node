@@ -9,8 +9,9 @@ import logger from '../../libs/logger'
 import Auth from '../../middlewares/auth.middleware'
 import Role from '../../constants/roles'
 
-
 const routes = Router()
+const multer = require('multer')
+const upload = multer({ dest: 'uploads/' })
 
 routes.get('/', Wrap(async (req, res) => {
   req.accepts('application/json')
@@ -19,8 +20,9 @@ routes.get('/', Wrap(async (req, res) => {
 }))
 
 // uploadOrgFile
-routes.post('/uploadorgfile', Auth.isAuthenticated(Role.LOGIN_USER), Wrap(async (req, res) => {
-  req.accepts('application/json')
+routes.post('/uploadorgfile', upload.array('uploadFile'), Wrap(async (req, res, next) => {
+  // Auth.isAuthenticated(Role.LOGIN_USER), 
+  // req.accepts('application/json')
   try{
     if (!req.files) {
       console.log('not files');
@@ -30,7 +32,12 @@ routes.post('/uploadorgfile', Auth.isAuthenticated(Role.LOGIN_USER), Wrap(async 
       res.json(output);
     } else {
       console.log('files');
-      let f = req.files.uploadFile;
+      let f = req.files;
+      console.log('name:' + f.name);
+      console.log('size:' + f.size);
+      // f.length;
+      let f1 = req.uploadFile;
+      // f1.mv('./uploads/' + f1.name);
       // res.send({
 
       // });
