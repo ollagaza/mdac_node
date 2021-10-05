@@ -20,7 +20,7 @@ routes.get('/', Wrap(async (req, res) => {
 }))
 
 // uploadOrgFile
-routes.post('/uploadorgfile', upload.array('uploadFile'), Wrap(async (req, res, next) => {
+routes.post('/uploadorgfile', upload.array('uploadFile'), Auth.isAuthenticated(Role.LOGIN_USER), Wrap(async (req, res, next) => {
   // Auth.isAuthenticated(Role.LOGIN_USER), 
   // req.accepts('application/json')
   try{
@@ -32,11 +32,21 @@ routes.post('/uploadorgfile', upload.array('uploadFile'), Wrap(async (req, res, 
       res.json(output);
     } else {
       console.log('files');
-      let f = req.files;
-      console.log('name:' + f.name);
-      console.log('size:' + f.size);
-      // f.length;
-      let f1 = req.uploadFile;
+      const files = req.files;
+      if (Array.isArray(files)) {
+        console.log('file size:' + files.length);
+        for (let f in files) {
+          // console.log(files[f]);
+          console.log(files[f].originalname);
+          console.log(files[f].filename);
+          console.log(files[f].mimetype);
+          console.log(files[f].size);
+          // console.log(files[f].path);
+          // console.log(files[f].destination);
+        }
+      }
+    
+      // let f1 = req.uploadFile;
       // f1.mv('./uploads/' + f1.name);
       // res.send({
 
