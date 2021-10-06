@@ -16,7 +16,7 @@ export default class ProjectModel extends MySQLModel {
   }
 
   // getProject
-  GetProjects = async() => {
+  getProjects = async() => {
     const select = ['seq', 'project_name', 'is_class', 'status', 'memo', 'reg_member_seq', 'reg_date']
     const oKnex = this.database.select(select).from(this.table_name);
     const result = await oKnex;

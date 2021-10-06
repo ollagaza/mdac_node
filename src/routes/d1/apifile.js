@@ -2,9 +2,10 @@ import { Router } from 'express'
 import Wrap from '../../utils/express-async'
 import StdObject from '../../wrapper/std-object'
 import DBMySQL from '../../database/knex-mysql'
-import AuthService from '../../service/member/AuthService'
-import MemberService from '../../service/member/MemberService'
-import MemberLogService from '../../service/member/MemberLogService'
+// import AuthService from '../../service/member/AuthService'
+// import MemberService from '../../service/member/MemberService'
+// import MemberLogService from '../../service/member/MemberLogService'
+import FileService from '../../service/file/FileService'
 import logger from '../../libs/logger'
 import Auth from '../../middlewares/auth.middleware'
 import Role from '../../constants/roles'
@@ -41,8 +42,11 @@ routes.post('/uploadorgfile', upload.array('uploadFile'), Auth.isAuthenticated(R
           console.log(files[f].filename);
           console.log(files[f].mimetype);
           console.log(files[f].size);
-          // console.log(files[f].path);
-          // console.log(files[f].destination);
+          console.log(files[f].path);
+          console.log(files[f].destination);
+          // await FileService.createOrgFile(1, 1, '', files[f].path, files[f].filename, files[f].originalname);
+
+          
         }
       }
     

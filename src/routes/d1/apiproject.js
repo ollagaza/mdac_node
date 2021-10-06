@@ -24,7 +24,7 @@ routes.get('/getproject', Auth.isAuthenticated(Role.LOGIN_USER), Wrap(async (req
     req.accepts('application/json')
     const token_info = req.token_info
     try{
-        const result = await ProjectService.GetProjects(DBMySQL)
+        const result = await ProjectService.getProjects(DBMySQL)
         // const output = new StdObject(0, 'success', 200, result)
         const output = new StdObject(0, 'success', 200);
         output.add('data', result);
@@ -44,7 +44,7 @@ routes.get('/getdivision', Auth.isAuthenticated(Role.LOGIN_USER), Wrap(async (re
     req.accepts('application/json')
     try{
         const project_seq = req.query.pseq;
-        const result = await ProjectService.GetDivisions(DBMySQL, project_seq);
+        const result = await ProjectService.getDivisions(DBMySQL, project_seq);
         // const output = new StdObject(0, 'success', 200, result);
         const output = new StdObject(0, 'success', 200);
         output.add('data', result);
@@ -64,7 +64,7 @@ routes.get('/getorgfile', Wrap(async (req, res) => {
     req.accepts('application/json')
     try{
         const division_seq = req.query.dseq; // division seq
-        const result = await ProjectService.GetOrgFiles(DBMySQL, division_seq)
+        const result = await ProjectService.getOrgFiles(DBMySQL, division_seq)
         const output = new StdObject(0, 'success', 200, result)
         res.json(output)
     } catch (e) {
@@ -82,7 +82,7 @@ routes.get('/getlabelingfile', Wrap(async (req, res) => {
     req.accepts('application/json')
     try{
         const division_seq = req.query.dseq; // division seq
-        const result = await ProjectService.GetLabelingFiles(DBMySQL, division_seq)
+        const result = await ProjectService.getLabelingFiles(DBMySQL, division_seq)
         const output = new StdObject(0, 'success', 200, result)
         res.json(output)
     } catch (e) {

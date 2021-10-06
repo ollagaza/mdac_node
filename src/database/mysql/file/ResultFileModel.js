@@ -16,17 +16,28 @@ export default class ResultFileModel extends MySQLModel {
     ]
   }
 
-  GetFileModel = (database = null) => {
+  getFileModel = (database = null) => {
     if (database) {
       return new FileModel(database)
     }
     return new FileModel(DBMySQL)
   }
+  
+  createResFile = async (fseq, jseq, ftype, fname) => {
+    const file = {
+      file_seq: fseq,
+      job_seq: jseq,
+      file_type: ftype,
+      file_name: fname
+    }
+    return await this.create(file, 'seq');
+  }
 
-  GetResFiles = async(division_seq) => {
+  getResFiles = async(division_seq) => {
       // get files
-      const file_model = this.GetFileModel(database)
-      const files = await file_model.GetOrgFiles(division_seq);
+      const file_model = this.getFileModel(database)
+      const files = await file_model.getOrgFiles(division_seq);
+      // get result files by file_seq
     
       // get result files
     //   const select = ['seq', 'file_seq', 'job_seq', 'file_type', 'file_name', 'down_cnt', 'reg_member_seq', 'reg_date']
