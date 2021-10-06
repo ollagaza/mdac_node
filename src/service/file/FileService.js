@@ -32,10 +32,9 @@ const FileServiceClass = class {
         return file_model.getResFiles()
     }
 
-
-    createOrgFile = async (project_seq, division_seq, file_type, file_path, file_name, org_file_name) => {
+    createOrgFile = async (project_seq, division_seq, file_type, file_path, file_name, org_file_name, file_size) => {
         const file_model = this.getFileModel(DBMySQL);
-        return file_model.createOrgFile(project_seq, division_seq, file_type, file_path, file_name, org_file_name);
+        return file_model.createOrgFile(project_seq, division_seq, file_type, file_path, file_name, org_file_name, file_size);
     }
 
     createResultFile = async(file_seq, job_seq, file_type, file_name) => {

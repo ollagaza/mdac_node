@@ -15,14 +15,15 @@ export default class FileModel extends MySQLModel {
     ]
   }
 
-  createOrgFile = async (pseq, dseq, ftype, fpath, fname, ofname) => {
+  createOrgFile = async (pseq, dseq, ftype, fpath, fname, ofname, fsize) => {
     const file = {
       project_seq: pseq,
       division_seq: dseq,
       file_type: ftype,
       file_path: fpath,
       file_name: fname,
-      org_file_name: ofname
+      org_file_name: ofname,
+      file_size: fsize
     }
     return await this.create(file, 'seq');
   }
