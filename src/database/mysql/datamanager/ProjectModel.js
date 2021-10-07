@@ -64,8 +64,8 @@ export default class ProjectModel extends MySQLModel {
 
     const select = ['seq','project_name', 'is_class', 'status', 'memo', 'reason', 'reg_member_seq','reg_date', 
       //knex.raw('(select count(*) FROM job) as ttt'),
-      knex.raw('(	SELECT COUNT(labeler_member_seq)	FROM ( SELECT project_seq, labeler_member_seq FROM job GROUP BY labeler_member_seq ) AS LABELER	WHERE LABELER.project_seq=project.seq ) AS labeler_cnt'),
-      knex.raw('( SELECT COUNT(checker) FROM ( SELECT project_seq, checker1_member_seq AS checker FROM job WHERE checker1_member_seq IS NOT NULL GROUP BY checker1_member_seq UNION SELECT project_seq, checker2_member_seq AS checker FROM job WHERE checker2_member_seq IS NOT NULL GROUP BY checker2_member_seq UNION SELECT project_seq, checker3_member_seq AS checker FROM job WHERE checker3_member_seq IS NOT NULL GROUP BY checker3_member_seq ) AS CHECKER WHERE CHECKER.project_seq=project.seq ) AS checker_cnt')
+      knex.raw(`(	SELECT COUNT(DISTINCT job_member_seq) FROM job_worker WHERE job_name='A' AND project_seq=project.seq ) AS labeler_cnt`),
+      knex.raw(`( SELECT COUNT(DISTINCT job_member_seq) FROM job_worker WHERE (job_name='B' OR job_name='C' OR job_name='D' AND project_seq=project.seq )) AS checker_cnt`)
     ]
     const oKnex = this.database.select(select);
     oKnex.from(this.table_name)
