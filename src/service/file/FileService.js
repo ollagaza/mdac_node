@@ -22,14 +22,30 @@ const FileServiceClass = class {
         return new ResultFileModel(DBMySQL);
     }
 
+    getOrgFile = async(seq) => {
+        const file_model = this.getFileModel(DBMySQL);
+        const result = await file_model.getOrgFile(seq);
+        return result;
+    }
+
     getOrgFiles = async(division_seq) => {
         const file_model = this.getFileModel(DBMySQL);
         return file_model.getOrgFiles(division_seq);
     }
 
-    getResFiles = async() => {
+    getResFileBySeq = async(file_seq) => {
         const file_model = this.getResultFileModel(DBMySQL);
-        return file_model.getResFiles()
+        return file_model.getResFileBySeq(file_seq);
+    }
+
+    getResFilesByFileseq = async(file_seq) => {
+        const file_model = this.getResultFileModel(DBMySQL);
+        return file_model.getResFilesByFileseq(file_seq);
+    }
+
+    getResFilesByJobseq = async(job_seq) => {
+        const file_model = this.getResultFileModel(DBMySQL);
+        return file_model.getResFilesByJobseq(job_seq)
     }
 
     createOrgFile = async (project_seq, division_seq, file_type, file_path, file_name, org_file_name, file_size) => {
