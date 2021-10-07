@@ -2,7 +2,6 @@ import StdObject from '../../wrapper/std-object'
 import DBMySQL from '../../database/knex-mysql'
 //import ServiceConfig from '../../service/service-config'
 //import MemberService from '../../service/member/MemberService'
-import log from '../../libs/logger'
 import logger from "../../libs/logger";
 import ProjectModel from '../../database/mysql/project/ProjectModel';
 import DivisionModel from '../../database/mysql/project/DivisionModel';
@@ -20,28 +19,27 @@ const ProjectServiceClass = class {
     //       division.fullpath = 'test';
     //   }
       
-      let data = divisions[key];
-      if (data.parent_division_seq === null) {
-          let res = `${data.division_name}>${name}`
-          console.log(res);
-          return res;
+    let data = divisions[key];
+    if (data.parent_division_seq === null) {
+      let res = `${data.division_name}>${name}`
+      return res;
+    } else {
+      let path = '';
+      if (name === null) {
+        return data.division_name;
       } else {
-          let path = '';
-          if (name === null) {
-              return data.division_name;
-          } else {
-              path = `${data.division_name}>${name}`;
-          }
-          return this.GetDivisionFullPath(divisions, data.parent_division_seq, path);
+        path = `${data.division_name}>${name}`;
       }
+      return this.GetDivisionFullPath(divisions, data.parent_division_seq, path);
+    }
   }
 
   GetAllDivisionFullPath = (divisions) => {
-      for (let div in divisions) {
-        divisions[div].fullpath = this.GetDivisionFullPath(divisions, div, '');
-      }
+    for (let div in divisions) {
+      divisions[div].fullpath = this.GetDivisionFullPath(divisions, div, '');
+    }
 
-      return divisions;
+    return divisions;
   }
 
   GetProjectModel = (database = null) => {
@@ -84,8 +82,7 @@ const ProjectServiceClass = class {
     const result = await division_model.GetDivisions(project_seq);
     var dicDivision = {};
     for (let item of result) {
-        console.log(item.seq);
-        dicDivision[item.seq] = item;
+      dicDivision[item.seq] = item;
     }
     
     // result = this.GetAllDivisionFullPath(dicDivision);
@@ -95,10 +92,10 @@ const ProjectServiceClass = class {
   }
 
   GetOrgFiles = async (database, division_seq) => {
-      const file_model = this.GetFileModel(database);
-      const result = await file_model.GetOrgFiles(division_seq);
-      logger.debug(result);
-      return result;
+    const file_model = this.GetFileModel(database);
+    const result = await file_model.GetOrgFiles(division_seq);
+    logger.debug(result);
+    return result;
   }
 
   GetLabelingFiles = async (database, division_seq) => {
