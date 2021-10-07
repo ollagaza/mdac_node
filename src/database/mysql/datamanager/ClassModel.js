@@ -1,3 +1,11 @@
+/*
+=======================================
+'	파일명 : ClassModel.js
+'	작성자 : djyu
+'	작성일 : 2021.09.30
+'	기능   : class model
+'	=====================================
+*/
 import Util from '../../../utils/baseutil'
 import MySQLModel from '../../mysql-model'
 import JsonWrapper from '../../../wrapper/json-wrapper'
@@ -51,86 +59,90 @@ export default class ClassModel extends MySQLModel {
   }
 
   getClassInfo = async (start, end, is_used, search_type, keyword, project_seq, class_seq) => {
-
-    // const query_result = await this.findOne({ is_used: is_used })
-    // if (query_result && query_result.reg_date) {
-    //   query_result.reg_date = Util.dateFormat(query_result.reg_date.getTime())
-    // }
-    // // return new MemberInfo(query_result, this.private_fields)
-    // return new JsonWrapper(query_result, this.private_fields)
-
-    const select = ['class.seq','class.project_seq','project.project_name','class.class_id','class.class_name','class.is_used','class.reg_date']
+    const result = {}
+    
+    const select = ['c.seq','c.project_seq','p.project_name','c.class_id','c.class_name','c.is_used','c.reg_date']
     const oKnex = this.database.select(select);
-    oKnex.from('class').join('project', function() {
-      this.on('class.project_seq','=','project.seq')})
+    oKnex.from({c: 'class'}).join({p: 'project'}, function() {
+      this.on('c.project_seq','=','p.seq')});
 
     if(class_seq === '')
     {
       if(is_used !== '') {
-        oKnex.where('class.is_used',is_used)
       }
       if(project_seq !== '') {
-        oKnex.where('class.project_seq',project_seq);
+        oKnex.where('c.project_seq',project_seq);
       }
 
       if(keyword !== '') {
-        oKnex.where(`class.${search_type}`,'like',`%${keyword}%`);
+        oKnex.where(`c.${search_type}`,'like',`%${keyword}%`);
       }
-      oKnex.orderBy('class.seq','desc');
-      oKnex.limit(end).offset(start)
-    }else{
-      oKnex.where('class.seq',class_seq);
     }
-
-    const result = await oKnex;
-    return result;
-    //return new JsonWrapper(result, this.private_fields)
-  }
-  
-  getClassInfoPaging = async (start, end, is_used, search_type, keyword, project_seq, class_seq) => {
-    const select = ['class.seq']
-    const oKnex = this.database.select(select);
-    oKnex.from('class').join('project', function() {
-      this.on('class.project_seq','=','project.seq')})
-
-    if(class_seq === '')
-    {
-      if(is_used !== '') {
-        oKnex.where('class.is_used',is_used)
-      }
-      if(project_seq !== '') {
-        oKnex.where('class.project_seq',project_seq);
-      }
-
-      if(keyword !== '') {
-        oKnex.where(`class.${search_type}`,'like',`%${keyword}%`);
-      }
-      oKnex.orderBy('class.seq','desc');
-    }else{
-      oKnex.where('class.seq',class_seq);
-    }
-
     const oCountKnex = this.database.from(oKnex.clone().as('list'))
-
-    if(project_seq === '')
+    if(class_seq === '')
     {
+      oKnex.orderBy('c.seq','desc');
       oKnex.limit(end).offset(start)
+    }else{
+      oKnex.where('c.seq',class_seq);
     }
 
-    const result = await oKnex;
+    result.class_info = await oKnex;
    
     // 총 갯수
-    const [{ total_count }] = await Promise.all([
-      oCountKnex.count('* as total_count').first()
-    ])
-    
-    return total_count;    
+    const { total_count } = await oCountKnex.count('* as total_count').first()
+
+    result.paging = total_count
+    return result
   }
+  
+  // 나중에 지울거.. by djyu 2021.09.30
+  // getClassInfoPaging = async (start, end, is_used, search_type, keyword, project_seq, class_seq) => {
+  //   const select = ['c.seq']
+  //   const oKnex = this.database.select(select);
+  //   oKnex.from({c: 'class'}).join({p: 'project'}, function() {
+  //     this.on('c.project_seq','=','p.seq')})
+
+  //   if(class_seq === '')
+  //   {
+  //     if(is_used !== '') {
+  //       oKnex.where('c.is_used',is_used)
+  //     }
+  //     if(project_seq !== '') {
+  //       oKnex.where('c.project_seq',project_seq);
+  //     }
+
+  //     if(keyword !== '') {
+  //       oKnex.where(`c.${search_type}`,'like',`%${keyword}%`);
+  //     }
+  //     oKnex.orderBy('c.seq','desc');
+  //   }else{
+  //     oKnex.where('c.seq',class_seq);
+  //   }
+
+  //   const oCountKnex = this.database.from(oKnex.clone().as('list'))
+
+  //   if(project_seq === '')
+  //   {
+  //     oKnex.limit(end).offset(start)
+  //   }
+
+  //   const result = await oKnex;
+   
+  //   // 총 갯수
+  //   const [{ total_count }] = await Promise.all([
+  //     oCountKnex.count('* as total_count').first()
+  //   ])
+  //   // const rslt = {}
+  //   // rslt.aaa = result;
+  //   // rslt.bbb = total_count;
+  //   return total_count
+  // }
  
   updateClassUsed = async (params, arr_class_seq) => {
     const result = {};
     result.error = 0;
-    result.mesage = '';
+    result.message = '';
     try {
       const result = await this.database
         .from(this.table_name)
@@ -138,8 +150,8 @@ export default class ClassModel extends MySQLModel {
         .update(params);
       // logger.debug(result);
     }catch (e) {
-      result.error = 0;
-      result.mesage = '';
+      result.error = -1;
+      result.message = '업데이트 오류가 발생했습니다.  관리자에게 문의해 주세요';
     }
     return result;
   }
@@ -147,16 +159,30 @@ export default class ClassModel extends MySQLModel {
   deleteClass = async (params, arr_class_seq) => {
     const result = {};
     result.error = 0;
-    result.mesage = '';
+    result.message = '';
     try {
-      const result = await this.database
-        .from(this.table_name)
-        .whereIn('seq', arr_class_seq)
-        .delete(params);
-      // logger.debug(result);
+  
+      const select = ['seq']
+      const oKnex = this.database.select(select);
+      oKnex.from('job')
+      oKnex.whereIn('class_seq', arr_class_seq)
+  
+      // 총 갯수
+      const { total_count } = await oKnex.count('* as total_count').first()
+
+      if(total_count > 0) {
+        result.error = -1;
+        result.message = '선택한 클래스에 할당된 작업이 있어 삭제가 불가합니다';
+      } else {
+        const result = await this.database
+          .from(this.table_name)
+          .whereIn('seq', arr_class_seq)
+          .delete(params);
+        // logger.debug(result);
+      }
     }catch (e) {
-      result.error = 0;
-      result.mesage = '';
+      result.error = -1;
+      result.message = '삭제 오류가 발생했습니다.  관리자에게 문의해 주세요';
     }
     return result;
   }

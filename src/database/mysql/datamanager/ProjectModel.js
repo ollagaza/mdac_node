@@ -1,3 +1,11 @@
+/*
+=======================================
+'	파일명 : ProjectModel.js
+'	작성자 : djyu
+'	작성일 : 2021.09.30
+'	기능   : project model
+'	=====================================
+*/
 import Util from '../../../utils/baseutil'
 import MySQLModel from '../../mysql-model'
 import JsonWrapper from '../../../wrapper/json-wrapper'
@@ -52,13 +60,7 @@ export default class ProjectModel extends MySQLModel {
   }
 
   getProjectInfo = async (start, end, status, search_type, keyword, project_seq) => {
-
-    // const query_result = await this.findOne({ is_used: is_used })
-    // if (query_result && query_result.reg_date) {
-    //   query_result.reg_date = Util.dateFormat(query_result.reg_date.getTime())
-    // }
-    // // return new MemberInfo(query_result, this.private_fields)
-    // return new JsonWrapper(query_result, this.private_fields)
+    const result = {}
 
     const select = ['seq','project_name', 'is_class', 'status', 'memo', 'reason', 'reg_member_seq','reg_date', 
       //knex.raw('(select count(*) FROM job) as ttt'),
@@ -68,14 +70,34 @@ export default class ProjectModel extends MySQLModel {
     const oKnex = this.database.select(select);
     oKnex.from(this.table_name)
 
+    let subquery = {};
+
     if(project_seq === '')
     {
       if(status !== '') {
         oKnex.where('status',status);
       }
       if(keyword !== '') {
-        oKnex.where(`${search_type}`,'like',`%${keyword}%`);
+        if(search_type==='LABELER') { // labeler 검색
+          subquery = knex.raw(`SELECT DISTINCT J.project_seq FROM job J JOIN member M ON J.labeler_member_seq=M.seq WHERE M.user_name LIKE '%${keyword}%' AND J.labeler_member_seq IS NOT NULL`)
+          oKnex.andWhere('seq', 'in', subquery)      
+        }else if(search_type==='CHECKER') { // checker 검색
+          subquery[0] = knex.raw(`SELECT DISTINCT J.project_seq FROM job J JOIN member M ON J.checker1_member_seq=M.seq WHERE M.user_name LIKE '%${keyword}%' AND J.checker1_member_seq IS NOT NULL`)
+          subquery[1] = knex.raw(`SELECT DISTINCT J.project_seq FROM job J JOIN member M ON J.checker2_member_seq=M.seq WHERE M.user_name LIKE '%${keyword}%' AND J.checker2_member_seq IS NOT NULL`)
+          subquery[2] = knex.raw(`SELECT DISTINCT J.project_seq FROM job J JOIN member M ON J.checker2_member_seq=M.seq WHERE M.user_name LIKE '%${keyword}%' AND J.checker2_member_seq IS NOT NULL`)
+          oKnex.andWhere(function() {
+            this.where('seq', 'in', subquery[0]).orWhere('seq', 'in', subquery[1]).orWhere('seq', 'in', subquery[2])    
+          })
+
+        }else{
+          oKnex.where(`${search_type}`,'like',`%${keyword}%`);
+        }
       }
+    }
+    const oCountKnex = this.database.from(oKnex.clone().as('list'))
+
+    if(project_seq === '')
+    {
       oKnex.orderBy('seq','desc');
       if(end !== '') {
         oKnex.limit(end).offset(start)
@@ -84,9 +106,13 @@ export default class ProjectModel extends MySQLModel {
       oKnex.where('seq',project_seq);
     }
 
+    result.project_info = await oKnex;
+   
+    // 총 갯수
+    const { total_count } = await oCountKnex.count('* as total_count').first()
 
-    const result = await oKnex;
-    return result;
+    result.paging = total_count
+    return result
     //return new JsonWrapper(result, this.private_fields)
   }
   
@@ -117,7 +143,7 @@ export default class ProjectModel extends MySQLModel {
       }
     }
 
-    const result = await oKnex;
+    //const result = await oKnex;
    
     // 총 갯수
     const [{ total_count }] = await Promise.all([

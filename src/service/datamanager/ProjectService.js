@@ -1,3 +1,11 @@
+/*
+=======================================
+'	파일명 : ProjectService.js
+'	작성자 : djyu
+'	작성일 : 2021.09.30
+'	기능   : project service
+'	=====================================
+*/
 import StdObject from '../../wrapper/std-object'
 import DBMySQL from '../../database/knex-mysql'
 import ProjectModel from '../../database/mysql/datamanager/ProjectModel'
@@ -37,12 +45,13 @@ const ProjectServiceClass = class {
   getProjectInfo = async (database, start, end, status, search_type, keyword, project_seq) => {
     const project_model = this.getProjectModel(database)
     const project_info = await project_model.getProjectInfo(start, end, status, search_type, keyword, project_seq)
-    const project_paging = await project_model.getProjectInfoPaging(start, end, status, search_type, keyword, project_seq)
+    //const project_paging = await project_model.getProjectInfoPaging(start, end, status, search_type, keyword, project_seq)
     
-    return {
-      project_info,
-      project_paging
-    }
+    return project_info
+    // return {
+    //   project_info,
+    //   project_paging
+    // }
   }
 
   ProjectMemberCount = async (database) => {
@@ -73,15 +82,21 @@ const ProjectServiceClass = class {
     return result;
   }
 
+  getDivision = async (database, dmode, project_seq, parent_division_seq, division_seq) => {
+    const division_model = this.getDivisionModel(database)
+    const division_info = await division_model.getDivision(dmode, project_seq, parent_division_seq, division_seq)
+    
+    return {
+      division_info
+    }
+  }
+  
   getDivisionInfo = async (database, start, end, is_used, search_type, keyword, project_seq, division_seq) => {
     const division_model = this.getDivisionModel(database)
     const division_info = await division_model.getDivisionInfo(start, end, is_used, search_type, keyword, project_seq, division_seq)
-    const division_paging = await division_model.getDivisionInfoPaging(start, end, is_used, search_type, keyword, project_seq, division_seq)
+    // const division_paging = await division_model.getDivisionInfoPaging(start, end, is_used, search_type, keyword, project_seq, division_seq)
     
-    return {
-      division_info,
-      division_paging
-    }
+    return division_info
   }
   
   updateDivisionUsed = async (database, req_body) => {
@@ -134,12 +149,9 @@ const ProjectServiceClass = class {
   getClassInfo = async (database, start, end, is_used, search_type, keyword, project_seq, class_seq) => {
     const class_model = this.getClassModel(database)
     const class_info = await class_model.getClassInfo(start, end, is_used, search_type, keyword, project_seq, class_seq)
-    const class_paging = await class_model.getClassInfoPaging(start, end, is_used, search_type, keyword, project_seq, class_seq)
+    // const class_paging = await class_model.getClassInfoPaging(start, end, is_used, search_type, keyword, project_seq, class_seq)
     
-    return {
-      class_info,
-      class_paging
-    }
+    return class_info
   }
   
   updateClassUsed = async (database, req_body) => {

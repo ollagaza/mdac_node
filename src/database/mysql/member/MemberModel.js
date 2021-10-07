@@ -82,8 +82,8 @@ export default class MemberModel extends MySQLModel {
         .update(params);
       // logger.debug(result);
     }catch (e) {
-      result.error = 0;
-      result.mesage = '';
+      result.error = -1;
+      result.message = '업데이트 오류가 발생했습니다.  관리자에게 문의해 주세요';
     }
     return result;
   }
@@ -120,7 +120,7 @@ export default class MemberModel extends MySQLModel {
       // console.log(query_result.regist_date.getTime())
       let parts = query_result.regist_date.match(/(\d+)/g)
       let date = new Date(parts[0], parts[1]-1, parts[2], parts[3], parts[4], parts[5])
-      console.log(date)
+      // console.log(date)
       query_result.regist_date = Util.dateFormat(date)
       // query_result.regist_date = Util.dateFormat(query_result.regist_date.getTime())
     }
@@ -293,8 +293,8 @@ export default class MemberModel extends MySQLModel {
         .delete(params);
       // logger.debug(result);
     }catch (e) {
-      result.error = 0;
-      result.mesage = '';
+      result.error = -1;
+      result.message = '삭제 오류가 발생했습니다.  관리자에게 문의해 주세요';
     }
     return result;
   }
