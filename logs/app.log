@@ -327,3 +327,77 @@
   sql: 'select * from `service_config`'
 }
 [2021-10-07T13:51:30.764] [DEBUG] default - [InitService] init complete
+[2021-10-07T13:55:16.659] [INFO] default - {
+  ENV: 'development',
+  IS_RELEASE: false,
+  IS_DEV: true,
+  IS_LOCAL: true,
+  IS_DEMON: true,
+  PRINT_DB_LOG: true,
+  LOG_PATH: 'logs',
+  MYSQL_HOST: null,
+  MONGODB_HOST: null
+}
+[2021-10-07T13:55:17.477] [DEBUG] default - add api ./d1/admin.js /d1/admin
+[2021-10-07T13:55:17.480] [DEBUG] default - add api ./d1/apiauth.js /d1/apiauth
+[2021-10-07T13:55:17.481] [DEBUG] default - add api ./d1/apifile.js /d1/apifile
+[2021-10-07T13:55:17.490] [DEBUG] default - add api ./d1/apiproject.js /d1/apiproject
+[2021-10-07T13:55:17.492] [DEBUG] default - add api ./d1/auth.js /d1/auth
+[2021-10-07T13:55:17.614] [DEBUG] default - add api ./d1/datamanager.js /d1/datamanager
+[2021-10-07T13:55:17.728] [DEBUG] default - add api ./d1/datastatus.js /d1/datastatus
+[2021-10-07T13:55:17.777] [DEBUG] default - add api ./d1/project.js /d1/project
+[2021-10-07T13:55:17.779] [DEBUG] default - add api ./d1/test.js /d1/test
+[2021-10-07T13:55:17.808] [DEBUG] default - add api ./d1/users.js /d1/users
+[2021-10-07T13:55:17.811] [DEBUG] default - add api ./s1/auth.js /s1/auth
+[2021-10-07T13:55:17.812] [DEBUG] default - add api ./s1/test.js /s1/test
+[2021-10-07T13:55:17.813] [DEBUG] default - add api ./s1/users.js /s1/users
+[2021-10-07T13:55:17.951] [DEBUG] default - Listening on port 3600 -> PID: 10012
+[2021-10-07T13:55:17.951] [DEBUG] default - [InitService] init start
+[2021-10-07T13:55:18.005] [DEBUG] default - [MySQL]
+ {
+  method: 'select',
+  options: {},
+  timeout: false,
+  cancelOnTimeout: false,
+  bindings: [],
+  __knexQueryUid: '7d428323-6340-4112-9538-7d685578d99f',
+  sql: 'select * from `service_config`'
+}
+[2021-10-07T13:55:18.009] [DEBUG] default - [InitService] init complete
+[2021-10-07T13:55:45.367] [INFO] default - {
+  ENV: 'development',
+  IS_RELEASE: false,
+  IS_DEV: true,
+  IS_LOCAL: true,
+  IS_DEMON: true,
+  PRINT_DB_LOG: true,
+  LOG_PATH: 'logs',
+  MYSQL_HOST: null,
+  MONGODB_HOST: null
+}
+[2021-10-07T13:55:45.840] [DEBUG] default - add api ./d1/admin.js /d1/admin
+[2021-10-07T13:55:45.843] [DEBUG] default - add api ./d1/apiauth.js /d1/apiauth
+[2021-10-07T13:55:45.844] [DEBUG] default - add api ./d1/apifile.js /d1/apifile
+[2021-10-07T13:55:45.852] [DEBUG] default - add api ./d1/apiproject.js /d1/apiproject
+[2021-10-07T13:55:45.853] [DEBUG] default - add api ./d1/auth.js /d1/auth
+[2021-10-07T13:55:45.862] [DEBUG] default - add api ./d1/datamanager.js /d1/datamanager
+[2021-10-07T13:55:45.870] [DEBUG] default - add api ./d1/datastatus.js /d1/datastatus
+[2021-10-07T13:55:45.873] [DEBUG] default - add api ./d1/project.js /d1/project
+[2021-10-07T13:55:45.875] [DEBUG] default - add api ./d1/test.js /d1/test
+[2021-10-07T13:55:45.878] [DEBUG] default - add api ./d1/users.js /d1/users
+[2021-10-07T13:55:45.882] [DEBUG] default - add api ./s1/auth.js /s1/auth
+[2021-10-07T13:55:45.883] [DEBUG] default - add api ./s1/test.js /s1/test
+[2021-10-07T13:55:45.884] [DEBUG] default - add api ./s1/users.js /s1/users
+[2021-10-07T13:55:46.018] [DEBUG] default - Listening on port 3600 -> PID: 14904
+[2021-10-07T13:55:46.018] [DEBUG] default - [InitService] init start
+[2021-10-07T13:55:46.072] [DEBUG] default - [MySQL]
+ {
+  method: 'select',
+  options: {},
+  timeout: false,
+  cancelOnTimeout: false,
+  bindings: [],
+  __knexQueryUid: 'aadd8ec5-eb35-4b19-bbfd-235999174d87',
+  sql: 'select * from `service_config`'
+}
+[2021-10-07T13:55:46.074] [DEBUG] default - [InitService] init complete
