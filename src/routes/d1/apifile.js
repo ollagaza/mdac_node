@@ -17,7 +17,6 @@ const multer = require('multer')
 const upload = multer({ dest: 'uploads/' })
 const fs = require('fs');
 const path = require('path');
-// const root_path = require('app-root-path');
 
 routes.get('/', Wrap(async (req, res) => {
   req.accepts('application/json');
@@ -27,7 +26,6 @@ routes.get('/', Wrap(async (req, res) => {
 
 // uploadOrgFile
 routes.post('/uploadorgfile', upload.array('uploadFile'), Auth.isAuthenticated(Role.LOGIN_USER), Wrap(async (req, res, next) => {
-  // Auth.isAuthenticated(Role.LOGIN_USER), 
   // req.accepts('application/json');
   try{
     if (!req.files) {
@@ -107,7 +105,6 @@ routes.post('/downloadorgfile', Auth.isAuthenticated(Role.LOGIN_USER), Wrap(asyn
     // const output = new StdObject(0, 'success', 200);
     // output.add('data', '');
     // res.json(output);
-    
   } catch (e) {
       logger.error('/apifile/downloadorgfile', e)
       if (e.error < 0) {
@@ -119,12 +116,11 @@ routes.post('/downloadorgfile', Auth.isAuthenticated(Role.LOGIN_USER), Wrap(asyn
 }))
 
 // uploadLabelingFile
-routes.post('/uploadresfile', upload.array('uploadFile'), Auth.isAuthenticated(Role.LOGIN_USER), Wrap(async (req, res, next) => {
+routes.post('/uploadresfiles', upload.array('uploadFile'), Auth.isAuthenticated(Role.LOGIN_USER), Wrap(async (req, res, next) => {
   try {
     if (!req.files) {
       console.log('not files');
       const output = new StdObject(-1, 'not exist files', 200);
-      // output.add('data', '');
       res.json(output);
     } else {
       // save path - {root}/{분류}/{날짜}/{파일이름}
@@ -151,15 +147,16 @@ routes.post('/uploadresfile', upload.array('uploadFile'), Auth.isAuthenticated(R
       throw new StdObject(-1, '', 200)
     }
   }
+
 }))
 
-// single file
+// single original file download
 routes.post('/downloadresfile', Auth.isAuthenticated(Role.LOGIN_USER), Wrap(async (req, res) => {
   req.accepts('application/json');
   try {
     const body = req.body;
     const fseq = body.file_seq;
-    const file_info = await FileService.getResFilesByFileseq(fseq);
+    const file_info = await FileService.getResFileBySeq(fseq);
     fs.readFile(file_info.file_path, (err, data) => {
       if (err) {
         return next(err);
@@ -169,7 +166,7 @@ routes.post('/downloadresfile', Auth.isAuthenticated(Role.LOGIN_USER), Wrap(asyn
       res.send(data);
     })
   } catch (e) {
-      logger.error('/apifile/downloadorgfile', e)
+      logger.error('/apifile/downloadresfile', e)
       if (e.error < 0) {
           throw new StdObject(e.error, e.message, 200)
       } else {
@@ -178,8 +175,8 @@ routes.post('/downloadresfile', Auth.isAuthenticated(Role.LOGIN_USER), Wrap(asyn
   }
 }))
 
-// downloadLabelingFile
-routes.post('/downloadresfile', Auth.isAuthenticated(Role.LOGIN_USER), Wrap(async (req, res) => {
+// downloadLabelingFile - multifile??
+routes.post('/downloadresfiles', Auth.isAuthenticated(Role.LOGIN_USER), Wrap(async (req, res) => {
   req.accepts('application/json');
   try {
     const body = req.body;
@@ -197,7 +194,7 @@ routes.post('/downloadresfile', Auth.isAuthenticated(Role.LOGIN_USER), Wrap(asyn
       })
     }
   } catch (e) {
-      logger.error('/apifile/downloadorgfile', e)
+      logger.error('/apifile/downloadresfiles', e)
       if (e.error < 0) {
           throw new StdObject(e.error, e.message, 200)
       } else {

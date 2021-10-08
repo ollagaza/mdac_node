@@ -94,22 +94,23 @@ const ProjectServiceClass = class {
     return res;
   }
 
-  getOrgFiles = async (database, division_seq) => {
+  getOrgFilesByDivisionseq = async (database, division_seq) => {
       const file_model = this.getFileModel(database);
-      const result = await file_model.getOrgFiles(division_seq);
+      const result = await file_model.getOrgFilesByDivisionseq(division_seq);
       logger.debug(result);
       return result;
   }
 
-  getLabelingFiles = async (database, division_seq) => {
-    const file_model = this.getFileModel(database);
-    const files = await file_model.getOrgFiles(division_seq);
-    // get file seq list
+  getResFilesByJobseq = async (database, job_seq) => {
+    // const file_model = this.getFileModel(database);
+    // const files = await file_model.getOrgFiles(division_seq);
+    // // get file seq list
+    // const res_file_model = this.getResultFileModel(database);
+    // const result = await res_file_model.getResFiles(division_seq);
+    // // get result file list by file seq list
 
-    const res_file_model = this.getResultFileModel(database);
-    const result = await res_file_model.getResFiles(division_seq);
-    // get result file list by file seq list
-
+    const file_model = this.getResultFileModel(database);
+    const result = await file_model.getResFilesByJobseq(job_seq);
     logger.debug(result);
     return result;
   }

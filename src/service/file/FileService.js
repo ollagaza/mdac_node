@@ -33,9 +33,9 @@ const FileServiceClass = class {
         return file_model.getOrgFiles(division_seq);
     }
 
-    getResFileBySeq = async(file_seq) => {
+    getResFileBySeq = async(seq) => {
         const file_model = this.getResultFileModel(DBMySQL);
-        return file_model.getResFileBySeq(file_seq);
+        return file_model.getResFileBySeq(seq);
     }
 
     getResFilesByFileseq = async(file_seq) => {

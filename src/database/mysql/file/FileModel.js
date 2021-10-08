@@ -38,7 +38,7 @@ export default class FileModel extends MySQLModel {
     // return new JsonWrapper(result, this.private_fields);
   }
 
-  getOrgFiles = async(division_seq) => {
+  getOrgFilesByDivisionseq = async(division_seq) => {
     const select = ['seq', 'project_seq', 'division_seq', 'file_type', 'file_path', 'file_name', 'org_file_name', 'file_size', 'play_time', 'reg_member_seq', 'reg_date']
     const oKnex = this.database.select(select).from(this.table_name).where('division_seq', division_seq);
     const result = await oKnex;
