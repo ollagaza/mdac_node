@@ -16,17 +16,54 @@ export default class ResultFileModel extends MySQLModel {
     ]
   }
 
-  GetFileModel = (database = null) => {
+  // 추가 필요 column - org_file_name, file_path
+
+  getFileModel = (database = null) => {
     if (database) {
       return new FileModel(database)
     }
     return new FileModel(DBMySQL)
   }
+  
+  createResFile = async (fseq, jseq, ftype, fname) => {
+    const file = {
+      file_seq: fseq,
+      job_seq: jseq,
+      file_type: ftype,
+      file_name: fname
+    }
+    return await this.create(file, 'seq');
+  }
 
-  GetResFiles = async(division_seq) => {
+  getResFileBySeq = async (seq) => {
+    const select = ['seq', 'file_seq', 'job_seq', 'file_type', 'file_name', 'down_cnt', 'reg_member_seq', 'reg_date']
+    const oKnex = this.database.select(select).from(this.table_name).where('seq', seq).first();
+    const result = await oKnex;
+    return result;
+  }
+
+  getResFilesByFileseq = async (file_seq) => {
+    const select = ['seq', 'file_seq', 'job_seq', 'file_type', 'file_name', 'down_cnt', 'reg_member_seq', 'reg_date']
+    const oKnex = this.database.select(select).from(this.table_name).where('file_seq', file_seq);
+    const result = await oKnex;
+    return result;
+    // const result = await this.findOne({ seq: seq });
+    // console.log(result);
+    // return new JsonWrapper(result, this.private_fields);
+  }
+
+  getResFilesByJobseq = async (job_seq) => {
+    const select = ['seq', 'file_seq', 'job_seq', 'file_type', 'file_name', 'down_cnt', 'reg_member_seq', 'reg_date']
+    const oKnex = this.database.select(select).from(this.table_name).where('job_seq', job_seq);
+    const result = await oKnex;
+    return result;
+  }
+
+  getResFiles = async(division_seq) => {
       // get files
-      const file_model = this.GetFileModel(database)
-      const files = await file_model.GetOrgFiles(division_seq);
+      const file_model = this.getFileModel(database)
+      const files = await file_model.getOrgFiles(division_seq);
+      // get result files by file_seq
     
       // get result files
     //   const select = ['seq', 'file_seq', 'job_seq', 'file_type', 'file_name', 'down_cnt', 'reg_member_seq', 'reg_date']

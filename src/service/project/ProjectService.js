@@ -13,7 +13,7 @@ const ProjectServiceClass = class {
     this.log_prefix = '[ProjectServiceClass]'
   }
 
-  GetDivisionFullPath = (divisions, key, name) => {
+  getDivisionFullPath = (divisions, key, name) => {
     //   for (let division of divisions) {
     //       console.log(division);
     //       division.fullpath = 'test';
@@ -28,89 +28,93 @@ const ProjectServiceClass = class {
       if (name === null) {
         return data.division_name;
       } else {
-        path = `${data.division_name}>${name}`;
+          let path = '';
+          if (name === null) {
+              return data.division_name;
+          } else {
+              path = `${data.division_name}>${name}`;
+          }
+          return this.getDivisionFullPath(divisions, data.parent_division_seq, path);
       }
       return this.GetDivisionFullPath(divisions, data.parent_division_seq, path);
     }
   }
 
-  GetAllDivisionFullPath = (divisions) => {
-    for (let div in divisions) {
-      divisions[div].fullpath = this.GetDivisionFullPath(divisions, div, '');
-    }
+  getAllDivisionFullPath = (divisions) => {
+      for (let div in divisions) {
+        divisions[div].fullpath = this.getDivisionFullPath(divisions, div, '');
+      }
 
     return divisions;
   }
 
-  GetProjectModel = (database = null) => {
+  getProjectModel = (database = null) => {
     if (database) {
       return new ProjectModel(database);
     }
     return new ProjectModel(DBMySQL);
   }
 
-  GetDivisionModel = (database = null) => {
+  getDivisionModel = (database = null) => {
     if (database) {
       return new DivisionModel(database);
     }
     return new DivisionModel(DBMySQL);
   }
 
-  GetFileModel = (database = null) => {
+  getFileModel = (database = null) => {
     if (database) {
       return new FileModel(database);
     }
     return new FileModel(DBMySQL);
   }
 
-  GetResultFileModel = (database = null) => {
+  getResultFileModel = (database = null) => {
     if (database) {
       return new ResultFileModel(database);
     }
     return new ResultFileModel(DBMySQL);
   }
 
-  GetProjects = async (database) => {
-    const project_model = this.GetProjectModel(database);
-    const result = await project_model.GetProjects();
+  getProjects = async (database) => {
+    const project_model = this.getProjectModel(database);
+    const result = await project_model.getProjects();
     logger.debug(result);
     return result;
   }
 
-  GetDivisions = async (database, project_seq) => {
-    const division_model = this.GetDivisionModel(database);
-    const result = await division_model.GetDivisions(project_seq);
+  getDivisions = async (database, project_seq) => {
+    const division_model = this.getDivisionModel(database);
+    const result = await division_model.getDivisions(project_seq);
     var dicDivision = {};
     for (let item of result) {
       dicDivision[item.seq] = item;
     }
     
-    // result = this.GetAllDivisionFullPath(dicDivision);
-    // return result;
-    const res = this.GetAllDivisionFullPath(dicDivision);
+    const res = this.getAllDivisionFullPath(dicDivision);
     return res;
   }
 
-  GetOrgFiles = async (database, division_seq) => {
-    const file_model = this.GetFileModel(database);
-    const result = await file_model.GetOrgFiles(division_seq);
+  getOrgFilesByDivisionseq = async (database, division_seq) => {
+      const file_model = this.getFileModel(database);
+      const result = await file_model.getOrgFilesByDivisionseq(division_seq);
+      logger.debug(result);
+      return result;
+  }
+
+  getResFilesByJobseq = async (database, job_seq) => {
+    // const file_model = this.getFileModel(database);
+    // const files = await file_model.getOrgFiles(division_seq);
+    // // get file seq list
+    // const res_file_model = this.getResultFileModel(database);
+    // const result = await res_file_model.getResFiles(division_seq);
+    // // get result file list by file seq list
+
+    const file_model = this.getResultFileModel(database);
+    const result = await file_model.getResFilesByJobseq(job_seq);
     logger.debug(result);
     return result;
   }
-
-  GetLabelingFiles = async (database, division_seq) => {
-    const file_model = this.GetFileModel(database);
-    const files = await file_model.GetOrgFiles(division_seq);
-    // get file seq list
-
-    const res_file_model = this.GetResultFileModel(database);
-    const result = await res_file_model.GetResFiles(division_seq);
-    // get result file list by file seq list
-
-    logger.debug(result);
-    return result;
-  }
-
 }
 
 const project_service = new ProjectServiceClass()
