@@ -22,11 +22,11 @@ routes.post('/', Auth.isAuthenticated(Role.ADMIN), Wrap(async (req, res) => {
   req.accepts('application/json')
 
   const token_info = req.token_info
-  const search_seq = req.body.search_seq ? req.body.search_seq:''
-  const search_type = req.body.search_type ? req.body.search_type:''
-  const project_seq = req.body.project_seq ? req.body.project_seq:''
-  const start_date = req.body.start_date ? req.body.start_date:''
-  const end_date = req.body.end_date ? req.body.end_date:''
+  const search_seq = req.body.search_seq ? req.body.search_seq: '' // 1: 작업자 통계(라벨링) / 2: 작업자 통계(검수) / 3,4: 프로젝트 통계
+  const search_type = req.body.search_type ? req.body.search_type: ''
+  const project_seq = req.body.project_seq ? req.body.project_seq: ''
+  const start_date = req.body.start_date ? req.body.start_date: ''
+  const end_date = req.body.end_date ? req.body.end_date: ''
 
   const project_info = await StatisticsService.getStatistics(DBMySQL, search_seq, project_seq, search_type, start_date, end_date)
   const output = new StdObject()
