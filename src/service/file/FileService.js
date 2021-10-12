@@ -53,9 +53,14 @@ const FileServiceClass = class {
         return file_model.createOrgFile(project_seq, division_seq, file_type, file_path, file_name, org_file_name, file_size);
     }
 
-    createResultFile = async(file_seq, job_seq, file_type, file_name) => {
+    createResultFile = async(file_seq, job_seq, file_type, file_name, pair_key, org_file_name, file_path, file_size) => {
         const file_model = this.getResultFileModel(DBMySQL);
-        return file_model.createResFile(file_seq, job_seq, file_type, file_name);
+        return file_model.createResFile(file_seq, job_seq, file_type, file_name, pair_key, org_file_name, file_path, file_size);
+    }
+
+    getMaxResFileParkKey = async() => {
+        const file_model = this.getResultFileModel(DBMySQL);
+        return file_model.getMaxResFileParkKey();
     }
 }
 

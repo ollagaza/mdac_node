@@ -1,11 +1,12 @@
 import { Router } from 'express'
 import Wrap from '../../utils/express-async'
 import StdObject from '../../wrapper/std-object'
-import DBMySQL from '../../database/knex-mysql'
+// import DBMySQL from '../../database/knex-mysql'
 // import AuthService from '../../service/member/AuthService'
 // import MemberService from '../../service/member/MemberService'
 // import MemberLogService from '../../service/member/MemberLogService'
 import FileService from '../../service/file/FileService'
+import ProjectService from '../../service/project/ProjectService'
 import logger from '../../libs/logger'
 import Auth from '../../middlewares/auth.middleware'
 import Role from '../../constants/roles'
@@ -27,6 +28,7 @@ routes.get('/', Wrap(async (req, res) => {
 // uploadOrgFile
 routes.post('/uploadorgfile', upload.array('uploadFile'), Auth.isAuthenticated(Role.LOGIN_USER), Wrap(async (req, res, next) => {
   // req.accepts('application/json');
+  // pseq(project_seq), dseq(divisino_seq)
   try{
     if (!req.files) {
       console.log('not files');
@@ -34,10 +36,11 @@ routes.post('/uploadorgfile', upload.array('uploadFile'), Auth.isAuthenticated(R
       // output.add('data', '');
       res.json(output);
     } else {
-      // save path - {root}/{분류}/{날짜}/{파일이름}
+      // save path - {root}/uploads/{분류}/{날짜}/{파일이름}
       const body = req.body;
       const files = req.files;
       if (Array.isArray(files)) {
+        const newDir = path.resolve("./") + '/uploads/' + body.dseq + '/' + datautil.getToday();
         for (let f in files) {
           console.log(files[f]);
           // console.log(files[f].originalname);
@@ -46,11 +49,10 @@ routes.post('/uploadorgfile', upload.array('uploadFile'), Auth.isAuthenticated(R
           // console.log(files[f].size);
           // console.log(files[f].path);
           // console.log(files[f].destination);
-          const newDir = path.resolve("./") + '/uploads/' + body.division_seq + '/' + datautil.getToday();
           const newFilePath = newDir + '/' + files[f].filename;
-          baseutil.createDirectory(newDir);
+          await baseutil.createDirectory(newDir);
           baseutil.renameFile(files[f].path, newFilePath);
-          await FileService.createOrgFile(body.project_seq, body.division_seq, '', newFilePath, files[f].filename, files[f].originalname, files[f].size);
+          await FileService.createOrgFile(body.pseq, body.dseq, '', newFilePath, files[f].filename, files[f].originalname, files[f].size);
         }
       }
 
@@ -73,8 +75,7 @@ routes.post('/downloadorgfile', Auth.isAuthenticated(Role.LOGIN_USER), Wrap(asyn
   req.accepts('application/json');
   try {
     const body = req.body;
-    const fseq = body.file_seq;
-    const file_info = await FileService.getOrgFile(fseq);
+    const file_info = await FileService.getOrgFile(body.fseq);
     // console.log(file_info);
     fs.readFile(file_info.file_path, (err, data) => {
       if (err) {
@@ -117,27 +118,40 @@ routes.post('/downloadorgfile', Auth.isAuthenticated(Role.LOGIN_USER), Wrap(asyn
 
 // uploadLabelingFile
 routes.post('/uploadresfiles', upload.array('uploadFile'), Auth.isAuthenticated(Role.LOGIN_USER), Wrap(async (req, res, next) => {
+  // pseq(project_seq), dseq(division_seq), jseq(job_seq), fseq(file_seq), cseq(class_seq)
   try {
     if (!req.files) {
       console.log('not files');
       const output = new StdObject(-1, 'not exist files', 200);
       res.json(output);
     } else {
-      // save path - {root}/{분류}/{날짜}/{파일이름}
+      // save path - {root}/uploads/result/{분류}/{날짜}/{파일이름}
       const body = req.body;
       const files = req.files;
-      if (Array.isArray(files)) {
-        for (let f in files) {
-          console.log(files[f]);
-          // get file path
-          // 
-          const newDir = '';
-          const newFilePath = '';
-          // baseutil.createDirectory(newDir);
-          // baseutil.renameFile(files[f].path, newFilePath);
-          // await FileService.createResultFile();
-        }
+      // get result_file_pair_key
+      let pairKey = 1;
+      let maxPairKey = await FileService.getMaxResFileParkKey();
+      if (maxPairKey && maxPairKey.val) {
+        pairKey = maxPairKey.val + 1;
       }
+
+      if (Array.isArray(files)) {
+        const newDir = path.resolve("./") + '/uploads/result/' + body.dseq + '/' + datautil.getToday();
+        for (let f in files) {
+          // console.log(files[f]);
+          const newFilePath = newDir + '/' + files[f].filename;
+          await baseutil.createDirectory(newDir);
+          baseutil.renameFile(files[f].path, newFilePath);
+          // insert to result_file table
+          let rseq = await FileService.createResultFile(body.fseq, body.jseq, 'ftype', files[f].file_name, pairKey, files[f].originalname, newFilePath, files[f].size);
+        }
+        // insert to job_workder table
+        await ProjectService.createJobWorker(body.pseq, body.jseq, pairKey, body.cseq, '', '', null, null, null, null);
+      }
+
+      const output = new StdObject(0, 'success', 200);
+      output.add('data', '');
+      res.json(output);
     }
   } catch (e) {
     logger.error('/apifile/uploadresfile', e)
@@ -200,6 +214,25 @@ routes.post('/downloadresfiles', Auth.isAuthenticated(Role.LOGIN_USER), Wrap(asy
       } else {
           throw new StdObject(-1, '', 200)
       }
+  }
+}))
+
+routes.get('/test', Wrap(async (req, res) => {
+  req.accepts('application/json');
+  try {
+    let max = await FileService.getMaxResFileParkKey();
+    console.log('max:' + max.val);
+    let pairKey = max.val + 1;
+    console.log('parikey:' + pairKey);
+
+    const output = new StdObject(0, 'success', 200, max);
+    res.json(output);
+  } catch (e) {
+    if (e.error < 0) {
+      throw new StdObject(e.error, e.message, 200)
+  } else {
+      throw new StdObject(-1, '', 200)
+  }
   }
 }))
 

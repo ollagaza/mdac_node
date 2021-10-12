@@ -25,12 +25,16 @@ export default class ResultFileModel extends MySQLModel {
     return new FileModel(DBMySQL)
   }
   
-  createResFile = async (fseq, jseq, ftype, fname) => {
+  createResFile = async (fseq, jseq, ftype, fname, pairKey, orgfilename, filepath, filesize) => {
     const file = {
       file_seq: fseq,
       job_seq: jseq,
       file_type: ftype,
-      file_name: fname
+      file_name: fname,
+      pair_key: pairKey,
+      org_file_name: orgfilename,
+      file_path: filepath,
+      file_size: filesize
     }
     return await this.create(file, 'seq');
   }
@@ -70,5 +74,13 @@ export default class ResultFileModel extends MySQLModel {
     //   const oKnex = this.database.select(select).from(this.table_name).where();
     //   const result = await oKnex;
     //   return new JsonWrapper(result, this.private_fields);
+  }
+
+  getMaxResFileParkKey = async() => {
+    // const select = ['pair_key'];
+    // const oKnex = this.database.select(select).from(this.table_name);
+    const oKnex = this.database.max('pair_key as val').from(this.table_name).first();
+    const result = await oKnex;
+    return result;
   }
 }

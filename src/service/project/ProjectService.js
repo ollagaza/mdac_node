@@ -7,6 +7,7 @@ import ProjectModel from '../../database/mysql/project/ProjectModel';
 import DivisionModel from '../../database/mysql/project/DivisionModel';
 import FileModel from '../../database/mysql/file/FileModel';
 import ResultFileModel from '../../database/mysql/file/ResultFileModel';
+import JobWorkerModel from '../../database/mysql/project/JobWorkerModel';
 
 const ProjectServiceClass = class {
   constructor() {
@@ -76,15 +77,24 @@ const ProjectServiceClass = class {
     return new ResultFileModel(DBMySQL);
   }
 
-  getProjects = async (database) => {
-    const project_model = this.getProjectModel(database);
+  getJobWorkerModel = (database = null) => {
+    if (database) {
+      return new JobWorkerModel(database);
+    }
+    return new JobWorkerModel(DBMySQL);
+  }
+
+  // method - project
+  getProjects = async () => {
+    const project_model = this.getProjectModel(DBMySQL);
     const result = await project_model.getProjects();
     logger.debug(result);
     return result;
   }
 
-  getDivisions = async (database, project_seq) => {
-    const division_model = this.getDivisionModel(database);
+  // method division
+  getDivisions = async (project_seq) => {
+    const division_model = this.getDivisionModel(DBMySQL);
     const result = await division_model.getDivisions(project_seq);
     var dicDivision = {};
     for (let item of result) {
@@ -95,14 +105,16 @@ const ProjectServiceClass = class {
     return res;
   }
 
-  getOrgFilesByDivisionseq = async (database, division_seq) => {
-      const file_model = this.getFileModel(database);
+  // method - file
+  getOrgFilesByDivisionseq = async (division_seq) => {
+      const file_model = this.getFileModel(DBMySQL);
       const result = await file_model.getOrgFilesByDivisionseq(division_seq);
       logger.debug(result);
       return result;
   }
 
-  getResFilesByJobseq = async (database, job_seq) => {
+  // method - result_file
+  getResFilesByJobseq = async (job_seq) => {
     // const file_model = this.getFileModel(database);
     // const files = await file_model.getOrgFiles(division_seq);
     // // get file seq list
@@ -110,10 +122,34 @@ const ProjectServiceClass = class {
     // const result = await res_file_model.getResFiles(division_seq);
     // // get result file list by file seq list
 
-    const file_model = this.getResultFileModel(database);
+    const file_model = this.getResultFileModel(DBMySQL);
     const result = await file_model.getResFilesByJobseq(job_seq);
     logger.debug(result);
     return result;
+  }
+
+  // method - job_worker
+  getJobWorker = async(seq) => {
+    const model = this.getJobWorkerModel(DBMySQL);
+    const result = await model.getJobWorker(seq);
+    return result;
+  }
+
+  getJobWorkersByProjectseq = async(project_seq) => {
+    const model = this.getJobWorkerModel(DBMySQL);
+    const result = await model.getJobWorkersByProjectseq(project_seq);
+    return result;
+  }
+
+  getJobWorkersByJobseq = async(job_seq) => {
+    const model = this.getJobWorkerModel(DBMySQL);
+    const result = await model.getJobWorkersByJobseq(job_seq);
+    return result;
+  }
+
+  createJobWorker = async(project_seq, job_seq, result_file_pair_key, class_seq, job_name, job_status, job_member_seq, job_date, reject_date, reg_member_seq) => {
+    const model = this.getJobWorkerModel(DBMySQL);
+    return model.createJobWorker(project_seq, job_seq, result_file_pair_key, class_seq, job_name, job_status, job_member_seq, job_date, reject_date, reg_member_seq);
   }
 }
 
