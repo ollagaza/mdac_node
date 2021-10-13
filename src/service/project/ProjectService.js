@@ -151,6 +151,19 @@ const ProjectServiceClass = class {
     const model = this.getJobWorkerModel(DBMySQL);
     return model.createJobWorker(project_seq, job_seq, result_file_pair_key, class_seq, job_name, job_status, job_member_seq, job_date, reject_date, reg_member_seq);
   }
+
+  // 작업목록조회 -- 작업 목록 조회... job 개수 확인?
+  // - 작업 할당된 파일 목록(작업 개수 추가) - 상태 확인
+
+  // 검수결과업데이트 - 상태 변경
+
+  // 라벨링클래스목록조회 - 클래스 목록 조회
+  // - 
+
+  // result file upload - 미정
+  // - image, video 각각 별도 처리 - job_worker
+
+
 }
 
 const project_service = new ProjectServiceClass()
