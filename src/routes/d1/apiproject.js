@@ -152,9 +152,15 @@ routes.post('/addjobworker', Auth.isAuthenticated(Role.LOGIN_USER), Wrap(async (
 routes.get('/getmemberjoblist', Auth.isAuthenticated(Role.LOGIN_USER), Wrap(async (req, res) => {
     req.accepts('application/json');
     try {
+        // member seq, status: 없으면 라벨링 상태
 
     } catch (e) {
-
+        logger.error('/apiproject/getmemberjoblist', e)
+        if (e.error < 0) {
+            throw new StdObject(e.error, e.message, 200)
+        } else {
+            throw new StdObject(-1, '', 200)
+        }
     }
 }))
 
@@ -172,7 +178,7 @@ routes.post('/setjobwokerstatus', Auth.isAuthenticated(Role.LOGIN_USER), Wrap(as
             throw new StdObject(-1, 'failed update', 200)
         }
     } catch (e) {
-        logger.error('/apiproject/', e)
+        logger.error('/apiproject/setjobwokerstatus', e)
         if (e.error < 0) {
             throw new StdObject(e.error, e.message, 200)
         } else {
