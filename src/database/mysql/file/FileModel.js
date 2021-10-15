@@ -30,7 +30,11 @@ export default class FileModel extends MySQLModel {
 
   getOrgFile = async (seq) => {
     const select = ['seq', 'project_seq', 'division_seq', 'file_type', 'file_path', 'file_name', 'org_file_name', 'file_size', 'play_time', 'reg_member_seq', 'reg_date']
-    const oKnex = this.database.select(select).from(this.table_name).where('seq', seq).first();
+    const oKnex = this.database
+      .select(select)
+      .from(this.table_name)
+      .where('seq', seq)
+      .first();
     const result = await oKnex;
     return result;
     // const result = await this.findOne({ seq: seq });
@@ -40,7 +44,10 @@ export default class FileModel extends MySQLModel {
 
   getOrgFilesByDivisionseq = async(division_seq) => {
     const select = ['seq', 'project_seq', 'division_seq', 'file_type', 'file_path', 'file_name', 'org_file_name', 'file_size', 'play_time', 'reg_member_seq', 'reg_date']
-    const oKnex = this.database.select(select).from(this.table_name).where('division_seq', division_seq);
+    const oKnex = this.database
+      .select(select)
+      .from(this.table_name)
+      .where('division_seq', division_seq);
     const result = await oKnex;
     return result;
     // return new JsonWrapper(result, this.private_fields);

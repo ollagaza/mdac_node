@@ -1,0 +1,11 @@
+##directory
+#logs directory
+logs/
+#node modules directory
+node_modules/
+.vscode/
+uploads/
+
+package-lock.json
+package-lock.json
+package.json

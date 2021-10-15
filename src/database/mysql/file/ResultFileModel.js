@@ -25,26 +25,37 @@ export default class ResultFileModel extends MySQLModel {
     return new FileModel(DBMySQL)
   }
   
-  createResFile = async (fseq, jseq, ftype, fname) => {
+  createResFile = async (fseq, jseq, ftype, fname, pairKey, orgfilename, filepath, filesize) => {
     const file = {
       file_seq: fseq,
       job_seq: jseq,
       file_type: ftype,
-      file_name: fname
+      file_name: fname,
+      pair_key: pairKey,
+      org_file_name: orgfilename,
+      file_path: filepath,
+      file_size: filesize
     }
     return await this.create(file, 'seq');
   }
 
   getResFileBySeq = async (seq) => {
     const select = ['seq', 'file_seq', 'job_seq', 'file_type', 'file_name', 'down_cnt', 'reg_member_seq', 'reg_date', 'org_file_name', 'file_path', 'file_size', 'pair_key']
-    const oKnex = this.database.select(select).from(this.table_name).where('seq', seq).first();
+    const oKnex = this.database
+      .select(select)
+      .from(this.table_name)
+      .where('seq', seq)
+      .first();
     const result = await oKnex;
     return result;
   }
 
   getResFilesByFileseq = async (file_seq) => {
     const select = ['seq', 'file_seq', 'job_seq', 'file_type', 'file_name', 'down_cnt', 'reg_member_seq', 'reg_date', 'org_file_name', 'file_path', 'file_size', 'pair_key']
-    const oKnex = this.database.select(select).from(this.table_name).where('file_seq', file_seq);
+    const oKnex = this.database
+      .select(select)
+      .from(this.table_name)
+      .where('file_seq', file_seq);
     const result = await oKnex;
     return result;
     // const result = await this.findOne({ seq: seq });
@@ -54,7 +65,10 @@ export default class ResultFileModel extends MySQLModel {
 
   getResFilesByJobseq = async (job_seq) => {
     const select = ['seq', 'file_seq', 'job_seq', 'file_type', 'file_name', 'down_cnt', 'reg_member_seq', 'reg_date', 'org_file_name', 'file_path', 'file_size', 'pair_key']
-    const oKnex = this.database.select(select).from(this.table_name).where('job_seq', job_seq);
+    const oKnex = this.database
+      .select(select)
+      .from(this.table_name)
+      .where('job_seq', job_seq);
     const result = await oKnex;
     return result;
   }
@@ -70,5 +84,13 @@ export default class ResultFileModel extends MySQLModel {
     //   const oKnex = this.database.select(select).from(this.table_name).where();
     //   const result = await oKnex;
     //   return new JsonWrapper(result, this.private_fields);
+  }
+
+  getMaxResFileParkKey = async() => {
+    // const select = ['pair_key'];
+    // const oKnex = this.database.select(select).from(this.table_name);
+    const oKnex = this.database.max('pair_key as val').from(this.table_name).first();
+    const result = await oKnex;
+    return result;
   }
 }
