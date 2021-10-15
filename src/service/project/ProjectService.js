@@ -8,6 +8,7 @@ import DivisionModel from '../../database/mysql/project/DivisionModel';
 import FileModel from '../../database/mysql/file/FileModel';
 import ResultFileModel from '../../database/mysql/file/ResultFileModel';
 import JobWorkerModel from '../../database/mysql/project/JobWorkerModel';
+import JobModel from '../../database/mysql/datamanager/Job_Model';
 
 const ProjectServiceClass = class {
   constructor() {
@@ -84,6 +85,13 @@ const ProjectServiceClass = class {
     return new JobWorkerModel(DBMySQL);
   }
 
+  getJobModel = (database = null) => {
+    if (database) {
+      return new JobModel(database);
+    }
+    return new JobModel(DBMySQL);
+  }
+
   // method - project
   getProjects = async () => {
     const project_model = this.getProjectModel(DBMySQL);
@@ -149,15 +157,27 @@ const ProjectServiceClass = class {
 
   createJobWorker = async(project_seq, job_seq, result_file_pair_key, class_seq, job_name, job_status, job_member_seq, job_date, reject_date, reg_member_seq) => {
     const model = this.getJobWorkerModel(DBMySQL);
-    return model.createJobWorker(project_seq, job_seq, result_file_pair_key, class_seq, job_name, job_status, job_member_seq, job_date, reject_date, reg_member_seq);
+    return await model.createJobWorker(project_seq, job_seq, result_file_pair_key, class_seq, job_name, job_status, job_member_seq, job_date, reject_date, reg_member_seq);
   }
 
   // 작업목록조회 -- 작업 목록 조회... job 개수 확인?
-  // - 작업 할당된 파일 목록(작업 개수 추가) - 상태 확인
+  // - 작업 할당된 파일 목록(작업 개수 추가) - 상태 확인? A0 or A1
+  getJobListByMemberseq = async(member_seq, status) => {
+    const model = this.getJobModel(DBMySQL);
+    return await model.getJobListByMemberseq(member_seq, status);
+  }
 
   // 검수결과업데이트 - 상태 변경
   // - 이름 : A(라벨링), B(검수1), C(검수2), D(검수3), E(완료)
-  // - 상태 : 0(대기), 1(작업중), 2(완료), 3, 4, 5(반려)
+  // - 상태 : 0(대기), 1(진행), 2(완료), 5(반려)
+  // setJobWorkerStatus = async(seq, job_name, job_status) => {
+  //   const model = this.getJobWorkerModel(DBMySQL);
+  //   return await model.setJobWorkerStatus(seq, job_name, job_status);
+  // }
+  setJobWorkerStatus = async(seq, job_status) => {
+    const model = this.getJobWorkerModel(DBMySQL);
+    return await model.setJobWorkerStatus(seq, job_status);
+  }
 
   // 라벨링클래스목록조회 - 클래스 목록 조회
   // - 

@@ -134,18 +134,75 @@ routes.post('/addjobworker', Auth.isAuthenticated(Role.LOGIN_USER), Wrap(async (
     req.accepts('application/json');
     try {   
         const body = req.body;
-        await ProjectService.createJobWorker(body.project_seq, body.job_seq, body.result_file_pair_key, body.class_seq, body.job_name, body.job_status, body.job_member_seq, body.job_date, body.reject_date, body.reg_member_seq);
+        const result = await ProjectService.createJobWorker(body.project_seq, body.job_seq, body.result_file_pair_key, body.class_seq, body.job_name, body.job_status, body.job_member_seq, body.job_date, body.reject_date, body.reg_member_seq);
+        const output = new StdObject(0, 'success', 200, 'res:' + result);
+        res.json(output);
+    } catch (e) {
+        logger.error('/apiproject/addjobworker', e)
+        if (e.error < 0) {
+            throw new StdObject(e.error, e.message, 200)
+        } else {
+            throw new StdObject(-1, '', 200)
+        }
+    }
+}))
+
+// getWorkItem - work count, file, class - 사용자 상태
+// - job table - 
+routes.get('/getmemberjoblist', Auth.isAuthenticated(Role.LOGIN_USER), Wrap(async (req, res) => {
+    req.accepts('application/json');
+    try {
 
     } catch (e) {
 
     }
-
 }))
 
+// setCheckResult - 검수 결과() 업데이트
+routes.post('/setjobwokerstatus', Auth.isAuthenticated(Role.LOGIN_USER), Wrap(async (req, res) => {
+    req.accepts('application/json');
+    // input : seq(job_worker), 작업상태(완료[2]/반려[5])
+    try {   
+        const body = req.body;
+        const result = await ProjectService.setJobWorkerStatus(body.seq, body.job_status);
+        if (result != null && result.error == 0) {            
+            const output = new StdObject(0, 'success', 200, result);
+            res.json(output);
+        } else {
+            throw new StdObject(-1, 'failed update', 200)
+        }
+    } catch (e) {
+        logger.error('/apiproject/', e)
+        if (e.error < 0) {
+            throw new StdObject(e.error, e.message, 200)
+        } else {
+            throw new StdObject(-1, '', 200)
+        }
+    }
+}))
+// routes.post('/setjobworkerstatus', Auth.isAuthenticated(Role.LOGIN_USER), Wrap(async (req, res) => {
+//     req.accepts('application/json');
+//     try {
+//         const body = req.body;
+//         const result = await ProjectService.setJobWorkerStatus(body.seq, body.job_name, body.job_status);
+//         if (result != null && result.error == 0) {            
+//             const output = new StdObject(0, 'success', 200, result);
+//             res.json(output);
+//         } else {
+//             throw new StdObject(-1, 'failed update', 200)
+//         }
+//     } catch (e) {
+//         logger.error('/apiproject/setjobworkerstatus', e)
+//         if (e.error < 0) {
+//             throw new StdObject(e.error, e.message, 200)
+//         } else {
+//             throw new StdObject(-1, '', 200)
+//         }
+//     }
+// }))
 
-
-// getWorkItem - work count, file, class
-// setCheckResult
 // getLabelingClass
+// - image - project 소속 class list
+// - video - job에 지정된 class_seq single, multi: 미정 (안: project 소속 class list)
 
 export default routes

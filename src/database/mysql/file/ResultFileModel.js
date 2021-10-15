@@ -41,14 +41,21 @@ export default class ResultFileModel extends MySQLModel {
 
   getResFileBySeq = async (seq) => {
     const select = ['seq', 'file_seq', 'job_seq', 'file_type', 'file_name', 'down_cnt', 'reg_member_seq', 'reg_date', 'org_file_name', 'file_path', 'file_size', 'pair_key']
-    const oKnex = this.database.select(select).from(this.table_name).where('seq', seq).first();
+    const oKnex = this.database
+      .select(select)
+      .from(this.table_name)
+      .where('seq', seq)
+      .first();
     const result = await oKnex;
     return result;
   }
 
   getResFilesByFileseq = async (file_seq) => {
     const select = ['seq', 'file_seq', 'job_seq', 'file_type', 'file_name', 'down_cnt', 'reg_member_seq', 'reg_date', 'org_file_name', 'file_path', 'file_size', 'pair_key']
-    const oKnex = this.database.select(select).from(this.table_name).where('file_seq', file_seq);
+    const oKnex = this.database
+      .select(select)
+      .from(this.table_name)
+      .where('file_seq', file_seq);
     const result = await oKnex;
     return result;
     // const result = await this.findOne({ seq: seq });
@@ -58,7 +65,10 @@ export default class ResultFileModel extends MySQLModel {
 
   getResFilesByJobseq = async (job_seq) => {
     const select = ['seq', 'file_seq', 'job_seq', 'file_type', 'file_name', 'down_cnt', 'reg_member_seq', 'reg_date', 'org_file_name', 'file_path', 'file_size', 'pair_key']
-    const oKnex = this.database.select(select).from(this.table_name).where('job_seq', job_seq);
+    const oKnex = this.database
+      .select(select)
+      .from(this.table_name)
+      .where('job_seq', job_seq);
     const result = await oKnex;
     return result;
   }

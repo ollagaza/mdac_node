@@ -145,8 +145,8 @@ routes.post('/uploadresfiles', upload.array('uploadFile'), Auth.isAuthenticated(
           // insert to result_file table
           let rseq = await FileService.createResultFile(body.fseq, body.jseq, 'ftype', files[f].file_name, pairKey, files[f].originalname, newFilePath, files[f].size);
         }
-        // insert to job_workder table
-        await ProjectService.createJobWorker(body.pseq, body.jseq, pairKey, body.cseq, '', '', null, null, null, null);
+        // insert to job_workder table - A2(라벨링 완료)
+        await ProjectService.createJobWorker(body.pseq, body.jseq, pairKey, body.cseq, 'A', '2', null, null, null, null);
       }
 
       const output = new StdObject(0, 'success', 200);
