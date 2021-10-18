@@ -301,4 +301,18 @@ routes.post('/delusers',  Auth.isAuthenticated(Role.ADMIN), Wrap(async (req, res
   res.json(output)
 }));
 
+routes.post('/membercount',  Auth.isAuthenticated(Role.ADMIN), Wrap(async (req, res) => {
+  req.accepts('application/json')
+
+  const project_seq = req.body.project_seq ? req.body.project_seq: ''
+  const start_date = req.body.start_date ? req.body.start_date: ''
+  const end_date = req.body.end_date ? req.body.end_date: ''
+
+  const member_info = await MemberService.MemberCount(DBMySQL, project_seq, start_date, end_date)
+  const output = new StdObject()
+  output.add('member_count', member_info.member_count[0][0]) // 멤버 카운팅 - 프로시져 호출시 불필요한 값이 붙어서 제거하기 위함[0][0]...
+  res.json(output)
+  //res.json(project_info.statistics_info[0][0])
+}));
+
 export default routes

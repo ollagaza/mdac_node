@@ -35,15 +35,4 @@ routes.post('/', Auth.isAuthenticated(Role.ADMIN), Wrap(async (req, res) => {
   //res.json(project_info.statistics_info[0][0])
 }))
 
-// test 통계
-routes.post('/test', Auth.isAuthenticated(Role.ADMIN), Wrap(async (req, res) => {
-  req.accepts('application/json')
-
-  const project_info = await StatisticsService.getTest(DBMySQL)
-  const output = new StdObject()
-  output.add('statistics_info', project_info.statistics_info) // 통계 정보
-
-  res.json(output)
-}))
-
 export default routes
