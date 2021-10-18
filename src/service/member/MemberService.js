@@ -256,9 +256,9 @@ const MemberServiceClass = class {
     }
   }
 
-  MemberCount = async (database) => {
+  MemberCount = async (database, project_seq, start_date, end_date) => {
     const member_model = this.getMemberModel(database)
-    const result = await member_model.getMembercount();
+    const result = await member_model.getMembercount(project_seq,  start_date, end_date);
     logger.debug(result);
     return result;
   }

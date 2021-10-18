@@ -259,20 +259,15 @@ export default class MemberModel extends MySQLModel {
     return search_user_results
   }
 
-  getMembercount = async () => {
-    const oKnex = this.database.select([
-      this.database.raw('count(*) `all_count`'),
-      this.database.raw('count(case when is_used = `0` then 1 end) `appr_count`'),
-      this.database.raw('count(case when is_used = `Y` then 1 end) `used_count`'),
-      this.database.raw('count(case when is_used = `N` then 1 end) `stop_count`'),
-      //this.database.raw('count(case when is_used in ('3, 6') then 1 end) `reject_count`'),
-    ])
-      .from('member')
-    const result = await oKnex
-    if (result[0]){
-      return result[0];
-    }
-    return {};
+  getMembercount = async (project_seq, start_date, end_date) => {
+    const result = {}
+
+    const select = 'CALL spGetWorker(?,?,?);'
+    // console.log(select)
+    const oKnex = this.database.raw(select, [project_seq,start_date,end_date])
+
+    result.member_count = await oKnex;
+    return result;
   }
 
   getMember_1 = async (is_used) => {
