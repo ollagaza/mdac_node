@@ -95,7 +95,7 @@ routes.post('/projectinfo', Auth.isAuthenticated(Role.ADMIN), Wrap(async (req, r
   let page_count = 10;
   let total_page = 0;
   let start = 0;
-  let end = list_count;
+  let end = list_count; // end 없으면 페이징 없이 전체 조회
   let start_page = 1;
   let end_page = page_count;
 
