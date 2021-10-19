@@ -55,11 +55,16 @@ export default class MemberModel extends MySQLModel {
     // logger.debug(member_info)
     const update_param = {};
     update_param.user_name = member_info.user_name;
+    if(member_info.password) {
+      update_param.password = this.encryptPassword(member_info.password);
+    }
     update_param.phone = member_info.phone;
     update_param.email = member_info.email;
     update_param.memo = member_info.memo;
     update_param.is_used = member_info.is_used;
     update_param.reason = member_info.reason;
+
+    
     try{
       const member_info_seq = await this.update({ seq: member_seq }, update_param)
       member_info.error = 0;
