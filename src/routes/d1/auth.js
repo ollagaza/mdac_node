@@ -24,9 +24,8 @@ routes.post('/', Wrap(async (req, res) => {
     const member_info = await AuthService.login(DBMySQL, req)
     const output = await Auth.getTokenResult(res, member_info, member_info.is_admin !== 'Y' ? Role.MEMBER : Role.ADMIN)
 
-    // 주석주석....유동진
-    //await MemberLogService.createMemberLog(req,  member_info.seq, '0000', 'login')
-    logger.debug('login')
+    await MemberLogService.createMemberLog(req, member_info.seq, member_info.seq, '0000', 'login')
+    // logger.debug('login')
     return res.json(output)
   } catch (e) {
     logger.error('/auth/', e)
