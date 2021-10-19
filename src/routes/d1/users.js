@@ -99,7 +99,7 @@ routes.get('/userinfo', Auth.isAuthenticated(Role.ADMIN), Wrap(async (req, res) 
 
   const token_info = req.token_info
   const cur_page = req.query.cur_page ? req.query.cur_page:'1'
-  const list_count = req.query.list_count ? req.query.list_count:'20'
+  const list_count = req.query.list_count ? req.query.list_count:''
   const is_used = req.query.is_used ? req.query.is_used:''
   const search_type = req.query.search_type
   const keyword = req.query.keyword ? req.query.keyword:''
@@ -154,7 +154,7 @@ routes.post('/userinfo', Auth.isAuthenticated(Role.ADMIN), Wrap(async (req, res)
 
   // const token_info = req.token_info
   const cur_page = req.body.cur_page ? req.body.cur_page:'1'
-  const list_count = req.body.list_count ? req.body.list_count:'20'
+  const list_count = req.body.list_count ? req.body.list_count:''
   const is_used = req.body.is_used ? req.body.is_used:''
   const search_type = req.body.search_type
   const keyword = req.body.keyword ? req.body.keyword:''

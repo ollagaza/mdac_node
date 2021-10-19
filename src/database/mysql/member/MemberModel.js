@@ -188,7 +188,10 @@ export default class MemberModel extends MySQLModel {
       }
       oKnex.orderBy('is_admin','desc');
       oKnex.orderBy('seq','desc');
-      oKnex.limit(end).offset(start)
+
+      if(end !== '') {
+        oKnex.limit(end).offset(start)
+      }      
     }else{
       oKnex.where('seq',member_seq);
     }
