@@ -26,9 +26,9 @@ const StatisticsServiceClass = class {
     return new StatisticsModel(DBMySQL);
   }
 
-  getStatistics = async (database, search_seq, project_seq, search_type, start_date, end_date) => {
+  getStatistics = async (database, search_seq, project_seq, search_type, start_date, end_date, worker) => {
     const statistics_model = this.GetStatisticsModel(database)
-    const statistics_info = await statistics_model.getStatistics(search_seq, project_seq, search_type, start_date, end_date)
+    const statistics_info = await statistics_model.getStatistics(search_seq, project_seq, search_type, start_date, end_date, worker)
     
     return statistics_info
   }
