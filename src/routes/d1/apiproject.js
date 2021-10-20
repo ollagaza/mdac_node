@@ -222,5 +222,19 @@ routes.post('/setjobwokerstatus', Auth.isAuthenticated(Role.LOGIN_USER), Wrap(as
 // getLabelingClass
 // - image - project 소속 class list
 // - video - job에 지정된 class_seq single, multi: 미정 (안: project 소속 class list)
+routes.get('/getjobclasslit', Auth.isAuthenticated(Role.LOGIN_USER), Wrap(async (req, res) => {
+    // project_seq, jog_seq, por
+    req.accepts('application/json');
+    try {
+
+    } catch (e) {
+        logger.error('/apiproject/setjobwokerstatus', e)
+        if (e.error < 0) {
+            throw new StdObject(e.error, e.message, 200)
+        } else {
+            throw new StdObject(-1, '', 200)
+        }
+    }
+}))
 
 export default routes
