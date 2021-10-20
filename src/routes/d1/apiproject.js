@@ -152,8 +152,20 @@ routes.post('/addjobworker', Auth.isAuthenticated(Role.LOGIN_USER), Wrap(async (
 routes.get('/getmemberjoblist', Auth.isAuthenticated(Role.LOGIN_USER), Wrap(async (req, res) => {
     req.accepts('application/json');
     try {
+        const body = req.body;
         // member seq, status: 없으면 라벨링 상태
-
+        const member_seq = body.member_seq;
+        const status = body.status;
+        if (status == null) {
+            // 라벨링(A0, A1)
+            const result = await ProjectService.getJobListByMemberseq(member_seq, 'A0, A1');
+            const output = new StdObject(0, 'success', 200, 'res:' + result);
+            res.json(output);
+        } else {
+            const result = await ProjectService.getJobListByMemberseq(member_seq, status);
+            const output = new StdObject(0, 'success', 200, 'res:' + result);
+            res.json(output);
+        }
     } catch (e) {
         logger.error('/apiproject/getmemberjoblist', e)
         if (e.error < 0) {
