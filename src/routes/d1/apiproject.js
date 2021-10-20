@@ -223,10 +223,9 @@ routes.post('/setjobwokerstatus', Auth.isAuthenticated(Role.LOGIN_USER), Wrap(as
 // - image - project 소속 class list
 // - video - job에 지정된 class_seq single, multi: 미정 (안: project 소속 class list)
 routes.get('/getjobclasslit', Auth.isAuthenticated(Role.LOGIN_USER), Wrap(async (req, res) => {
-    // project_seq, jog_seq, por
+    // type(1:image, 2:video), project_seq, jog_seq
     req.accepts('application/json');
     try {
-        // type - 1:image, 2:video
         const body = req.body;
         const type = body.type;
         if (type == 1) {
@@ -253,11 +252,6 @@ routes.get('/getjobclasslit', Auth.isAuthenticated(Role.LOGIN_USER), Wrap(async 
                 const output = new StdObject(0, 'success', 200, 'res:' + job.class_seq); // 수정 필요
                 res.json(output);
             }
-            // if class_seq == -1 then get class list by project_seq
-            // else then return class_seq of job table
-            // const result = await ProjectService.setJobWorkerStatus(body.seq, body.job_status);
-            // const output = new StdObject(0, 'success', 200, 'res:' + result);
-            // res.json(output);
         } else {
             throw new StdObject(-1, 'no type', 200)
         }

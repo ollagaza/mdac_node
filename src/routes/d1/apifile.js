@@ -154,7 +154,7 @@ routes.post('/uploadresfiles', upload.array('uploadFile'), Auth.isAuthenticated(
       res.json(output);
     }
   } catch (e) {
-    logger.error('/apifile/uploadresfile', e)
+    logger.error('/apifile/uploadresfiles', e)
     if (e.error < 0) {
       throw new StdObject(e.error, e.message, 200)
     } else {
