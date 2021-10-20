@@ -67,6 +67,18 @@ export default class MemberModel extends MySQLModel {
     // return result;
   }
 
+  getJobBySeq = async(job_seq) => {
+    const select = ['*'];
+    const oKnex = this.database
+      .select(select)
+      .from(this.table_name)
+      .where("seq", job_seq)
+      .first();
+    return await oKnex;
+  }
+
+
+
 }
 
 

@@ -9,6 +9,7 @@ import FileModel from '../../database/mysql/file/FileModel';
 import ResultFileModel from '../../database/mysql/file/ResultFileModel';
 import JobWorkerModel from '../../database/mysql/project/JobWorkerModel';
 import JobModel from '../../database/mysql/datamanager/Job_Model';
+import ClassModel from '../../database/mysql/datamanager/ClassModel';
 
 const ProjectServiceClass = class {
   constructor() {
@@ -90,6 +91,13 @@ const ProjectServiceClass = class {
       return new JobModel(database);
     }
     return new JobModel(DBMySQL);
+  }
+
+  getClassModel = (database = null) => {
+    if (database) {
+      return new ClassModel(database);
+    }
+    return new ClassModel(DBMySQL);
   }
 
   // method - project
@@ -179,8 +187,16 @@ const ProjectServiceClass = class {
     return await model.setJobWorkerStatus(seq, job_status);
   }
 
+  getJobByJobseq = async(job_seq) => {
+    const model = this.getJobModel(DBMySQL);
+    return await model.getJobBySeq(job_seq);
+  }
+
   // 라벨링클래스목록조회 - 클래스 목록 조회
-  // - 
+  getClassByProjectseq = async(project_seq) => {
+    const model = this.getClassModel(DBMySQL);
+    return await model.getClassListByProjectseq(project_seq);
+  }
 
   // result file upload - 미정
   // - image, video 각각 별도 처리 - job_worker

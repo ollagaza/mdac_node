@@ -226,7 +226,41 @@ routes.get('/getjobclasslit', Auth.isAuthenticated(Role.LOGIN_USER), Wrap(async 
     // project_seq, jog_seq, por
     req.accepts('application/json');
     try {
+        // type - 1:image, 2:video
+        const body = req.body;
+        const type = body.type;
+        if (type == 1) {
+            // image - by project_seq
+            const result = await ProjectService.setJobWorkerStatus(body.seq, body.job_status);
+            const output = new StdObject(0, 'success', 200, 'res:' + result);
+            res.json(output);
+        } else if (type == 2) {
+            // video
+            // get job data
+            const job = await ProjectService.getJobByJobseq(body.job_seq);
+            if (job == null) {
+                throw new StdObject(-1, 'fault job_seq', 200)    
+            }
 
+            // check class_seq of job table
+            if (job.class_seq == -1) {
+                // get class list by project_seq
+                const result = await ProjectService.setJobWorkerStatus(body.seq, body.job_status);
+                const output = new StdObject(0, 'success', 200, result);
+                res.json(output);
+            } else {
+                // return class_seq of job table
+                const output = new StdObject(0, 'success', 200, 'res:' + job.class_seq); // 수정 필요
+                res.json(output);
+            }
+            // if class_seq == -1 then get class list by project_seq
+            // else then return class_seq of job table
+            // const result = await ProjectService.setJobWorkerStatus(body.seq, body.job_status);
+            // const output = new StdObject(0, 'success', 200, 'res:' + result);
+            // res.json(output);
+        } else {
+            throw new StdObject(-1, 'no type', 200)
+        }
     } catch (e) {
         logger.error('/apiproject/setjobwokerstatus', e)
         if (e.error < 0) {
