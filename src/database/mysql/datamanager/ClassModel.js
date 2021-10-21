@@ -187,4 +187,13 @@ export default class ClassModel extends MySQLModel {
     return result;
   }
 
+  getClassListByProjectseq = async(project_seq) => {
+    const select = ['*'];
+    const oKnex = this.database
+      .select(select)
+      .from(this.table_name)
+      .where("project_seq", project_seq);
+    return await oKnex;
+  }
+
 }

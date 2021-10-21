@@ -55,11 +55,16 @@ export default class MemberModel extends MySQLModel {
     // logger.debug(member_info)
     const update_param = {};
     update_param.user_name = member_info.user_name;
+    if(member_info.password) {
+      update_param.password = this.encryptPassword(member_info.password);
+    }
     update_param.phone = member_info.phone;
     update_param.email = member_info.email;
     update_param.memo = member_info.memo;
     update_param.is_used = member_info.is_used;
     update_param.reason = member_info.reason;
+
+    
     try{
       const member_info_seq = await this.update({ seq: member_seq }, update_param)
       member_info.error = 0;
@@ -188,7 +193,10 @@ export default class MemberModel extends MySQLModel {
       }
       oKnex.orderBy('is_admin','desc');
       oKnex.orderBy('seq','desc');
-      oKnex.limit(end).offset(start)
+
+      if(end !== '') {
+        oKnex.limit(end).offset(start)
+      }      
     }else{
       oKnex.where('seq',member_seq);
     }
@@ -259,20 +267,15 @@ export default class MemberModel extends MySQLModel {
     return search_user_results
   }
 
-  getMembercount = async () => {
-    const oKnex = this.database.select([
-      this.database.raw('count(*) `all_count`'),
-      this.database.raw('count(case when is_used = `0` then 1 end) `appr_count`'),
-      this.database.raw('count(case when is_used = `Y` then 1 end) `used_count`'),
-      this.database.raw('count(case when is_used = `N` then 1 end) `stop_count`'),
-      //this.database.raw('count(case when is_used in ('3, 6') then 1 end) `reject_count`'),
-    ])
-      .from('member')
-    const result = await oKnex
-    if (result[0]){
-      return result[0];
-    }
-    return {};
+  getMembercount = async (project_seq, start_date, end_date) => {
+    const result = {}
+
+    const select = 'CALL spGetWorker(?,?,?);'
+    // console.log(select)
+    const oKnex = this.database.raw(select, [project_seq,start_date,end_date])
+
+    result.member_count = await oKnex;
+    return result;
   }
 
   getMember_1 = async (is_used) => {
