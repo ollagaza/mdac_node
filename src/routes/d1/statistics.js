@@ -28,8 +28,9 @@ routes.post('/', Auth.isAuthenticated(Role.ADMIN), Wrap(async (req, res) => {
   const start_date = req.body.start_date ? req.body.start_date: ''
   const end_date = req.body.end_date ? req.body.end_date: ''
   const worker = req.body.worker ? req.body.worker: ''
+  const status = req.body.status ? req.body.status: ''
 
-  const project_info = await StatisticsService.getStatistics(DBMySQL, search_seq, project_seq, search_type, start_date, end_date, worker)
+  const project_info = await StatisticsService.getStatistics(DBMySQL, search_seq, project_seq, search_type, start_date, end_date, worker, status)
   const output = new StdObject()
   output.add('statistics_info', project_info.statistics_info[0][0]) // 통계 정보 - 프로시져 호출시 불필요한 값이 붙어서 제거하기 위함[0][0]...
   res.json(output)

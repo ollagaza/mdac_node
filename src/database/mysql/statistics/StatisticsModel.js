@@ -20,7 +20,7 @@ export default class StatisticsModel extends MySQLModel {
       
     ]
   }
-  getStatistics = async (search_seq, project_seq, search_type, start_date, end_date, worker) => {
+  getStatistics = async (search_seq, project_seq, search_type, start_date, end_date, worker, status) => {
     const result = {}
 
     // let select = `SELECT project_seq, project_name, SUM(total) AS total, SUM(ing) AS ing, SUM(complete) AS complete, SUM(reject) AS reject
@@ -58,9 +58,9 @@ export default class StatisticsModel extends MySQLModel {
     // ) CHECKER where project_seq=1
     // GROUP BY project_seq`
 
-    const select = 'CALL spGetStatistics(?,?,?,?,?,?);'
+    const select = 'CALL spGetStatistics(?,?,?,?,?,?,?);'
     // console.log(select)
-    const oKnex = this.database.raw(select, [search_seq,project_seq,search_type,start_date,end_date,worker])
+    const oKnex = this.database.raw(select, [search_seq,project_seq,search_type,start_date,end_date,worker,status])
                 
     // oKnex.where('f.seq','<>',0)
     // if(project_seq === '')
