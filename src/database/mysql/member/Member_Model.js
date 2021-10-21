@@ -18,7 +18,7 @@ export default class MemberModel extends MySQLModel {
   }
 
   getWokerList = async (is_used) => {
-    const select = ['user_id', 'user_name', 'reg_date', 'email', knex.raw('\'100\' as wcount') , knex.raw('\'10\' as bcount') , knex.raw('\'30\' as ccount') , knex.raw('\'430\' as dcount')]
+    const select = ['seq', 'user_id', 'user_name', 'reg_date', 'email', knex.raw('\'100\' as wcount') , knex.raw('\'10\' as bcount') , knex.raw('\'30\' as ccount') , knex.raw('\'430\' as dcount')]
     const oKnex = this.database.select(select).from(this.table_name).where('is_used',is_used);
     const result = {};
     try{

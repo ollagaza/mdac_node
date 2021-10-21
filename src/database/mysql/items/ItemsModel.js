@@ -161,7 +161,7 @@ export default class ItemsModel extends MySQLModel {
       file_info.error = -1;
       file_info.message = e.sqlMessage;
     }
-    logger.debug(file_info);
+    // logger.debug(file_info);
     return file_info
   }
 

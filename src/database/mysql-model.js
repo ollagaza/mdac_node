@@ -213,6 +213,7 @@ export default class MysqlModel {
       }
       const oCountKnex = this.database.from(oKnex.clone().as('list'))
       const oDataListKnex = oKnex.clone()
+      // logger.debug('queryPaginated', use_paging)
       if (use_paging) {
         oDataListKnex
           .limit(list_count)
@@ -233,8 +234,10 @@ export default class MysqlModel {
         data[i]['_no'] = virtual_no
         virtual_no--
       }
-
+      // logger.debug('no_paging return 전','',list_count, cur_page, page_count, no_paging);
       const total_page = Math.ceil(total_count / list_count) || 1
+      const npage = new PageHandler(total_count, total_page, cur_page, page_count, list_count);
+      // logger.debug('no_paging return 전','npage',npage);
       return {
         total_count,
         data,
