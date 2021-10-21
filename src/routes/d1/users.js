@@ -57,7 +57,7 @@ routes.post('/:member_seq(\\d+)/updateUser', async (req, res) => {
   let result = null;
   if (request_body.user_id) {
     result = await MemberService.updateUser(member_seq, request_body);
-    MemberLogService.createMemberLog(req, member_seq, mod_member_seq, '1002', result.message);
+    MemberLogService.createMemberLog(req, member_seq, mod_member_seq, '1002', JSON.stringify(request_body));
     res.json(result);
   } else {
     const out = new StdObject(-1, '등록된 값이 없습니다.', 404);
