@@ -1,11 +1,13 @@
-##directory
-#logs directory
-logs/
-#node modules directory
+.DS_Store
+.idea
+.idea/*
 node_modules/
+dist/
+test/unit/coverage
+test/e2e/reports
+*.log
+package-lock.json
+src/config/knex.config.js
+logs/
+.gitignore
 .vscode/
-uploads/
-
-package-lock.json
-package-lock.json
-package.json
