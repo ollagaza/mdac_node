@@ -118,14 +118,19 @@ const ProjectServiceClass = class {
     }
     
     const res = this.getAllDivisionFullPath(dicDivision);
-    return res;
+    return Object.values(Object.values(res));
   }
 
   // method - file
   getOrgFilesByDivisionseq = async (division_seq) => {
       const file_model = this.getFileModel(DBMySQL);
       const result = await file_model.getOrgFilesByDivisionseq(division_seq);
-      logger.debug(result);
+      // make download url
+      for (let item of result) {
+        item.download_url = '';
+      }
+
+      // logger.debug(result);
       return result;
   }
 
@@ -140,6 +145,13 @@ const ProjectServiceClass = class {
 
     const file_model = this.getResultFileModel(DBMySQL);
     const result = await file_model.getResFilesByJobseq(job_seq);
+    logger.debug(result);
+    return result;
+  }
+
+  getResFilesByFileseq = async (file_seq) => {
+    const file_model = this.getResultFileModel(DBMySQL);
+    const result = await file_model.getResFilesByFileseq(file_seq);
     logger.debug(result);
     return result;
   }

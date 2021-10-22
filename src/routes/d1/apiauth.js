@@ -28,7 +28,7 @@ routes.post('/', Wrap(async (req, res) => {
       output.variables.token = `Bearer ${output.variables.token}`
     //   const output = await Auth.getMachineTokenResult(member_info)
   
-      await MemberLogService.createMemberLog(req,  member_info.seq, '0000', 'apiauto_login')
+      await MemberLogService.createMemberLog(req, member_info.seq, member_info.seq, '0000', 'apiauto_login')
       return res.json(output)
     } catch (e) {
       logger.error('/aipauth/', e)
