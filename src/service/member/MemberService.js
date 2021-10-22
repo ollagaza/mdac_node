@@ -114,6 +114,15 @@ const MemberServiceClass = class {
     }
   }
 
+  hisMember = async (database, member_seq) => {
+    const output = new StdObject()
+
+    const member_model = this.getMemberModel(database)
+    const member_info = await member_model.hisMember(member_seq)
+
+    return member_info
+  }
+
   findMemberId = async (database, request_body) => {
     const member_info = new JsonWrapper(request_body, [])
     // logger.debug(member_info.hasValue('user_name'));

@@ -200,6 +200,17 @@ routes.post('/userinfo', Auth.isAuthenticated(Role.ADMIN), Wrap(async (req, res)
   res.json(output)
 }))
 
+routes.post('/history/:member_seq', Wrap(async (req, res) => {
+  req.accepts('application/json')
+  const output = new StdObject()
+
+  const member_info = await MemberService.hisMember(DBMySQL, req.params.member_seq)
+
+  output.add('member_info', member_info)
+
+  res.json(output)
+}))
+
 routes.post('/find/id', Wrap(async (req, res) => {
   req.accepts('application/json')
 
