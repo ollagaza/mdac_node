@@ -3,6 +3,7 @@
 import MySQLModel from "../../mysql-model";
 import knex from "../../knex-mysql";
 import logger from "../../../libs/logger";
+import Constants from "../../../constants/constants";
 
 export default class JobLog_Model extends MySQLModel {
   constructor(database) {
@@ -60,6 +61,19 @@ export default class JobLog_Model extends MySQLModel {
       oKnex.andWhere('pair_key', '=', pair_key)
     }
     return await oKnex;
+  }
+
+  getImg = async (seq) => {
+    const oKnex = this.database
+      .select('*')
+      .from(this.table_name)
+      .where('seq', '=', seq);
+    oKnex.andWhere( knex.raw('file_type = \'i\''));
+    const result = await oKnex;
+    const file_info = {};
+    file_info.full_name = result[0].file_path;
+    file_info.error = 0;
+    return file_info;
   }
 
 }

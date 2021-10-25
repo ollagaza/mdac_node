@@ -144,12 +144,12 @@ const ProjectServiceClass = class {
   }
 
   setWorkIn = async (database, pro_seq, div_seq, req_body, member_seq) => {
-    logger.debug('setWorkIn' ,req_body);
+    // logger.debug('setWorkIn' ,req_body);
     const jobLog_Model = this.getJobLog_Model(database);
-    const resultFile_Model = this.getResultFile_Model(database);
     await database.transaction(async (transaction) => {
+      const resultFile_Model = this.getResultFile_Model(transaction);
       const jobwoker_model = this.getJobWorker_Model(transaction);
-      const job_model = this.getJob_Model(transaction);
+      // const job_model = this.getJob_Model(transaction);
       const class_id = req_body.class_id;
       const jobworker = {};
       const view_type = req_body.view_type;
@@ -163,7 +163,7 @@ const ProjectServiceClass = class {
       jobworker.job_status = req_body.work_status_send;
       jobworker.job_member_seq = req_body.worker_id;
       jobworker.reg_member_seq = member_seq;
-      logger.debug('retrun 1')
+      // logger.debug('retrun 1')
       const result = {};
       let result_data = {};
       const check_filejoblist = req_body.check_filejoblist;
@@ -174,7 +174,7 @@ const ProjectServiceClass = class {
         let job_seq = 0;
         let rf_seq = 0; // 비디오타입 일때 키워드.
         let rf_pair_key = 0;
-        logger.debug('retrun 2')
+        // logger.debug('retrun 2')
         if (file_type === 'v' && view_type === 'v'){
           job_seq = parseInt(item.seq, 10);
           rf_pair_key = parseInt(item.rf_pair_key, 10);
@@ -197,11 +197,11 @@ const ProjectServiceClass = class {
           // jobworker reject_act에 R -- 반려관한 행동 반려여부 R 다시부여했음 A
           // job생성
           // jobwork 생성 오리지널 키 입력.
-          logger.debug(item.status, jobworker.job_status )
+          // logger.debug(item.status, jobworker.job_status )
           if (status_type === '5') {
             const job_react = {reject_act: 'R', reject_seq: rf_pair_key};
             await jobwoker_model.updateJobWorker(job_react, job_seq);
-            logger.debug('job_react', job_react);
+            // logger.debug('job_react', job_react);
             if (view_type === 'v') {
               await resultFile_Model.updateRejectFile(job_react, rf_pair_key);
               // insert file
@@ -211,6 +211,7 @@ const ProjectServiceClass = class {
               jobworker.result_file_pair_key = result_rf_pair_key;
               // logger.debug(jobworker);
               await jobwoker_model.createJobWorker(jobworker, false);
+              // await jobwoker_model.createJobWorker(jobworker, false);
               // result_data = await this.rfUpdate(transaction, jobworker, job_seq, req_body, rf_seq, member_seq);
             } else {
               jobworker.reject_act = 'A';
@@ -219,7 +220,8 @@ const ProjectServiceClass = class {
             }
             // return;
           } else {
-            logger.debug(item.status)
+            // logger.debug(item.status)
+            //반려
             if (jobworker.job_status === 'Z5') {
               if (item.status === 'B1' || item.status === 'C1' || item.status === 'D1') {
                 jobworker.status = item.status.substr(0, 1) + '5';
@@ -228,6 +230,7 @@ const ProjectServiceClass = class {
               const jobworker_react = {job_status: jobworker.status, job_date: nowtime};
               await jobwoker_model.updateJobWorkerByStatus(jobworker_react, job_seq, item.status );
             }
+            //완료
             if (jobworker.job_status === 'E2'){
               jobworker.job_member_seq = member_seq;
               jobworker.job_seq = job_seq;
@@ -299,11 +302,13 @@ const ProjectServiceClass = class {
       job_update.labeler_member_seq = req_body.worker_id;
     }
     job_update.mod_member_seq = member_seq;
-    logger.debug(job_update);
+    // logger.debug(job_update);
     try {
       await job_model.updateJob(job_update, job_seq);
       jobworker.job_seq = job_seq;
-      jobworker.jobwork_seq = await jobwoker_model.createJobWorker(jobworker)
+      if (req_body.work_status_send !== 'A1') {
+        jobworker.jobwork_seq = await jobwoker_model.createJobWorker(jobworker)
+      }
       const str = JSON.stringify(jobworker);
       await this.createJobLogWorker(database, jobworker, member_seq, `update [${str}]` );
     } catch (e) {
@@ -315,7 +320,6 @@ const ProjectServiceClass = class {
   }
 
   jobIn = async(database, jobworker, file_seq, req_body, status, member_seq) => {
-    logger.debug('job');
     const result = {};
     const job = {};
     job.file_seq = file_seq;
@@ -331,14 +335,14 @@ const ProjectServiceClass = class {
       job.label_cnt = 1;
     }
     const job_model = this.getJob_Model(database);
-    const jobwoker_model = this.getJobWorker_Model(database);
-    logger.debug(job);
     try {
       jobworker.job_seq = await job_model.createJob(job);
-      logger.debug('jobworker.job_seq', jobworker.job_seq);
-      jobworker.jobwork_seq = await jobwoker_model.createJobWorker(jobworker)
+      if (status !== 'A1') {
+        const jobwoker_model = this.getJobWorker_Model(database);
+        jobworker.jobwork_seq = await jobwoker_model.createJobWorker(jobworker)
+      }
+
       await this.createJobLogWorker(database, jobworker, member_seq, `insert table[job] [id:${jobworker.job_seq}]` );
-      // await jobLog_Model.createJobLogWorker(job_seq, req_body.work_status_send, req_body.worker_id, member_seq, `insert table[job] [id:${jobworker.job_seq}]` );
       result.error = 0;
       result.job_seq = jobworker.job_seq;
     } catch (e) {
@@ -386,13 +390,13 @@ const ProjectServiceClass = class {
         }
       }
     });
-    logger.debug('end ');
+    // logger.debug('end ');
     return new StdObject(0, 'ok', 200);
   }
 
   getFileView = async (database, pro_seq, div_seq, req_body, member_seq) => {
     const file_seq = req_body.file_seq ? req_body.file_seq : -1;
-    logger.debug( req_body, file_seq );
+    // logger.debug( req_body, file_seq );
     if (parseInt(file_seq, 10) < 0) {
       return new StdObject(-1, '올바른 파라멘타가 아닙니다.', 500);
     }
@@ -403,15 +407,18 @@ const ProjectServiceClass = class {
   getImgBySeq = async (database, seq, isresult) => {
     const mediapath = Util.removePathLastSlash(ServiceConfig.get('media_directory'));
     const file_model = this.getFile_Model(database);
+    const result_model = this.getResultFile_Model(database);
     let filedata = {}
     let img_path = '';
     const output = {};
     if (isresult === 'o'){
       filedata = await file_model.getImg(seq);
-      img_path = mediapath + Constants.SP + filedata.full_name;
+      // img_path = mediapath + Constants.SP + filedata.full_name;
+      img_path = filedata.full_name;
     } else {
-      logger.debug('결과')
-      // filedata = await checkFileModel.getImg(ck_seq);
+      // logger.debug('결과')
+      filedata = await result_model.getImg(seq);
+      img_path = filedata.file_name;
     }
     // logger.debug('img_path', img_path)
     output.img_path = img_path;
@@ -499,7 +506,7 @@ const ProjectServiceClass = class {
     }
     const result = {};
     const fileList = await resultfile_model.getResultFile(job_seq, file_type);
-    logger.debug(fileList);
+    // logger.debug(fileList);
     result.message = 'not found file';
     result.error = -1;
     if (fileList && fileList.length > 0) {
@@ -509,7 +516,7 @@ const ProjectServiceClass = class {
         if (fs.existsSync(file_name)) {
           const stats = fs.statSync(file_name);
           const fileSizeInBytes = stats.size;
-          logger.debug(stats);
+          // logger.debug(stats);
           const path_file = path.parse(file_name);
           let org_name = path_file.base;
           org_name = org_name.replace(/ /g,'_')
@@ -518,8 +525,8 @@ const ProjectServiceClass = class {
           res.setHeader('Content-length', fileSizeInBytes);
           res.setHeader('Content-type', mimetype); // 파일 형식 지정
           const filestream = fs.createReadStream(file_name);
-          logger.debug(file_name)
-          logger.debug(org_name)
+          // logger.debug(file_name)
+          // logger.debug(org_name)
           filestream.pipe(res);
 
           // res.sendFile(file_name);
