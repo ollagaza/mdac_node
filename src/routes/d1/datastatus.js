@@ -101,7 +101,7 @@ routes.post('/getdivsum/', Auth.isAuthenticated(Role.LOGIN_USER),  Wrap(async (r
     output.error = result.error;
     output.message = result.message;
   }
-  logger.debug(result);
+  // logger.debug(result);
   res.json(output)
 }))
 
@@ -247,14 +247,14 @@ routes.get('/getvideo/:seq/:isresult', async (req, res) => {
   const seq = req.params.seq;
   const isresult = req.params.isresult;
   const output = await DatastatusService.getImgBySeq(DBMySQL, seq, isresult);
-  const file_mp4 = 'E:\\temp\\datamanger\\1\\Clouds.mp4';// output.img_path;
-  output.error = 0;
-  logger.debug(file_mp4);
+  const file_mp4 = output.img_path; // 'E:\\temp\\datamanger\\1\\Clouds.mp4';//
+  // output.error = 0;
+  // logger.debug(file_mp4);
   if (output.error === 0) {
     const stat = fs.statSync(file_mp4)
     const fileSize = stat.size
     const range = req.headers.range
-    logger.debug(range)
+    // logger.debug(range)
     if (range) {
       const parts = range.replace(/bytes=/, "").split("-");
       const start = parseInt(parts[0], 10);
@@ -301,7 +301,7 @@ routes.post('/getHis/:job_seq', Auth.isAuthenticated(Role.LOGIN_USER),  Wrap(asy
 routes.get('/resultdown/:job_seq', Wrap(async (req, res) => {
   req.accepts('application/json')
   const job_seq = req.params.job_seq;
-  logger.debug(req.query);
+  // logger.debug(req.query);
   const req_body = req.query ? req.query : {file_type: 'i'};
   if (!req_body) {
     return new StdObject(-1, '입력된 파라메타가 없습니다.', 200);
