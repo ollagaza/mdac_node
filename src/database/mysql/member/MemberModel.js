@@ -244,6 +244,21 @@ export default class MemberModel extends MySQLModel {
     return total_count;    
   }
   
+  hisMember = async (member_seq) => {
+
+    const select = ['member_log.seq','mod_member_seq','user_name', 'log_type','log_text','ip_addr','member_log.reg_date']
+    const oKnex = this.database.select(select);
+    oKnex.from(`${this.table_name}_log`)
+    oKnex.innerJoin('member',function() {
+      this.on('member.seq','member_log.mod_member_seq')
+    })
+    oKnex.where('member_seq',member_seq);
+    oKnex.orderBy('reg_date','desc');
+
+    const result = await oKnex;
+    return result;
+  }
+
   findMemberId = async (member_info) => {
     member_info.setAutoTrim(true)
     const member = member_info.toJSON()
