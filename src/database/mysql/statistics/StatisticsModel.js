@@ -59,7 +59,6 @@ export default class StatisticsModel extends MySQLModel {
     // GROUP BY project_seq`
 
     const select = 'CALL spGetStatistics(?,?,?,?,?,?,?);'
-    // console.log(select)
     const oKnex = this.database.raw(select, [search_seq,project_seq,search_type,start_date,end_date,worker,status])
                 
     // oKnex.where('f.seq','<>',0)
