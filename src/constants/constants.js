@@ -21,6 +21,8 @@ const FileTrans = 3;// 변환 중
 const FileDone = 11;// 변환완료
 const FileErr = 90;// 에러
 
+const FFMPEG_EXE = 'D:\\ffmpeg\\ffmpeg-4.3.1-2020-11-19-full_build-shared\\bin\\ffmpeg';
+
 export default {
   'LOCAL': LOCAL,
   'TOKEN_SECRET': TOKEN_SECRET,
@@ -30,6 +32,7 @@ export default {
   FileTransStart,
   FileTrans,
   FileDone,
-  FileErr
+  FileErr,
+  FFMPEG_EXE
 }
 
