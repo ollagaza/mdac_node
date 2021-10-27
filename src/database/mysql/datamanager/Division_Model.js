@@ -58,6 +58,7 @@ export default class DivisionModel extends MySQLModel {
     const result = {}
     const select = [knex.raw('job.division_seq, '+
       'ai.label_cnt_sum, '+
+      're.reject_A_sum, '+
       'sum(case when jw.job_status=\'A0\' then 1 END) AS \'A0\', ' +
       'sum(case when jw.job_status=\'A1\' then 1 END) AS \'A1\', ' +
       'sum(case when jw.job_status=\'A2\' then 1 END) AS \'A2\', ' +
@@ -77,7 +78,11 @@ export default class DivisionModel extends MySQLModel {
         this.on('jw.job_seq', '=', 'job.seq')
       })
     const sum_assi = 'SELECT division_seq, SUM(label_cnt) label_cnt_sum FROM job GROUP BY division_seq';
+    const sum_reject = 'SELECT mjo.division_seq, count(mjw.seq) reject_A_sum FROM job as mjo '+
+        'left join job_worker mjw on(mjw.job_seq = mjo.seq) '+
+        'where mjw.reject_act = \'A\' GROUP BY mjo.division_seq';
     oKnex.leftJoin(knex.raw(`(${sum_assi}) as ai on ai.division_seq = job.division_seq`));
+    oKnex.leftJoin(knex.raw(`(${sum_reject}) as re on re.division_seq = job.division_seq`));
     oKnex.whereIn('job.division_seq', seq_list)
     oKnex.groupBy('job.division_seq')
     try{

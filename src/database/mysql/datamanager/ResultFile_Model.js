@@ -16,8 +16,19 @@ export default class JobLog_Model extends MySQLModel {
     return await this.update(filter, params)
   }
 
+  updatePairRFile = async (pair_key, params) => {
+    const filter = { pair_key: pair_key, file_type: 'i' }
+    return await this.update(filter, params)
+  }
+
+
   updateRejectFile = async (params, seq) => {
     const filter = { pair_key: seq }
+    return await this.update(filter, params)
+  }
+
+  updateRejectFileJobseq = async (params, seq) => {
+    const filter = { pair_key: seq, status: 'A1' }
     return await this.update(filter, params)
   }
 

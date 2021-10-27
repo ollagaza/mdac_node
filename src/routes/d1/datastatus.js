@@ -227,6 +227,23 @@ routes.post('/delwork/:pro_seq/:div_seq', Auth.isAuthenticated(Role.LOGIN_USER),
   res.json(result);
 }))
 
+
+routes.get('/getvedioimg/:seq/:isresult', async (req, res) => {
+  const seq = req.params.seq;
+  const isresult = req.params.isresult;
+  const output = await DatastatusService.getVedioImgBySeq(DBMySQL, seq, isresult);
+  if (output.error === 0) {
+    fs.readFile(output.img_path ,
+      function (error, data) {
+        res.writeHead(200, {'Content-Type':'text/html'});
+        res.end(data);
+      }
+    )
+  } else {
+    res.json(new StdObject(-1, '잘못된 데이타입니다.',404));
+  }
+});
+
 routes.get('/getimg/:seq/:isresult', async (req, res) => {
   const seq = req.params.seq;
   const isresult = req.params.isresult;

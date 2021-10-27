@@ -33,13 +33,17 @@ export default class ProjectModel extends MySQLModel {
         'sum(case when jw.job_status=\'D5\' then 1 END) AS \'D5\', ' +
         'sum(case when jw.job_status=\'E2\' then 1 END) AS \'E2\' ' +
         'FROM job_worker jw ' +
-        'LEFT JOIN job jo ON jw.job_seq = jo.seq ' +
+        'Inner JOIN job jo ON jw.job_seq = jo.seq ' +
         'GROUP BY jw.project_seq';
       oKnex.leftJoin(knex.raw(`(${sum_query}) as sd on sd.project_seq = project.seq`));
       const sum_member = 'select project_seq, count(*) labler_co from(' +
         'select project_seq, job_member_seq from job_worker where job_name=\'A\' group by project_seq, job_member_seq' +
         ') AS psum GROUP BY project_seq'
+      const reject_co = 'select project_seq, count(*) reject_A_co from(' +
+          'select project_seq, job_member_seq from job_worker where job_name=\'A\' and reject_act = \'A\' group by project_seq, job_member_seq' +
+          ') AS psum GROUP BY project_seq'
       oKnex.leftJoin(knex.raw(`(${sum_member}) as sm on sm.project_seq = project.seq`));
+      oKnex.leftJoin(knex.raw(`(${reject_co}) as re on re.project_seq = project.seq`));
       const sum_assi = 'SELECT project_seq, SUM(label_cnt) label_cnt_sum FROM job GROUP BY project_seq';
       oKnex.leftJoin(knex.raw(`(${sum_assi}) as ai on ai.project_seq = project.seq`));
       result.error = 0;
