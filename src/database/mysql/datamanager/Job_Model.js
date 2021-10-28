@@ -77,7 +77,7 @@ export default class MemberModel extends MySQLModel {
       .select(select)
       .from(this.table_name)
       .where("labeler_member_seq", member_seq)
-      .whereIn('status', status);
+      .whereIn("status", status);
       // .andWhere('status', status);
     return await oKnex;
     // const result = {};

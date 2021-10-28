@@ -10,6 +10,7 @@ import ResultFileModel from '../../database/mysql/file/ResultFileModel';
 import JobWorkerModel from '../../database/mysql/project/JobWorkerModel';
 import JobModel from '../../database/mysql/datamanager/Job_Model';
 import ClassModel from '../../database/mysql/datamanager/ClassModel';
+import MemberModel from '../../database/mysql/member/Member_Model';
 
 const ProjectServiceClass = class {
   constructor() {
@@ -100,7 +101,14 @@ const ProjectServiceClass = class {
     return new ClassModel(DBMySQL);
   }
 
-  // method - project
+  getMemberModel = (database = null) => {
+    if (database) {
+      return new MemberModel(database);
+    }
+    return new MemberModel(DBMySQL);
+  }
+
+  // method - projectgetJobListByMemberseq
   getProjects = async () => {
     const project_model = this.getProjectModel(DBMySQL);
     const result = await project_model.getProjects();
@@ -126,9 +134,9 @@ const ProjectServiceClass = class {
       const file_model = this.getFileModel(DBMySQL);
       const result = await file_model.getOrgFilesByDivisionseq(division_seq);
       // make download url
-      for (let item of result) {
-        item.download_url = '';
-      }
+      // for (let item of result) {
+      //   item.download_url = '';
+      // }
 
       // logger.debug(result);
       return result;
@@ -213,6 +221,10 @@ const ProjectServiceClass = class {
   // result file upload - 미정
   // - image, video 각각 별도 처리 - job_worker
 
+  getMembers = async() => {
+    const model = this.getMemberModel(DBMySQL);
+    return await model.getWokerList('Y');
+  }
 
 }
 

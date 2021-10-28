@@ -171,18 +171,24 @@ routes.post('/addjobworker', Auth.isAuthenticated(Role.LOGIN_USER), Wrap(async (
 routes.get('/getmemberjoblist', Auth.isAuthenticated(Role.LOGIN_USER), Wrap(async (req, res) => {
     req.accepts('application/json');
     try {
-        const body = req.body;
         // member seq, status: 없으면 라벨링 상태
-        const member_seq = body.member_seq;
-        const status = body.status;
-        if (status == null) {
+        const member_seq = req.query.member_seq;
+        const status = req.query.status.split(',');
+        console.log('member_seq:' + member_seq);
+        console.log('status:' + status);
+        if (req.query.status == null || req.query.status == '') {
             // 라벨링(A0, A1)
-            const result = await ProjectService.getJobListByMemberseq(member_seq, 'A0, A1');
-            const output = new StdObject(0, 'success', 200, 'res:' + result);
+            const arrStatus = [];
+            arrStatus.push('A0');
+            arrStatus.push('A1');
+            const result = await ProjectService.getJobListByMemberseq(member_seq, arrStatus);
+            const output = new StdObject(0, 'success', 200);
+            output.add('data', result);
             res.json(output);
         } else {
             const result = await ProjectService.getJobListByMemberseq(member_seq, status);
-            const output = new StdObject(0, 'success', 200, 'res:' + result);
+            const output = new StdObject(0, 'success', 200);
+            output.add('data', result);
             res.json(output);
         }
     } catch (e) {
@@ -217,45 +223,25 @@ routes.post('/setjobwokerstatus', Auth.isAuthenticated(Role.LOGIN_USER), Wrap(as
         }
     }
 }))
-// routes.post('/setjobworkerstatus', Auth.isAuthenticated(Role.LOGIN_USER), Wrap(async (req, res) => {
-//     req.accepts('application/json');
-//     try {
-//         const body = req.body;
-//         const result = await ProjectService.setJobWorkerStatus(body.seq, body.job_name, body.job_status);
-//         if (result != null && result.error == 0) {            
-//             const output = new StdObject(0, 'success', 200, result);
-//             res.json(output);
-//         } else {
-//             throw new StdObject(-1, 'failed update', 200)
-//         }
-//     } catch (e) {
-//         logger.error('/apiproject/setjobworkerstatus', e)
-//         if (e.error < 0) {
-//             throw new StdObject(e.error, e.message, 200)
-//         } else {
-//             throw new StdObject(-1, '', 200)
-//         }
-//     }
-// }))
 
 // getLabelingClass
 // - image - project 소속 class list
 // - video - job에 지정된 class_seq single, multi: 미정 (안: project 소속 class list)
-routes.get('/getjobclasslit', Auth.isAuthenticated(Role.LOGIN_USER), Wrap(async (req, res) => {
+routes.get('/getjobclasslist', Auth.isAuthenticated(Role.LOGIN_USER), Wrap(async (req, res) => {
     // type(1:image, 2:video), project_seq, jog_seq
     req.accepts('application/json');
     try {
-        const body = req.body;
-        const type = body.type;
+        const type = req.query.type;
         if (type == 1) {
             // image - by project_seq
-            const result = await ProjectService.setJobWorkerStatus(body.seq, body.job_status);
-            const output = new StdObject(0, 'success', 200, 'res:' + result);
+            const result = await ProjectService.getClassByProjectseq(req.query.project_seq);
+            const output = new StdObject(0, 'success', 200);
+            output.add('data', result);
             res.json(output);
         } else if (type == 2) {
             // video
             // get job data
-            const job = await ProjectService.getJobByJobseq(body.job_seq);
+            const job = await ProjectService.getJobByJobseq(req.query.job_seq);
             if (job == null) {
                 throw new StdObject(-1, 'fault job_seq', 200);
             }
@@ -263,8 +249,9 @@ routes.get('/getjobclasslit', Auth.isAuthenticated(Role.LOGIN_USER), Wrap(async 
             // check class_seq of job table
             if (job.class_seq == -1) {
                 // get class list by project_seq
-                const result = await ProjectService.setJobWorkerStatus(body.seq, body.job_status);
-                const output = new StdObject(0, 'success', 200, result);
+                const result = await ProjectService.getClassByProjectseq(req.query.project_seq);
+                const output = new StdObject(0, 'success', 200);
+                output.add('data', result);
                 res.json(output);
             } else {
                 // return class_seq of job table
@@ -275,7 +262,23 @@ routes.get('/getjobclasslit', Auth.isAuthenticated(Role.LOGIN_USER), Wrap(async 
             throw new StdObject(-1, 'no type', 200);
         }
     } catch (e) {
-        logger.error('/apiproject/setjobwokerstatus', e);
+        logger.error('/apiproject/getjobclasslist', e);
+        if (e.error < 0) {
+            throw new StdObject(e.error, e.message, 200);
+        } else {
+            throw new StdObject(-1, '', 200);
+        }
+    }
+}))
+
+routes.get('/getmembers', Auth.isAuthenticated(Role.LOGIN_USER), Wrap(async (req, res) => {
+    req.accepts('application/json');
+    try {
+        const result = await ProjectService.getMembers();
+        const output = new StdObject(0, 'success', 200, result);
+        res.json(output);
+    } catch (e) {
+        logger.error('/apiproject/getmembers', e);
         if (e.error < 0) {
             throw new StdObject(e.error, e.message, 200);
         } else {
