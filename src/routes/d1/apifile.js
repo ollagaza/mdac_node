@@ -39,6 +39,8 @@ routes.post('/uploadorgfile', upload.array('uploadFile'), Auth.isAuthenticated(R
       // save path - {root}/uploads/{분류}/{날짜}/{파일이름}
       const body = req.body;
       const files = req.files;
+      console.log('pseq:' + body.pseq);
+      console.log('dseq:' + body.dseq);
       if (Array.isArray(files)) {
         const newDir = path.resolve("./") + '/uploads/' + body.dseq + '/' + datautil.getToday();
         for (let f in files) {
@@ -72,11 +74,13 @@ routes.post('/uploadorgfile', upload.array('uploadFile'), Auth.isAuthenticated(R
 
 // downloadOrgFile
 routes.post('/downloadorgfile', Auth.isAuthenticated(Role.LOGIN_USER), Wrap(async (req, res) => {
+  console.log('===downloadorgfile===');
   req.accepts('application/json');
   try {
     const body = req.body;
+    console.log('fseq:' + body.fseq);
     const file_info = await FileService.getOrgFile(body.fseq);
-    // console.log(file_info);
+    console.log(file_info);
     fs.readFile(file_info.file_path, (err, data) => {
       if (err) {
         return next(err);
@@ -154,7 +158,7 @@ routes.post('/uploadresfiles', upload.array('uploadFile'), Auth.isAuthenticated(
       res.json(output);
     }
   } catch (e) {
-    logger.error('/apifile/uploadresfile', e)
+    logger.error('/apifile/uploadresfiles', e)
     if (e.error < 0) {
       throw new StdObject(e.error, e.message, 200)
     } else {

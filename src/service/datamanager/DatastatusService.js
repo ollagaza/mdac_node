@@ -20,6 +20,8 @@ import Constants from "../../constants/constants";
 import path from "path";
 import fs from "fs";
 import mime from "mime";
+import { spawn, spawnSync, exec } from 'child_process';
+
 
 const ProjectServiceClass = class {
   constructor() {
@@ -149,8 +151,7 @@ const ProjectServiceClass = class {
     await database.transaction(async (transaction) => {
       const resultFile_Model = this.getResultFile_Model(transaction);
       const jobwoker_model = this.getJobWorker_Model(transaction);
-      // const job_model = this.getJob_Model(transaction);
-      const class_id = req_body.class_id;
+
       const jobworker = {};
       const view_type = req_body.view_type;
       const file_type = req_body.file_type;
@@ -161,73 +162,72 @@ const ProjectServiceClass = class {
       }
       jobworker.job_name = req_body.work_status_send.substr(0, 1);
       jobworker.job_status = req_body.work_status_send;
-      jobworker.job_member_seq = req_body.worker_id;
+
+      //반려는 작업자 없이 ..
+      if (req_body.work_status_send.substr(1, 1) !== 5) {
+        jobworker.job_member_seq = req_body.worker_id;
+      }
       jobworker.reg_member_seq = member_seq;
-      // logger.debug('retrun 1')
-      const result = {};
+
       let result_data = {};
       const check_filejoblist = req_body.check_filejoblist;
-      // logger.debug('check_filejoblist', check_filejoblist);
       for (const item of check_filejoblist) {
-        // let job_status = item.status;
         let file_seq = 0;
         let job_seq = 0;
-        let rf_seq = 0; // 비디오타입 일때 키워드.
         let rf_pair_key = 0;
-        // logger.debug('retrun 2')
+        jobworker.reject_seq = item.reject_seq ? item.reject_seq : -1;
+        jobworker.reject_act = item.reject_act ? item.reject_act : null;
         if (file_type === 'v' && view_type === 'v'){
           job_seq = parseInt(item.seq, 10);
           rf_pair_key = parseInt(item.rf_pair_key, 10);
-          rf_seq = parseInt(item.rf_seq, 10);
-          jobworker.result_file_pair_key = rf_seq;
+          jobworker.result_file_pair_key = rf_pair_key;
+          file_seq = parseInt(req_body.file_seq, 10);
         } else {
           file_seq = parseInt(item.seq, 10);
           job_seq = parseInt(item.job_seq, 10);
         }
-        // logger.debug('item.status', item, view_type)
         if (!job_seq || job_seq === 0) {
-          // logger.debug('job in');
-          result_data = await this.jobIn(transaction, jobworker, file_seq, req_body, 'A1', member_seq);
-          // jobworker.job_seq = result_data.job_seq;
+          result_data = await this.jobIn(transaction, jobworker.reject_act, -1, file_seq, req_body, 'A1', member_seq);
+          job_seq = result_data.job_seq;
         } else {
-          const status_type = item.status.substr(1,1);
-          // logger.debug('item.status', item.status, status_type);
+          const status_type = item.status.substr(1,1); // 현재상태...
           // 반려후 재 입력..
-          // 1. 반려워크에 재할당 되었다고 입력.
-          // jobworker reject_act에 R -- 반려관한 행동 반려여부 R 다시부여했음 A
-          // job생성
-          // jobwork 생성 오리지널 키 입력.
-          // logger.debug(item.status, jobworker.job_status )
-          if (status_type === '5') {
+          if (status_type === '5') { // 현재상태 반려 -> 재입력중이다.
+            logger.debug('A1')
             const job_react = {reject_act: 'R', reject_seq: rf_pair_key};
             await jobwoker_model.updateJobWorker(job_react, job_seq);
-            // logger.debug('job_react', job_react);
             if (view_type === 'v') {
-              await resultFile_Model.updateRejectFile(job_react, rf_pair_key);
-              // insert file
-              const result_rf_pair_key = await resultFile_Model.createRejectFile(job_seq, rf_pair_key, member_seq);
-              jobworker.reject_act = 'A';
+              // rejectfile update -> act : R, rejectfile create -> act : A, jobworker create
               jobworker.job_seq = job_seq;
-              jobworker.result_file_pair_key = result_rf_pair_key;
-              // logger.debug(jobworker);
-              await jobwoker_model.createJobWorker(jobworker, false);
-              // await jobwoker_model.createJobWorker(jobworker, false);
-              // result_data = await this.rfUpdate(transaction, jobworker, job_seq, req_body, rf_seq, member_seq);
+              await this.refileIn(transaction, req_body, file_seq, jobworker, rf_pair_key, member_seq);
             } else {
+              logger.debug('A2')
+              // jobworker update -> act : R, jobworker create -> act : A, job create
               jobworker.reject_act = 'A';
               jobworker.reject_seq = job_seq;
-              await this.jobIn(transaction, jobworker, file_seq, req_body, 'A1', member_seq);
+              logger.debug(jobworker);
+              logger.debug('A2-1')
+              const result_jobin = await this.jobIn(transaction, jobworker.reject_act, job_seq, file_seq, req_body, 'A1', member_seq);
+              logger.debug('A2-2', result_jobin)
+              jobworker.job_seq = result_jobin.job_seq;
+              logger.debug('A2-2', jobworker)
+              await jobwoker_model.createJobWorker(jobworker)
             }
+            logger.debug('A3')
+            const str = req_body.work_status_send+ ' / ' + jobworker.job_seq;
+            await this.createJobLogWorker(database, jobworker, member_seq, `rein [${str}]` );
+            logger.debug('A4')
             // return;
           } else {
-            // logger.debug(item.status)
+            // logger.debug(item.status, jobworker.job_status)
             //반려
             if (jobworker.job_status === 'Z5') {
               if (item.status === 'B1' || item.status === 'C1' || item.status === 'D1') {
-                jobworker.status = item.status.substr(0, 1) + '5';
+                jobworker.job_status = item.status.substr(0, 1) + '5';
+                jobworker.job_name = item.status.substr(0, 1) ;
               }
               const nowtime =  moment(new Date()).format('YYYY-MM-DD HH:mm:ss');
-              const jobworker_react = {job_status: jobworker.status, job_date: nowtime};
+              const jobworker_react = {job_status: jobworker.job_status , job_date: nowtime};
               await jobwoker_model.updateJobWorkerByStatus(jobworker_react, job_seq, item.status );
             }
             //완료
@@ -237,13 +237,15 @@ const ProjectServiceClass = class {
               await jobwoker_model.createJobWorker(jobworker, false);
             }
             if (view_type === 'v') { // 비디오 인서트일때는 아무것도 안함.
-              // logger.debug('job rf update');
+              logger.debug('job rf update', req_body);
               jobworker.job_seq = job_seq;
-              result_data = await this.rfUpdate(transaction, jobworker, job_seq, req_body, rf_seq, member_seq);
+              result_data = await this.rfUpdate(transaction, jobworker, job_seq, req_body, rf_pair_key, member_seq);
             } else {
               // logger.debug('job update not v');
               result_data = await this.jobUpdate(transaction, jobworker, job_seq, req_body, member_seq);
             }
+            const str = req_body.work_status_send+ ' / ' + jobworker.job_seq;
+            await this.createJobLogWorker(database, jobworker, member_seq, `work [${str}]` );
           }
         }
         // logger.debug(pro_seq, div_seq, req_body, member_seq)
@@ -251,13 +253,53 @@ const ProjectServiceClass = class {
     });
     return new StdObject(0, '', 200);
   }
+
+  refileIn = async(database, req_body, file_seq, jobworker, rf_pair_key, member_seq) => {
+    const resultFile_Model = this.getResultFile_Model(database);
+    const jobwoker_model = this.getJobWorker_Model(database);
+    const job_model = this.getJob_Model(database);
+
+    const job_react = {reject_act: 'R', reject_seq: rf_pair_key};
+    await resultFile_Model.updateRejectFile(job_react, rf_pair_key);
+    const result_rf_pair_key = await resultFile_Model.createRejectFile(jobworker.job_seq, rf_pair_key, member_seq);
+
+    const job = {};
+    jobworker.reject_act = 'A';
+    jobworker.reject_seq = rf_pair_key;
+    job.file_seq = file_seq;
+    job.project_seq = req_body.pro_seq;
+    job.division_seq = req_body.div_seq;
+    job.status = 'A1';
+    job.reg_member_seq = member_seq;
+    job.class_seq = req_body.class_seq;
+    job.labeler_member_seq = req_body.worker_id;
+    job.labeler_regdate = moment().format("YYYY-MM-DD hh:mm:ss");
+    job.label_cnt = 1;
+    job.reject_act = jobworker.reject_act;
+    job.reject_seq = jobworker.job_seq;
+    jobworker.job_seq = await job_model.createJob(job);
+
+    jobworker.result_file_pair_key = result_rf_pair_key;
+    jobworker.project_seq = req_body.pro_seq;
+    jobworker.class_seq = req_body.class_seq;
+    jobworker.job_name = 'A';
+    jobworker.job_status = 'A1';
+    jobworker.job_member_seq = req_body.worker_id;
+    jobworker.reg_member_seq = member_seq;
+    await jobwoker_model.createJobWorker(jobworker, false);
+
+    const params = {job_seq: jobworker.job_seq}
+    await resultFile_Model.updateRejectFileJobseq(params, result_rf_pair_key);
+  }
+
   createJobLogWorker = async(database, jobworker, member_seq, str) => {
+    logger.debug('createJobLogWorker')
     const jobLog_Model = this.getJobLog_Model(database);
     await jobLog_Model.createJobLogWorker(jobworker.job_seq, jobworker.job_status,
       jobworker.job_member_seq, member_seq, str);
   }
 
-  rfUpdate = async(database, jobworker, job_seq, req_body, rf_seq, member_seq) => {
+  rfUpdate = async(database, jobworker, job_seq, req_body, rf_pair_key, member_seq) => {
     const result = {};
     try {
       const resultFile_Model = this.getResultFile_Model(database);
@@ -265,17 +307,24 @@ const ProjectServiceClass = class {
       const job_update = {};
       job_update.status = req_body.work_status_send;
       if (req_body.work_status_send === 'Z5') {
-        job_update.status = jobworker.status;
+        job_update.status = jobworker.job_status;
       }
       result.error = 0;
-      result.update_co = await resultFile_Model.updateRFile(rf_seq, job_update);
-      if (req_body.work_status_send !== 'E2') {
+      try {
+        result.update_co = await resultFile_Model.updatePairRFile(rf_pair_key, job_update);
+      }catch (e) {
+        logger.error('job_update', job_update, e);
+        result.error = -1;
+        result.message = e.sqlMessage;
+      }
+      if (req_body.work_status_send !== 'E2' && req_body.work_status_send.substr(1, 1) == 1) {
         try {
           jobworker.jobwork_seq = await jobwoker_model.createJobWorker(jobworker)
           const str = JSON.stringify(jobworker);
           await this.createJobLogWorker(database, jobworker, member_seq, `create [${str}]` );
           result.error = 0;
         } catch (e) {
+          logger.error(jobworker, e);
           result.error = -1;
           result.message = e.sqlMessage;
         }
@@ -296,7 +345,7 @@ const ProjectServiceClass = class {
     const job_update = {}
     job_update.status = req_body.work_status_send;
     if (req_body.work_status_send === 'Z5') {
-      job_update.status = jobworker.status;
+      job_update.status = jobworker.job_status;
     }
     if (req_body.work_status_send === 'A1') {
       job_update.labeler_member_seq = req_body.worker_id;
@@ -319,7 +368,7 @@ const ProjectServiceClass = class {
     return result;
   }
 
-  jobIn = async(database, jobworker, file_seq, req_body, status, member_seq) => {
+  jobIn = async(database, reject_act, job_seq, file_seq, req_body, status, member_seq) => {
     const result = {};
     const job = {};
     job.file_seq = file_seq;
@@ -327,29 +376,26 @@ const ProjectServiceClass = class {
     job.division_seq = req_body.div_seq;
     job.status = status;
     job.reg_member_seq = member_seq;
-    job.class_seq = req_body.class_id;
+    job.class_seq = req_body.class_seq;
     job.labeler_member_seq = req_body.worker_id;
     job.labeler_regdate = moment().format("YYYY-MM-DD hh:mm:ss");
     job.label_cnt = req_body.label_cnt ? req_body.label_cnt : 0;
+    job.reject_seq = job_seq;
+    job.reject_act = reject_act;
     if (req_body.file_type === 'i'){
       job.label_cnt = 1;
     }
     const job_model = this.getJob_Model(database);
     try {
-      jobworker.job_seq = await job_model.createJob(job);
-      if (status !== 'A1') {
-        const jobwoker_model = this.getJobWorker_Model(database);
-        jobworker.jobwork_seq = await jobwoker_model.createJobWorker(jobworker)
-      }
-
-      await this.createJobLogWorker(database, jobworker, member_seq, `insert table[job] [id:${jobworker.job_seq}]` );
+      const job_seq = await job_model.createJob(job);
       result.error = 0;
-      result.job_seq = jobworker.job_seq;
+      result.job_seq = job_seq;
     } catch (e) {
-      logger.error(e);
+      logger.error('job_model.createJob' + e);
       result.error = -1;
       result.message = e.sqlMessage;
     }
+    return result;
   }
 
   delWork = async (database, pro_seq, div_seq, req_body, member_seq) => {
@@ -416,7 +462,6 @@ const ProjectServiceClass = class {
       // img_path = mediapath + Constants.SP + filedata.full_name;
       img_path = filedata.full_name;
     } else {
-      // logger.debug('결과')
       filedata = await result_model.getImg(seq);
       img_path = filedata.file_name;
     }
@@ -424,11 +469,91 @@ const ProjectServiceClass = class {
     output.img_path = img_path;
     output.error = 0;
     if (!(await Util.fileExists(img_path))) {
-      output.error = -1;
+      const null_img = path.resolve('src','img','null.png');
+      output.img_path = null_img;
+      output.error = 0;
       // return new StdObject(-1, '', 500);
     }
     return output;
   }
+
+  getVedioImgBySeq = async (database, seq, isresult) => {
+    const mediapath = Util.removePathLastSlash(ServiceConfig.get('media_directory'));
+    const file_model = this.getFile_Model(database);
+    const result_model = this.getResultFile_Model(database);
+    let filedata = {}
+    let img_path = '';
+    const output = {};
+    if (isresult === 'o'){
+      filedata = await file_model.getVedioImg(seq);
+      logger.debug(filedata)
+      // img_path = mediapath + Constants.SP + filedata.full_name;
+      img_path = filedata.full_name;
+    } else {
+      // logger.debug('결과')
+      filedata = await result_model.getImg(seq);
+      img_path = filedata.file_name;
+    }
+    logger.debug('img_path', img_path);
+    output.img_path = img_path;
+    output.error = 0;
+    const null_img = path.resolve('src','img','null.png');
+    if (!(await Util.fileExists(img_path))) {
+      output.img_path = null_img;
+      output.error = 0;
+      // return new StdObject(-1, '', 500);
+    } else {
+      const path_name = path.parse(img_path);
+      const img_name = path_name.dir+ Constants.SP + path_name.name + '.png'
+      // logger.debug(img_name);
+      if (!(await Util.fileExists(img_name))) {
+        // const run_file = `-i ${img_path} -ss 00:00:01 -vcodec png -vframes 1 ${img_name}`
+        // const process = spawnSync(Constants.FFMPEG_EXE, ['-i', img_path, '-ss', '00:00:01', '-vcodec', 'png', '-vframes', '1', img_name]);
+        // process.stdout.on("data", function (data) {
+        //   logger.debug(data.toString());
+        // }); // 실행 결과
+        //
+        // process.stderr.on("data", function (data) {
+        //   logger.debug(data.toString());
+        // });
+        // logger.debug(run_file);
+        const img_name = await this.makeImg(img_path);
+        // logger.debug(img_name);
+        output.img_path = img_name;
+        output.error = 0;
+      } else {
+        output.img_path = img_name;
+        output.error = 0;
+      }
+    }
+    return output;
+  }
+
+  makeImg = async (vedio_name) => {
+    logger.debug('vedio_name', vedio_name);
+    return new Promise((resolve, reject) => {
+      const path_name = path.parse(vedio_name);
+      const img_name = path_name.dir+ Constants.SP + path_name.name + '.png'
+
+      const process = spawn(Constants.FFMPEG_EXE, ['-i', vedio_name, '-ss', '00:00:01', '-vcodec',
+        'png', '-vframes', '1', img_name]);
+      process.stdout.setEncoding('utf8');
+      process.stdout.on('data', function (data, error) {
+        logger.debug('data = ', data);
+        logger.debug('error = ', error);
+      }); // 실행 결과
+      process.stderr.setEncoding("utf8")
+      process.stderr.on('data', function (data) {
+        logger.error(data.toString());
+        // reject(data.toString());
+      });
+      process.on('close', function () {
+        logger.debug('close');
+        resolve(img_name);
+      });
+    });
+  }
+
 
   getHis = async (database, job_seq, req_body, member_seq) => {
     if(req_body.file_type === 'v') {

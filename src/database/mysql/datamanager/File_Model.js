@@ -18,7 +18,31 @@ export default class File_Model extends MySQLModel {
       const oKnex = this.database.select('*');
       oKnex.from(this.table_name);
       oKnex.where('seq', seq);
-      oKnex.andWhere('file_type', 'i');
+      // oKnex.andWhere('file_type', 'i');
+      const result = await oKnex;
+      // logger.debug(result);
+
+      const rdata = {};
+      rdata.file_path = result[0].file_path;
+      rdata.file_name = result[0].file_name;
+      const dir = Util.removePathLastSlash(result[0].file_path);
+      file_info.full_name =  dir + Constants.SP + result[0].file_name;
+      file_info.error = 0;
+      // logger.debug(file_info);
+      return file_info;
+    } catch (e) {
+      file_info.error = -1;
+      file_info.message = e.sqlMessage;
+      return file_info;
+    }
+  }
+  getVedioImg = async (seq) => {
+    const file_info = {}
+    try{
+      const oKnex = this.database.select('*');
+      oKnex.from(this.table_name);
+      oKnex.where('seq', seq);
+      oKnex.andWhere('file_type', 'v');
       const result = await oKnex;
       // logger.debug(result);
 
@@ -181,8 +205,8 @@ export default class File_Model extends MySQLModel {
       'file.seq', 'file.project_seq', 'file.division_seq', 'file.file_type', 'file.file_path',
       'file.file_name', 'file.org_file_name', 'file.file_size', 'file.play_time', 'file.reg_date',
       'job.seq as job_seq', 'job.class_seq', 'job.status', 'job.label_cnt', 'job.labeler_member_seq',
-      'job.labeler_method', 'job.labeler_regdate', 'job.labeler_jobdate', 'm1.user_name',
-      'ma.user_name as ma_name', 'mb.user_name as mb_name', 'mc.user_name as mc_name', 'md.user_name as md_name',
+      'job.labeler_method', 'job.labeler_regdate', 'job.labeler_jobdate', 'job.reject_act as job_reject_act', 'job.reject_seq as job_reject_seq',
+      'm1.user_name', 'ma.user_name as ma_name', 'mb.user_name as mb_name', 'mc.user_name as mc_name', 'md.user_name as md_name',
       'wa.job_status as wa_job_status','wb.job_status as wb_job_status', 'wc.job_status as wc_job_status', 'wd.job_status as wd_job_status',
       'rf.seq as rf_seq', 'rf.pair_key as rf_pair_key', 'rf.file_type as rf_file_type', 'rf.file_name as rf_file_name', 'rf.down_cnt as rf_down_cnt',
       'rf.reg_member_seq as  rf_reg_member_seq', 'rf.reg_date as rf_reg_date', 'rf.status as rf_status',
@@ -259,7 +283,8 @@ export default class File_Model extends MySQLModel {
     if (req_body && req_body.work_status && req_body.work_status !== '-1'){
       oKnex.andWhere('rf.status', req_body.work_status)
     }
-    oKnex.orderBy('job.seq', 'desc')
+    oKnex.orderBy('job.reject_seq', 'desc')
+    oKnex.orderBy('job.seq', 'asc')
     oKnex.orderBy('rf.reject_seq', 'desc')
     oKnex.orderBy('rf.reject_act', 'asc')
 
