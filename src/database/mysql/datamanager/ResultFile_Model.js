@@ -82,8 +82,13 @@ export default class JobLog_Model extends MySQLModel {
     oKnex.andWhere( knex.raw('file_type = \'i\''));
     const result = await oKnex;
     const file_info = {};
-    file_info.full_name = result[0].file_path;
-    file_info.error = 0;
+    if (result && result[0]) {
+      file_info.file_name = result[0].file_name;
+      file_info.error = 0;
+    } else {
+      file_info.file_name = '';
+      file_info.error = -1;
+    }
     return file_info;
   }
 

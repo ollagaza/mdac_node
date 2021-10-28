@@ -16,13 +16,11 @@ export default class MemberModel extends MySQLModel {
 
   createJob = async (params) =>{
     const job_work_seq = await this.create(params, 'seq');
-    logger.debug('create 1')
     try {
       await this.database.raw('UPDATE job SET reject_seq = seq WHERE IFNULL(reject_seq,-1) = -1');
     }catch (e) {
       logger.error('ee', e);
     }
-    logger.debug('create 2')
     return job_work_seq;
   }
 

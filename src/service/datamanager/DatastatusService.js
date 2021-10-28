@@ -193,6 +193,7 @@ const ProjectServiceClass = class {
           const status_type = item.status.substr(1,1); // 현재상태...
           // 반려후 재 입력..
           if (status_type === '5') { // 현재상태 반려 -> 재입력중이다.
+            logger.debug('A1')
             const job_react = {reject_act: 'R', reject_seq: rf_pair_key};
             await jobwoker_model.updateJobWorker(job_react, job_seq);
             if (view_type === 'v') {
@@ -200,15 +201,22 @@ const ProjectServiceClass = class {
               jobworker.job_seq = job_seq;
               await this.refileIn(transaction, req_body, file_seq, jobworker, rf_pair_key, member_seq);
             } else {
+              logger.debug('A2')
               // jobworker update -> act : R, jobworker create -> act : A, job create
               jobworker.reject_act = 'A';
               jobworker.reject_seq = job_seq;
-              const result_jobin= await this.jobIn(transaction, jobworker.reject_act, job_seq, file_seq, req_body, 'A1', member_seq);
+              logger.debug(jobworker);
+              logger.debug('A2-1')
+              const result_jobin = await this.jobIn(transaction, jobworker.reject_act, job_seq, file_seq, req_body, 'A1', member_seq);
+              logger.debug('A2-2', result_jobin)
               jobworker.job_seq = result_jobin.job_seq;
+              logger.debug('A2-2', jobworker)
               await jobwoker_model.createJobWorker(jobworker)
             }
+            logger.debug('A3')
             const str = req_body.work_status_send+ ' / ' + jobworker.job_seq;
             await this.createJobLogWorker(database, jobworker, member_seq, `rein [${str}]` );
+            logger.debug('A4')
             // return;
           } else {
             // logger.debug(item.status, jobworker.job_status)
@@ -285,6 +293,7 @@ const ProjectServiceClass = class {
   }
 
   createJobLogWorker = async(database, jobworker, member_seq, str) => {
+    logger.debug('createJobLogWorker')
     const jobLog_Model = this.getJobLog_Model(database);
     await jobLog_Model.createJobLogWorker(jobworker.job_seq, jobworker.job_status,
       jobworker.job_member_seq, member_seq, str);
@@ -311,7 +320,6 @@ const ProjectServiceClass = class {
       if (req_body.work_status_send !== 'E2' && req_body.work_status_send.substr(1, 1) == 1) {
         try {
           jobworker.jobwork_seq = await jobwoker_model.createJobWorker(jobworker)
-          logger.debug('create jobworker', jobworker);
           const str = JSON.stringify(jobworker);
           await this.createJobLogWorker(database, jobworker, member_seq, `create [${str}]` );
           result.error = 0;
@@ -383,10 +391,11 @@ const ProjectServiceClass = class {
       result.error = 0;
       result.job_seq = job_seq;
     } catch (e) {
-      logger.error(e);
+      logger.error('job_model.createJob' + e);
       result.error = -1;
       result.message = e.sqlMessage;
     }
+    return result;
   }
 
   delWork = async (database, pro_seq, div_seq, req_body, member_seq) => {
@@ -450,10 +459,10 @@ const ProjectServiceClass = class {
     const output = {};
     if (isresult === 'o'){
       filedata = await file_model.getImg(seq);
+      logger.debug()
       // img_path = mediapath + Constants.SP + filedata.full_name;
       img_path = filedata.full_name;
     } else {
-      // logger.debug('결과')
       filedata = await result_model.getImg(seq);
       img_path = filedata.file_name;
     }
@@ -461,9 +470,7 @@ const ProjectServiceClass = class {
     output.img_path = img_path;
     output.error = 0;
     if (!(await Util.fileExists(img_path))) {
-      logger.debug(__dirname);
       const null_img = path.resolve('src','img','null.png');
-      logger.debug(null_img);
       output.img_path = null_img;
       output.error = 0;
       // return new StdObject(-1, '', 500);
@@ -480,9 +487,9 @@ const ProjectServiceClass = class {
     const output = {};
     if (isresult === 'o'){
       filedata = await file_model.getVedioImg(seq);
+      logger.debug(filedata)
       // img_path = mediapath + Constants.SP + filedata.full_name;
       img_path = filedata.full_name;
-
     } else {
       // logger.debug('결과')
       filedata = await result_model.getImg(seq);

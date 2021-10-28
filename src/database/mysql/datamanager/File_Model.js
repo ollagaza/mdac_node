@@ -18,7 +18,7 @@ export default class File_Model extends MySQLModel {
       const oKnex = this.database.select('*');
       oKnex.from(this.table_name);
       oKnex.where('seq', seq);
-      oKnex.andWhere('file_type', 'i');
+      // oKnex.andWhere('file_type', 'i');
       const result = await oKnex;
       // logger.debug(result);
 
