@@ -459,7 +459,6 @@ const ProjectServiceClass = class {
     const output = {};
     if (isresult === 'o'){
       filedata = await file_model.getImg(seq);
-      logger.debug()
       // img_path = mediapath + Constants.SP + filedata.full_name;
       img_path = filedata.full_name;
     } else {

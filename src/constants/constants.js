@@ -21,7 +21,7 @@ const FileTrans = 3;// 변환 중
 const FileDone = 11;// 변환완료
 const FileErr = 90;// 에러
 
-const FFMPEG_EXE = 'D:\\ffmpeg\\ffmpeg-4.3.1-2020-11-19-full_build-shared\\bin\\ffmpeg';
+const FFMPEG_EXE = path.resolve('src', '..', 'ffmpeg','bin', 'ffmpeg');// 'D:\\ffmpeg\\ffmpeg-4.3.1-2020-11-19-full_build-shared\\bin\\ffmpeg';
 
 export default {
   'LOCAL': LOCAL,
