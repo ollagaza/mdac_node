@@ -10,6 +10,7 @@ import ResultFileModel from '../../database/mysql/file/ResultFileModel';
 import JobWorkerModel from '../../database/mysql/project/JobWorkerModel';
 import JobModel from '../../database/mysql/datamanager/Job_Model';
 import ClassModel from '../../database/mysql/datamanager/ClassModel';
+import MemberModel from '../../database/mysql/member/Member_Model';
 
 const ProjectServiceClass = class {
   constructor() {
@@ -100,7 +101,14 @@ const ProjectServiceClass = class {
     return new ClassModel(DBMySQL);
   }
 
-  // method - project
+  getMemberModel = (database = null) => {
+    if (database) {
+      return new MemberModel(database);
+    }
+    return new MemberModel(DBMySQL);
+  }
+
+  // method - projectgetJobListByMemberseq
   getProjects = async () => {
     const project_model = this.getProjectModel(DBMySQL);
     const result = await project_model.getProjects();
@@ -118,14 +126,19 @@ const ProjectServiceClass = class {
     }
     
     const res = this.getAllDivisionFullPath(dicDivision);
-    return res;
+    return Object.values(Object.values(res));
   }
 
   // method - file
   getOrgFilesByDivisionseq = async (division_seq) => {
       const file_model = this.getFileModel(DBMySQL);
       const result = await file_model.getOrgFilesByDivisionseq(division_seq);
-      logger.debug(result);
+      // make download url
+      // for (let item of result) {
+      //   item.download_url = '';
+      // }
+
+      // logger.debug(result);
       return result;
   }
 
@@ -140,6 +153,13 @@ const ProjectServiceClass = class {
 
     const file_model = this.getResultFileModel(DBMySQL);
     const result = await file_model.getResFilesByJobseq(job_seq);
+    logger.debug(result);
+    return result;
+  }
+
+  getResFilesByFileseq = async (file_seq) => {
+    const file_model = this.getResultFileModel(DBMySQL);
+    const result = await file_model.getResFilesByFileseq(file_seq);
     logger.debug(result);
     return result;
   }
@@ -175,6 +195,13 @@ const ProjectServiceClass = class {
     return await model.getJobListByMemberseq(member_seq, status);
   }
 
+  getJobListByMemberFile = async(member_seq, file_seq, status) => {
+    const model = this.getJobModel(DBMySQL);
+    return await model.getJobListByMemberFile(member_seq, file_seq, status);
+  }
+
+
+
   // 검수결과업데이트 - 상태 변경
   // - 이름 : A(라벨링), B(검수1), C(검수2), D(검수3), E(완료)
   // - 상태 : 0(대기), 1(진행), 2(완료), 5(반려)
@@ -201,6 +228,10 @@ const ProjectServiceClass = class {
   // result file upload - 미정
   // - image, video 각각 별도 처리 - job_worker
 
+  getMembers = async() => {
+    const model = this.getMemberModel(DBMySQL);
+    return await model.getWokerList('Y');
+  }
 
 }
 

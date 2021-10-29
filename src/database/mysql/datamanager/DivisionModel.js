@@ -104,7 +104,7 @@ export default class DivisionModel extends MySQLModel {
     const result = {}
     // knex.raw('CONCAT(CASE WHEN a.division_name IS NULL THEN `` ELSE CONCAT(a.division_name,`>`) END, CASE WHEN b.division_name IS NULL THEN `` ELSE CONCAT(b.division_name,>`) END, CASE WHEN c.division_name IS NULL THEN `` ELSE CONCAT(c.division_name,`>`) END, CASE WHEN d.division_name IS NULL THEN `` ELSE CONCAT(d.division_name,`>`) END, CASE WHEN e.division_name IS NULL THEN `` ELSE CONCAT(e.division_name,`>`) END) AS parent_path'),
 
-    const select = [knex.raw(`TRIM(TRAILING ' > ' FROM CONCAT(CASE WHEN a.division_name IS NULL THEN '' ELSE CONCAT(a.division_name,' > ') END, CASE WHEN b.division_name IS NULL THEN '' ELSE CONCAT(b.division_name,' > ') END, CASE WHEN c.division_name IS NULL THEN '' ELSE CONCAT(c.division_name,' > ') END, CASE WHEN d.division_name IS NULL THEN '' ELSE CONCAT(d.division_name,' > ') END, CASE WHEN e.division_name IS NULL THEN '' ELSE CONCAT(e.division_name,' > ') END)) AS parent_path`),'f.project_seq', 'p.project_name', 'f.seq', 'f.parent_division_seq', 'f.division_id', 'f.division_name', 'f.is_used','f.reg_date']
+    const select = [knex.raw(`CASE WHEN TRIM(TRAILING ' > ' FROM CONCAT(CASE WHEN a.division_name IS NULL THEN '' ELSE CONCAT(a.division_name,' > ') END, CASE WHEN b.division_name IS NULL THEN '' ELSE CONCAT(b.division_name,' > ') END, CASE WHEN c.division_name IS NULL THEN '' ELSE CONCAT(c.division_name,' > ') END, CASE WHEN d.division_name IS NULL THEN '' ELSE CONCAT(d.division_name,' > ') END, CASE WHEN e.division_name IS NULL THEN '' ELSE CONCAT(e.division_name,' > ') END)) = '' THEN f.division_name ELSE TRIM(TRAILING ' > ' FROM CONCAT(CASE WHEN a.division_name IS NULL THEN '' ELSE CONCAT(a.division_name,' > ') END, CASE WHEN b.division_name IS NULL THEN '' ELSE CONCAT(b.division_name,' > ') END, CASE WHEN c.division_name IS NULL THEN '' ELSE CONCAT(c.division_name,' > ') END, CASE WHEN d.division_name IS NULL THEN '' ELSE CONCAT(d.division_name,' > ') END, CASE WHEN e.division_name IS NULL THEN '' ELSE CONCAT(e.division_name,' > ') END)) END AS parent_path`),'f.project_seq', 'p.project_name', 'f.seq', 'f.parent_division_seq', 'f.division_id', 'f.division_name', 'f.is_used','f.reg_date']
     
     const oKnex = this.database.select(select);
     oKnex.from({ a: 'division' }).rightJoin({ b: 'division'}, function() {
@@ -137,10 +137,11 @@ export default class DivisionModel extends MySQLModel {
     
     const oCountKnex = this.database.from(oKnex.clone().as('list'))
 
+    oKnex.orderBy('project_seq','asc');
+    oKnex.orderBy('parent_path','asc');
+    // oKnex.orderBy('parent_path','asc');
     if(division_seq === '')
     {
-      oKnex.orderBy('project_seq','asc');
-      oKnex.orderBy('parent_path','asc')
       oKnex.limit(end).offset(start)
     }else{
       oKnex.andWhere('f.seq',division_seq);
