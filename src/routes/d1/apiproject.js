@@ -173,20 +173,23 @@ routes.get('/getmemberjoblist', Auth.isAuthenticated(Role.LOGIN_USER), Wrap(asyn
     try {
         // member seq, status: 없으면 라벨링 상태
         const member_seq = req.query.member_seq;
-        const status = req.query.status.split(',');
-        console.log('member_seq:' + member_seq);
-        console.log('status:' + status);
+        const file_seq = req.query.file_seq;
+        // const status = req.query.status.split(',');
+        let arrStatus = [];
         if (req.query.status == null || req.query.status == '') {
-            // 라벨링(A0, A1)
-            const arrStatus = [];
             arrStatus.push('A0');
             arrStatus.push('A1');
+        } else {
+            arrStatus = req.query.status.split(',');
+        }
+
+        if (file_seq == null || file_seq == '') {
             const result = await ProjectService.getJobListByMemberseq(member_seq, arrStatus);
             const output = new StdObject(0, 'success', 200);
             output.add('data', result);
             res.json(output);
         } else {
-            const result = await ProjectService.getJobListByMemberseq(member_seq, status);
+            const result = await ProjectService.getJobListByMemberFile(member_seq, file_seq, arrStatus);
             const output = new StdObject(0, 'success', 200);
             output.add('data', result);
             res.json(output);

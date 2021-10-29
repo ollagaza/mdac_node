@@ -91,6 +91,17 @@ export default class MemberModel extends MySQLModel {
     // return result;
   }
 
+  getJobListByMemberFile = async (member_seq, file_seq, status) => {
+    const select = ['*'];
+    const oKnex = this.database
+      .select(select)
+      .from(this.table_name)
+      .where("labeler_member_seq", member_seq)
+      .andWhere("file_seq", file_seq)
+      .whereIn("status", status);
+    return await oKnex;
+  }
+
   getJobBySeq = async(job_seq) => {
     const select = ['*'];
     const oKnex = this.database

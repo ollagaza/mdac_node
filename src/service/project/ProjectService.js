@@ -195,6 +195,13 @@ const ProjectServiceClass = class {
     return await model.getJobListByMemberseq(member_seq, status);
   }
 
+  getJobListByMemberFile = async(member_seq, file_seq, status) => {
+    const model = this.getJobModel(DBMySQL);
+    return await model.getJobListByMemberFile(member_seq, file_seq, status);
+  }
+
+
+
   // 검수결과업데이트 - 상태 변경
   // - 이름 : A(라벨링), B(검수1), C(검수2), D(검수3), E(완료)
   // - 상태 : 0(대기), 1(진행), 2(완료), 5(반려)

@@ -15,7 +15,7 @@ export default class MemberLogModel extends MySQLModel {
       member_seq: member_seq,
       mod_member_seq: mod_member_seq,
       log_type: code,
-      memo: text,
+      log_text: text,
       ip_addr: ip,
     }
     log.debug(memberLog.code)
