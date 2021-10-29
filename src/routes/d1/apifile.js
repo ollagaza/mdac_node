@@ -51,10 +51,12 @@ routes.post('/uploadorgfile', upload.array('uploadFile'), Auth.isAuthenticated(R
           // console.log(files[f].size);
           // console.log(files[f].path);
           // console.log(files[f].destination);
+          const filetype = files[f].mimetype.split('/');
+          console.log(filetype[0]);
           const newFilePath = newDir + '/' + files[f].filename;
           await baseutil.createDirectory(newDir);
           baseutil.renameFile(files[f].path, newFilePath);
-          await FileService.createOrgFile(body.pseq, body.dseq, '', newFilePath, files[f].filename, files[f].originalname, files[f].size);
+          await FileService.createOrgFile(body.pseq, body.dseq, filetype[0], newFilePath, files[f].filename, files[f].originalname, files[f].size);
         }
       }
 
