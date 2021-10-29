@@ -9,3 +9,5 @@ uploads/
 package-lock.json
 package-lock.json
 package.json
+
+knex.config.js
