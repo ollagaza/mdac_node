@@ -196,4 +196,13 @@ export default class ClassModel extends MySQLModel {
     return await oKnex;
   }
 
+  getClass = async(seq) => {
+    const select = ['*'];
+    const oKnex = this.database
+      .select(select)
+      .from(this.table_name)
+      .where("seq", seq);
+    return await oKnex;
+  }
+
 }

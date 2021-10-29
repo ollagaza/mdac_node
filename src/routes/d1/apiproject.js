@@ -258,7 +258,10 @@ routes.get('/getjobclasslist', Auth.isAuthenticated(Role.LOGIN_USER), Wrap(async
                 res.json(output);
             } else {
                 // return class_seq of job table
-                const output = new StdObject(0, 'success', 200, 'res:' + job.class_seq); // 수정 필요
+                // get class by id
+                const class_data = await ProjectService.getClassByClass(job.class_seq);
+                const output = new StdObject(0, 'success', 200);
+                output.add('data', class_data);
                 res.json(output);
             }
         } else {
