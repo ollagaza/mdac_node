@@ -556,6 +556,9 @@ const ProjectServiceClass = class {
 
 
   getHis = async (database, job_seq, req_body, member_seq) => {
+    if(!job_seq || job_seq==='null'){
+      job_seq = null;
+    }
     if(req_body.file_type === 'v') {
       const out = await this.getHisVideo(database, job_seq, req_body, member_seq);
       return out;
@@ -604,18 +607,23 @@ const ProjectServiceClass = class {
     output.error = result.error;
     output.message = result.message;
     if (result.error === 0 ){
-      const fileList = await resultfile_model.getResultFile(job_seq, 'a');
-      for (const item of fileList){
-        item.base = path.parse(item.file_name).base;
+      if(job_seq) {
+        const fileList = await resultfile_model.getResultFile(job_seq, 'a');
+        for (const item of fileList) {
+          item.base = path.parse(item.file_name).base;
+        }
+        output.add('filelist', fileList);
       }
-      output.add('filelist', fileList);
-      output.add('list', result.list);
-      for(const item of result.list) {
-        // logger.debug('my item', item);
-        if (item.reject_act === 'A' && item.job_name === 'A') {
-          const perlist = await jobworker_model.getPerList(item.reject_seq);
-          output.add('perlist', perlist.list);
-          break;
+      output.add('reg_file', result.reg_file);
+      if (result.list) {
+        output.add('list', result.list);
+        for (const item of result.list) {
+          // logger.debug('my item', item);
+          if (item.reject_act === 'A' && item.job_name === 'A') {
+            const perlist = await jobworker_model.getPerList(item.reject_seq);
+            output.add('perlist', perlist.list);
+            break;
+          }
         }
       }
       return output;

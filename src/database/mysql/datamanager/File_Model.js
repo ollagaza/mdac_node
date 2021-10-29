@@ -171,13 +171,13 @@ export default class File_Model extends MySQLModel {
       let where_status = `job.status = '${req_body.work_status}'`;
       if (req_body.work_status === 'Z5') {
         if (req_body.file_type !== 'v') {
-          where_status = `job.status in ('B5','C5','D5')`;
+          where_status = `ifnull(job.status, 'A0') in ('B5','C5','D5')`;
         } else {
           where_status = `ifnull(smax.max_status, 'A1') in ('B5','C5','D5')`;
         }
       } else {
         if (req_body.file_type !== 'v') {
-          where_status = `job.status = '${req_body.work_status}'`;
+          where_status = `ifnull(job.status, 'A0') = '${req_body.work_status}'`;
         } else {
           where_status = `ifnull(smax.max_status, 'A1') = '${req_body.work_status}'`;
         }
