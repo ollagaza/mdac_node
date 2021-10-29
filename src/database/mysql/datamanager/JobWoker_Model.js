@@ -113,25 +113,43 @@ export default class MemberModel extends MySQLModel {
 
   getJobWorkerList = async (job_seq, req_body, member_seq) => {
     try {
+      const file_seq = req_body.file_seq;
       const result = {};
-      const select = ['jw.*', 'm.user_name', 'mreg.user_name as reg_member']
-      const oKnex = this.database
-        .select(select)
-        .from('job_worker as jw')
-        .leftJoin('member as m', function () {
-          this.on('jw.job_member_seq', '=', 'm.seq')
-        })
-        .leftJoin('member as mreg', function () {
-          this.on('jw.reg_member_seq', '=', 'mreg.seq')
-        })
-        .where('job_seq', job_seq);
-      if(req_body.file_type === 'v'){
-        oKnex.andWhere('result_file_pair_key', req_body.ref_pair_key);
+      if (file_seq) {
+        const oKnexFile = this.database
+          .select('*')
+          .from('file')
+          .where('seq', file_seq)
+        result.reg_file = await oKnexFile;
+        result.error = 0;
       }
-      oKnex.orderBy('job_status');
-      result.list = await oKnex;
-      result.error = 0;
-      logger.debug('result : ', result);
+      if (job_seq) {
+        const select = ['jw.*', 'jo.status AS jostatus', 'm.user_name', 'mreg.user_name as reg_member',
+          'mj.user_name as labeler_member', 'jo.labeler_regdate as labeler_regdate']
+        const oKnex = this.database
+          .select(select)
+          .from('job as jo')
+          .leftJoin('job_worker as jw', function () {
+            this.on('jo.seq', '=', 'jw.job_seq')
+          })
+          .leftJoin('member as mj', function () {
+            this.on('jo.labeler_member_seq', '=', 'mj.seq')
+          })
+          .leftJoin('member as m', function () {
+            this.on('jw.job_member_seq', '=', 'm.seq')
+          })
+          .leftJoin('member as mreg', function () {
+            this.on('jw.reg_member_seq', '=', 'mreg.seq')
+          })
+          .where('jo.seq', job_seq);
+        if (req_body.file_type === 'v') {
+          oKnex.andWhere('result_file_pair_key', req_body.ref_pair_key);
+        }
+        oKnex.orderBy('job_status');
+        result.list = await oKnex;
+        result.error = 0;
+        logger.debug('result : ', result);
+      }
       return result;
     } catch (e) {
       return {error: -1, message: e};
