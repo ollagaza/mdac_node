@@ -129,12 +129,21 @@ routes.get('/getjobworkers', Auth.isAuthenticated(Role.LOGIN_USER), Wrap(async (
             output.add('data', result);
             res.json(output);
         } else if (job_seq != null && job_seq != '') {
-            console.log('getJobWorkersByJobseq');
-            const result = await ProjectService.getJobWorkersByJobseq(job_seq);
-            // const output = new StdObject(0, 'success', 200, result);
-            const output = new StdObject(0, 'success', 200);
-            output.add('data', result);
-            res.json(output);
+            if (req.query.job_status != null && req.query.job_status != '') {
+                const job_status = req.query.job_status.split(',');
+                console.log('getJobWorkersByJobseqStatus');
+                const result = await ProjectService.getJobWorkersByJobseqStatus(job_seq, job_status);
+                const output = new StdObject(0, 'success', 200);
+                output.add('data', result);
+                res.json(output);
+            } else {
+                console.log('getJobWorkersByJobseq');
+                const result = await ProjectService.getJobWorkersByJobseq(job_seq);
+                // const output = new StdObject(0, 'success', 200, result);
+                const output = new StdObject(0, 'success', 200);
+                output.add('data', result);
+                res.json(output);
+            }
         } else {
             throw new StdObject(-1, 'no params', 200);
         }
@@ -258,7 +267,10 @@ routes.get('/getjobclasslist', Auth.isAuthenticated(Role.LOGIN_USER), Wrap(async
                 res.json(output);
             } else {
                 // return class_seq of job table
-                const output = new StdObject(0, 'success', 200, 'res:' + job.class_seq); // 수정 필요
+                // get class by id
+                const class_data = await ProjectService.getClassByClass(job.class_seq);
+                const output = new StdObject(0, 'success', 200);
+                output.add('data', class_data);
                 res.json(output);
             }
         } else {

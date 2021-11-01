@@ -52,11 +52,18 @@ routes.post('/uploadorgfile', upload.array('uploadFile'), Auth.isAuthenticated(R
           // console.log(files[f].path);
           // console.log(files[f].destination);
           const filetype = files[f].mimetype.split('/');
+          let filetypecode = '';
           console.log(filetype[0]);
+          if (filetype[0] == 'image') {
+            filetypecode = 'i';
+          } else if (filetype[0] == 'video') {
+            filetypecode = 'v';
+          }
+
           const newFilePath = newDir + '/' + files[f].filename;
           await baseutil.createDirectory(newDir);
           baseutil.renameFile(files[f].path, newFilePath);
-          await FileService.createOrgFile(body.pseq, body.dseq, filetype[0], newFilePath, files[f].filename, files[f].originalname, files[f].size);
+          await FileService.createOrgFile(body.pseq, body.dseq, filetypecode, newFilePath, files[f].filename, files[f].originalname, files[f].size);
         }
       }
 
@@ -143,13 +150,21 @@ routes.post('/uploadresfiles', upload.array('uploadFile'), Auth.isAuthenticated(
 
       if (Array.isArray(files)) {
         const newDir = path.resolve("./") + '/uploads/result/' + body.dseq + '/' + datautil.getToday();
+        console.log('newDir:' + newDir);
         for (let f in files) {
-          // console.log(files[f]);
+          let filetype = '';
+          const fileext = files[f].originalname.split('.');
+          if (fileext[1] == "jpg" || fileext[1] == "jpeg" || fileext[1] == "png") {
+            filetype = 'i';
+          } else if (fileext[1] == "xml") {
+            filetype = 'x';
+          }
+
           const newFilePath = newDir + '/' + files[f].filename;
           await baseutil.createDirectory(newDir);
           baseutil.renameFile(files[f].path, newFilePath);
           // insert to result_file table
-          let rseq = await FileService.createResultFile(body.fseq, body.jseq, 'ftype', files[f].file_name, pairKey, files[f].originalname, newFilePath, files[f].size);
+          let rseq = await FileService.createResultFile(body.fseq, body.jseq, filetype, files[f].file_name, pairKey, files[f].originalname, newFilePath, files[f].size);
         }
         // insert to job_workder table - A2(라벨링 완료)
         await ProjectService.createJobWorker(body.pseq, body.jseq, pairKey, body.cseq, 'A', '2', null, null, null, null);
