@@ -1,3 +1,4 @@
+import Util from '../../utils/baseutil'
 import StdObject from '../../wrapper/std-object'
 import DBMySQL from '../../database/knex-mysql'
 //import ServiceConfig from '../../service/service-config'
@@ -206,6 +207,22 @@ const ProjectServiceClass = class {
     return await model.getJobListByMemberFile(member_seq, file_seq, status);
   }
 
+  setJobStatus = async(seq, status, ) => {
+    const modelJobworker = this.getJobWorkerModel(DBMySQL);
+    const jobworkers = await modelJobworker.getJobWorkersByJobseq(seq);
+    // const modelJob = this.getJobModel(DBMySQL);
+    // const job = await modelJob.getJobBySeq(seq);
+    // if (job.label_cnt == )
+    const filter = {};
+    filter.seq = seq;
+    filter.label_cnt = jobworkers.length;
+    const params = {};
+    params.status = status;
+    params.labeler_jobdate = Util.currentFormattedDate();
+    const modelJob = this.getJobModel(DBMySQL);
+    modelJob.updateJobByFilters(filter, params);
+    return 
+  }
 
 
   // 검수결과업데이트 - 상태 변경
