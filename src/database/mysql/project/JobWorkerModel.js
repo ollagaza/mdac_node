@@ -93,5 +93,16 @@ export default class JobWorkerModel extends MysqlModel {
             .where("job_seq", job_seq);
         const result = await oKnex;
         return result;
-    }    
+    }
+
+    getJobWorkersByJobseqStatus = async(job_seq, job_status) => {
+        const select = ['seq', 'project_seq', 'job_seq', 'result_file_pair_key', 'class_seq', 'job_name', 'job_status', 'job_member_seq', 'reg_date', 'job_date', 'reject_date', 'reg_member_seq']
+        const oKnex = this.database
+            .select(select)
+            .from(this.table_name)
+            .where("job_seq", job_seq)
+            .whereIn("job_status", job_status);
+        const result = await oKnex;
+        return result;
+    }
 }

@@ -129,12 +129,21 @@ routes.get('/getjobworkers', Auth.isAuthenticated(Role.LOGIN_USER), Wrap(async (
             output.add('data', result);
             res.json(output);
         } else if (job_seq != null && job_seq != '') {
-            console.log('getJobWorkersByJobseq');
-            const result = await ProjectService.getJobWorkersByJobseq(job_seq);
-            // const output = new StdObject(0, 'success', 200, result);
-            const output = new StdObject(0, 'success', 200);
-            output.add('data', result);
-            res.json(output);
+            if (req.query.job_status != null && req.query.job_status != '') {
+                const job_status = req.query.job_status.split(',');
+                console.log('getJobWorkersByJobseqStatus');
+                const result = await ProjectService.getJobWorkersByJobseqStatus(job_seq, job_status);
+                const output = new StdObject(0, 'success', 200);
+                output.add('data', result);
+                res.json(output);
+            } else {
+                console.log('getJobWorkersByJobseq');
+                const result = await ProjectService.getJobWorkersByJobseq(job_seq);
+                // const output = new StdObject(0, 'success', 200, result);
+                const output = new StdObject(0, 'success', 200);
+                output.add('data', result);
+                res.json(output);
+            }
         } else {
             throw new StdObject(-1, 'no params', 200);
         }
