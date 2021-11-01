@@ -52,11 +52,18 @@ routes.post('/uploadorgfile', upload.array('uploadFile'), Auth.isAuthenticated(R
           // console.log(files[f].path);
           // console.log(files[f].destination);
           const filetype = files[f].mimetype.split('/');
+          let filetypecode = '';
           console.log(filetype[0]);
+          if (filetype[0] == 'image') {
+            filetypecode = 'i';
+          } else if (filetype[0] == 'image') {
+            filetypecode = 'v';
+          }
+
           const newFilePath = newDir + '/' + files[f].filename;
           await baseutil.createDirectory(newDir);
           baseutil.renameFile(files[f].path, newFilePath);
-          await FileService.createOrgFile(body.pseq, body.dseq, filetype[0], newFilePath, files[f].filename, files[f].originalname, files[f].size);
+          await FileService.createOrgFile(body.pseq, body.dseq, filetypecode, newFilePath, files[f].filename, files[f].originalname, files[f].size);
         }
       }
 
