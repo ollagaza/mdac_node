@@ -183,6 +183,12 @@ const ProjectServiceClass = class {
     return result;
   }
 
+  getJobWorkersByJobseqStatus = async(job_seq, job_status) => {
+    const model = this.getJobWorkerModel(DBMySQL);
+    const result = await model.getJobWorkersByJobseqStatus(job_seq, job_status);
+    return result;
+  }
+
   createJobWorker = async(project_seq, job_seq, result_file_pair_key, class_seq, job_name, job_status, job_member_seq, job_date, reject_date, reg_member_seq) => {
     const model = this.getJobWorkerModel(DBMySQL);
     return await model.createJobWorker(project_seq, job_seq, result_file_pair_key, class_seq, job_name, job_status, job_member_seq, job_date, reject_date, reg_member_seq);
