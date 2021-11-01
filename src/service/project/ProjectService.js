@@ -225,6 +225,11 @@ const ProjectServiceClass = class {
     return await model.getClassListByProjectseq(project_seq);
   }
 
+  getClassByClass = async(class_seq) => {
+    const model = this.getClassModel(DBMySQL);
+    return await model.getClass(class_seq);
+  }
+
   // result file upload - 미정
   // - image, video 각각 별도 처리 - job_worker
 

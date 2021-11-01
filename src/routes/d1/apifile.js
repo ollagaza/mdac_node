@@ -141,11 +141,15 @@ routes.post('/uploadresfiles', upload.array('uploadFile'), Auth.isAuthenticated(
         pairKey = maxPairKey.val + 1;
       }
 
+      console.log('pairKey:' + pairKey);
+
       if (Array.isArray(files)) {
         const newDir = path.resolve("./") + '/uploads/result/' + body.dseq + '/' + datautil.getToday();
+        console.log('newDir:' + newDir);
         for (let f in files) {
-          // console.log(files[f]);
+          console.log('filename:' + files[f].filename);
           const newFilePath = newDir + '/' + files[f].filename;
+          console.log('newFilePath:' + newFilePath);
           await baseutil.createDirectory(newDir);
           baseutil.renameFile(files[f].path, newFilePath);
           // insert to result_file table
