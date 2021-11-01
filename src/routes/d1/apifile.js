@@ -63,7 +63,7 @@ routes.post('/uploadorgfile', upload.array('uploadFile'), Auth.isAuthenticated(R
           const newFilePath = newDir + '/' + files[f].filename;
           await baseutil.createDirectory(newDir);
           baseutil.renameFile(files[f].path, newFilePath);
-          await FileService.createOrgFile(body.pseq, body.dseq, filetypecode, newFilePath, files[f].filename, files[f].originalname, files[f].size);
+          await FileService.createOrgFile(body.pseq, body.dseq, filetypecode, newDir + '/', files[f].filename, files[f].originalname, files[f].size);
         }
       }
 
@@ -90,7 +90,7 @@ routes.post('/downloadorgfile', Auth.isAuthenticated(Role.LOGIN_USER), Wrap(asyn
     console.log('fseq:' + body.fseq);
     const file_info = await FileService.getOrgFile(body.fseq);
     console.log(file_info);
-    fs.readFile(file_info.file_path, (err, data) => {
+    fs.readFile(file_info.file_path + '/' + file_info.file_name, (err, data) => {
       if (err) {
         return next(err);
       }
@@ -163,11 +163,14 @@ routes.post('/uploadresfiles', upload.array('uploadFile'), Auth.isAuthenticated(
           const newFilePath = newDir + '/' + files[f].filename;
           await baseutil.createDirectory(newDir);
           baseutil.renameFile(files[f].path, newFilePath);
+          console.log('file name : ' + files[f].filename);
           // insert to result_file table
-          let rseq = await FileService.createResultFile(body.fseq, body.jseq, filetype, files[f].file_name, pairKey, files[f].originalname, newFilePath, files[f].size);
+          let rseq = await FileService.createResultFile(body.fseq, body.jseq, filetype, files[f].filename, pairKey, files[f].originalname, newFilePath, files[f].size);
         }
         // insert to job_workder table - A2(라벨링 완료)
-        await ProjectService.createJobWorker(body.pseq, body.jseq, pairKey, body.cseq, 'A', '2', null, null, null, null);
+        await ProjectService.createJobWorker(body.pseq, body.jseq, pairKey, body.cseq, 'A', 'A2', body.mseq, null, null, null);
+        // update job status
+        await ProjectService.setJobStatus(body.jseq, 'A2');
       }
 
       const output = new StdObject(0, 'success', 200);

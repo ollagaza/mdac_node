@@ -28,7 +28,8 @@ export default class JobWorkerModel extends MysqlModel {
             job_member_seq: job_member_seq,
             job_date: job_date,
             reject_date: reject_date,
-            reg_member_seq: reg_member_seq
+            reg_member_seq: reg_member_seq,
+            job_date: Util.currentFormattedDate()
         }
         return await this.create(data, 'seq');
     }
