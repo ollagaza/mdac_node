@@ -56,7 +56,7 @@ routes.post('/uploadorgfile', upload.array('uploadFile'), Auth.isAuthenticated(R
           console.log(filetype[0]);
           if (filetype[0] == 'image') {
             filetypecode = 'i';
-          } else if (filetype[0] == 'image') {
+          } else if (filetype[0] == 'video') {
             filetypecode = 'v';
           }
 
@@ -148,19 +148,23 @@ routes.post('/uploadresfiles', upload.array('uploadFile'), Auth.isAuthenticated(
         pairKey = maxPairKey.val + 1;
       }
 
-      console.log('pairKey:' + pairKey);
-
       if (Array.isArray(files)) {
         const newDir = path.resolve("./") + '/uploads/result/' + body.dseq + '/' + datautil.getToday();
         console.log('newDir:' + newDir);
         for (let f in files) {
-          console.log('filename:' + files[f].filename);
+          let filetype = '';
+          const fileext = files[f].originalname.split('.');
+          if (fileext[1] == "jpg" || fileext[1] == "jpeg" || fileext[1] == "png") {
+            filetype = 'i';
+          } else if (fileext[1] == "xml") {
+            filetype = 'x';
+          }
+
           const newFilePath = newDir + '/' + files[f].filename;
-          console.log('newFilePath:' + newFilePath);
           await baseutil.createDirectory(newDir);
           baseutil.renameFile(files[f].path, newFilePath);
           // insert to result_file table
-          let rseq = await FileService.createResultFile(body.fseq, body.jseq, 'ftype', files[f].file_name, pairKey, files[f].originalname, newFilePath, files[f].size);
+          let rseq = await FileService.createResultFile(body.fseq, body.jseq, filetype, files[f].file_name, pairKey, files[f].originalname, newFilePath, files[f].size);
         }
         // insert to job_workder table - A2(라벨링 완료)
         await ProjectService.createJobWorker(body.pseq, body.jseq, pairKey, body.cseq, 'A', '2', null, null, null, null);
