@@ -319,7 +319,7 @@ const ProjectServiceClass = class {
       }
       if (req_body.work_status_send !== 'E2' && req_body.work_status_send.substr(1, 1) == 1) {
         try {
-          jobworker.jobwork_seq = await jobwoker_model.createJobWorker(jobworker)
+          jobworker = await jobwoker_model.createJobWorker(jobworker)
           const str = JSON.stringify(jobworker);
           await this.createJobLogWorker(database, jobworker, member_seq, `create [${str}]` );
           result.error = 0;
@@ -356,7 +356,7 @@ const ProjectServiceClass = class {
       await job_model.updateJob(job_update, job_seq);
       jobworker.job_seq = job_seq;
       if (req_body.work_status_send !== 'A1') {
-        jobworker.jobwork_seq = await jobwoker_model.createJobWorker(jobworker)
+        jobworker = await jobwoker_model.createJobWorker(jobworker)
       }
       const str = JSON.stringify(jobworker);
       await this.createJobLogWorker(database, jobworker, member_seq, `update [${str}]` );
