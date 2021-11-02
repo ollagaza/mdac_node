@@ -31,6 +31,12 @@ export default class MemberModel extends MySQLModel {
     return job_work_co;
   }
 
+  updateJobByFilters = async (filters, params) =>{
+    const job_work_co = await this.update(filters, params)
+    // logger.debug('job_worker', job_work_co);
+    return job_work_co;
+  }
+
   deleteJob = async (seq) =>{
     const filter = {seq: seq};
     const job_work_co = await this.delete(filter)
