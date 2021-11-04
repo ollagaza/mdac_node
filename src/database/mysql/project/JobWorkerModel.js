@@ -34,27 +34,12 @@ export default class JobWorkerModel extends MysqlModel {
         return await this.create(data, 'seq');
     }
 
-    // setJobWorkerStatus = async(seq, job_name, job_status) => {
-    //     const result = {};
-    //     const update_param = {};
-    //     update_param.job_name = job_name;
-    //     update_param.job_status = job_status;
-    //     try{
-    //         const res = await this.update({ seq: seq }, update_param)
-    //         result.val = res;
-    //         result.error = 0;
-    //     } catch (e) {
-    //         result.error = -1;
-    //         result.message = e.sqlMessage;
-    //     }
-    //     return result;
-    // }
-
     setJobWorkerStatus = async(seq, job_status) => {
         const result = {};
         const update_param = {};
         update_param.job_status = job_status;
-        try{
+        update_param.job_date = Util.currentFormattedDate();
+        try {
             const res = await this.update({ seq: seq }, update_param)
             result.val = res;
             result.error = 0;

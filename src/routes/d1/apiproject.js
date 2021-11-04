@@ -259,6 +259,27 @@ routes.post('/setjobwokerstatus', Auth.isAuthenticated(Role.LOGIN_USER), Wrap(as
     }
 }))
 
+routes.post("/setjobstatus", Auth.isAuthenticated(Role.LOGIN_USER), Wrap(async (req, res) => {
+    req.accepts('application/json');
+    try {
+        const body = req.body;
+        const result = await ProjectService.setJobStatus(body.job_seq, body.status);
+        if (result != null && result > 0) {            
+            const output = new StdObject(0, 'success', 200, result);
+            res.json(output);
+        } else {
+            throw new StdObject(-1, 'failed update', 200);
+        }
+    } catch (e) {
+        logger.error('/apiproject/setjobstatus', e)
+        if (e.error < 0) {
+            throw new StdObject(e.error, e.message, 200);
+        } else {
+            throw new StdObject(-1, '', 200);
+        }
+    }
+}))
+
 // getLabelingClass
 // - image - project 소속 class list
 // - video - job에 지정된 class_seq single, multi: 미정 (안: project 소속 class list)
