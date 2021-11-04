@@ -191,6 +191,7 @@ const ProjectServiceClass = class {
           job_seq = result_data.job_seq;
         } else {
           const status_type = item.status.substr(1,1); // 현재상태...
+          console.log(`status_type===${status_type}`)
           // 반려후 재 입력..
           if (status_type === '5') { // 현재상태 반려 -> 재입력중이다.
             logger.debug('A1')

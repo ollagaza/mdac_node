@@ -198,6 +198,7 @@ routes.post('/setworkin/:pro_seq/:div_seq', Auth.isAuthenticated(Role.LOGIN_USER
   if (!req_body) {
     return new StdObject(-1, '입력된 파라메타가 없습니다.', 200);
   }
+  
   const result = await DatastatusService.setWorkIn(DBMySQL, pro_seq, div_seq, req_body, member_seq);
   const output = new StdObject(0, '', 200)
   if (result.error === 0){

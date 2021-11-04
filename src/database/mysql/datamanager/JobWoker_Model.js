@@ -17,6 +17,7 @@ export default class MemberModel extends MySQLModel {
     const filter = {};
     filter.job_seq = params.job_seq;
     filter.job_status = params.job_status;
+    filter.result_file_pair_key = params.result_file_pair_key;
     if (notDel) {
       await this.delete(filter);
     }
