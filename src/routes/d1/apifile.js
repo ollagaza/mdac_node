@@ -151,6 +151,7 @@ routes.post('/uploadresfiles', upload.array('uploadFile'), Auth.isAuthenticated(
       if (Array.isArray(files)) {
         const newDir = path.resolve("./") + '/uploads/result/' + body.dseq + '/' + datautil.getToday();
         console.log('newDir:' + newDir);
+        console.log('files length: ' + files.length);
         for (let f in files) {
           let filetype = '';
           const fileext = files[f].originalname.split('.');
@@ -162,10 +163,11 @@ routes.post('/uploadresfiles', upload.array('uploadFile'), Auth.isAuthenticated(
 
           const newFilePath = newDir + '/' + files[f].filename;
           await baseutil.createDirectory(newDir);
-          baseutil.renameFile(files[f].path, newFilePath);
-          console.log('file name : ' + files[f].filename);
+          baseutil.renameFile(files[f].path, newFilePath);          
+          console.log(files[f].filename);
+          console.log(files[f].originalname);
           // insert to result_file table
-          let rseq = await FileService.createResultFile(body.fseq, body.jseq, filetype, files[f].filename, pairKey, files[f].originalname, newFilePath, files[f].size);
+          let rseq = await FileService.createResultFile(body.fseq, body.jseq, filetype, files[f].filename, pairKey, files[f].originalname, newDir + '/', files[f].size);
         }
         // insert to job_workder table - A2(라벨링 완료)
         await ProjectService.createJobWorker(body.pseq, body.jseq, pairKey, body.cseq, 'A', 'A2', body.mseq, null, null, null);
@@ -195,7 +197,7 @@ routes.post('/downloadresfile', Auth.isAuthenticated(Role.LOGIN_USER), Wrap(asyn
     const body = req.body;
     const fseq = body.file_seq;
     const file_info = await FileService.getResFileBySeq(fseq);
-    fs.readFile(file_info.file_path, (err, data) => {
+    fs.readFile(file_info.file_path + file_info.file_name, (err, data) => {
       if (err) {
         return next(err);
       }
@@ -238,6 +240,32 @@ routes.post('/downloadresfiles', Auth.isAuthenticated(Role.LOGIN_USER), Wrap(asy
       } else {
           throw new StdObject(-1, '', 200)
       }
+  }
+}))
+
+routes.post('/setresfiledata', Auth.isAuthenticated(Role.LOGIN_USER), Wrap(async (req, res) => {
+  // req.accepts('application/json');
+  try {
+    const body = req.body;
+    const fseq = body.file_seq;
+    const jseq = body.job_seq;
+    const data = body.res_data;
+    console.log('data: ' + data);
+    const result = await FileService.createResultFileData(fseq, jseq, data);
+    console.log('result:' + result);
+    if (result != null && result > 0) {            
+      const output = new StdObject(0, 'success', 200, result);
+      res.json(output);
+    } else {
+        throw new StdObject(-1, 'failed set', 200);
+    }
+  } catch(e) {
+    logger.error('/apifile/setresfiledata', e)
+    if (e.error < 0) {
+        throw new StdObject(e.error, e.message, 200)
+    } else {
+        throw new StdObject(-1, '', 200)
+    }
   }
 }))
 

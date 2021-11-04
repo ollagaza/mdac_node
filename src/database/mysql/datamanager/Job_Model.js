@@ -97,6 +97,26 @@ export default class MemberModel extends MySQLModel {
     // return result;
   }
 
+  getJobListByJobworkerMember = async (member_seq, status) => {
+    // const select = ['*'];
+    // const select = ['job.seq, job.file_seq, job.division_seq, job.class_seq, job.status, job.label_cnt, job.labeler_member_seq, job.labeler_method, job.labeler_regdate, job.labeler_jobdate, job.reg_member_seq, job.mod_member_seq, job.complete_member_seq, job.complete_regdate, division.division_name'];
+    const oKnex = this.database
+      .select(knex.raw('job.seq, job.file_seq, job.division_seq, job.class_seq, job.status, job.label_cnt, job.labeler_member_seq, job.labeler_method, job.labeler_regdate, job.labeler_jobdate, job.reg_member_seq, job.mod_member_seq, job.complete_member_seq, job.complete_regdate, file.org_file_name, division.division_name'))
+      .from (this.table_name)
+      .leftJoin("file", function() {
+        this.on("file.seq", "job.file_seq")
+      })
+      .leftJoin("division", function() {
+        this.on("division.seq", "job.division_seq")
+      })
+      .whereIn("job.seq", this.database
+                        .select("job_seq")
+                        .from("job_worker")
+                        .where("job_member_seq", member_seq)
+                        .whereIn("job_status", status));
+    return await oKnex;
+  }
+
   getJobListByMemberFile = async (member_seq, file_seq, status) => {
     const select = ['*'];
     const oKnex = this.database
