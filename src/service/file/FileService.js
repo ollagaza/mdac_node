@@ -58,9 +58,9 @@ const FileServiceClass = class {
         return file_model.createResFile(file_seq, job_seq, file_type, file_name, pair_key, org_file_name, file_path, file_size);
     }
 
-    createResultFileData = async(fseq, jseq, resdata) => {
+    createResultFileData = async(fseq, jseq, memberseq, pairkey, resdata, status) => {
         const file_model = this.getResultFileModel(DBMySQL);
-        return file_model.createResFileData(fseq, jseq, resdata);
+        return file_model.createResFileData(fseq, jseq, memberseq, pairkey, resdata, status);
     }
 
     getMaxResFileParkKey = async() => {

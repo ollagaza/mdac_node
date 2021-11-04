@@ -172,7 +172,7 @@ routes.post('/uploadresfiles', upload.array('uploadFile'), Auth.isAuthenticated(
         // insert to job_workder table - A2(라벨링 완료)
         await ProjectService.createJobWorker(body.pseq, body.jseq, pairKey, body.cseq, 'A', 'A2', body.mseq, null, null, null);
         // update job status
-        await ProjectService.setJobStatus(body.jseq, 'A2');
+        await ProjectService.setJobStatusByWorkerCnt(body.jseq, 'A2');
       }
 
       const output = new StdObject(0, 'success', 200);
@@ -244,15 +244,27 @@ routes.post('/downloadresfiles', Auth.isAuthenticated(Role.LOGIN_USER), Wrap(asy
 }))
 
 routes.post('/setresfiledata', Auth.isAuthenticated(Role.LOGIN_USER), Wrap(async (req, res) => {
-  // req.accepts('application/json');
+  req.accepts('application/json');
   try {
     const body = req.body;
+    const pseq = body.project_seq;
     const fseq = body.file_seq;
     const jseq = body.job_seq;
+    const mseq = body.member_seq;
     const data = body.res_data;
-    console.log('data: ' + data);
-    const result = await FileService.createResultFileData(fseq, jseq, data);
-    console.log('result:' + result);
+    const status = 'A2';
+    let pairkey = 1;
+    let maxPairKey = await FileService.getMaxResFileParkKey();
+    if (maxPairKey && maxPairKey.val) {
+      pairkey = maxPairKey.val + 1;
+    }
+    
+    console.log('pairkey: ' + pairkey);
+    let result = await FileService.createResultFileData(fseq, jseq, mseq, pairkey, data, status);
+    result = await ProjectService.createJobWorker(pseq, jseq, pairkey, -1, 'A', status, mseq, null, null, null);
+    // update job status
+    // result = await ProjectService.setJobStatusByWorkerCnt(jseq, status);
+    result = await ProjectService.setJobStatus(jseq, status);
     if (result != null && result > 0) {            
       const output = new StdObject(0, 'success', 200, result);
       res.json(output);
