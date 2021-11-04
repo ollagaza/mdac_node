@@ -182,6 +182,7 @@ const ProjectServiceClass = class {
           rf_pair_key = parseInt(item.rf_pair_key, 10);
           jobworker.result_file_pair_key = rf_pair_key;
           file_seq = parseInt(req_body.file_seq, 10);
+          jobworker.class_seq = parseInt(item.class_seq,10);
         } else {
           file_seq = parseInt(item.seq, 10);
           job_seq = parseInt(item.job_seq, 10);
@@ -191,7 +192,7 @@ const ProjectServiceClass = class {
           job_seq = result_data.job_seq;
         } else {
           const status_type = item.status.substr(1,1); // 현재상태...
-          console.log(`status_type===${status_type}`)
+          // console.log(`status_type===${status_type}`)
           // 반려후 재 입력..
           if (status_type === '5') { // 현재상태 반려 -> 재입력중이다.
             logger.debug('A1')
