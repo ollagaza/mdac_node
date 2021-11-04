@@ -202,6 +202,11 @@ const ProjectServiceClass = class {
     return await model.getJobListByMemberseq(member_seq, status);
   }
 
+  getJobListByJobworkerMember = async(member_seq, status) => {
+    const model = this.getJobModel(DBMySQL);
+    return await model.getJobListByJobworkerMember(member_seq, status);
+  }
+
   getJobListByMemberFile = async(member_seq, file_seq, status) => {
     const model = this.getJobModel(DBMySQL);
     return await model.getJobListByMemberFile(member_seq, file_seq, status);
