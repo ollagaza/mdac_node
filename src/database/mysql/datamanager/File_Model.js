@@ -208,7 +208,7 @@ export default class File_Model extends MySQLModel {
       'job.labeler_method', 'job.labeler_regdate', 'job.labeler_jobdate', 'job.reject_act as job_reject_act', 'job.reject_seq as job_reject_seq',
       'm1.user_name', 'ma.user_name as ma_name', 'mb.user_name as mb_name', 'mc.user_name as mc_name', 'md.user_name as md_name',
       'wa.job_status as wa_job_status','wb.job_status as wb_job_status', 'wc.job_status as wc_job_status', 'wd.job_status as wd_job_status',
-      'rf.seq as rf_seq', 'rf.pair_key as rf_pair_key', 'rf.file_type as rf_file_type', 'rf.file_name as rf_file_name', 'rf.down_cnt as rf_down_cnt',
+      'rf.seq as rf_seq', 'rf.pair_key as rf_pair_key', 'rf.file_type as rf_file_type', 'rf.org_file_name as rf_org_file_name', 'rf.file_name as rf_file_name', 'rf.down_cnt as rf_down_cnt',
       'rf.reg_member_seq as  rf_reg_member_seq', 'rf.reg_date as rf_reg_date', 'rf.status as rf_status',
       'rf.reject_act', 'rf.reject_seq'
     ];
@@ -244,6 +244,7 @@ export default class File_Model extends MySQLModel {
     })
     oKnex.leftJoin('job_worker as wa', function (){
       this.on('rf.pair_key', '=', 'wa.result_file_pair_key')
+      this.andOn('rf.job_seq','=','wa.job_seq')
       this.andOn(knex.raw('wa.job_name = \'A\''))
     })
     oKnex.leftJoin('member as ma', function (){
@@ -251,6 +252,7 @@ export default class File_Model extends MySQLModel {
     })
     oKnex.leftJoin('job_worker as wb', function (){
       this.on('rf.pair_key', '=', 'wb.result_file_pair_key')
+      this.andOn('rf.job_seq','=','wb.job_seq')
       this.andOn(knex.raw('wb.job_name = \'B\''))
     })
     oKnex.leftJoin('member as mb', function (){
@@ -258,6 +260,7 @@ export default class File_Model extends MySQLModel {
     })
     oKnex.leftJoin('job_worker as wc', function (){
       this.on('rf.pair_key', '=', 'wc.result_file_pair_key')
+      this.andOn('rf.job_seq','=','wc.job_seq')
       this.andOn(knex.raw('wc.job_name = \'C\''))
     })
     oKnex.leftJoin('member as mc', function (){
@@ -265,6 +268,7 @@ export default class File_Model extends MySQLModel {
     })
     oKnex.leftJoin('job_worker as wd', function (){
       this.on('rf.pair_key', '=', 'wd.result_file_pair_key')
+      this.andOn('rf.job_seq','=','wd.job_seq')
       this.andOn(knex.raw('wd.job_name = \'D\''))
     })
     oKnex.leftJoin('member as md', function (){
@@ -273,7 +277,7 @@ export default class File_Model extends MySQLModel {
 
     oKnex.where('file.project_seq', pro_seq)
     oKnex.andWhere('file.seq', file_seq)
-    oKnex.andWhere(knex.raw(' ifnull(rf.file_type, \'i\') = \'i\''))
+    // oKnex.andWhere(knex.raw(' ifnull(rf.file_type, \'i\') = \'i\''))
     if (div_seq){
       oKnex.andWhere('file.division_seq', div_seq)
     }
@@ -283,8 +287,10 @@ export default class File_Model extends MySQLModel {
     if (req_body && req_body.work_status && req_body.work_status !== '-1'){
       oKnex.andWhere('rf.status', req_body.work_status)
     }
+    oKnex.whereNotNull('rf.file_name')
     oKnex.orderBy('job.reject_seq', 'desc')
     oKnex.orderBy('job.seq', 'asc')
+    oKnex.orderBy('rf.pair_key', 'ASC')
     oKnex.orderBy('rf.reject_seq', 'desc')
     oKnex.orderBy('rf.reject_act', 'asc')
 

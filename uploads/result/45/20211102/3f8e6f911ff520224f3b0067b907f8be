@@ -1,0 +1,339 @@
+<?xml version="1.0"?>
+<ArrayOfLabelObject xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <LabelObject>
+    <clr>#FDD835</clr>
+    <id>0</id>
+    <type>0</type>
+    <name>Obturator</name>
+  </LabelObject>
+  <LabelObject>
+    <clr>#B08E39</clr>
+    <id>11</id>
+    <type>0</type>
+    <name>Trocar</name>
+  </LabelObject>
+  <LabelObject>
+    <clr>#388E3C</clr>
+    <id>1</id>
+    <type>0</type>
+    <name>Robotic Trocar</name>
+  </LabelObject>
+  <LabelObject>
+    <clr>#78BEBE</clr>
+    <id>51</id>
+    <type>0</type>
+    <name>S-retractor</name>
+  </LabelObject>
+  <LabelObject>
+    <clr>#00B0F0</clr>
+    <id>2</id>
+    <type>0</type>
+    <name>Robotic Monopolar Scissors</name>
+  </LabelObject>
+  <LabelObject>
+    <clr>#607D8B</clr>
+    <id>3</id>
+    <type>0</type>
+    <name>Robotic Bipolar Forceps</name>
+  </LabelObject>
+  <LabelObject>
+    <clr>#C81E1E</clr>
+    <id>4</id>
+    <type>0</type>
+    <name>Robotic Graspers</name>
+  </LabelObject>
+  <LabelObject>
+    <clr>#B53C9F</clr>
+    <id>36</id>
+    <type>0</type>
+    <name>Gauze</name>
+  </LabelObject>
+  <LabelObject>
+    <clr>#800080</clr>
+    <id>25</id>
+    <type>0</type>
+    <name>Ligasure</name>
+  </LabelObject>
+  <LabelObject>
+    <clr>#804040</clr>
+    <id>13</id>
+    <type>0</type>
+    <name>Graspers</name>
+  </LabelObject>
+  <LabelObject>
+    <clr>#007ACC</clr>
+    <id>8</id>
+    <type>0</type>
+    <name>Clip Applier</name>
+  </LabelObject>
+  <LabelObject>
+    <clr>#D5DDC4</clr>
+    <id>40</id>
+    <type>0</type>
+    <name>Anvil</name>
+  </LabelObject>
+  <LabelObject>
+    <clr>#C0C0C0</clr>
+    <id>23</id>
+    <type>0</type>
+    <name>Spatula Suction</name>
+  </LabelObject>
+  <LabelObject>
+    <clr>#EE9E93</clr>
+    <id>27</id>
+    <type>0</type>
+    <name>Clip</name>
+  </LabelObject>
+  <LabelObject>
+    <clr>#00FFFF</clr>
+    <id>19</id>
+    <type>0</type>
+    <name>Dissectors</name>
+  </LabelObject>
+  <LabelObject>
+    <clr>#6FBCDD</clr>
+    <id>32</id>
+    <type>0</type>
+    <name>Robotic Needle Holder</name>
+  </LabelObject>
+  <LabelObject>
+    <clr>#BD63C5</clr>
+    <id>5</id>
+    <type>0</type>
+    <name>Suction Irrigator</name>
+  </LabelObject>
+  <LabelObject>
+    <clr>#6652C2</clr>
+    <id>33</id>
+    <type>0</type>
+    <name>Needle Holder</name>
+  </LabelObject>
+  <LabelObject>
+    <clr>#F4B9FD</clr>
+    <id>50</id>
+    <type>0</type>
+    <name>Robotic Endo GI Stapler</name>
+  </LabelObject>
+  <LabelObject>
+    <clr>#DAAF7C</clr>
+    <id>28</id>
+    <type>0</type>
+    <name>Retrieval Bag</name>
+  </LabelObject>
+  <LabelObject>
+    <clr>#FF8080</clr>
+    <id>12</id>
+    <type>0</type>
+    <name>Scissors</name>
+  </LabelObject>
+  <LabelObject>
+    <clr>#AC53A2</clr>
+    <id>45</id>
+    <type>0</type>
+    <name>Monopolar Scissors</name>
+  </LabelObject>
+  <LabelObject>
+    <clr>#D1B5AB</clr>
+    <id>42</id>
+    <type>0</type>
+    <name>Clamp</name>
+  </LabelObject>
+  <LabelObject>
+    <clr>#004080</clr>
+    <id>20</id>
+    <type>0</type>
+    <name>Harmonic Scapel</name>
+  </LabelObject>
+  <LabelObject>
+    <clr>#3543A2</clr>
+    <id>44</id>
+    <type>0</type>
+    <name>Rod Suction</name>
+  </LabelObject>
+  <LabelObject>
+    <clr>#FC8B7E</clr>
+    <id>43</id>
+    <type>0</type>
+    <name>Clamp Forceps</name>
+  </LabelObject>
+  <LabelObject>
+    <clr>#B588CA</clr>
+    <id>34</id>
+    <type>0</type>
+    <name>Endo GI Stapler</name>
+  </LabelObject>
+  <LabelObject>
+    <clr>#DCFEF0</clr>
+    <id>39</id>
+    <type>0</type>
+    <name>JP Catheter</name>
+  </LabelObject>
+  <LabelObject>
+    <clr>#8000FF</clr>
+    <id>26</id>
+    <type>0</type>
+    <name>Robotic Clip Applier</name>
+  </LabelObject>
+  <LabelObject>
+    <clr>#DAB00C</clr>
+    <id>6</id>
+    <type>0</type>
+    <name>Curved Needle</name>
+  </LabelObject>
+  <LabelObject>
+    <clr>#D69D85</clr>
+    <id>7</id>
+    <type>0</type>
+    <name>Robotic Needle Driver</name>
+  </LabelObject>
+  <LabelObject>
+    <clr>#88D184</clr>
+    <id>9</id>
+    <type>0</type>
+    <name>Foley Catheter</name>
+  </LabelObject>
+  <LabelObject>
+    <clr>#EF5020</clr>
+    <id>10</id>
+    <type>0</type>
+    <name>Assistant Port</name>
+  </LabelObject>
+  <LabelObject>
+    <clr>#400000</clr>
+    <id>14</id>
+    <type>0</type>
+    <name>Fixation Forceps</name>
+  </LabelObject>
+  <LabelObject>
+    <clr>#808000</clr>
+    <id>15</id>
+    <type>0</type>
+    <name>Atraumatic Forceps</name>
+  </LabelObject>
+  <LabelObject>
+    <clr>#00FF00</clr>
+    <id>16</id>
+    <type>0</type>
+    <name>Tenaculum</name>
+  </LabelObject>
+  <LabelObject>
+    <clr>#008080</clr>
+    <id>17</id>
+    <type>0</type>
+    <name>Maryland Forceps</name>
+  </LabelObject>
+  <LabelObject>
+    <clr>#808080</clr>
+    <id>18</id>
+    <type>0</type>
+    <name>Spoon Forceps</name>
+  </LabelObject>
+  <LabelObject>
+    <clr>#000080</clr>
+    <id>21</id>
+    <type>0</type>
+    <name>Caiman</name>
+  </LabelObject>
+  <LabelObject>
+    <clr>#8080FF</clr>
+    <id>22</id>
+    <type>0</type>
+    <name>Hook Suction</name>
+  </LabelObject>
+  <LabelObject>
+    <clr>#FF80C0</clr>
+    <id>24</id>
+    <type>0</type>
+    <name>Robotic Cautery Hook</name>
+  </LabelObject>
+  <LabelObject>
+    <clr>#ADCB67</clr>
+    <id>29</id>
+    <type>0</type>
+    <name>Endo-Loop</name>
+  </LabelObject>
+  <LabelObject>
+    <clr>#8DC9C6</clr>
+    <id>30</id>
+    <type>0</type>
+    <name>Irrigator</name>
+  </LabelObject>
+  <LabelObject>
+    <clr>#418377</clr>
+    <id>31</id>
+    <type>0</type>
+    <name>Straighted Needle</name>
+  </LabelObject>
+  <LabelObject>
+    <clr>#EFC5E9</clr>
+    <id>35</id>
+    <type>0</type>
+    <name>Stapler</name>
+  </LabelObject>
+  <LabelObject>
+    <clr>#E0A0A9</clr>
+    <id>37</id>
+    <type>0</type>
+    <name>Cotton Bundle</name>
+  </LabelObject>
+  <LabelObject>
+    <clr>#7B6065</clr>
+    <id>38</id>
+    <type>0</type>
+    <name>Liver Retractor</name>
+  </LabelObject>
+  <LabelObject>
+    <clr>#E8CDB9</clr>
+    <id>41</id>
+    <type>0</type>
+    <name>Spike</name>
+  </LabelObject>
+  <LabelObject>
+    <clr>#842F3E</clr>
+    <id>46</id>
+    <type>0</type>
+    <name>Cautery Hook</name>
+  </LabelObject>
+  <LabelObject>
+    <clr>#3386B3</clr>
+    <id>47</id>
+    <type>0</type>
+    <name>Anti-adhesive Injection Guide Tube</name>
+  </LabelObject>
+  <LabelObject>
+    <clr>#203ECA</clr>
+    <id>48</id>
+    <type>0</type>
+    <name>Unknown Clip</name>
+  </LabelObject>
+  <LabelObject>
+    <clr>#0EC557</clr>
+    <id>49</id>
+    <type>0</type>
+    <name>Unknown Tube</name>
+  </LabelObject>
+  <LabelObject>
+    <clr>#FEEBCB</clr>
+    <id>52</id>
+    <type>0</type>
+    <name>Single Port</name>
+  </LabelObject>
+  <LabelObject>
+    <clr>#AED7FB</clr>
+    <id>53</id>
+    <type>0</type>
+    <name>Anti-adhesive Injection Guide Needle</name>
+  </LabelObject>
+  <LabelObject>
+    <clr>#BA7CF8</clr>
+    <id>54</id>
+    <type>0</type>
+    <name>Suction Tube</name>
+  </LabelObject>
+  <LabelObject>
+    <clr>#CF699C</clr>
+    <id>55</id>
+    <type>0</type>
+    <name>Absorbable Surgical Hemostasis</name>
+  </LabelObject>
+</ArrayOfLabelObject>
