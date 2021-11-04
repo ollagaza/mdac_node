@@ -213,6 +213,29 @@ routes.get('/getmemberjoblist', Auth.isAuthenticated(Role.LOGIN_USER), Wrap(asyn
     }
 }))
 
+routes.get('/getmemberjobchecklist', Auth.isAuthenticated(Role.LOGIN_USER), Wrap(async (req, res) => {
+    req.accepts('application/json');
+    try {
+        // member seq, status: 없으면 라벨링 상태
+        const member_seq = req.query.member_seq;
+        let arrStatus = [];
+        arrStatus.push('B1');
+        arrStatus.push('C1');
+        arrStatus.push('D1');
+        const result = await ProjectService.getJobListByJobworkerMember(member_seq, arrStatus);
+        const output = new StdObject(0, 'success', 200);
+        output.add('data', result);
+        res.json(output);
+    } catch (e) {
+        logger.error('/apiproject/getmemberjobchecklist', e);
+        if (e.error < 0) {
+            throw new StdObject(e.error, e.message, 200);
+        } else {
+            throw new StdObject(-1, '', 200);
+        }
+    }
+}))
+
 // setCheckResult - 검수 결과() 업데이트
 routes.post('/setjobwokerstatus', Auth.isAuthenticated(Role.LOGIN_USER), Wrap(async (req, res) => {
     req.accepts('application/json');

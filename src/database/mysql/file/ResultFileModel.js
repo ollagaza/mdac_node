@@ -39,6 +39,15 @@ export default class ResultFileModel extends MySQLModel {
     return await this.create(file, 'seq');
   }
 
+  createResFileData = async (fseq, jseq, resdata) => {
+    const file = {
+      file_seq: fseq,
+      job_seq: jseq,
+      res_data: resdata
+    }
+    return await this.create(file, 'seq');
+  }
+
   getResFileBySeq = async (seq) => {
     const select = ['seq', 'file_seq', 'job_seq', 'file_type', 'file_name', 'down_cnt', 'reg_member_seq', 'reg_date', 'org_file_name', 'file_path', 'file_size', 'pair_key']
     const oKnex = this.database
