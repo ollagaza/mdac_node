@@ -263,8 +263,8 @@ routes.post('/setresfiledata', Auth.isAuthenticated(Role.LOGIN_USER), Wrap(async
     let result = await FileService.createResultFileData(fseq, jseq, mseq, pairkey, data, status);
     result = await ProjectService.createJobWorker(pseq, jseq, pairkey, -1, 'A', status, mseq, null, null, null);
     // update job status
-    // result = await ProjectService.setJobStatusByWorkerCnt(jseq, status);
-    result = await ProjectService.setJobStatus(jseq, status);
+    result = await ProjectService.setJobStatusByWorkerCnt(jseq, status);
+    // result = await ProjectService.setJobStatus(jseq, status);
     if (result != null && result > 0) {            
       const output = new StdObject(0, 'success', 200, result);
       res.json(output);
