@@ -212,7 +212,7 @@ const ProjectServiceClass = class {
     return await model.getJobListByMemberFile(member_seq, file_seq, status);
   }
 
-  setJobStatus = async(seq, status, ) => {
+  setJobStatusByWorkerCnt = async(seq, status) => {
     const modelJobworker = this.getJobWorkerModel(DBMySQL);
     const jobworkers = await modelJobworker.getJobWorkersByJobseq(seq);
     // const modelJob = this.getJobModel(DBMySQL);
@@ -225,10 +225,15 @@ const ProjectServiceClass = class {
     params.status = status;
     params.labeler_jobdate = Util.currentFormattedDate();
     const modelJob = this.getJobModel(DBMySQL);
-    modelJob.updateJobByFilters(filter, params);
-    return 
+    return modelJob.updateJobByFilters(filter, params);
   }
 
+  setJobStatus = async(seq, status) => {
+    const params = {};
+    params.status = status;
+    const modelJob = this.getJobModel(DBMySQL);
+    return modelJob.updateJob(params, seq);
+  }
 
   // 검수결과업데이트 - 상태 변경
   // - 이름 : A(라벨링), B(검수1), C(검수2), D(검수3), E(완료)
