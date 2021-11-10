@@ -580,8 +580,12 @@ const ProjectServiceClass = class {
     output.message = result.message;
     if (result.error === 0 ) {
       const fileList = await resultfile_model.getResultFile(job_seq, 'a', req_body.ref_pair_key);
-      for (const item of fileList){
-        item.base = path.parse(item.file_name).base;
+      if(fileList.length > 0) {
+        for (const item of fileList){
+          if(item.file_name) {
+            item.base = path.parse(item.file_name).base;
+          }
+        }
       }
       output.add('filelist', fileList);
       output.add('list', result.list);
@@ -612,7 +616,11 @@ const ProjectServiceClass = class {
       if(job_seq) {
         const fileList = await resultfile_model.getResultFile(job_seq, 'a');
         for (const item of fileList) {
-          item.base = path.parse(item.file_name).base;
+          // 결과를 필드에 저장하도록 변경하여 파일명이 없음 by djyu 2021.11.08
+          if(item.file_name !== null)
+          {
+            item.base = path.parse(item.file_name).base;
+          }
         }
         output.add('filelist', fileList);
       }
@@ -642,8 +650,9 @@ const ProjectServiceClass = class {
     const result = {};
     const fileList = await resultfile_model.getResultFile(job_seq, file_type);
     // logger.debug(fileList);
-    result.message = 'not found file';
+    result.message = fileList[0].file_name;
     result.error = -1;
+
     if (fileList && fileList.length > 0) {
       const file_name = fileList[0].file_name;
       // logger.debug(fileList);
@@ -671,6 +680,45 @@ const ProjectServiceClass = class {
           result.error = -2;
           result.message = 'file not found';
         }
+      }else{
+        // 파일없고 res_data 값이 있으면 xml을 파일로 내보내기...by djyu 2021.11.08
+
+        const outF = fs.createWriteStream('./label_result.xml',{flags:'w'});
+        outF.write(fileList[0].res_data);
+
+        if (fs.existsSync('./label_result.xml')) {
+          // const stats = fs.statSync('./label_result.xml');
+          // const fileSizeInBytes = stats.size;
+          // logger.debug(stats);
+          // const path_file = path.parse('./label_result.xml');
+          // let org_name = path_file.base;
+          // org_name = org_name.replace(/ /g,'_')
+          const mimetype = mime.getType('./label_result.xml');
+
+          // Delay 안주면 종종 파일 내용이 없는걸로 저장됨
+          setTimeout(function() {
+            res.setHeader('Content-disposition', `attachment; filename=label_result.xml`); // 다운받아질 파일명 설정
+            res.setHeader('Content-length', fileList[0].res_data.length);
+            res.setHeader('Content-type', mimetype); // 파일 형식 지정
+            const filestream = fs.createReadStream('./label_result.xml');
+  
+            // logger.debug(file_name)
+            // logger.debug(org_name)
+            filestream.pipe(res);    
+          }, 2000);
+          
+          // res.sendFile(file_name);
+          result.error = 0
+
+          // fs.unlinkSync('./label_result.xml')
+          // result.message = fileList[0].res_data.length
+        } else {
+          result.error = -2;
+          result.message = 'file not found';
+        }
+
+        return result;      
+
       }
     }
     return result;
