@@ -215,7 +215,7 @@ export default class File_Model extends MySQLModel {
       'm1.user_name', 'ma.user_name as ma_name', 'mb.user_name as mb_name', 'mc.user_name as mc_name', 'md.user_name as md_name',
       'wa.job_status as wa_job_status','wb.job_status as wb_job_status', 'wc.job_status as wc_job_status', 'wd.job_status as wd_job_status',
       'rf.seq as rf_seq', 'rf.pair_key as rf_pair_key', 'rf.file_type as rf_file_type', 'rf.org_file_name as rf_org_file_name', 'rf.file_name as rf_file_name', 'rf.down_cnt as rf_down_cnt',
-      'rf.reg_member_seq as  rf_reg_member_seq', 'rf.reg_date as rf_reg_date', 'rf.status as rf_status', 'rf.res_data as rf_res_data',
+      'rf.reg_member_seq as  rf_reg_member_seq', 'rf.reg_date as rf_reg_date', knex.raw('(CASE WHEN wd.job_status IS NOT NULL THEN wd.job_status WHEN wc.job_status IS NOT NULL THEN wc.job_status WHEN wb.job_status IS NOT NULL THEN wb.job_status WHEN wa.job_status IS NOT NULL THEN wa.job_status ELSE rf.status END) as now_status'), 'rf.status as rf_status', 'rf.res_data as rf_res_data',
       'rf.reject_act', 'rf.reject_seq'
     ];
     // let join_div = '';
