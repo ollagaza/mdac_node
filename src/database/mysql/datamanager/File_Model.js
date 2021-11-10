@@ -68,7 +68,7 @@ export default class File_Model extends MySQLModel {
       'job.labeler_method', 'job.labeler_regdate', 'job.labeler_jobdate',
       'wa.reject_act as reject_act', 'wa.reject_seq as reject_seq',
       'm1.user_name',
-      'ma.user_name as ma_name', 'mb.user_name as mb_name', 'mc.user_name as mc_name', 'md.user_name as md_name'
+      'ma.user_name as ma_name', 'mb.user_name as mb_name', 'mc.user_name as mc_name', 'md.user_name as md_name', 'rf.status as rf_status',
     ];
 
     if (req_body.file_type === 'v') {
@@ -107,7 +107,13 @@ export default class File_Model extends MySQLModel {
     oKnex.leftJoin('member as m1', function (){
       this.on('job.labeler_member_seq', '=', 'm1.seq')
     })
-    if (req_body.file_type === 'v') {
+    // image - result_file join 추가 by djyu 2021.11.04
+    if(req_body.file_type === 'i') {
+      oKnex.leftJoin('result_file as rf', function (){
+        this.on('job.seq', '=', 'rf.job_seq')
+        this.andOn('job.file_seq', '=', 'rf.file_seq')
+      })
+    }else if (req_body.file_type === 'v') {
       // oKnex.leftJoin( knex.raw('(select  project_seq, job_seq, MAX(job_status) max_status FROM job_worker GROUP BY project_seq, job_seq) as smax on smax.job_seq = job.seq'));
       oKnex.leftJoin( knex.raw('(select  file_seq, job_seq, MAX(status) max_status FROM result_file where file_type = \'i\' GROUP BY file_seq, job_seq) as smax on smax.job_seq = job.seq'));
       const sum_query = ' SELECT jw.project_seq, jw.job_seq, jw.class_seq, ' +
@@ -209,7 +215,7 @@ export default class File_Model extends MySQLModel {
       'm1.user_name', 'ma.user_name as ma_name', 'mb.user_name as mb_name', 'mc.user_name as mc_name', 'md.user_name as md_name',
       'wa.job_status as wa_job_status','wb.job_status as wb_job_status', 'wc.job_status as wc_job_status', 'wd.job_status as wd_job_status',
       'rf.seq as rf_seq', 'rf.pair_key as rf_pair_key', 'rf.file_type as rf_file_type', 'rf.org_file_name as rf_org_file_name', 'rf.file_name as rf_file_name', 'rf.down_cnt as rf_down_cnt',
-      'rf.reg_member_seq as  rf_reg_member_seq', 'rf.reg_date as rf_reg_date', 'rf.status as rf_status',
+      'rf.reg_member_seq as  rf_reg_member_seq', 'rf.reg_date as rf_reg_date', 'rf.status as rf_status', 'rf.res_data as rf_res_data',
       'rf.reject_act', 'rf.reject_seq'
     ];
     // let join_div = '';
@@ -287,7 +293,7 @@ export default class File_Model extends MySQLModel {
     if (req_body && req_body.work_status && req_body.work_status !== '-1'){
       oKnex.andWhere('rf.status', req_body.work_status)
     }
-    oKnex.whereNotNull('rf.file_name')
+    // oKnex.whereNotNull('rf.file_name')
     oKnex.orderBy('job.reject_seq', 'desc')
     oKnex.orderBy('job.seq', 'asc')
     oKnex.orderBy('rf.pair_key', 'ASC')
