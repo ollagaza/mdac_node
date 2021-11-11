@@ -250,6 +250,7 @@ routes.post('/setresfiledata', Auth.isAuthenticated(Role.LOGIN_USER), Wrap(async
     const pseq = body.project_seq;
     const fseq = body.file_seq;
     const jseq = body.job_seq;
+    const cseq = body.class_seq ? body.class_seq : -1;
     const mseq = body.member_seq;
     const data = body.res_data;
     const status = 'A2';
@@ -261,7 +262,7 @@ routes.post('/setresfiledata', Auth.isAuthenticated(Role.LOGIN_USER), Wrap(async
     
     console.log('pairkey: ' + pairkey);
     let result = await FileService.createResultFileData(fseq, jseq, mseq, pairkey, data, status);
-    result = await ProjectService.createJobWorker(pseq, jseq, pairkey, -1, 'A', status, mseq, null, null, null);
+    result = await ProjectService.createJobWorker(pseq, jseq, pairkey, cseq, 'A', status, mseq, null, null, null);
     // update job status
     result = await ProjectService.setJobStatusByWorkerCnt(jseq, status);
     // result = await ProjectService.setJobStatus(jseq, status);
