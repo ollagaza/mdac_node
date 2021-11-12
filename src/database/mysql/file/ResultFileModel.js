@@ -40,8 +40,18 @@ export default class ResultFileModel extends MySQLModel {
   }
 
   createResFileData = async (fseq, jseq, memberseq, pairkey, resdata, status) => {
+    let file_type = 'x'
+
+    try { 
+      let json = JSON.parse(resdata)
+      file_type = (typeof json === 'object') ? 'j' : 'x'
+    } catch (e) { 
+      file_type = 'x'
+    } 
+
     const file = {
       file_seq: fseq,
+      file_type: file_type,
       job_seq: jseq,
       reg_member_seq: memberseq,
       pair_key: pairkey,

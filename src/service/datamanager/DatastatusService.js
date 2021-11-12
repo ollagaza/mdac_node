@@ -643,12 +643,15 @@ const ProjectServiceClass = class {
 
   resultDown = async (database, job_seq, req_body, res) => {
     const resultfile_model = this.getResultFile_Model(database);
+    
     let file_type = req_body.file_type;
+    let pair_key = req_body.pair_key ? req_body.pair_key : 0
+
     if (!file_type) {
       file_type = 'i';
     }
     const result = {};
-    const fileList = await resultfile_model.getResultFile(job_seq, file_type);
+    const fileList = await resultfile_model.getResultFile(job_seq, file_type, pair_key);
     // logger.debug(fileList);
     result.message = fileList[0].file_name;
     result.error = -1;
@@ -682,40 +685,47 @@ const ProjectServiceClass = class {
         }
       }else{
         // 파일없고 res_data 값이 있으면 xml을 파일로 내보내기...by djyu 2021.11.08
-
-        const outF = fs.createWriteStream('./label_result.xml',{flags:'w'});
-        outF.write(fileList[0].res_data);
-
-        if (fs.existsSync('./label_result.xml')) {
-          // const stats = fs.statSync('./label_result.xml');
-          // const fileSizeInBytes = stats.size;
-          // logger.debug(stats);
-          // const path_file = path.parse('./label_result.xml');
-          // let org_name = path_file.base;
-          // org_name = org_name.replace(/ /g,'_')
-          const mimetype = mime.getType('./label_result.xml');
-
-          // Delay 안주면 종종 파일 내용이 없는걸로 저장됨
-          setTimeout(function() {
-            res.setHeader('Content-disposition', `attachment; filename=label_result.xml`); // 다운받아질 파일명 설정
-            res.setHeader('Content-length', fileList[0].res_data.length);
-            res.setHeader('Content-type', mimetype); // 파일 형식 지정
-            const filestream = fs.createReadStream('./label_result.xml');
-  
-            // logger.debug(file_name)
-            // logger.debug(org_name)
-            filestream.pipe(res);    
-          }, 2000);
-          
-          // res.sendFile(file_name);
-          result.error = 0
-
-          // fs.unlinkSync('./label_result.xml')
-          // result.message = fileList[0].res_data.length
-        } else {
-          result.error = -2;
-          result.message = 'file not found';
+        let file_type_str = 'xml'
+        if (file_type === 'j') {
+          file_type_str = 'json'
         }
+        
+        const result_directory = ServiceConfig.get('RESULT_DIRECTORY') // 'D:/tmp' 
+        const sub_directory = `\\result\\${file_type_str}`
+        const full_path = `${result_directory}${sub_directory}\\`
+        // logger.debug(full_path)
+         !fs.existsSync(full_path) && fs.mkdirSync(full_path);
+        const filename = `${full_path}label_result.${file_type_str}`;
+        const outF = fs.createWriteStream(filename, {flags:'w'});
+        const data = fileList[0].res_data;
+        const data_str = JSON.stringify(data);
+        outF.write(data_str);
+
+        const async_func = new Promise(async resolve => {
+          if (fs.existsSync(filename)) {
+            const mimetype = mime.getType(filename);
+            // Delay 안주면 종종 파일 내용이 없는걸로 저장됨
+            setTimeout(function() {
+              res.setHeader('Content-disposition', `attachment; filename=label_result_${job_seq}_${pair_key}.${file_type_str}`); // 다운받아질 파일명 설정
+              // res.setHeader('Content-length', fileList[0].res_data.length);
+              res.setHeader('Content-type', mimetype); // 파일 형식 지정
+              const filestream = fs.createReadStream(filename);
+    
+              // logger.debug(file_name)
+              // logger.debug(org_name)
+              filestream.pipe(res);    
+            }, 2000);
+            // res.sendFile(file_name);
+            
+            result.error = 0
+  
+            // fs.unlinkSync('./label_result.xml')
+            // result.message = fileList[0].res_data.length
+          } else {
+            result.error = -2;
+            result.message = 'file not found';
+          }
+        })
 
         return result;      
 

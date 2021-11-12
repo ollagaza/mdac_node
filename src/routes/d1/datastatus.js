@@ -320,15 +320,16 @@ routes.get('/resultdown/:job_seq', Wrap(async (req, res) => {
   req.accepts('application/json')
   const job_seq = req.params.job_seq;
   // logger.debug(req.query);
-  const req_body = req.query ? req.query : {file_type: 'i'};
+  const req_body = req.query ? req.query : {file_type: 'i', pair_key: 0};
   if (!req_body) {
     return new StdObject(-1, '입력된 파라메타가 없습니다.', 200);
   }
+  // logger.debug('down 1');  
   const result = await DatastatusService.resultDown(DBMySQL, job_seq, req_body, res);
-  if (result.error !== 0) {
-    const output = new StdObject( result.error, result.message, 500);
-    res.json(output);
-  }
+  // if (result.error !== 0) {
+  //   const output = new StdObject( result.error, result.message, 500);
+  //   res.json(output);
+  // }
 }))
 
 
