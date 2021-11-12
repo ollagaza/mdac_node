@@ -60,7 +60,7 @@ export default class JobLog_Model extends MySQLModel {
     return 0;
   }
 
-  getResultFile = async (job_seq, file_type, pair_key = 0) => {
+  getResultFile = async (job_seq, file_type, pair_key = '0') => {
     const oKnex = this.database
       .select('*')
       .from(this.table_name)
@@ -68,7 +68,7 @@ export default class JobLog_Model extends MySQLModel {
     if(file_type !== 'a') {
       oKnex.andWhere('file_type', '=', file_type)
     }
-    if (pair_key !== 0) {
+    if (pair_key !== '0') {
       oKnex.andWhere('pair_key', '=', pair_key)
     }
     return await oKnex;

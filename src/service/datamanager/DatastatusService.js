@@ -686,7 +686,7 @@ const ProjectServiceClass = class {
       }else{
         // 파일없고 res_data 값이 있으면 xml을 파일로 내보내기...by djyu 2021.11.08
         let file_type_str = 'xml'
-        if (file_type === 'j') {
+        if (fileList[0].file_type === 'j') {
           file_type_str = 'json'
         }
         
