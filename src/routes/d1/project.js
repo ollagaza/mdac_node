@@ -185,7 +185,7 @@ routes.post('/division', Auth.isAuthenticated(Role.ADMIN), Wrap(async (req, res)
   const parent_division_seq = req.body.parent_division_seq ? req.body.parent_division_seq: ''
   const division_seq = req.body.division_seq ? req.body.division_seq: ''
 
-  console.log(`[project.js-project_seq]===${project_seq}`)
+  // console.log(`[project.js-project_seq]===${project_seq}`)
   const division_info = await ProjectService.getDivision(DBMySQL, dmode, project_seq, parent_division_seq, division_seq)
   const output = new StdObject()
   output.add('division_info', division_info.division_info)
@@ -422,5 +422,21 @@ routes.post('/delclass',  Auth.isAuthenticated(Role.ADMIN), Wrap(async (req, res
   }
   res.json(output)
 }));
+
+// category 정보 
+routes.post('/category', Auth.isAuthenticated(Role.ADMIN), Wrap(async (req, res) => {
+  req.accepts('application/json')
+
+  const token_info = req.token_info
+  const dmode = req.body.dmode ? req.body.dmode: ''
+  const category_seq = req.body.category_seq ? req.body.category_seq: ''
+
+  const category_info = await ProjectService.getCategory(DBMySQL, dmode, category_seq)
+  const output = new StdObject()
+  output.add('category_info', category_info.category_info)
+  //output.add('paging', )
+
+  res.json(output)
+}))
 
 export default routes

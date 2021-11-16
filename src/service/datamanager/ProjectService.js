@@ -11,6 +11,7 @@ import DBMySQL from '../../database/knex-mysql'
 import ProjectModel from '../../database/mysql/datamanager/ProjectModel'
 import DivisionModel from '../../database/mysql/datamanager/DivisionModel'
 import ClassModel from '../../database/mysql/datamanager/ClassModel'
+import CategoryModel from '../../database/mysql/datamanager/CategoryModel'
 import Util from '../../utils/baseutil'
 import ServiceConfig from '../service-config'
 import JsonWrapper from '../../wrapper/json-wrapper'
@@ -179,8 +180,38 @@ const ProjectServiceClass = class {
     
     return result;
   }    
-}
 
+  // Category
+  getCategoryModel = (database = null) => {
+    if (database) {
+      return new CategoryModel(database)
+    }
+    return new CategoryModel(DBMySQL)
+  }
+
+  createCategory = async (req_body) => {
+    const category_model = this.getCategoryModel(DBMySQL)
+    const result = await category_model.createCategory(req_body);
+    return result;
+  }
+
+  updateCategory = async (division_seq, req_body) => {
+    // logger.debug(req_body);
+    const category_model = this.getCategoryModel(DBMySQL)
+    const result = await category_model.updateCategory(division_seq, req_body);
+    return result;
+  }
+
+  getCategory = async (database, dmode, category_seq) => {
+    const category_model = this.getCategoryModel(database)
+    const category_info = await category_model.getCategory(dmode, category_seq)
+    
+    return {
+      category_info
+    }
+  }  
+}
+  
 const project_service = new ProjectServiceClass()
 
 export default project_service
