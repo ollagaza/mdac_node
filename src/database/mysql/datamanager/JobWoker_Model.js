@@ -119,7 +119,7 @@ export default class MemberModel extends MySQLModel {
       if (file_seq) {
         const oKnexFile = this.database
           .select('*')
-          .from('file')
+          .from('mdc_file')
           .where('seq', file_seq)
         result.reg_file = await oKnexFile;
         result.error = 0;
