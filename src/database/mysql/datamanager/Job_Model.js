@@ -11,13 +11,13 @@ export default class MemberModel extends MySQLModel {
   constructor (database) {
     super(database)
 
-    this.table_name = 'job'
+    this.table_name = 'mdc_job'
   }
 
   createJob = async (params) =>{
     const job_work_seq = await this.create(params, 'seq');
     try {
-      await this.database.raw('UPDATE job SET reject_seq = seq WHERE IFNULL(reject_seq,-1) = -1');
+      await this.database.raw('UPDATE mdc_job SET reject_seq = seq WHERE IFNULL(reject_seq,-1) = -1');
     }catch (e) {
       logger.error('ee', e);
     }
@@ -53,7 +53,7 @@ export default class MemberModel extends MySQLModel {
     const oKnex = this.database
       .select(select)
       .from(this.table_name)
-      .leftJoin('file',function() {
+      .leftJoin('mdc_file as file',function() {
         this.on('file.seq','job.file_seq')
           .andOn(knex.raw(`file.project_seq = ${pro_seq} ${join_div}`))
       })
@@ -103,15 +103,15 @@ export default class MemberModel extends MySQLModel {
     const oKnex = this.database
       .select(knex.raw('job.seq, job.file_seq, job.division_seq, job.class_seq, job.status, job.label_cnt, job.labeler_member_seq, job.labeler_method, job.labeler_regdate, job.labeler_jobdate, job.reg_member_seq, job.mod_member_seq, job.complete_member_seq, job.complete_regdate, file.org_file_name, division.division_name'))
       .from (this.table_name)
-      .leftJoin("file", function() {
+      .leftJoin("mdc_file as file", function() {
         this.on("file.seq", "job.file_seq")
       })
-      .leftJoin("division", function() {
+      .leftJoin("mdc_division as division", function() {
         this.on("division.seq", "job.division_seq")
       })
       .whereIn("job.seq", this.database
                         .select("job_seq")
-                        .from("job_worker")
+                        .from("mdc_job_worker")
                         .where("job_member_seq", member_seq)
                         .whereIn("job_status", status));
     return await oKnex;

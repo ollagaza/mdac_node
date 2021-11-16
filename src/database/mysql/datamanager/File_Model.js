@@ -10,7 +10,7 @@ import Constants from "../../../constants/constants";
 export default class File_Model extends MySQLModel {
   constructor(database) {
     super(database)
-    this.table_name = 'file'
+    this.table_name = 'mdc_file'
   }
   getImg = async (seq) => {
     const file_info = {}
@@ -96,26 +96,26 @@ export default class File_Model extends MySQLModel {
     // logger.debug(this.log_prefix, '[getGroupMemberList]', paging)
     const oKnex = this.database
       .select(select)
-      .from(this.table_name);
-    oKnex.leftJoin('job', function (){
+      .from(`${this.table_name} as file`);
+    oKnex.leftJoin('mdc_job as job', function (){
       this.on('job.file_seq', '=', 'file.seq')
         .andOn('job.project_seq', '=', 'file.project_seq')
       if (div_seq){
         this.andOn('job.division_seq', '=', 'file.division_seq')
       }
     })
-    oKnex.leftJoin('member as m1', function (){
+    oKnex.leftJoin('mdc_member as m1', function (){
       this.on('job.labeler_member_seq', '=', 'm1.seq')
     })
     // image - result_file join 추가 by djyu 2021.11.04
     if(req_body.file_type === 'i') {
-      oKnex.leftJoin('result_file as rf', function (){
+      oKnex.leftJoin('mdc_result_file as rf', function (){
         this.on('job.seq', '=', 'rf.job_seq')
         this.andOn('job.file_seq', '=', 'rf.file_seq')
       })
     }else if (req_body.file_type === 'v') {
       // oKnex.leftJoin( knex.raw('(select  project_seq, job_seq, MAX(job_status) max_status FROM job_worker GROUP BY project_seq, job_seq) as smax on smax.job_seq = job.seq'));
-      oKnex.leftJoin( knex.raw('(select  file_seq, job_seq, MAX(status) max_status FROM result_file where file_type = \'i\' GROUP BY file_seq, job_seq) as smax on smax.job_seq = job.seq'));
+      oKnex.leftJoin( knex.raw('(select file_seq, job_seq, MAX(status) max_status FROM mdc_result_file where file_type = \'i\' GROUP BY file_seq, job_seq) as smax on smax.job_seq = job.seq'));
       const sum_query = ' SELECT jw.project_seq, jw.job_seq, jw.class_seq, ' +
         'sum(case when jw.job_status=\'A0\' then 1 END) AS \'A0\', ' +
         'sum(case when jw.job_status=\'A1\' then 1 END) AS \'A1\', ' +
@@ -130,39 +130,39 @@ export default class File_Model extends MySQLModel {
         'sum(case when jw.job_status=\'D2\' then 1 END) AS \'D2\', ' +
         'sum(case when jw.job_status=\'D5\' then 1 END) AS \'D5\', ' +
         'sum(case when jw.job_status=\'E2\' then 1 END) AS \'E2\' ' +
-        'FROM job_worker jw ' +
-        'LEFT JOIN job jo ON jw.job_seq = jo.seq ' +
+        'FROM mdc_job_worker jw ' +
+        'LEFT JOIN mdc_job jo ON jw.job_seq = jo.seq ' +
         `WHERE jw.project_seq = ${pro_seq} ` +
         'GROUP BY jw.project_seq, jw.job_seq, jw.class_seq ';
       oKnex.leftJoin(knex.raw(`(${sum_query}) as sd on sd.job_seq = job.seq`));
     }
     if (req_body.file_type !== 'v') {
-      oKnex.leftJoin('job_worker as wa', function (){
+      oKnex.leftJoin('mdc_job_worker as wa', function (){
         this.on(knex.raw('wa.job_name = \'A\''))
         this.andOn('job.seq', '=', 'wa.job_seq')
       })
-      oKnex.leftJoin('member as ma', function () {
+      oKnex.leftJoin('mdc_member as ma', function () {
         this.on('wa.job_member_seq', '=', 'ma.seq')
       })
-      oKnex.leftJoin('job_worker as wb', function (){
+      oKnex.leftJoin('mdc_job_worker as wb', function (){
         this.on(knex.raw('wb.job_name = \'B\''))
         this.andOn('job.seq', '=', 'wb.job_seq')
       })
-      oKnex.leftJoin('member as mb', function () {
+      oKnex.leftJoin('mdc_member as mb', function () {
         this.on('wb.job_member_seq', '=', 'mb.seq')
       })
-      oKnex.leftJoin('job_worker as wc', function () {
+      oKnex.leftJoin('mdc_job_worker as wc', function () {
         this.on(knex.raw('wc.job_name = \'C\''))
         this.andOn('job.seq', '=', 'wc.job_seq')
       })
-      oKnex.leftJoin('member as mc', function () {
+      oKnex.leftJoin('mdc_member as mc', function () {
         this.on('wc.job_member_seq', '=', 'mc.seq')
       })
-      oKnex.leftJoin('job_worker as wd', function () {
+      oKnex.leftJoin('mdc_job_worker as wd', function () {
         this.on(knex.raw('wd.job_name = \'D\''))
         this.andOn('job.seq', '=', 'wd.job_seq')
       })
-      oKnex.leftJoin('member as md', function () {
+      oKnex.leftJoin('mdc_member as md', function () {
         this.on('wd.job_member_seq', '=', 'md.seq')
       })
     }
@@ -233,51 +233,51 @@ export default class File_Model extends MySQLModel {
     // logger.debug(this.log_prefix, '[getGroupMemberList]', paging)
     const oKnex = this.database
       .select(select)
-      .from(this.table_name);
-    oKnex.leftJoin('job', function (){
+      .from(`${this.table_name} as file`);
+    oKnex.leftJoin('mdc_job as job', function (){
       this.on('job.file_seq', '=', 'file.seq')
         .andOn('job.project_seq', '=', 'file.project_seq')
       if (div_seq){
         this.andOn('job.division_seq', '=', 'file.division_seq')
       }
     })
-    oKnex.leftJoin('result_file as rf', function (){
+    oKnex.leftJoin('mdc_result_file as rf', function (){
       this.on('file.seq', '=', 'rf.file_seq')
         .andOn('job.seq', '=', 'rf.job_seq')
     })
-    oKnex.leftJoin('member as m1', function (){
+    oKnex.leftJoin('mdc_member as m1', function (){
       this.on('job.labeler_member_seq', '=', 'm1.seq')
     })
-    oKnex.leftJoin('job_worker as wa', function (){
+    oKnex.leftJoin('mdc_job_worker as wa', function (){
       this.on('rf.pair_key', '=', 'wa.result_file_pair_key')
       this.andOn('rf.job_seq','=','wa.job_seq')
       this.andOn(knex.raw('wa.job_name = \'A\''))
     })
-    oKnex.leftJoin('member as ma', function (){
+    oKnex.leftJoin('mdc_member as ma', function (){
       this.on('wa.job_member_seq', '=', 'ma.seq')
     })
-    oKnex.leftJoin('job_worker as wb', function (){
+    oKnex.leftJoin('mdc_job_worker as wb', function (){
       this.on('rf.pair_key', '=', 'wb.result_file_pair_key')
       this.andOn('rf.job_seq','=','wb.job_seq')
       this.andOn(knex.raw('wb.job_name = \'B\''))
     })
-    oKnex.leftJoin('member as mb', function (){
+    oKnex.leftJoin('mdc_member as mb', function (){
       this.on('wb.job_member_seq', '=', 'mb.seq')
     })
-    oKnex.leftJoin('job_worker as wc', function (){
+    oKnex.leftJoin('mdc_job_worker as wc', function (){
       this.on('rf.pair_key', '=', 'wc.result_file_pair_key')
       this.andOn('rf.job_seq','=','wc.job_seq')
       this.andOn(knex.raw('wc.job_name = \'C\''))
     })
-    oKnex.leftJoin('member as mc', function (){
+    oKnex.leftJoin('mdc_member as mc', function (){
       this.on('wc.job_member_seq', '=', 'mc.seq')
     })
-    oKnex.leftJoin('job_worker as wd', function (){
+    oKnex.leftJoin('mdc_job_worker as wd', function (){
       this.on('rf.pair_key', '=', 'wd.result_file_pair_key')
       this.andOn('rf.job_seq','=','wd.job_seq')
       this.andOn(knex.raw('wd.job_name = \'D\''))
     })
-    oKnex.leftJoin('member as md', function (){
+    oKnex.leftJoin('mdc_member as md', function (){
       this.on('wd.job_member_seq', '=', 'md.seq')
     })
 

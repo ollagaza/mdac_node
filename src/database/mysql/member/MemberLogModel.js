@@ -5,7 +5,7 @@ export default class MemberLogModel extends MySQLModel {
   constructor (database) {
     super(database)
 
-    this.table_name = 'member_log'
+    this.table_name = 'mdc_member_log'
     this.selectable_fields = ['*']
     this.log_prefix = '[MemberLogModel]'
   }

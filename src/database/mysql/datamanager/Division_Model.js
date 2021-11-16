@@ -8,7 +8,7 @@ export default class DivisionModel extends MySQLModel {
   constructor(database) {
     super(database)
 
-    this.table_name = 'division'
+    this.table_name = 'mdc_division'
     this.private_fields = []
   }
   getDivsionByProseq = async (pro_seq, div_seq, is_used) => {
@@ -37,8 +37,8 @@ export default class DivisionModel extends MySQLModel {
   }
   getDivsumMax= async (seq_list) => {
     const oKnex = this.database.select(knex.raw('job.division_seq, max(jw.job_date) as job_date'))
-      .from('job')
-      .leftJoin('job_worker as jw', function(){
+      .from('mdc_job as job')
+      .leftJoin('mdc_job_worker as jw', function(){
         this.on('jw.job_seq', '=', 'job.seq')
       })
       .whereIn('job.division_seq', seq_list)
@@ -73,13 +73,13 @@ export default class DivisionModel extends MySQLModel {
       'sum(case when jw.job_status=\'D5\' then 1 END) AS \'D5\', ' +
       'sum(case when jw.job_status=\'E2\' then 1 END) AS \'E2\' ')]
     const oKnex = this.database.select(select)
-      .from('job')
-      .leftJoin('job_worker as jw', function(){
+      .from('mdc_job as job')
+      .leftJoin('mdc_job_worker as jw', function(){
         this.on('jw.job_seq', '=', 'job.seq')
       })
-    const sum_assi = 'SELECT division_seq, SUM(label_cnt) label_cnt_sum FROM job GROUP BY division_seq';
-    const sum_reject = 'SELECT mjo.division_seq, count(mjw.seq) reject_A_sum FROM job as mjo '+
-        'left join job_worker mjw on(mjw.job_seq = mjo.seq) '+
+    const sum_assi = 'SELECT division_seq, SUM(label_cnt) label_cnt_sum FROM mdc_job GROUP BY division_seq';
+    const sum_reject = 'SELECT mjo.division_seq, count(mjw.seq) reject_A_sum FROM mdc_job as mjo '+
+        'left join mdc_job_worker mjw on(mjw.job_seq = mjo.seq) '+
         'where mjw.reject_act = \'A\' GROUP BY mjo.division_seq';
     oKnex.leftJoin(knex.raw(`(${sum_assi}) as ai on ai.division_seq = job.division_seq`));
     oKnex.leftJoin(knex.raw(`(${sum_reject}) as re on re.division_seq = job.division_seq`));

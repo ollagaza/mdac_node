@@ -8,7 +8,7 @@ export default class ClassModel extends MySQLModel {
   constructor(database) {
     super(database)
 
-    this.table_name = 'class'
+    this.table_name = 'mdc_class'
     this.private_fields = []
   }
   getClass_list= async (pro_seq) => {

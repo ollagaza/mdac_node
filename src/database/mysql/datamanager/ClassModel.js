@@ -15,7 +15,7 @@ export default class ClassModel extends MySQLModel {
   constructor (database) {
     super(database)
 
-    this.table_name = 'class'
+    this.table_name = 'mdc_class'
     this.private_fields = [
       
     ]
@@ -63,7 +63,7 @@ export default class ClassModel extends MySQLModel {
     
     const select = ['c.seq','c.project_seq','p.project_name','c.class_id','c.class_name','c.is_used','c.reg_date']
     const oKnex = this.database.select(select);
-    oKnex.from({c: 'class'}).join({p: 'project'}, function() {
+    oKnex.from({c: 'mdc_class'}).join({p: 'mdc_project'}, function() {
       this.on('c.project_seq','=','p.seq')});
 
     if(class_seq === '')

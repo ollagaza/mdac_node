@@ -9,7 +9,7 @@ export default class DivisionModel extends MySQLModel {
   constructor (database) {
     super(database)
 
-    this.table_name = 'division'
+    this.table_name = 'mdc_division'
     this.private_fields = [
         'seq', 'project_seq', 'parent_division_seq', 'division_id', 'division_name', 'is_used'
     ]

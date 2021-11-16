@@ -6,7 +6,7 @@ export default class JobLog_Model extends MySQLModel {
   constructor(database) {
     super(database)
 
-    this.table_name = 'job_log'
+    this.table_name = 'mdc_job_log'
   }
 
   createJobLogWorker = async (params) => {

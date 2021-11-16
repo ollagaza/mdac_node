@@ -15,7 +15,7 @@ export default class ProjectModel extends MySQLModel {
   constructor (database) {
     super(database)
 
-    this.table_name = 'project'
+    this.table_name = 'mdc_project'
     this.private_fields = [
       
     ]
@@ -64,11 +64,11 @@ export default class ProjectModel extends MySQLModel {
 
     const select = ['seq','project_name', 'is_class', 'status', 'memo', 'reason', 'reg_member_seq','reg_date', 
       //knex.raw('(select count(*) FROM job) as ttt'),
-      knex.raw(`(	SELECT COUNT(DISTINCT labeler_member_seq) FROM job WHERE labeler_member_seq IS NOT NULL AND labeler_regdate IS NOT NULL AND project_seq=project.seq ) AS labeler_cnt`),
-      knex.raw(`( SELECT COUNT(DISTINCT job_member_seq) FROM job_worker WHERE project_seq=project.seq AND (job_name='B' OR job_name='C' OR job_name='D')) AS checker_cnt`)
+      knex.raw(`(	SELECT COUNT(DISTINCT labeler_member_seq) FROM mdc_job WHERE labeler_member_seq IS NOT NULL AND labeler_regdate IS NOT NULL AND project_seq=project.seq ) AS labeler_cnt`),
+      knex.raw(`( SELECT COUNT(DISTINCT job_member_seq) FROM mdc_job_worker WHERE project_seq=project.seq AND (job_name='B' OR job_name='C' OR job_name='D')) AS checker_cnt`)
     ]
     const oKnex = this.database.select(select);
-    oKnex.from(this.table_name)
+    oKnex.from(`${this.table_name} as project`)
 
     let subquery = {};
 
@@ -79,7 +79,7 @@ export default class ProjectModel extends MySQLModel {
       }
       if(keyword !== '') {
         if(search_type==='LABELER') { // labeler 검색
-          subquery = knex.raw(`SELECT DISTINCT J.project_seq FROM job J JOIN member M ON J.labeler_member_seq=M.seq WHERE M.user_name LIKE '%${keyword}%' AND J.labeler_member_seq IS NOT NULL`)
+          subquery = knex.raw(`SELECT DISTINCT J.project_seq FROM mdc_job J JOIN mdc_member M ON J.labeler_member_seq=M.seq WHERE M.user_name LIKE '%${keyword}%' AND J.labeler_member_seq IS NOT NULL`)
           oKnex.andWhere('seq', 'in', subquery)      
         }else if(search_type==='CHECKER') { // checker 검색
           // subquery[0] = knex.raw(`SELECT DISTINCT J.project_seq FROM job J JOIN member M ON J.checker1_member_seq=M.seq WHERE M.user_name LIKE '%${keyword}%' AND J.checker1_member_seq IS NOT NULL`)
@@ -89,7 +89,7 @@ export default class ProjectModel extends MySQLModel {
           //   this.where('seq', 'in', subquery[0]).orWhere('seq', 'in', subquery[1]).orWhere('seq', 'in', subquery[2])    
           // })
 
-          subquery = knex.raw(`SELECT DISTINCT J.project_seq FROM job_worker J JOIN member M ON J.job_member_seq=M.seq AND (J.job_name='B' OR J.job_name='C' OR J.job_name='D') WHERE M.user_name LIKE '%${keyword}%' AND J.job_member_seq IS NOT NULL`)
+          subquery = knex.raw(`SELECT DISTINCT J.project_seq FROM mdc_job_worker J JOIN mdc_member M ON J.job_member_seq=M.seq AND (J.job_name='B' OR J.job_name='C' OR J.job_name='D') WHERE M.user_name LIKE '%${keyword}%' AND J.job_member_seq IS NOT NULL`)
           oKnex.andWhere('seq', 'in', subquery)      
 
         }else{

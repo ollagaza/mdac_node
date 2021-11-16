@@ -15,7 +15,7 @@ export default class StatisticsModel extends MySQLModel {
   constructor (database) {
     super(database)
 
-    this.table_name = 'job'
+    this.table_name = 'mdc_job'
     this.private_fields = [
       
     ]
@@ -81,7 +81,7 @@ export default class StatisticsModel extends MySQLModel {
 
     const select = ['project_seq AS label',`class_seq AS data`]
     const oKnex = this.database.select(select);
-    oKnex.from('job').limit(3)
+    oKnex.from('mdc_job').limit(3)
                 
     // oKnex.where('f.seq','<>',0)
     // if(project_seq === '')

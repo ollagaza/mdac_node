@@ -10,7 +10,7 @@ export default class JobWorkerModel extends MysqlModel {
     constructor (database) {
         super(database);
 
-        this.table_name = 'job_worker';
+        this.table_name = 'mdc_job_worker';
         this.private_fields = [
             'seq', 'project_seq', 'job_seq', 'result_file_pair_key', 'class_seq', 'job_name', 'job_status', 'job_member_seq'
 

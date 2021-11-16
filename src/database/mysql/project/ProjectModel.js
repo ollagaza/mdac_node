@@ -9,7 +9,7 @@ export default class ProjectModel extends MySQLModel {
   constructor (database) {
     super(database)
 
-    this.table_name = 'project'
+    this.table_name = 'mdc_project'
     this.private_fields = [
         'seq', 'project_name', 'is_class', 'status', 'memo'
     ]

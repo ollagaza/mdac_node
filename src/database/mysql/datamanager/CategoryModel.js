@@ -1,9 +1,9 @@
 /*
 =======================================
-'	파일명 : DivisionModel.js
+'	파일명 : CategoryModel.js
 '	작성자 : djyu
-'	작성일 : 2021.09.30
-'	기능   : division model
+'	작성일 : 2021.11.15
+'	기능   : category model
 '	=====================================
 */
 import Util from '../../../utils/baseutil'
@@ -11,38 +11,33 @@ import MySQLModel from '../../mysql-model'
 import JsonWrapper from '../../../wrapper/json-wrapper'
 import knex from '../../knex-mysql';
 
-export default class DivisionModel extends MySQLModel {
+export default class CategoryModel extends MySQLModel {
   constructor (database) {
     super(database)
 
-    this.table_name = 'mdc_division'
+    this.table_name = 'category_type'
     this.private_fields = [
       
     ]
   }
 
-  createDivision  = async (division_info) => {
-    // logger.debug(project_info.password)
-    // const member = project_info.toJSON()
-    // project_info.status = '1';
-
-    // logger.debug(project_info)
+  createCategory  = async (category_info) => {
     
-    if(!division_info.parent_division_seq) {
-      delete division_info.parent_division_seq
+    if(!category_info.parent_division_seq) {
+      delete category_info.parent_division_seq
     }
     try{
-      const division_info_seq = await this.create(division_info, 'seq')
-      division_info.seq = division_info_seq
-      division_info.error = 0;
+      const division_info_seq = await this.create(category_info, 'seq')
+      category_info.seq = division_info_seq
+      category_info.error = 0;
     } catch (e) {
-      division_info.error = -1;
-      division_info.message = e.sqlMessage;
+      category_info.error = -1;
+      category_info.message = e.sqlMessage;
     }
-    return division_info
+    return category_info
   }
 
-  updateDivision  = async (division_seq, division_info) => {
+  updateCategory  = async (division_seq, division_info) => {
     // logger.debug(project_info.password)
     // const member = project_info.toJSON()
     // logger.debug(project_info)
@@ -62,45 +57,27 @@ export default class DivisionModel extends MySQLModel {
     return division_info
   }
 
-  getDivision = async (dmode, project_seq, parent_division_seq, division_seq) => {
+  getCategory = async (dmode, category_seq) => {
     const select = ['*']
     
     const oKnex = this.database.select(select);
     oKnex.from(this.table_name)
-                
-    oKnex.where('seq','<>',0)
-    if(dmode === 'CHILD') {
-      if(project_seq !== '') {
-        oKnex.andWhere('project_seq',project_seq);
-      }
-      if(parent_division_seq !== '') {
-        oKnex.andWhere('parent_division_seq',parent_division_seq);
-      }else{
-        oKnex.whereNull('parent_division_seq');
-      }
-    }else{
-      if(parent_division_seq==='') {
-        if(project_seq !== '') {
-          oKnex.andWhere('project_seq',project_seq);
-        }
-        if(division_seq !== '')
-        {
-          oKnex.andWhere('seq',division_seq);
-        }else{
-          oKnex.andWhere('seq',division_seq);
-        }
-      }else{      
-        oKnex.andWhere('parent_division_seq',parent_division_seq);
-      }
+    
+    oKnex.whereNull('ref_category')
+
+    if(category_seq !== '')
+    {
+      oKnex.andWhere('seq',category_seq);
     }
-    oKnex.orderBy('seq','desc');
+
+    oKnex.orderBy('sort_no','ASC');
 
     const result = await oKnex;
     //return new JsonWrapper(result, this.private_fields)
     return result;
   }
   
-  getDivisionInfo = async (start, end, is_used, search_type, keyword, project_seq, division_seq) => {
+  getCategoryInfo = async (start, end, is_used, search_type, keyword, project_seq, division_seq) => {
     const result = {}
     // knex.raw('CONCAT(CASE WHEN a.division_name IS NULL THEN `` ELSE CONCAT(a.division_name,`>`) END, CASE WHEN b.division_name IS NULL THEN `` ELSE CONCAT(b.division_name,>`) END, CASE WHEN c.division_name IS NULL THEN `` ELSE CONCAT(c.division_name,`>`) END, CASE WHEN d.division_name IS NULL THEN `` ELSE CONCAT(d.division_name,`>`) END, CASE WHEN e.division_name IS NULL THEN `` ELSE CONCAT(e.division_name,`>`) END) AS parent_path'),
 
@@ -108,17 +85,17 @@ export default class DivisionModel extends MySQLModel {
     knex.raw(`CASE WHEN TRIM(TRAILING '_' FROM CONCAT(CASE WHEN a.division_id IS NULL THEN '' ELSE CONCAT(a.division_id,'_') END, CASE WHEN b.division_id IS NULL THEN '' ELSE CONCAT(b.division_id,'_') END, CASE WHEN c.division_id IS NULL THEN '' ELSE CONCAT(c.division_id,'_') END, CASE WHEN d.division_id IS NULL THEN '' ELSE CONCAT(d.division_id,'_') END, CASE WHEN e.division_id IS NULL THEN '' ELSE CONCAT(e.division_id,'_') END)) = '' THEN f.division_id ELSE TRIM(TRAILING '_' FROM CONCAT(CASE WHEN a.division_id IS NULL THEN '' ELSE CONCAT(a.division_id,'_') END, CASE WHEN b.division_id IS NULL THEN '' ELSE CONCAT(b.division_id,'_') END, CASE WHEN c.division_id IS NULL THEN '' ELSE CONCAT(c.division_id,'_') END, CASE WHEN d.division_id IS NULL THEN '' ELSE CONCAT(d.division_id,'_') END, CASE WHEN e.division_id IS NULL THEN '' ELSE CONCAT(e.division_id,'_') END)) END AS parent_path_id`), 'f.project_seq', 'p.project_name', 'f.seq', 'f.parent_division_seq', 'f.division_id', 'f.division_name', 'f.is_used','f.reg_date']
     
     const oKnex = this.database.select(select);
-    oKnex.from({ a: 'mdc_division' }).rightJoin({ b: 'mdc_division'}, function() {
+    oKnex.from({ a: 'division' }).rightJoin({ b: 'division'}, function() {
       this.on('a.seq','=','b.parent_division_seq')})
-    oKnex.rightJoin({ c: 'mdc_division'}, function() {
+    oKnex.rightJoin({ c: 'division'}, function() {
       this.on('b.seq','=','c.parent_division_seq')})
-    oKnex.rightJoin({ d: 'mdc_division'}, function() {
+    oKnex.rightJoin({ d: 'division'}, function() {
       this.on('c.seq','=','d.parent_division_seq')})
-    oKnex.rightJoin({ e: 'mdc_division'}, function() {
+    oKnex.rightJoin({ e: 'division'}, function() {
       this.on('d.seq','=','e.parent_division_seq')})
-    oKnex.rightJoin({ f: 'mdc_division'}, function() {
+    oKnex.rightJoin({ f: 'division'}, function() {
       this.on('e.seq','=','f.parent_division_seq')})
-    oKnex.join({ p: 'mdc_project'}, function() {
+    oKnex.join({ p: 'project'}, function() {
       this.on('p.seq','=','f.project_seq')})
                 
     oKnex.where('f.seq','<>',0)
@@ -158,49 +135,7 @@ export default class DivisionModel extends MySQLModel {
     return result;
   }
   
-  // 나중에 지울것. by djyu 2021.09.30
-  // getDivisionInfoPaging = async (start, end, is_used, search_type, keyword, project_seq, division_seq) => {
-  //   const select = ['division.seq']
-  //   const oKnex = this.database.select(select);
-  //   oKnex.from('division').join('project', function() {
-  //     this.on('division.project_seq','=','project.seq')})
-      
-  //   oKnex.where('division.seq','<>',0)
-  //   if(division_seq === '')
-  //   {
-  //     if(is_used !== '') {
-  //       oKnex.andWhere('division.is_used',is_used)
-  //     }
-  //     if(project_seq !== '') {
-  //       oKnex.andWhere('division.project_seq',project_seq);
-  //     }
-
-  //     if(keyword !== '') {
-  //       oKnex.andWhere(`division.${search_type}`,'like',`%${keyword}%`);
-  //     }
-  //     oKnex.orderBy('division.seq','desc');
-  //   }else{
-  //     oKnex.andWhere('division.seq',division_seq);
-  //   }
-
-  //   const oCountKnex = this.database.from(oKnex.clone().as('list'))
-
-  //   if(project_seq === '')
-  //   {
-  //     oKnex.limit(end).offset(start)
-  //   }
-
-  //   // const result = await oKnex;
-   
-  //   // 총 갯수
-  //   const [{ total_count }] = await Promise.all([
-  //     oCountKnex.count('* as total_count').first()
-  //   ])
-    
-  //   return total_count;    
-  // }
- 
-  updateDivisionUsed = async (params, arr_division_seq) => {
+  updateCategoryUsed = async (params, arr_division_seq) => {
     const result = {};
     result.error = 0;
     result.message = '';
@@ -217,14 +152,14 @@ export default class DivisionModel extends MySQLModel {
     return result;
   }
 
-  deleteDivision = async (params, arr_division_seq) => {
+  deleteCategory = async (params, arr_division_seq) => {
     const result = {};
     result.error = 0;
     result.message = '';
     try {  
       const select = ['seq']
       const oKnex = this.database.select(select);
-      oKnex.from('mdc_job')
+      oKnex.from('job')
       oKnex.whereIn('division_seq', arr_division_seq)
   
       // 총 갯수

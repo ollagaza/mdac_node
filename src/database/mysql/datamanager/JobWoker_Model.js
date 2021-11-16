@@ -10,7 +10,7 @@ export default class MemberModel extends MySQLModel {
   constructor(database) {
     super(database)
 
-    this.table_name = 'job_worker'
+    this.table_name = 'mdc_job_worker'
   }
 
   createJobWorker = async (params, notDel = true) => {
@@ -85,7 +85,7 @@ export default class MemberModel extends MySQLModel {
         logger.debug(job);
         try {
           const job_seq = await this.database
-            .from('job')
+            .from('mdc_job')
             .returning('seq')
             .insert(job)
           req_body.job_seq = job_seq;
@@ -141,14 +141,14 @@ export default class MemberModel extends MySQLModel {
         const oKnex = this.database
           .unionAll(function () {
             this.select([select1])
-              .from('job')
-              .leftJoin('member as m', function () {
+              .from('mdc_job as job')
+              .leftJoin('mdc_member as m', function () {
                 this.on('m.seq', '=', 'job.labeler_member_seq')
               })
-              .leftJoin('member as mreg', function () {
+              .leftJoin('mdc_member as mreg', function () {
                 this.on('mreg.seq', '=', 'job.reg_member_seq')
               })
-              .leftJoin('member as mj', function () {
+              .leftJoin('mdc_member as mj', function () {
                 this.on('mj.seq', '=', 'job.labeler_member_seq')
               })
               .where('job.seq', job_seq)
@@ -156,17 +156,17 @@ export default class MemberModel extends MySQLModel {
           
           .unionAll(function () {
             this.select(select2)
-              .from('job as jo')
-              .join('job_worker as jw', function () {
+              .from('mdc_job as jo')
+              .join('mdc_job_worker as jw', function () {
                 this.on('jo.seq', '=', 'jw.job_seq')
               })
-              .leftJoin('member as mj', function () {
+              .leftJoin('mdc_member as mj', function () {
                 this.on('jo.labeler_member_seq', '=', 'mj.seq')
               })
-              .leftJoin('member as m', function () {
+              .leftJoin('mdc_member as m', function () {
                 this.on('jw.job_member_seq', '=', 'm.seq')
               })
-              .leftJoin('member as mreg', function () {
+              .leftJoin('mdc_member as mreg', function () {
                 this.on('jw.reg_member_seq', '=', 'mreg.seq')
               })
               .where('jo.seq', job_seq)
@@ -192,9 +192,9 @@ export default class MemberModel extends MySQLModel {
       reject_query = ` and jw.result_file_pair_key = ${reject_pair_key} `;
     }
     const query = 'SELECT jw.*, m.user_name, mreg.user_name as reg_member ' +
-      'from job_worker AS jw '+
-      'left join member as m on(jw.job_member_seq = m.seq) ' +
-      'left join member as mreg on(jw.reg_member_seq = mreg.seq) ' +
+      'from mdc_job_worker AS jw '+
+      'left join mdc_member as m on(jw.job_member_seq = m.seq) ' +
+      'left join mdc_member as mreg on(jw.reg_member_seq = mreg.seq) ' +
       `where jw.job_seq = ${jobworker_seq} `+
       reject_query +
       'order by jw.job_status asc';

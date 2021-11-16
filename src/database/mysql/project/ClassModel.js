@@ -9,7 +9,7 @@ export default class ClassModel extends MySQLModel {
   constructor (database) {
     super(database)
 
-    this.table_name = 'class'
+    this.table_name = 'mdc_class'
     this.private_fields = [
         'seq', 'project_seq', 'class_id', 'class_name', 'is_used', 'reg_member_seq', 'reg_date'
     ]

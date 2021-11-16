@@ -10,7 +10,7 @@ export default class MemberModel extends MySQLModel {
   constructor (database) {
     super(database)
 
-    this.table_name = 'member'
+    this.table_name = 'mdc_member'
     this.private_fields = [
       'password'
     ]
@@ -244,7 +244,7 @@ export default class MemberModel extends MySQLModel {
     const select = ['member_log.seq','mod_member_seq','user_name', 'log_type','log_text','ip_addr','member_log.reg_date']
     const oKnex = this.database.select(select);
     oKnex.from(`${this.table_name}_log`)
-    oKnex.innerJoin('member',function() {
+    oKnex.innerJoin(`${this.table_name}`,function() {
       this.on('member.seq','member_log.mod_member_seq')
     })
     oKnex.where('member_seq',member_seq);

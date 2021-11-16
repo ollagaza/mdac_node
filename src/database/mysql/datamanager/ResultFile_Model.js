@@ -8,7 +8,7 @@ import Constants from "../../../constants/constants";
 export default class JobLog_Model extends MySQLModel {
   constructor(database) {
     super(database)
-    this.table_name = 'result_file'
+    this.table_name = 'mdc_result_file'
   }
 
   updateRFile = async (seq, params) => {
@@ -54,7 +54,7 @@ export default class JobLog_Model extends MySQLModel {
       const pair_key = await this.create(cdata, 'pair_key');
       // const params = {pair_key, 'seq'}
       // const filter = {job_seq: cdata.job_seq, status: 'A1', reject_seq: reject_pair_key}
-      await this.database.raw(`update result_file set pair_key = seq where job_seq = ${cdata.job_seq} and status = 'A1' and reject_seq = ${reject_pair_key}`)
+      await this.database.raw(`update mdc_result_file set pair_key = seq where job_seq = ${cdata.job_seq} and status = 'A1' and reject_seq = ${reject_pair_key}`)
       return pair_key;
     }
     return 0;
