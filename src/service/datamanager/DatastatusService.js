@@ -97,6 +97,16 @@ const ProjectServiceClass = class {
     return result;
   }
 
+  getProject_Category_List = async (database, req_body) => {
+    const project_seq = req_body.project_seq;
+    const depth_no = req_body.depth_no;
+    const category_seq = req_body.category_seq;
+
+    const project_model = this.getProject_Model(database);
+    const result = await project_model.getProjectCategoryList(req_body);
+    return result;
+  }
+
   getFirstDivision = async (database, pro_seq) => {
     const division_model = this.getDivision_Model(database);
     const result = await division_model.getFirstDivsionByProseq(pro_seq);
@@ -131,6 +141,12 @@ const ProjectServiceClass = class {
   getWokerList = async (database) => {
     const member_model = this.getMember_Model(database);
     const result = await member_model.getWokerList('Y');
+    return result;
+  }
+
+  getCategoryList = async (database, project_seq) => {
+    const division_model = this.getDivision_Model(database);
+    const result = await division_model.getCategoryList(project_seq);
     return result;
   }
 

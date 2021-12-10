@@ -33,6 +33,26 @@ routes.get('/statuslist', Auth.isAuthenticated(Role.LOGIN_USER),  Wrap(async (re
   const result = await DatastatusService.getProject_List(DBMySQL);
   const output = new StdObject(0, '', 200)
   if (result.error === 0){
+    // output.add('list', result.data[0]); // not use with
+    output.add('list', result.data);  // use with
+
+    // output.add('statistics_info', project_info.statistics_info[0][0]) // 통계 정보 - 프로시져 호출시 불필요한 값이 붙어서 제거하기 위함[0][0]...
+
+  } else {
+    output.error = result.error;
+    output.message = result.message;
+  }
+
+  res.json(output)
+}))
+
+routes.post('/categorystatuslist', Auth.isAuthenticated(Role.LOGIN_USER),  Wrap(async (req, res) => {
+  req.accepts('application/json')
+  const req_body = req.body ? req.body : {};
+
+  const result = await DatastatusService.getProject_Category_List(DBMySQL, req_body);
+  const output = new StdObject(0, '', 200)
+  if (result.error === 0){
     output.add('list', result.data);
   } else {
     output.error = result.error;
@@ -124,6 +144,26 @@ routes.get('/statusclass/:seq', Auth.isAuthenticated(Role.LOGIN_USER),  Wrap(asy
 routes.post('/getworker', Auth.isAuthenticated(Role.LOGIN_USER),  Wrap(async (req, res) => {
   req.accepts('application/json')
   const result = await DatastatusService.getWokerList(DBMySQL);
+  const output = new StdObject(0, '', 200)
+  if (result.error === 0){
+    output.add('list', result.data);
+  } else {
+    output.error = result.error;
+    output.message = result.message;
+  }
+
+  res.json(output)
+}))
+
+routes.post('/getcategory', Auth.isAuthenticated(Role.LOGIN_USER),  Wrap(async (req, res) => {
+  req.accepts('application/json')
+
+  const req_body = req.body ? req.body : {};
+  let project_seq = '0';
+  if (req_body.project_seq) {
+    project_seq = req_body.project_seq;  
+  }
+  const result = await DatastatusService.getCategoryList(DBMySQL, project_seq);
   const output = new StdObject(0, '', 200)
   if (result.error === 0){
     output.add('list', result.data);

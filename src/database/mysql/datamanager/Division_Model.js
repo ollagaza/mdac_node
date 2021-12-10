@@ -116,4 +116,51 @@ export default class DivisionModel extends MySQLModel {
     return result;
   }
 
+
+  // category List 가져오기 by djyu 2021.11.25
+  getCategoryList = async (project_seq) => {
+    const select = ['c.seq', 'c.category1_seq', 'c1.codegroup_id', 'c1.codegroup_name', 'c.category2_seq', 'c2.codegroup_id', 'c2.codegroup_name' 
+      , 'c.category3_seq', 'c3.codegroup_id', 'c3.codegroup_name'
+      , 'c.category4_seq', 'c4.codegroup_id', 'c4.codegroup_name'
+      , 'c.category5_seq', 'c5.codegroup_id', 'c5.codegroup_name' , knex.raw(`CASE WHEN TRIM(TRAILING ' > ' FROM CONCAT(CASE WHEN c1.codegroup_name IS NULL THEN '' ELSE CONCAT(c1.codegroup_name,' > ') END, 
+      CASE WHEN c2.codegroup_name IS NULL THEN '' ELSE CONCAT(c2.codegroup_name,' > ') END, 
+      CASE WHEN c3.codegroup_name IS NULL THEN '' ELSE CONCAT(c3.codegroup_name,' > ') END, 
+      CASE WHEN c4.codegroup_name IS NULL THEN '' ELSE CONCAT(c4.codegroup_name,' > ') END, 
+      CASE WHEN c5.codegroup_name IS NULL THEN '' ELSE CONCAT(c5.codegroup_name,' > ') END)) != '' THEN 
+      TRIM(TRAILING ' > ' FROM CONCAT(CASE WHEN c1.codegroup_name IS NULL THEN '' ELSE CONCAT(c1.codegroup_name,' > ') END, 
+      CASE WHEN c2.codegroup_name IS NULL THEN '' ELSE CONCAT(c2.codegroup_name,' > ') END, 
+      CASE WHEN c3.codegroup_name IS NULL THEN '' ELSE CONCAT(c3.codegroup_name,' > ') END, 
+      CASE WHEN c4.codegroup_name IS NULL THEN '' ELSE CONCAT(c4.codegroup_name,' > ') END, 
+      CASE WHEN c5.codegroup_name IS NULL THEN '' ELSE CONCAT(c5.codegroup_name,' > ') END))
+      ELSE c1.codegroup_name END AS full_path`)]
+    const oKnex = this.database.select(select).from(`mdc_category as c`)
+    oKnex.join('mdc_codegroup as c1', function(){
+      this.on('c.category1_seq', '=', 'c1.seq')
+    })
+    oKnex.leftJoin('mdc_codegroup as c2', function(){
+      this.on('c.category2_seq', '=', 'c2.seq')
+    })
+    oKnex.leftJoin('mdc_codegroup as c3', function(){
+      this.on('c.category3_seq', '=', 'c3.seq')
+    })
+    oKnex.leftJoin('mdc_codegroup as c4', function(){
+      this.on('c.category4_seq', '=', 'c4.seq')
+    })
+    oKnex.leftJoin('mdc_codegroup as c5', function(){
+      this.on('c.category5_seq', '=', 'c5.seq')
+    })
+
+    if(project_seq !== '0') {
+      oKnex.where('c.project_seq','=', project_seq)
+    }
+    const result = {};
+    try{
+      result.data = await oKnex;
+      result.error = 0;
+    }catch (e) {
+      result.error = -1;
+      result.message = e;
+    }
+    return result;
+  }  
 }

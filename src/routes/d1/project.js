@@ -423,20 +423,147 @@ routes.post('/delclass',  Auth.isAuthenticated(Role.ADMIN), Wrap(async (req, res
   res.json(output)
 }));
 
-// category 정보 
-routes.post('/category', Auth.isAuthenticated(Role.ADMIN), Wrap(async (req, res) => {
+// code gruop 정보 
+routes.post('/codegroup', Auth.isAuthenticated(Role.ADMIN), Wrap(async (req, res) => {
   req.accepts('application/json')
 
   const token_info = req.token_info
-  const dmode = req.body.dmode ? req.body.dmode: ''
-  const category_seq = req.body.category_seq ? req.body.category_seq: ''
+  const ref_codegroup = req.body.ref_codegroup ? req.body.ref_codegroup: '0'
+  const codegroup_seq = req.body.codegroup_seq ? req.body.codegroup_seq: ''
 
-  const category_info = await ProjectService.getCategory(DBMySQL, dmode, category_seq)
+  const codegroup_info = await ProjectService.getCodegroup(DBMySQL, ref_codegroup, codegroup_seq)
   const output = new StdObject()
-  output.add('category_info', category_info.category_info)
+  output.add('codegroup_info', codegroup_info.codegroup_info)
   //output.add('paging', )
 
   res.json(output)
 }))
+
+// code group 정보-List,one
+routes.post('/codegroupinfo', Auth.isAuthenticated(Role.ADMIN), Wrap(async (req, res) => {
+  req.accepts('application/json')
+
+  const token_info = req.token_info
+  const cur_page = req.body.cur_page ? req.body.cur_page:'1'
+  const list_count = req.body.list_count ? req.body.list_count:'20'
+  const is_used = req.body.is_used
+  const search_type = req.body.search_type
+  const keyword = req.body.keyword ? req.body.keyword:''
+  const ref_codegroup = req.body.ref_codegroup ? req.body.ref_codegroup:'0'
+  const codegroup_seq = req.body.codegroup_seq ? req.body.codegroup_seq:''
+
+  // paging에 필요한 변수
+  let totalCount = 0;
+  let page_count = 10;
+  let total_page = 0;
+  let start = 0;
+  let end = list_count;
+  let start_page = 1;
+  let end_page = page_count;
+
+  start = (cur_page - 1) * list_count;
+  start_page = Math.ceil(cur_page / page_count);
+  end_page = start_page * page_count;
+  const codegroup_info = await ProjectService.getCodegroupInfo(DBMySQL, start, end, is_used, search_type, keyword, ref_codegroup, codegroup_seq)
+  const output = new StdObject()
+  output.add('codegroup_info', codegroup_info.codegroup_info) // 클래스리스트 정보
+
+  totalCount = codegroup_info.paging; // 페이징정보
+
+  // totalCount = rows[1];
+  total_page = Math.ceil(totalCount/list_count);
+
+  if(total_page < end_page) end_page = total_page;
+
+  let paging = {
+    "total_count":totalCount
+    ,"cur_page": cur_page
+    ,"first_page": start_page
+    ,"last_page": end_page
+    ,"list_count": list_count
+    ,"page_count": page_count
+    ,"start": start
+    ,"end": end
+  }
+  output.add('paging', paging)
+
+  res.json(output)
+}))
+routes.post('/createcodegroup', Auth.isAuthenticated(Role.ADMIN), async (req, res) => {
+  const request_body = req.body ? req.body : null;
+  let result = null;
+
+  const token_info = req.token_info
+  const reg_member_seq = request_body.reg_member_seq // 수정자 회원번호
+
+  if (request_body.codegroup_name) {
+    result = await ProjectService.createCodegroup(request_body);
+    res.json(result);
+  } else {
+    const out = new StdObject(-1, '등록된 값이 없습니다.', 404);
+    res.json(out);
+  }
+});
+// 코드그룹업데이트
+routes.post('/:codegroup_seq(\\d+)/updatecodegroup', async (req, res) => {
+  const codegroup_seq = Util.parseInt(req.params.codegroup_seq)
+  if (codegroup_seq < 0) {
+    const out = new StdObject(-1, '잘못된 코드그룹 입니다.', 404);
+    // MemberLogService.createMemberLog(req, result.seq, result.seq, '9998', '잘못된 사용자 입니다.');
+    res.json(out);
+    return;
+  }
+  const request_body = req.body ? req.body : null;
+  const reg_member_seq = request_body.reg_member_seq // 수정자 회원번호
+  let result = null;
+  if (request_body.codegroup_name) {
+    result = await ProjectService.updateCodegroup(codegroup_seq, request_body);
+    // MemberLogService.createMemberLog(req, project_seq, reg_member_seq, '1002', result.message);
+    res.json(result);
+  } else {
+    const out = new StdObject(-1, '등록된 값이 없습니다.', 404);
+    res.json(out);
+  }
+});
+
+// 코드그룹 사용여부 업데이트
+routes.post('/setcodegroupdata',  Auth.isAuthenticated(Role.ADMIN), Wrap(async (req, res) => {
+  req.accepts('application/json')
+
+  const req_body = req.body ? req.body : {};
+  // logger.debug('setusersdata', req_body);
+  const output = new StdObject(0, 'data', 200);
+  const result = await ProjectService.updateCodegroupUsed(DBMySQL, req_body);
+  
+  const token_info = req.token_info
+  const mod_member_seq = token_info.id
+  let seq = ''
+
+  for (const key of Object.keys(req.body.params.codegroups)) {
+    seq += `${req.body.params.codegroups[key]}/`;
+  }
+  seq += `used=${req.body.params.used}`
+
+  // MemberLogService.createMemberLog(req, 0, mod_member_seq, '1002', seq);
+  
+  if (result.error !== 0){
+    output.error = result.error
+    output.message = result.message
+  }
+  res.json(output)
+}));
+// 코드그룹삭제
+routes.post('/delcodegroup',  Auth.isAuthenticated(Role.ADMIN), Wrap(async (req, res) => {
+  req.accepts('application/json')
+
+  const req_body = req.body ? req.body : {};
+  const output = new StdObject(0, 'data', 200);
+  const result = await ProjectService.deleteCodegroup(DBMySQL, req_body);
+  if (result.error !== 0){
+    output.error = result.error
+    output.message = result.message
+  }
+  res.json(output)
+}));
 
 export default routes

@@ -243,8 +243,8 @@ export default class MemberModel extends MySQLModel {
 
     const select = ['member_log.seq','mod_member_seq','user_name', 'log_type','log_text','ip_addr','member_log.reg_date']
     const oKnex = this.database.select(select);
-    oKnex.from(`${this.table_name}_log`)
-    oKnex.innerJoin(`${this.table_name}`,function() {
+    oKnex.from(`${this.table_name}_log as member_log`)
+    oKnex.innerJoin(`${this.table_name} as member`,function() {
       this.on('member.seq','member_log.mod_member_seq')
     })
     oKnex.where('member_seq',member_seq);

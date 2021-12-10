@@ -11,7 +11,7 @@ import DBMySQL from '../../database/knex-mysql'
 import ProjectModel from '../../database/mysql/datamanager/ProjectModel'
 import DivisionModel from '../../database/mysql/datamanager/DivisionModel'
 import ClassModel from '../../database/mysql/datamanager/ClassModel'
-import CategoryModel from '../../database/mysql/datamanager/CategoryModel'
+import CodegroupModel from '../../database/mysql/datamanager/CodegroupModel'
 import Util from '../../utils/baseutil'
 import ServiceConfig from '../service-config'
 import JsonWrapper from '../../wrapper/json-wrapper'
@@ -181,35 +181,68 @@ const ProjectServiceClass = class {
     return result;
   }    
 
-  // Category
-  getCategoryModel = (database = null) => {
+  // code group
+  getCodegroupModel = (database = null) => {
     if (database) {
-      return new CategoryModel(database)
+      return new CodegroupModel(database)
     }
-    return new CategoryModel(DBMySQL)
+    return new CodegroupModel(DBMySQL)
   }
 
-  createCategory = async (req_body) => {
-    const category_model = this.getCategoryModel(DBMySQL)
-    const result = await category_model.createCategory(req_body);
+  createCodegroup = async (req_body) => {
+    const codegroup_model = this.getCodegroupModel(DBMySQL)
+    const result = await codegroup_model.createCodegroup(req_body);
     return result;
   }
 
-  updateCategory = async (division_seq, req_body) => {
+  updateCodegroup = async (codegroup_seq, req_body) => {
     // logger.debug(req_body);
-    const category_model = this.getCategoryModel(DBMySQL)
-    const result = await category_model.updateCategory(division_seq, req_body);
+    const codegroup_model = this.getCodegroupModel(DBMySQL)
+    const result = await codegroup_model.updateCodegroup(codegroup_seq, req_body);
     return result;
   }
 
-  getCategory = async (database, dmode, category_seq) => {
-    const category_model = this.getCategoryModel(database)
-    const category_info = await category_model.getCategory(dmode, category_seq)
+  getCodegroup = async (database, ref_codegroup, codegroup_seq) => {
+    const codegroup_model = this.getCodegroupModel(database)
+    const codegroup_info = await codegroup_model.getCodegroup(ref_codegroup, codegroup_seq)
     
     return {
-      category_info
+      codegroup_info
     }
   }  
+
+  getCodegroupInfo = async (database, start, end, is_used, search_type, keyword, ref_codegroup, codegroup_seq) => {
+    const codegroup_model = this.getCodegroupModel(database)
+    const codegroup_info = await codegroup_model.getCodegroupInfo(start, end, is_used, search_type, keyword, ref_codegroup, codegroup_seq)
+    
+    return codegroup_info
+  }
+  
+  updateCodegroupUsed = async (database, req_body) => {
+    const arr_codegroup_seq = req_body.params.codegroups;
+    const used = req_body.params.used;
+    // logger.debug('updateUsersUsed 1', req_body.params.used, used);
+    const params = {}
+    params.is_used = used;
+
+    const codegroup_model = this.getCodegroupModel(database)
+    const result = await codegroup_model.updateCodegroupUsed(params, arr_codegroup_seq);
+    
+    return result;
+  }
+
+  deleteCodegroup = async (database, req_body) => {
+    const arr_codegroup_seq = req_body.params.codegroups;
+    const used = req_body.params.used;
+    const params = {}
+    params.is_used = used;
+
+    const codegroup_model = this.getCodegroupModel(database)
+    const result = await codegroup_model.deleteCodegroup(params, arr_codegroup_seq);
+    
+    return result;
+  }    
+
 }
   
 const project_service = new ProjectServiceClass()

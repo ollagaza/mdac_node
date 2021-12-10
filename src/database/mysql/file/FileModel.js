@@ -9,7 +9,7 @@ export default class FileModel extends MySQLModel {
   constructor (database) {
     super(database)
 
-    this.table_name = 'file'
+    this.table_name = 'mdc_file'
     this.private_fields = [
         'seq', 'project_seq', 'division_seq', 'file_type', 'file_path', 'file_name', 'org_file_name'
     ]
