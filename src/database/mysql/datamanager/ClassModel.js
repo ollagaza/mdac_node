@@ -164,7 +164,7 @@ export default class ClassModel extends MySQLModel {
   
       const select = ['seq']
       const oKnex = this.database.select(select);
-      oKnex.from('job')
+      oKnex.from('mdc_job')
       oKnex.whereIn('class_seq', arr_class_seq)
   
       // 총 갯수
