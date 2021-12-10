@@ -42,9 +42,11 @@ app.use(express.static(path.join(__dirname, '../public')))
 // Routes
 app.use('/apid1', routes)
 
+// 첨부파일 경로
+app.use('/uploads', express.static('uploads'));
 app.use((req, res, next) => {
-  logger.e(req, '요청하신 API Endpoint가 존재하지 않습니다.')
-  next(new StdObject(-1, '요청하신 API Endpoint가 존재하지 않습니다.', 404))
+  logger.e(req, '요청하신 파일이 존재하지 않습니다.')
+  next(new StdObject(-1, '요청하신 파일이 존재하지 않습니다.', 404))
 })
 
 // Error handler
