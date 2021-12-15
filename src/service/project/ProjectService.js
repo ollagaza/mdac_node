@@ -9,9 +9,9 @@ import DivisionModel from '../../database/mysql/project/DivisionModel';
 import FileModel from '../../database/mysql/file/FileModel';
 import ResultFileModel from '../../database/mysql/file/ResultFileModel';
 import JobWorkerModel from '../../database/mysql/project/JobWorkerModel';
-import JobModel from '../../database/mysql/datamanager/Job_Model';
+import JobModel from '../../database/mysql/datamanager/JobModel';
 import ClassModel from '../../database/mysql/datamanager/ClassModel';
-import MemberModel from '../../database/mysql/member/Member_Model';
+import MemberModel from '../../database/mysql/member/MemberModel';
 
 const ProjectServiceClass = class {
   constructor() {

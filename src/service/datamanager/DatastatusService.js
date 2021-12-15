@@ -1,13 +1,13 @@
 // make by june
-import Project_Model from '../../database/mysql/datamanager/Project_Model';
-import Division_Model from '../../database/mysql/datamanager/Division_Model';
-import Member_Model from '../../database/mysql/member/Member_Model';
-import Job_Model from '../../database/mysql/datamanager/Job_Model';
-import File_Model from '../../database/mysql/datamanager/File_Model';
-import Class_Model from '../../database/mysql/datamanager/Class_Model';
-import JobWoker_Model from '../../database/mysql/datamanager/JobWoker_Model';
-import JobLog_Model from '../../database/mysql/datamanager/JobLog_Model';
-import ResultFile_Model from '../../database/mysql/datamanager/ResultFile_Model';
+import ProjectModel from '../../database/mysql/datamanager/ProjectModel';
+import DivisionModel from '../../database/mysql/datamanager/DivisionModel';
+import Member_Model from '../../database/mysql/member/MemberModel';
+import Job_Model from '../../database/mysql/datamanager/JobModel';
+import File_Model from '../../database/mysql/datamanager/FileModel';
+import ClassModel from '../../database/mysql/datamanager/ClassModel';
+import JobWoker_Model from '../../database/mysql/datamanager/JobWokerModel';
+import JobLog_Model from '../../database/mysql/datamanager/JobLogModel';
+import ResultFile_Model from '../../database/mysql/datamanager/ResultFileModel';
 
 import StdObject from '../../wrapper/std-object'
 import DBMySQL from '../../database/knex-mysql'
@@ -49,18 +49,18 @@ const ProjectServiceClass = class {
     return new JobLog_Model(DBMySQL)
   }
 
-  getProject_Model = (database = null) => {
+  getProjectModel = (database = null) => {
     if (database) {
-      return new Project_Model(database)
+      return new ProjectModel(database)
     }
-    return new Project_Model(DBMySQL)
+    return new ProjectModel(DBMySQL)
   }
 
-  getDivision_Model = (database = null) => {
+  getDivisionModel = (database = null) => {
     if (database) {
-      return new Division_Model(database)
+      return new DivisionModel(database)
     }
-    return new Division_Model(DBMySQL)
+    return new DivisionModel(DBMySQL)
   }
 
   getMember_Model = (database = null) => {
@@ -84,16 +84,16 @@ const ProjectServiceClass = class {
     return new File_Model(DBMySQL)
   }
 
-  getClass_Model = (database = null) => {
+  getClassModel = (database = null) => {
     if (database) {
-      return new Class_Model(database)
+      return new ClassModel(database)
     }
-    return new Class_Model(DBMySQL)
+    return new ClassModel(DBMySQL)
   }
 
   getProject_List = async (database) => {
-    const project_model = this.getProject_Model(database);
-    const result = await project_model.getProjectList();
+    const projectmodel = this.getProjectModel(database);
+    const result = await projectmodel.getProjectList();
     return result;
   }
 
@@ -102,20 +102,20 @@ const ProjectServiceClass = class {
     const depth_no = req_body.depth_no;
     const category_seq = req_body.category_seq;
 
-    const project_model = this.getProject_Model(database);
-    const result = await project_model.getProjectCategoryList(req_body);
+    const projectmodel = this.getProjectModel(database);
+    const result = await projectmodel.getProjectCategoryList(req_body);
     return result;
   }
 
   getFirstDivision = async (database, pro_seq) => {
-    const division_model = this.getDivision_Model(database);
-    const result = await division_model.getFirstDivsionByProseq(pro_seq);
+    const divisionmodel = this.getDivisionModel(database);
+    const result = await divisionmodel.getFirstDivsionByProseq(pro_seq);
     return result;
   }
 
   getDivision = async (database, pro_seq, div_seq, is_used) => {
-    const division_model = this.getDivision_Model(database);
-    const result = await division_model.getDivsionByProseq(pro_seq, div_seq, is_used);
+    const divisionmodel = this.getDivisionModel(database);
+    const result = await divisionmodel.getDivsionByProseq(pro_seq, div_seq, is_used);
     return result;
   }
 
@@ -125,16 +125,16 @@ const ProjectServiceClass = class {
       seq_list.push(item.seq);
     }
     // logger.debug(seq_list);
-    const division_model = this.getDivision_Model(database);
+    const divisionmodel = this.getDivisionModel(database);
     const result = {};
-    result.data = await division_model.getDivsum(seq_list);
-    result.max = await division_model.getDivsumMax(seq_list);
+    result.data = await divisionmodel.getDivsum(seq_list);
+    result.max = await divisionmodel.getDivsumMax(seq_list);
     return result;
   }
 
   getProject_Class = async (database, seq) => {
-    const project_model = this.getProject_Model(database);
-    const result = await project_model.getProjectWidthClass(seq);
+    const projectmodel = this.getProjectModel(database);
+    const result = await projectmodel.getProjectWidthClass(seq);
     return result;
   }
 
@@ -145,8 +145,8 @@ const ProjectServiceClass = class {
   }
 
   getCategoryList = async (database, project_seq) => {
-    const division_model = this.getDivision_Model(database);
-    const result = await division_model.getCategoryList(project_seq);
+    const divisionmodel = this.getDivisionModel(database);
+    const result = await divisionmodel.getCategoryList(project_seq);
     return result;
   }
 
@@ -157,8 +157,8 @@ const ProjectServiceClass = class {
   }
 
   getClassList = async (database, pro_seq) => {
-    const class_model = this.getClass_Model(database);
-    return await class_model.getClass_list(pro_seq);
+    const classmodel = this.getClassModel(database);
+    return await classmodel.getClass_list(pro_seq);
   }
 
   setWorkIn = async (database, pro_seq, div_seq, req_body, member_seq) => {
