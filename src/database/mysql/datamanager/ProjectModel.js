@@ -43,6 +43,7 @@ export default class ProjectModel extends MySQLModel {
     // const member = project_info.toJSON()
     // logger.debug(project_info)
     const update_param = {};
+    update_param.project_code = project_info.project_code;
     update_param.project_name = project_info.project_name;
     update_param.is_class = project_info.is_class;
     update_param.memo = project_info.memo;
@@ -62,7 +63,7 @@ export default class ProjectModel extends MySQLModel {
   getProjectInfo = async (start, end, status, search_type, keyword, project_seq) => {
     const result = {}
 
-    const select = ['seq','project_name', 'is_class', 'status', 'memo', 'reason', 'reg_member_seq','reg_date', 
+    const select = ['seq','project_code','project_name', 'is_class', 'status', 'memo', 'reason', 'reg_member_seq','reg_date', 
       //knex.raw('(select count(*) FROM job) as ttt'),
       knex.raw(`(	SELECT COUNT(DISTINCT labeler_member_seq) FROM mdc_job WHERE labeler_member_seq IS NOT NULL AND labeler_regdate IS NOT NULL AND project_seq=project.seq ) AS labeler_cnt`),
       knex.raw(`( SELECT COUNT(DISTINCT job_member_seq) FROM mdc_job_worker WHERE project_seq=project.seq AND (job_name='B' OR job_name='C' OR job_name='D')) AS checker_cnt`)
