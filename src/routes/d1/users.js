@@ -7,13 +7,73 @@ import MemberLogService from "../../service/member/MemberLogService"
 import Auth from '../../middlewares/auth.middleware'
 import Role from '../../constants/roles'
 import DBMySQL from '../../database/knex-mysql'
+import ServiceConfig from '../../service/service-config'
+import { json } from 'body-parser'
 
 const routes = Router()
+const { PythonShell } = require('python-shell');
 
 routes.get('/verify/:user_id', async (req, res) => {
   const user_id = req.params.user_id;
   const result = await MemberService.verify(user_id);
   res.json(result);
+});
+
+routes.post('/memtest', Auth.isAuthenticated(Role.ADMIN), async (req, res) => {
+  
+  const python_path = ServiceConfig.get('PYTHON_PATH') // 'D:/tmp' 
+
+  // // python-shell 사용 시작
+  // let options = {
+  //   pythonPath: `${python_path}\\python`, // 'C:\\Users\\sdev\\AppData\\Local\\Programs\\Python\\Python310\\python', // Python의 경로를 나타낸다
+  //   scriptPath: `${python_path}`, // "C:\\Users\\sdev\\AppData\\Local\\Programs\\Python\\Python310", // 파일 호출시 파일 위치
+  //   args: ['파이썬쉘', '1004'],
+  //   encoding: 'utf8'
+  // };
+
+  // // PythonShell.runString('x=1+1; print(x)', null, (err, msg) => {
+  // PythonShell.run('test.py', options, (err, msg) => {
+  // // PythonShell.runString('x=15+45; print(x); print("안녕하세요");', options, (err, msg) => {
+
+  //   let data = msg[0].replace(`b\'`, '').replace(`\'`, ''); // 한글깨짐방지
+  //   let buff = Buffer.from(data, 'base64'); // 한글깨짐방지
+  //   let text = buff.toString('utf-8'); // 한글깨짐방지
+  //   // const txtJson = text
+  //   const txtJson = JSON.parse(text)
+  //   const testStr = '{"result":"python-shell", "count":1}'
+  //   const testString = JSON.parse(testStr)
+  //   const output = new StdObject()
+  //   output.add('pythonresult', txtJson)
+  //   output.add('testresult', testString);
+  //   res.json(output)
+  // })
+  // // python-shell 사용 종료
+
+  // spawn 사용 시작
+  const spawn = require('child_process').spawn;
+  // const results = spawn('python', [`${path.resolve("./")}/uploads/test.py`, '이름', '20']); 
+  // const results = spawn('python', ['../../test.py', '이름', '20']); 
+  const command = `${python_path}\\python`; // 'C:\\Users\\sdev\\AppData\\Local\\Programs\\Python\\Python310\\python';
+  const results = spawn(command, [`${python_path}\\test.py`, '파이썬데이터', '150']); 
+  const output = new StdObject()
+  results.stdout.on('data', (result)=>{ 
+    let data = result.toString().replace(`b\'`, '').replace(`\'`, ''); // 한글깨짐방지
+    let buff = Buffer.from(data, 'base64'); // 한글깨짐방지
+    // buff = buff.toString().replace(/\"/gi,""); // 한글깨짐방지
+    let text = buff.toString('utf-8'); // 한글깨짐방지
+    const txtJson = JSON.parse(text)
+    const testStr = '{"result":"spawn", "count":2}'
+    const testString = JSON.parse(testStr)
+    output.add('pythonresult', txtJson)
+    output.add('testresult', testString);
+    res.json(output)
+  });
+  results.stderr.on('data', (result) => {
+
+    // res.json(`{${__dirname}\test.py}`)
+    res.json(`error`) // `{${path.resolve("./")}/uploads/test.py}`
+  });
+  // spawn 사용 종료
 });
 
 routes.post('/createuser', Auth.isAuthenticated(Role.ADMIN), async (req, res) => {

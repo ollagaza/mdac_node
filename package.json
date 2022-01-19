@@ -67,6 +67,7 @@
     "numeral": "^2.0.6",
     "promise": "^8.1.0",
     "pug": "^2.0.0-beta11",
+    "python-shell": "^3.0.1",
     "query-string": "^6.11.1",
     "request": "^2.88.2",
     "request-promise": "^4.2.5",
