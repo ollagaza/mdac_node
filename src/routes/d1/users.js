@@ -35,7 +35,7 @@ routes.post('/memtest', Auth.isAuthenticated(Role.ADMIN), async (req, res) => {
   // PythonShell.run('test.py', options, (err, msg) => {
   // // PythonShell.runString('x=15+45; print(x); print("안녕하세요");', options, (err, msg) => {
 
-  //   let data = msg[0].replace(`b\'`, '').replace(`\'`, ''); // 한글깨짐방지
+  //   let data = msg[0].replace(`b\'`, '').replace(`\'`, ''); // 한글깨짐방지 
   //   let buff = Buffer.from(data, 'base64'); // 한글깨짐방지
   //   let text = buff.toString('utf-8'); // 한글깨짐방지
   //   // const txtJson = text
