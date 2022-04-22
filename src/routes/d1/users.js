@@ -9,6 +9,10 @@ import Role from '../../constants/roles'
 import DBMySQL from '../../database/knex-mysql'
 import ServiceConfig from '../../service/service-config'
 import { json } from 'body-parser'
+import { ChildProcess } from 'child_process'
+var app = require('express')(),
+    http = require('http').Server(app),
+    io = require('socket.io')(http);
 
 const routes = Router()
 const { PythonShell } = require('python-shell');
@@ -22,6 +26,7 @@ routes.get('/verify/:user_id', async (req, res) => {
 routes.post('/memtest', Auth.isAuthenticated(Role.ADMIN), async (req, res) => {
   
   const python_path = ServiceConfig.get('PYTHON_PATH') // 'D:/tmp' 
+  const python_path2 = ServiceConfig.get('PYTHON_PATH2') // 'D:/tmp' 
 
   // // python-shell 사용 시작
   // let options = {
@@ -49,31 +54,72 @@ routes.post('/memtest', Auth.isAuthenticated(Role.ADMIN), async (req, res) => {
   // })
   // // python-shell 사용 종료
 
-  // spawn 사용 시작
+  // // spawn 사용 시작
+  // const spawn = require('child_process').spawn;
+  // // const results = spawn('python', [`${path.resolve("./")}/uploads/test.py`, '이름', '20']); 
+  // // const results = spawn('python', ['../../test.py', '이름', '20']); 
+  // const command = `${python_path}\\python`; // 'C:\\Users\\sdev\\AppData\\Local\\Programs\\Python\\Python310\\python';
+  // // const results = ChildProcess.execSync(command, [`${python_path}\\test.py`, '파이썬데이터', '150'], {stdio: 'inherit'})
+  // const results = spawn(command, [`${python_path}\\test.py`, '파이썬데이터', '150']); 
+  // // const results = ChildProcess.execSync(command, [`${python_path}\\test.py`, '파이썬데이터', '150'], {stdio: 'inherit'})
+  // const results2 = spawn(command, [`${python_path2}\\tutorial.py`, '파이썬데이터', '150']); 
+  // const output = new StdObject()
+  // results2.stdout.on('data', (result)=>{ 
+  //   let data = result.toString().replace(`b\'`, '').replace(`\'`, ''); // 한글깨짐방지
+  //   let buff = Buffer.from(data, 'base64'); // 한글깨짐방지
+  //   // buff = buff.toString().replace(/\"/gi,""); // 한글깨짐방지
+  //   let text = buff.toString('utf-8'); // 한글깨짐방지
+  //   const txtJson = JSON.parse(text)
+  //   const testStr = '{"result":"spawn", "count":2}'
+  //   const testString = JSON.parse(testStr)
+  //   output.add('pythonresult', txtJson)
+  //   output.add('testresult', testString);
+  //   res.json(output)
+  // });
+  // results2.stderr.on('data', (result) => {
+  //   // res.json(`{${__dirname}\test.py}`)
+  //   res.json(`error`) // `{${path.resolve("./")}/uploads/test.py}`
+  // });
+  // results2.on('close', function (code) {
+  //   console.log("Finished with code " + code);
+  // });
+  // // spawn 사용 종료
+  
+  // spawn 사용 시작(real time)
   const spawn = require('child_process').spawn;
   // const results = spawn('python', [`${path.resolve("./")}/uploads/test.py`, '이름', '20']); 
   // const results = spawn('python', ['../../test.py', '이름', '20']); 
   const command = `${python_path}\\python`; // 'C:\\Users\\sdev\\AppData\\Local\\Programs\\Python\\Python310\\python';
+  // const results = ChildProcess.execSync(command, [`${python_path}\\test.py`, '파이썬데이터', '150'], {stdio: 'inherit'})
   const results = spawn(command, [`${python_path}\\test.py`, '파이썬데이터', '150']); 
+  // const results = ChildProcess.execSync(command, [`${python_path}\\test.py`, '파이썬데이터', '150'], {stdio: 'inherit'})
+  const results2 = spawn(command, [`${python_path2}\\tutorial.py`, '파이썬데이터', '150']); 
   const output = new StdObject()
   results.stdout.on('data', (result)=>{ 
+    var temp = String(result);
+    console.log(temp);
+    io.sockets.emit('temp-update', { data: temp});
+
     let data = result.toString().replace(`b\'`, '').replace(`\'`, ''); // 한글깨짐방지
     let buff = Buffer.from(data, 'base64'); // 한글깨짐방지
     // buff = buff.toString().replace(/\"/gi,""); // 한글깨짐방지
     let text = buff.toString('utf-8'); // 한글깨짐방지
     const txtJson = JSON.parse(text)
-    const testStr = '{"result":"spawn", "count":2}'
+    const testStr = '{"result": "spawn", "count": 2}'
     const testString = JSON.parse(testStr)
     output.add('pythonresult', txtJson)
     output.add('testresult', testString);
     res.json(output)
   });
   results.stderr.on('data', (result) => {
-
     // res.json(`{${__dirname}\test.py}`)
     res.json(`error`) // `{${path.resolve("./")}/uploads/test.py}`
   });
-  // spawn 사용 종료
+  results.on('close', function (code) {
+    console.log("Finished with code " + code);
+  });
+  // spawn 사용 종료(real time)
+  
 });
 
 routes.post('/createuser', Auth.isAuthenticated(Role.ADMIN), async (req, res) => {
